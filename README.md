@@ -14,7 +14,6 @@ Welcome to JinxPS Private Version.
 - [NickTheHuy](https://github.com/NickTheHuy) - 3.4 Proto 
 - [YuukiPS](https://discord.gg/yuukips) - 3.4 Res
 - [Grasscutter](https://github.com/Grasscutters/Grasscutter) — Anime Game Private Server
-- [mintygingy](https://github.com/mintygingy) — [Sobseed](https://github.com/mintygingy/SobSeed)
 - [NoM0ra](https://github.com/NoM0ra) — Emotional Support
 - [mailpakokok](https://github.com/mailpakokok) — Teach
 - [mangorifo](https://github.com/mangorifo) — Yay
