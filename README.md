@@ -8,7 +8,7 @@ Welcome to JinxPS Private Version.
 - Server resources version : 3.4.0
 
 ## ToDo
-- ?
+- Upload
 
 ## Credits
 - [NickTheHuy](https://github.com/NickTheHuy) - 3.4 Proto 
