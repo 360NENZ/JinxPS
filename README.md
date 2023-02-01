@@ -5,9 +5,6 @@
 - GC Version : 1.4.6
 - Server resources version : 3.4.0
 
-## ToDo
-- Upload
-
 ## Credits
 - [NickTheHuy](https://github.com/NickTheHuy) - 3.4 Proto 
 - [YuukiPS](https://discord.gg/yuukips) - 3.4 Res
