@@ -29,4 +29,3 @@
 ## Useful Resources
 - [Acrepi](https://discord.gg/acrepi)
 - [Unity Gradient Maker](https://kanatimc.github.io/Unity-Gradient-Maker/)
-- [JinxPS Discord](https://discord.gg/wN82EzesKq)
