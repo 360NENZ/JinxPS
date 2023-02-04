@@ -81,6 +81,73 @@ public final class GachaWishRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GachaWishRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+
+              wishProgress_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+
+              wishItemId_ = input.readUInt32();
+              break;
+            }
+            case 48: {
+
+              gachaType_ = input.readUInt32();
+              break;
+            }
+            case 56: {
+
+              wishMaxProgress_ = input.readUInt32();
+              break;
+            }
+            case 72: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 88: {
+
+              gachaScheduleId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.GachaWishRspOuterClass.internal_static_GachaWishRsp_descriptor;
@@ -226,7 +293,7 @@ public final class GachaWishRspOuterClass {
     }
 
     public static final int WISHPROGRESS_FIELD_NUMBER = 3;
-    private int wishProgress_ = 0;
+    private int wishProgress_;
     /**
      * <code>uint32 wishProgress = 3;</code>
      * @return The wishProgress.
@@ -237,7 +304,7 @@ public final class GachaWishRspOuterClass {
     }
 
     public static final int WISHMAXPROGRESS_FIELD_NUMBER = 7;
-    private int wishMaxProgress_ = 0;
+    private int wishMaxProgress_;
     /**
      * <code>uint32 wishMaxProgress = 7;</code>
      * @return The wishMaxProgress.
@@ -248,7 +315,7 @@ public final class GachaWishRspOuterClass {
     }
 
     public static final int GACHATYPE_FIELD_NUMBER = 6;
-    private int gachaType_ = 0;
+    private int gachaType_;
     /**
      * <code>uint32 gachaType = 6;</code>
      * @return The gachaType.
@@ -259,7 +326,7 @@ public final class GachaWishRspOuterClass {
     }
 
     public static final int GACHASCHEDULEID_FIELD_NUMBER = 11;
-    private int gachaScheduleId_ = 0;
+    private int gachaScheduleId_;
     /**
      * <code>uint32 gachaScheduleId = 11;</code>
      * @return The gachaScheduleId.
@@ -270,7 +337,7 @@ public final class GachaWishRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 9;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 9;</code>
      * @return The retcode.
@@ -281,7 +348,7 @@ public final class GachaWishRspOuterClass {
     }
 
     public static final int WISHITEMID_FIELD_NUMBER = 5;
-    private int wishItemId_ = 0;
+    private int wishItemId_;
     /**
      * <code>uint32 wishItemId = 5;</code>
      * @return The wishItemId.
@@ -323,7 +390,7 @@ public final class GachaWishRspOuterClass {
       if (gachaScheduleId_ != 0) {
         output.writeUInt32(11, gachaScheduleId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -356,7 +423,7 @@ public final class GachaWishRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(11, gachaScheduleId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -383,7 +450,7 @@ public final class GachaWishRspOuterClass {
           != other.getRetcode()) return false;
       if (getWishItemId()
           != other.getWishItemId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -406,7 +473,7 @@ public final class GachaWishRspOuterClass {
       hash = (53 * hash) + getRetcode();
       hash = (37 * hash) + WISHITEMID_FIELD_NUMBER;
       hash = (53 * hash) + getWishItemId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -523,24 +590,34 @@ public final class GachaWishRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.GachaWishRspOuterClass.GachaWishRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         wishProgress_ = 0;
+
         wishMaxProgress_ = 0;
+
         gachaType_ = 0;
+
         gachaScheduleId_ = 0;
+
         retcode_ = 0;
+
         wishItemId_ = 0;
+
         return this;
       }
 
@@ -567,31 +644,14 @@ public final class GachaWishRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.GachaWishRspOuterClass.GachaWishRsp buildPartial() {
         emu.grasscutter.net.proto.GachaWishRspOuterClass.GachaWishRsp result = new emu.grasscutter.net.proto.GachaWishRspOuterClass.GachaWishRsp(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.wishProgress_ = wishProgress_;
+        result.wishMaxProgress_ = wishMaxProgress_;
+        result.gachaType_ = gachaType_;
+        result.gachaScheduleId_ = gachaScheduleId_;
+        result.retcode_ = retcode_;
+        result.wishItemId_ = wishItemId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.GachaWishRspOuterClass.GachaWishRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.wishProgress_ = wishProgress_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.wishMaxProgress_ = wishMaxProgress_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.gachaType_ = gachaType_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.gachaScheduleId_ = gachaScheduleId_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.retcode_ = retcode_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.wishItemId_ = wishItemId_;
-        }
       }
 
       @java.lang.Override
@@ -656,7 +716,7 @@ public final class GachaWishRspOuterClass {
         if (other.getWishItemId() != 0) {
           setWishItemId(other.getWishItemId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -671,63 +731,19 @@ public final class GachaWishRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.GachaWishRspOuterClass.GachaWishRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 24: {
-                wishProgress_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 24
-              case 40: {
-                wishItemId_ = input.readUInt32();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 40
-              case 48: {
-                gachaType_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 48
-              case 56: {
-                wishMaxProgress_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 56
-              case 72: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 72
-              case 88: {
-                gachaScheduleId_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 88
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.GachaWishRspOuterClass.GachaWishRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int wishProgress_ ;
       /**
@@ -746,7 +762,6 @@ public final class GachaWishRspOuterClass {
       public Builder setWishProgress(int value) {
         
         wishProgress_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -755,7 +770,7 @@ public final class GachaWishRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearWishProgress() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         wishProgress_ = 0;
         onChanged();
         return this;
@@ -778,7 +793,6 @@ public final class GachaWishRspOuterClass {
       public Builder setWishMaxProgress(int value) {
         
         wishMaxProgress_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -787,7 +801,7 @@ public final class GachaWishRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearWishMaxProgress() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         wishMaxProgress_ = 0;
         onChanged();
         return this;
@@ -810,7 +824,6 @@ public final class GachaWishRspOuterClass {
       public Builder setGachaType(int value) {
         
         gachaType_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -819,7 +832,7 @@ public final class GachaWishRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGachaType() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         gachaType_ = 0;
         onChanged();
         return this;
@@ -842,7 +855,6 @@ public final class GachaWishRspOuterClass {
       public Builder setGachaScheduleId(int value) {
         
         gachaScheduleId_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -851,7 +863,7 @@ public final class GachaWishRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGachaScheduleId() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         gachaScheduleId_ = 0;
         onChanged();
         return this;
@@ -874,7 +886,6 @@ public final class GachaWishRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -883,7 +894,7 @@ public final class GachaWishRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -906,7 +917,6 @@ public final class GachaWishRspOuterClass {
       public Builder setWishItemId(int value) {
         
         wishItemId_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -915,7 +925,7 @@ public final class GachaWishRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearWishItemId() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         wishItemId_ = 0;
         onChanged();
         return this;
@@ -953,18 +963,7 @@ public final class GachaWishRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GachaWishRsp(input, extensionRegistry);
       }
     };
 

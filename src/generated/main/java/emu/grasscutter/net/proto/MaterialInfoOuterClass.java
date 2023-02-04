@@ -57,6 +57,53 @@ public final class MaterialInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MaterialInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+
+              count_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+
+              guid_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.MaterialInfoOuterClass.internal_static_MaterialInfo_descriptor;
@@ -71,7 +118,7 @@ public final class MaterialInfoOuterClass {
     }
 
     public static final int COUNT_FIELD_NUMBER = 3;
-    private int count_ = 0;
+    private int count_;
     /**
      * <code>uint32 count = 3;</code>
      * @return The count.
@@ -82,7 +129,7 @@ public final class MaterialInfoOuterClass {
     }
 
     public static final int GUID_FIELD_NUMBER = 12;
-    private long guid_ = 0L;
+    private long guid_;
     /**
      * <code>uint64 guid = 12;</code>
      * @return The guid.
@@ -112,7 +159,7 @@ public final class MaterialInfoOuterClass {
       if (guid_ != 0L) {
         output.writeUInt64(12, guid_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -129,7 +176,7 @@ public final class MaterialInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(12, guid_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -148,7 +195,7 @@ public final class MaterialInfoOuterClass {
           != other.getCount()) return false;
       if (getGuid()
           != other.getGuid()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -164,7 +211,7 @@ public final class MaterialInfoOuterClass {
       hash = (37 * hash) + GUID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getGuid());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -281,20 +328,26 @@ public final class MaterialInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.MaterialInfoOuterClass.MaterialInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         count_ = 0;
+
         guid_ = 0L;
+
         return this;
       }
 
@@ -321,19 +374,10 @@ public final class MaterialInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.MaterialInfoOuterClass.MaterialInfo buildPartial() {
         emu.grasscutter.net.proto.MaterialInfoOuterClass.MaterialInfo result = new emu.grasscutter.net.proto.MaterialInfoOuterClass.MaterialInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.count_ = count_;
+        result.guid_ = guid_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.MaterialInfoOuterClass.MaterialInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.count_ = count_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.guid_ = guid_;
-        }
       }
 
       @java.lang.Override
@@ -386,7 +430,7 @@ public final class MaterialInfoOuterClass {
         if (other.getGuid() != 0L) {
           setGuid(other.getGuid());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -401,43 +445,19 @@ public final class MaterialInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.MaterialInfoOuterClass.MaterialInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 24: {
-                count_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 24
-              case 96: {
-                guid_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 96
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.MaterialInfoOuterClass.MaterialInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int count_ ;
       /**
@@ -456,7 +476,6 @@ public final class MaterialInfoOuterClass {
       public Builder setCount(int value) {
         
         count_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -465,7 +484,7 @@ public final class MaterialInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCount() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         count_ = 0;
         onChanged();
         return this;
@@ -488,7 +507,6 @@ public final class MaterialInfoOuterClass {
       public Builder setGuid(long value) {
         
         guid_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -497,7 +515,7 @@ public final class MaterialInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGuid() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         guid_ = 0L;
         onChanged();
         return this;
@@ -535,18 +553,7 @@ public final class MaterialInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MaterialInfo(input, extensionRegistry);
       }
     };
 

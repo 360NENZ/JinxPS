@@ -141,6 +141,112 @@ public final class ToTheMoonQueryPathReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ToTheMoonQueryPathReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              astarMethod_ = rawValue;
+              break;
+            }
+            case 16: {
+
+              unk3300BBLMBILIOGP_ = input.readBool();
+              break;
+            }
+            case 24: {
+
+              queryId_ = input.readInt32();
+              break;
+            }
+            case 42: {
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder subBuilder = null;
+              if (destinationPos_ != null) {
+                subBuilder = destinationPos_.toBuilder();
+              }
+              destinationPos_ = input.readMessage(emu.grasscutter.net.proto.VectorOuterClass.Vector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(destinationPos_);
+                destinationPos_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 48: {
+
+              sceneId_ = input.readUInt32();
+              break;
+            }
+            case 56: {
+
+              fuzzyRange_ = input.readInt32();
+              break;
+            }
+            case 64: {
+              int rawValue = input.readEnum();
+
+              filterType_ = rawValue;
+              break;
+            }
+            case 80: {
+
+              unk3300OFGONAMNIJG_ = input.readBool();
+              break;
+            }
+            case 98: {
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder subBuilder = null;
+              if (sourcePos_ != null) {
+                subBuilder = sourcePos_.toBuilder();
+              }
+              sourcePos_ = input.readMessage(emu.grasscutter.net.proto.VectorOuterClass.Vector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(sourcePos_);
+                sourcePos_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 120: {
+              int rawValue = input.readEnum();
+
+              queryType_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ToTheMoonQueryPathReqOuterClass.internal_static_ToTheMoonQueryPathReq_descriptor;
@@ -294,7 +400,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
     }
 
     public static final int QUERYTYPE_FIELD_NUMBER = 15;
-    private int queryType_ = 0;
+    private int queryType_;
     /**
      * <code>.OptionType queryType = 15;</code>
      * @return The enum numeric value on the wire for queryType.
@@ -307,12 +413,13 @@ public final class ToTheMoonQueryPathReqOuterClass {
      * @return The queryType.
      */
     @java.lang.Override public emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType getQueryType() {
-      emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType result = emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType.forNumber(queryType_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType result = emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType.valueOf(queryType_);
       return result == null ? emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType.UNRECOGNIZED : result;
     }
 
     public static final int QUERYID_FIELD_NUMBER = 3;
-    private int queryId_ = 0;
+    private int queryId_;
     /**
      * <code>int32 queryId = 3;</code>
      * @return The queryId.
@@ -345,11 +452,11 @@ public final class ToTheMoonQueryPathReqOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getSourcePosOrBuilder() {
-      return sourcePos_ == null ? emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance() : sourcePos_;
+      return getSourcePos();
     }
 
     public static final int SCENEID_FIELD_NUMBER = 6;
-    private int sceneId_ = 0;
+    private int sceneId_;
     /**
      * <code>uint32 sceneId = 6;</code>
      * @return The sceneId.
@@ -360,7 +467,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
     }
 
     public static final int ASTARMETHOD_FIELD_NUMBER = 1;
-    private int astarMethod_ = 0;
+    private int astarMethod_;
     /**
      * <code>.AStarMethod astarMethod = 1;</code>
      * @return The enum numeric value on the wire for astarMethod.
@@ -373,12 +480,13 @@ public final class ToTheMoonQueryPathReqOuterClass {
      * @return The astarMethod.
      */
     @java.lang.Override public emu.grasscutter.net.proto.AStarMethodOuterClass.AStarMethod getAstarMethod() {
-      emu.grasscutter.net.proto.AStarMethodOuterClass.AStarMethod result = emu.grasscutter.net.proto.AStarMethodOuterClass.AStarMethod.forNumber(astarMethod_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.AStarMethodOuterClass.AStarMethod result = emu.grasscutter.net.proto.AStarMethodOuterClass.AStarMethod.valueOf(astarMethod_);
       return result == null ? emu.grasscutter.net.proto.AStarMethodOuterClass.AStarMethod.UNRECOGNIZED : result;
     }
 
     public static final int FILTERTYPE_FIELD_NUMBER = 8;
-    private int filterType_ = 0;
+    private int filterType_;
     /**
      * <code>.FilterType filterType = 8;</code>
      * @return The enum numeric value on the wire for filterType.
@@ -391,12 +499,13 @@ public final class ToTheMoonQueryPathReqOuterClass {
      * @return The filterType.
      */
     @java.lang.Override public emu.grasscutter.net.proto.FilterTypeOuterClass.FilterType getFilterType() {
-      emu.grasscutter.net.proto.FilterTypeOuterClass.FilterType result = emu.grasscutter.net.proto.FilterTypeOuterClass.FilterType.forNumber(filterType_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.FilterTypeOuterClass.FilterType result = emu.grasscutter.net.proto.FilterTypeOuterClass.FilterType.valueOf(filterType_);
       return result == null ? emu.grasscutter.net.proto.FilterTypeOuterClass.FilterType.UNRECOGNIZED : result;
     }
 
     public static final int FUZZYRANGE_FIELD_NUMBER = 7;
-    private int fuzzyRange_ = 0;
+    private int fuzzyRange_;
     /**
      * <code>int32 fuzzyRange = 7;</code>
      * @return The fuzzyRange.
@@ -407,7 +516,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
     }
 
     public static final int UNK3300_OFGONAMNIJG_FIELD_NUMBER = 10;
-    private boolean unk3300OFGONAMNIJG_ = false;
+    private boolean unk3300OFGONAMNIJG_;
     /**
      * <code>bool Unk3300_OFGONAMNIJG = 10;</code>
      * @return The unk3300OFGONAMNIJG.
@@ -418,7 +527,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
     }
 
     public static final int UNK3300_BBLMBILIOGP_FIELD_NUMBER = 2;
-    private boolean unk3300BBLMBILIOGP_ = false;
+    private boolean unk3300BBLMBILIOGP_;
     /**
      * <code>bool Unk3300_BBLMBILIOGP = 2;</code>
      * @return The unk3300BBLMBILIOGP.
@@ -451,7 +560,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getDestinationPosOrBuilder() {
-      return destinationPos_ == null ? emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance() : destinationPos_;
+      return getDestinationPos();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -498,7 +607,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
       if (queryType_ != emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType.OPTION_TYPE_NONE.getNumber()) {
         output.writeEnum(15, queryType_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -547,7 +656,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(15, queryType_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -585,7 +694,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
         if (!getDestinationPos()
             .equals(other.getDestinationPos())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -622,7 +731,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
         hash = (37 * hash) + DESTINATIONPOS_FIELD_NUMBER;
         hash = (53 * hash) + getDestinationPos().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -739,34 +848,48 @@ public final class ToTheMoonQueryPathReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ToTheMoonQueryPathReqOuterClass.ToTheMoonQueryPathReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         queryType_ = 0;
+
         queryId_ = 0;
-        sourcePos_ = null;
-        if (sourcePosBuilder_ != null) {
-          sourcePosBuilder_.dispose();
+
+        if (sourcePosBuilder_ == null) {
+          sourcePos_ = null;
+        } else {
+          sourcePos_ = null;
           sourcePosBuilder_ = null;
         }
         sceneId_ = 0;
+
         astarMethod_ = 0;
+
         filterType_ = 0;
+
         fuzzyRange_ = 0;
+
         unk3300OFGONAMNIJG_ = false;
+
         unk3300BBLMBILIOGP_ = false;
-        destinationPos_ = null;
-        if (destinationPosBuilder_ != null) {
-          destinationPosBuilder_.dispose();
+
+        if (destinationPosBuilder_ == null) {
+          destinationPos_ = null;
+        } else {
+          destinationPos_ = null;
           destinationPosBuilder_ = null;
         }
         return this;
@@ -795,47 +918,26 @@ public final class ToTheMoonQueryPathReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ToTheMoonQueryPathReqOuterClass.ToTheMoonQueryPathReq buildPartial() {
         emu.grasscutter.net.proto.ToTheMoonQueryPathReqOuterClass.ToTheMoonQueryPathReq result = new emu.grasscutter.net.proto.ToTheMoonQueryPathReqOuterClass.ToTheMoonQueryPathReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.queryType_ = queryType_;
+        result.queryId_ = queryId_;
+        if (sourcePosBuilder_ == null) {
+          result.sourcePos_ = sourcePos_;
+        } else {
+          result.sourcePos_ = sourcePosBuilder_.build();
+        }
+        result.sceneId_ = sceneId_;
+        result.astarMethod_ = astarMethod_;
+        result.filterType_ = filterType_;
+        result.fuzzyRange_ = fuzzyRange_;
+        result.unk3300OFGONAMNIJG_ = unk3300OFGONAMNIJG_;
+        result.unk3300BBLMBILIOGP_ = unk3300BBLMBILIOGP_;
+        if (destinationPosBuilder_ == null) {
+          result.destinationPos_ = destinationPos_;
+        } else {
+          result.destinationPos_ = destinationPosBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ToTheMoonQueryPathReqOuterClass.ToTheMoonQueryPathReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.queryType_ = queryType_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.queryId_ = queryId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.sourcePos_ = sourcePosBuilder_ == null
-              ? sourcePos_
-              : sourcePosBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.sceneId_ = sceneId_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.astarMethod_ = astarMethod_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.filterType_ = filterType_;
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.fuzzyRange_ = fuzzyRange_;
-        }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.unk3300OFGONAMNIJG_ = unk3300OFGONAMNIJG_;
-        }
-        if (((from_bitField0_ & 0x00000100) != 0)) {
-          result.unk3300BBLMBILIOGP_ = unk3300BBLMBILIOGP_;
-        }
-        if (((from_bitField0_ & 0x00000200) != 0)) {
-          result.destinationPos_ = destinationPosBuilder_ == null
-              ? destinationPos_
-              : destinationPosBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -912,7 +1014,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
         if (other.hasDestinationPos()) {
           mergeDestinationPos(other.getDestinationPos());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -927,87 +1029,19 @@ public final class ToTheMoonQueryPathReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ToTheMoonQueryPathReqOuterClass.ToTheMoonQueryPathReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                astarMethod_ = input.readEnum();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 8
-              case 16: {
-                unk3300BBLMBILIOGP_ = input.readBool();
-                bitField0_ |= 0x00000100;
-                break;
-              } // case 16
-              case 24: {
-                queryId_ = input.readInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 24
-              case 42: {
-                input.readMessage(
-                    getDestinationPosFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000200;
-                break;
-              } // case 42
-              case 48: {
-                sceneId_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 48
-              case 56: {
-                fuzzyRange_ = input.readInt32();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 56
-              case 64: {
-                filterType_ = input.readEnum();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 64
-              case 80: {
-                unk3300OFGONAMNIJG_ = input.readBool();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 80
-              case 98: {
-                input.readMessage(
-                    getSourcePosFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 98
-              case 120: {
-                queryType_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ToTheMoonQueryPathReqOuterClass.ToTheMoonQueryPathReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int queryType_ = 0;
       /**
@@ -1023,8 +1057,8 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder setQueryTypeValue(int value) {
+        
         queryType_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1034,7 +1068,8 @@ public final class ToTheMoonQueryPathReqOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType getQueryType() {
-        emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType result = emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType.forNumber(queryType_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType result = emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType.valueOf(queryType_);
         return result == null ? emu.grasscutter.net.proto.OptionTypeOuterClass.OptionType.UNRECOGNIZED : result;
       }
       /**
@@ -1046,7 +1081,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000001;
+        
         queryType_ = value.getNumber();
         onChanged();
         return this;
@@ -1056,7 +1091,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearQueryType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         queryType_ = 0;
         onChanged();
         return this;
@@ -1079,7 +1114,6 @@ public final class ToTheMoonQueryPathReqOuterClass {
       public Builder setQueryId(int value) {
         
         queryId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1088,7 +1122,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearQueryId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         queryId_ = 0;
         onChanged();
         return this;
@@ -1102,7 +1136,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return Whether the sourcePos field is set.
        */
       public boolean hasSourcePos() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return sourcePosBuilder_ != null || sourcePos_ != null;
       }
       /**
        * <code>.Vector sourcePos = 12;</code>
@@ -1124,11 +1158,11 @@ public final class ToTheMoonQueryPathReqOuterClass {
             throw new NullPointerException();
           }
           sourcePos_ = value;
+          onChanged();
         } else {
           sourcePosBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1138,11 +1172,11 @@ public final class ToTheMoonQueryPathReqOuterClass {
           emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder builderForValue) {
         if (sourcePosBuilder_ == null) {
           sourcePos_ = builderForValue.build();
+          onChanged();
         } else {
           sourcePosBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1150,38 +1184,38 @@ public final class ToTheMoonQueryPathReqOuterClass {
        */
       public Builder mergeSourcePos(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (sourcePosBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            sourcePos_ != null &&
-            sourcePos_ != emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance()) {
-            getSourcePosBuilder().mergeFrom(value);
+          if (sourcePos_ != null) {
+            sourcePos_ =
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.newBuilder(sourcePos_).mergeFrom(value).buildPartial();
           } else {
             sourcePos_ = value;
           }
+          onChanged();
         } else {
           sourcePosBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector sourcePos = 12;</code>
        */
       public Builder clearSourcePos() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        sourcePos_ = null;
-        if (sourcePosBuilder_ != null) {
-          sourcePosBuilder_.dispose();
+        if (sourcePosBuilder_ == null) {
+          sourcePos_ = null;
+          onChanged();
+        } else {
+          sourcePos_ = null;
           sourcePosBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector sourcePos = 12;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder getSourcePosBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getSourcePosFieldBuilder().getBuilder();
       }
@@ -1230,7 +1264,6 @@ public final class ToTheMoonQueryPathReqOuterClass {
       public Builder setSceneId(int value) {
         
         sceneId_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1239,7 +1272,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearSceneId() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         sceneId_ = 0;
         onChanged();
         return this;
@@ -1259,8 +1292,8 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder setAstarMethodValue(int value) {
+        
         astarMethod_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1270,7 +1303,8 @@ public final class ToTheMoonQueryPathReqOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.AStarMethodOuterClass.AStarMethod getAstarMethod() {
-        emu.grasscutter.net.proto.AStarMethodOuterClass.AStarMethod result = emu.grasscutter.net.proto.AStarMethodOuterClass.AStarMethod.forNumber(astarMethod_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.AStarMethodOuterClass.AStarMethod result = emu.grasscutter.net.proto.AStarMethodOuterClass.AStarMethod.valueOf(astarMethod_);
         return result == null ? emu.grasscutter.net.proto.AStarMethodOuterClass.AStarMethod.UNRECOGNIZED : result;
       }
       /**
@@ -1282,7 +1316,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000010;
+        
         astarMethod_ = value.getNumber();
         onChanged();
         return this;
@@ -1292,7 +1326,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAstarMethod() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         astarMethod_ = 0;
         onChanged();
         return this;
@@ -1312,8 +1346,8 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder setFilterTypeValue(int value) {
+        
         filterType_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1323,7 +1357,8 @@ public final class ToTheMoonQueryPathReqOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.FilterTypeOuterClass.FilterType getFilterType() {
-        emu.grasscutter.net.proto.FilterTypeOuterClass.FilterType result = emu.grasscutter.net.proto.FilterTypeOuterClass.FilterType.forNumber(filterType_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.FilterTypeOuterClass.FilterType result = emu.grasscutter.net.proto.FilterTypeOuterClass.FilterType.valueOf(filterType_);
         return result == null ? emu.grasscutter.net.proto.FilterTypeOuterClass.FilterType.UNRECOGNIZED : result;
       }
       /**
@@ -1335,7 +1370,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000020;
+        
         filterType_ = value.getNumber();
         onChanged();
         return this;
@@ -1345,7 +1380,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearFilterType() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         filterType_ = 0;
         onChanged();
         return this;
@@ -1368,7 +1403,6 @@ public final class ToTheMoonQueryPathReqOuterClass {
       public Builder setFuzzyRange(int value) {
         
         fuzzyRange_ = value;
-        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1377,7 +1411,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearFuzzyRange() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        
         fuzzyRange_ = 0;
         onChanged();
         return this;
@@ -1400,7 +1434,6 @@ public final class ToTheMoonQueryPathReqOuterClass {
       public Builder setUnk3300OFGONAMNIJG(boolean value) {
         
         unk3300OFGONAMNIJG_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -1409,7 +1442,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300OFGONAMNIJG() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        
         unk3300OFGONAMNIJG_ = false;
         onChanged();
         return this;
@@ -1432,7 +1465,6 @@ public final class ToTheMoonQueryPathReqOuterClass {
       public Builder setUnk3300BBLMBILIOGP(boolean value) {
         
         unk3300BBLMBILIOGP_ = value;
-        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -1441,7 +1473,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300BBLMBILIOGP() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        
         unk3300BBLMBILIOGP_ = false;
         onChanged();
         return this;
@@ -1455,7 +1487,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
        * @return Whether the destinationPos field is set.
        */
       public boolean hasDestinationPos() {
-        return ((bitField0_ & 0x00000200) != 0);
+        return destinationPosBuilder_ != null || destinationPos_ != null;
       }
       /**
        * <code>.Vector destinationPos = 5;</code>
@@ -1477,11 +1509,11 @@ public final class ToTheMoonQueryPathReqOuterClass {
             throw new NullPointerException();
           }
           destinationPos_ = value;
+          onChanged();
         } else {
           destinationPosBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000200;
-        onChanged();
+
         return this;
       }
       /**
@@ -1491,11 +1523,11 @@ public final class ToTheMoonQueryPathReqOuterClass {
           emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder builderForValue) {
         if (destinationPosBuilder_ == null) {
           destinationPos_ = builderForValue.build();
+          onChanged();
         } else {
           destinationPosBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000200;
-        onChanged();
+
         return this;
       }
       /**
@@ -1503,38 +1535,38 @@ public final class ToTheMoonQueryPathReqOuterClass {
        */
       public Builder mergeDestinationPos(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (destinationPosBuilder_ == null) {
-          if (((bitField0_ & 0x00000200) != 0) &&
-            destinationPos_ != null &&
-            destinationPos_ != emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance()) {
-            getDestinationPosBuilder().mergeFrom(value);
+          if (destinationPos_ != null) {
+            destinationPos_ =
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.newBuilder(destinationPos_).mergeFrom(value).buildPartial();
           } else {
             destinationPos_ = value;
           }
+          onChanged();
         } else {
           destinationPosBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000200;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector destinationPos = 5;</code>
        */
       public Builder clearDestinationPos() {
-        bitField0_ = (bitField0_ & ~0x00000200);
-        destinationPos_ = null;
-        if (destinationPosBuilder_ != null) {
-          destinationPosBuilder_.dispose();
+        if (destinationPosBuilder_ == null) {
+          destinationPos_ = null;
+          onChanged();
+        } else {
+          destinationPos_ = null;
           destinationPosBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector destinationPos = 5;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder getDestinationPosBuilder() {
-        bitField0_ |= 0x00000200;
+        
         onChanged();
         return getDestinationPosFieldBuilder().getBuilder();
       }
@@ -1598,18 +1630,7 @@ public final class ToTheMoonQueryPathReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ToTheMoonQueryPathReq(input, extensionRegistry);
       }
     };
 

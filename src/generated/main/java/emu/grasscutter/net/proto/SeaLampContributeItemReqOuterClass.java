@@ -76,6 +76,61 @@ public final class SeaLampContributeItemReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private SeaLampContributeItemReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 96: {
+
+              activityId_ = input.readUInt32();
+              break;
+            }
+            case 106: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                itemList_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              itemList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          itemList_ = java.util.Collections.unmodifiableList(itemList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.SeaLampContributeItemReqOuterClass.internal_static_SeaLampContributeItemReq_descriptor;
@@ -229,7 +284,6 @@ public final class SeaLampContributeItemReqOuterClass {
     }
 
     public static final int ITEMLIST_FIELD_NUMBER = 13;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> itemList_;
     /**
      * <code>repeated .ItemParam itemList = 13;</code>
@@ -270,7 +324,7 @@ public final class SeaLampContributeItemReqOuterClass {
     }
 
     public static final int ACTIVITYID_FIELD_NUMBER = 12;
-    private int activityId_ = 0;
+    private int activityId_;
     /**
      * <code>uint32 activityId = 12;</code>
      * @return The activityId.
@@ -300,7 +354,7 @@ public final class SeaLampContributeItemReqOuterClass {
       for (int i = 0; i < itemList_.size(); i++) {
         output.writeMessage(13, itemList_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -317,7 +371,7 @@ public final class SeaLampContributeItemReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(13, itemList_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -336,7 +390,7 @@ public final class SeaLampContributeItemReqOuterClass {
           .equals(other.getItemListList())) return false;
       if (getActivityId()
           != other.getActivityId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -353,7 +407,7 @@ public final class SeaLampContributeItemReqOuterClass {
       }
       hash = (37 * hash) + ACTIVITYID_FIELD_NUMBER;
       hash = (53 * hash) + getActivityId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -470,26 +524,31 @@ public final class SeaLampContributeItemReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.SeaLampContributeItemReqOuterClass.SeaLampContributeItemReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getItemListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (itemListBuilder_ == null) {
           itemList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          itemList_ = null;
           itemListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         activityId_ = 0;
+
         return this;
       }
 
@@ -516,13 +575,7 @@ public final class SeaLampContributeItemReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.SeaLampContributeItemReqOuterClass.SeaLampContributeItemReq buildPartial() {
         emu.grasscutter.net.proto.SeaLampContributeItemReqOuterClass.SeaLampContributeItemReq result = new emu.grasscutter.net.proto.SeaLampContributeItemReqOuterClass.SeaLampContributeItemReq(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.SeaLampContributeItemReqOuterClass.SeaLampContributeItemReq result) {
+        int from_bitField0_ = bitField0_;
         if (itemListBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             itemList_ = java.util.Collections.unmodifiableList(itemList_);
@@ -532,13 +585,9 @@ public final class SeaLampContributeItemReqOuterClass {
         } else {
           result.itemList_ = itemListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.SeaLampContributeItemReqOuterClass.SeaLampContributeItemReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.activityId_ = activityId_;
-        }
+        result.activityId_ = activityId_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -614,7 +663,7 @@ public final class SeaLampContributeItemReqOuterClass {
         if (other.getActivityId() != 0) {
           setActivityId(other.getActivityId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -629,48 +678,17 @@ public final class SeaLampContributeItemReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.SeaLampContributeItemReqOuterClass.SeaLampContributeItemReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 96: {
-                activityId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 96
-              case 106: {
-                emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(),
-                        extensionRegistry);
-                if (itemListBuilder_ == null) {
-                  ensureItemListIsMutable();
-                  itemList_.add(m);
-                } else {
-                  itemListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 106
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.SeaLampContributeItemReqOuterClass.SeaLampContributeItemReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -932,7 +950,6 @@ public final class SeaLampContributeItemReqOuterClass {
       public Builder setActivityId(int value) {
         
         activityId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -941,7 +958,7 @@ public final class SeaLampContributeItemReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearActivityId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         activityId_ = 0;
         onChanged();
         return this;
@@ -979,18 +996,7 @@ public final class SeaLampContributeItemReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new SeaLampContributeItemReq(input, extensionRegistry);
       }
     };
 

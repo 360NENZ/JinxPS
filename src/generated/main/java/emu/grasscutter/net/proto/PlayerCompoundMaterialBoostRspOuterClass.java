@@ -63,6 +63,58 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private PlayerCompoundMaterialBoostRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              akkcmakdlck_ = input.readUInt32();
+              break;
+            }
+            case 64: {
+
+              gameTime_ = input.readUInt32();
+              break;
+            }
+            case 72: {
+
+              uid_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.PlayerCompoundMaterialBoostRspOuterClass.internal_static_PlayerCompoundMaterialBoostRsp_descriptor;
@@ -208,7 +260,7 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
     }
 
     public static final int UID_FIELD_NUMBER = 9;
-    private int uid_ = 0;
+    private int uid_;
     /**
      * <code>uint32 uid = 9;</code>
      * @return The uid.
@@ -219,7 +271,7 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
     }
 
     public static final int AKKCMAKDLCK_FIELD_NUMBER = 1;
-    private int akkcmakdlck_ = 0;
+    private int akkcmakdlck_;
     /**
      * <code>uint32 akkcmakdlck = 1;</code>
      * @return The akkcmakdlck.
@@ -230,7 +282,7 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
     }
 
     public static final int GAMETIME_FIELD_NUMBER = 8;
-    private int gameTime_ = 0;
+    private int gameTime_;
     /**
      * <code>uint32 gameTime = 8;</code>
      * @return The gameTime.
@@ -263,7 +315,7 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
       if (uid_ != 0) {
         output.writeUInt32(9, uid_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -284,7 +336,7 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(9, uid_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -305,7 +357,7 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
           != other.getAkkcmakdlck()) return false;
       if (getGameTime()
           != other.getGameTime()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -322,7 +374,7 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
       hash = (53 * hash) + getAkkcmakdlck();
       hash = (37 * hash) + GAMETIME_FIELD_NUMBER;
       hash = (53 * hash) + getGameTime();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -439,21 +491,28 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.PlayerCompoundMaterialBoostRspOuterClass.PlayerCompoundMaterialBoostRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         uid_ = 0;
+
         akkcmakdlck_ = 0;
+
         gameTime_ = 0;
+
         return this;
       }
 
@@ -480,22 +539,11 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.PlayerCompoundMaterialBoostRspOuterClass.PlayerCompoundMaterialBoostRsp buildPartial() {
         emu.grasscutter.net.proto.PlayerCompoundMaterialBoostRspOuterClass.PlayerCompoundMaterialBoostRsp result = new emu.grasscutter.net.proto.PlayerCompoundMaterialBoostRspOuterClass.PlayerCompoundMaterialBoostRsp(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.uid_ = uid_;
+        result.akkcmakdlck_ = akkcmakdlck_;
+        result.gameTime_ = gameTime_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.PlayerCompoundMaterialBoostRspOuterClass.PlayerCompoundMaterialBoostRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.uid_ = uid_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.akkcmakdlck_ = akkcmakdlck_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.gameTime_ = gameTime_;
-        }
       }
 
       @java.lang.Override
@@ -551,7 +599,7 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
         if (other.getGameTime() != 0) {
           setGameTime(other.getGameTime());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -566,48 +614,19 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.PlayerCompoundMaterialBoostRspOuterClass.PlayerCompoundMaterialBoostRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                akkcmakdlck_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 8
-              case 64: {
-                gameTime_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 64
-              case 72: {
-                uid_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 72
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.PlayerCompoundMaterialBoostRspOuterClass.PlayerCompoundMaterialBoostRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int uid_ ;
       /**
@@ -626,7 +645,6 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
       public Builder setUid(int value) {
         
         uid_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -635,7 +653,7 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUid() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         uid_ = 0;
         onChanged();
         return this;
@@ -658,7 +676,6 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
       public Builder setAkkcmakdlck(int value) {
         
         akkcmakdlck_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -667,7 +684,7 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAkkcmakdlck() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         akkcmakdlck_ = 0;
         onChanged();
         return this;
@@ -690,7 +707,6 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
       public Builder setGameTime(int value) {
         
         gameTime_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -699,7 +715,7 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGameTime() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         gameTime_ = 0;
         onChanged();
         return this;
@@ -737,18 +753,7 @@ public final class PlayerCompoundMaterialBoostRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new PlayerCompoundMaterialBoostRsp(input, extensionRegistry);
       }
     };
 

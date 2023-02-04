@@ -82,6 +82,66 @@ public final class KJJKCDHJMGDOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private KJJKCDHJMGD(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              stageId_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+
+              jpblgaceipn_ = input.readBool();
+              break;
+            }
+            case 82: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                levelInfoList_ = new java.util.ArrayList<emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.GLELFDKHCNK>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              levelInfoList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.GLELFDKHCNK.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          levelInfoList_ = java.util.Collections.unmodifiableList(levelInfoList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.internal_static_KJJKCDHJMGD_descriptor;
@@ -96,7 +156,6 @@ public final class KJJKCDHJMGDOuterClass {
     }
 
     public static final int LEVELINFOLIST_FIELD_NUMBER = 10;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.GLELFDKHCNK> levelInfoList_;
     /**
      * <code>repeated .GLELFDKHCNK levelInfoList = 10;</code>
@@ -137,7 +196,7 @@ public final class KJJKCDHJMGDOuterClass {
     }
 
     public static final int STAGEID_FIELD_NUMBER = 1;
-    private int stageId_ = 0;
+    private int stageId_;
     /**
      * <code>uint32 stageId = 1;</code>
      * @return The stageId.
@@ -148,7 +207,7 @@ public final class KJJKCDHJMGDOuterClass {
     }
 
     public static final int JPBLGACEIPN_FIELD_NUMBER = 3;
-    private boolean jpblgaceipn_ = false;
+    private boolean jpblgaceipn_;
     /**
      * <code>bool jpblgaceipn = 3;</code>
      * @return The jpblgaceipn.
@@ -181,7 +240,7 @@ public final class KJJKCDHJMGDOuterClass {
       for (int i = 0; i < levelInfoList_.size(); i++) {
         output.writeMessage(10, levelInfoList_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -202,7 +261,7 @@ public final class KJJKCDHJMGDOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(10, levelInfoList_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -223,7 +282,7 @@ public final class KJJKCDHJMGDOuterClass {
           != other.getStageId()) return false;
       if (getJpblgaceipn()
           != other.getJpblgaceipn()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -243,7 +302,7 @@ public final class KJJKCDHJMGDOuterClass {
       hash = (37 * hash) + JPBLGACEIPN_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getJpblgaceipn());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -360,27 +419,33 @@ public final class KJJKCDHJMGDOuterClass {
 
       // Construct using emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getLevelInfoListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (levelInfoListBuilder_ == null) {
           levelInfoList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          levelInfoList_ = null;
           levelInfoListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         stageId_ = 0;
+
         jpblgaceipn_ = false;
+
         return this;
       }
 
@@ -407,13 +472,7 @@ public final class KJJKCDHJMGDOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD buildPartial() {
         emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD result = new emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD result) {
+        int from_bitField0_ = bitField0_;
         if (levelInfoListBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             levelInfoList_ = java.util.Collections.unmodifiableList(levelInfoList_);
@@ -423,16 +482,10 @@ public final class KJJKCDHJMGDOuterClass {
         } else {
           result.levelInfoList_ = levelInfoListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.stageId_ = stageId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.jpblgaceipn_ = jpblgaceipn_;
-        }
+        result.stageId_ = stageId_;
+        result.jpblgaceipn_ = jpblgaceipn_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -511,7 +564,7 @@ public final class KJJKCDHJMGDOuterClass {
         if (other.getJpblgaceipn() != false) {
           setJpblgaceipn(other.getJpblgaceipn());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -526,53 +579,17 @@ public final class KJJKCDHJMGDOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                stageId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 8
-              case 24: {
-                jpblgaceipn_ = input.readBool();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 82: {
-                emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.GLELFDKHCNK m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.GLELFDKHCNK.parser(),
-                        extensionRegistry);
-                if (levelInfoListBuilder_ == null) {
-                  ensureLevelInfoListIsMutable();
-                  levelInfoList_.add(m);
-                } else {
-                  levelInfoListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 82
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -834,7 +851,6 @@ public final class KJJKCDHJMGDOuterClass {
       public Builder setStageId(int value) {
         
         stageId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -843,7 +859,7 @@ public final class KJJKCDHJMGDOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearStageId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         stageId_ = 0;
         onChanged();
         return this;
@@ -866,7 +882,6 @@ public final class KJJKCDHJMGDOuterClass {
       public Builder setJpblgaceipn(boolean value) {
         
         jpblgaceipn_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -875,7 +890,7 @@ public final class KJJKCDHJMGDOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearJpblgaceipn() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         jpblgaceipn_ = false;
         onChanged();
         return this;
@@ -913,18 +928,7 @@ public final class KJJKCDHJMGDOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new KJJKCDHJMGD(input, extensionRegistry);
       }
     };
 

@@ -25,10 +25,10 @@ public final class AbilityGadgetOuterClass {
     int getCampId();
 
     /**
-     * <code>uint32 olefgkameoj = 2;</code>
-     * @return The olefgkameoj.
+     * <code>uint32 campTargetType = 2;</code>
+     * @return The campTargetType.
      */
-    int getOlefgkameoj();
+    int getCampTargetType();
 
     /**
      * <code>uint32 targetEntityId = 3;</code>
@@ -88,7 +88,7 @@ public final class AbilityGadgetOuterClass {
             }
             case 16: {
 
-              olefgkameoj_ = input.readUInt32();
+              campTargetType_ = input.readUInt32();
               break;
             }
             case 24: {
@@ -139,15 +139,15 @@ public final class AbilityGadgetOuterClass {
       return campId_;
     }
 
-    public static final int OLEFGKAMEOJ_FIELD_NUMBER = 2;
-    private int olefgkameoj_;
+    public static final int CAMPTARGETTYPE_FIELD_NUMBER = 2;
+    private int campTargetType_;
     /**
-     * <code>uint32 olefgkameoj = 2;</code>
-     * @return The olefgkameoj.
+     * <code>uint32 campTargetType = 2;</code>
+     * @return The campTargetType.
      */
     @java.lang.Override
-    public int getOlefgkameoj() {
-      return olefgkameoj_;
+    public int getCampTargetType() {
+      return campTargetType_;
     }
 
     public static final int TARGETENTITYID_FIELD_NUMBER = 3;
@@ -178,8 +178,8 @@ public final class AbilityGadgetOuterClass {
       if (campId_ != 0) {
         output.writeUInt32(1, campId_);
       }
-      if (olefgkameoj_ != 0) {
-        output.writeUInt32(2, olefgkameoj_);
+      if (campTargetType_ != 0) {
+        output.writeUInt32(2, campTargetType_);
       }
       if (targetEntityId_ != 0) {
         output.writeUInt32(3, targetEntityId_);
@@ -197,9 +197,9 @@ public final class AbilityGadgetOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, campId_);
       }
-      if (olefgkameoj_ != 0) {
+      if (campTargetType_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, olefgkameoj_);
+          .computeUInt32Size(2, campTargetType_);
       }
       if (targetEntityId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -222,8 +222,8 @@ public final class AbilityGadgetOuterClass {
 
       if (getCampId()
           != other.getCampId()) return false;
-      if (getOlefgkameoj()
-          != other.getOlefgkameoj()) return false;
+      if (getCampTargetType()
+          != other.getCampTargetType()) return false;
       if (getTargetEntityId()
           != other.getTargetEntityId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -239,8 +239,8 @@ public final class AbilityGadgetOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CAMPID_FIELD_NUMBER;
       hash = (53 * hash) + getCampId();
-      hash = (37 * hash) + OLEFGKAMEOJ_FIELD_NUMBER;
-      hash = (53 * hash) + getOlefgkameoj();
+      hash = (37 * hash) + CAMPTARGETTYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getCampTargetType();
       hash = (37 * hash) + TARGETENTITYID_FIELD_NUMBER;
       hash = (53 * hash) + getTargetEntityId();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -378,7 +378,7 @@ public final class AbilityGadgetOuterClass {
         super.clear();
         campId_ = 0;
 
-        olefgkameoj_ = 0;
+        campTargetType_ = 0;
 
         targetEntityId_ = 0;
 
@@ -409,7 +409,7 @@ public final class AbilityGadgetOuterClass {
       public emu.grasscutter.net.proto.AbilityGadgetOuterClass.AbilityGadget buildPartial() {
         emu.grasscutter.net.proto.AbilityGadgetOuterClass.AbilityGadget result = new emu.grasscutter.net.proto.AbilityGadgetOuterClass.AbilityGadget(this);
         result.campId_ = campId_;
-        result.olefgkameoj_ = olefgkameoj_;
+        result.campTargetType_ = campTargetType_;
         result.targetEntityId_ = targetEntityId_;
         onBuilt();
         return result;
@@ -462,8 +462,8 @@ public final class AbilityGadgetOuterClass {
         if (other.getCampId() != 0) {
           setCampId(other.getCampId());
         }
-        if (other.getOlefgkameoj() != 0) {
-          setOlefgkameoj(other.getOlefgkameoj());
+        if (other.getCampTargetType() != 0) {
+          setCampTargetType(other.getCampTargetType());
         }
         if (other.getTargetEntityId() != 0) {
           setTargetEntityId(other.getTargetEntityId());
@@ -528,33 +528,33 @@ public final class AbilityGadgetOuterClass {
         return this;
       }
 
-      private int olefgkameoj_ ;
+      private int campTargetType_ ;
       /**
-       * <code>uint32 olefgkameoj = 2;</code>
-       * @return The olefgkameoj.
+       * <code>uint32 campTargetType = 2;</code>
+       * @return The campTargetType.
        */
       @java.lang.Override
-      public int getOlefgkameoj() {
-        return olefgkameoj_;
+      public int getCampTargetType() {
+        return campTargetType_;
       }
       /**
-       * <code>uint32 olefgkameoj = 2;</code>
-       * @param value The olefgkameoj to set.
+       * <code>uint32 campTargetType = 2;</code>
+       * @param value The campTargetType to set.
        * @return This builder for chaining.
        */
-      public Builder setOlefgkameoj(int value) {
+      public Builder setCampTargetType(int value) {
         
-        olefgkameoj_ = value;
+        campTargetType_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 olefgkameoj = 2;</code>
+       * <code>uint32 campTargetType = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearOlefgkameoj() {
+      public Builder clearCampTargetType() {
         
-        olefgkameoj_ = 0;
+        campTargetType_ = 0;
         onChanged();
         return this;
       }
@@ -656,10 +656,10 @@ public final class AbilityGadgetOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023AbilityGadget.proto\"L\n\rAbilityGadget\022\016" +
-      "\n\006campId\030\001 \001(\r\022\023\n\013olefgkameoj\030\002 \001(\r\022\026\n\016t" +
-      "argetEntityId\030\003 \001(\rB\033\n\031emu.grasscutter.n" +
-      "et.protob\006proto3"
+      "\n\023AbilityGadget.proto\"O\n\rAbilityGadget\022\016" +
+      "\n\006campId\030\001 \001(\r\022\026\n\016campTargetType\030\002 \001(\r\022\026" +
+      "\n\016targetEntityId\030\003 \001(\rB\033\n\031emu.grasscutte" +
+      "r.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -670,7 +670,7 @@ public final class AbilityGadgetOuterClass {
     internal_static_AbilityGadget_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AbilityGadget_descriptor,
-        new java.lang.String[] { "CampId", "Olefgkameoj", "TargetEntityId", });
+        new java.lang.String[] { "CampId", "CampTargetType", "TargetEntityId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

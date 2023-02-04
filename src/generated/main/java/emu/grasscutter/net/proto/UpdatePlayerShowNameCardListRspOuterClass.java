@@ -69,6 +69,73 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private UpdatePlayerShowNameCardListRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 72: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 80: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                showNameCardIdList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              showNameCardIdList_.addInt(input.readUInt32());
+              break;
+            }
+            case 82: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                showNameCardIdList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                showNameCardIdList_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          showNameCardIdList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.UpdatePlayerShowNameCardListRspOuterClass.internal_static_UpdatePlayerShowNameCardListRsp_descriptor;
@@ -214,7 +281,6 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
     }
 
     public static final int SHOWNAMECARDIDLIST_FIELD_NUMBER = 10;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList showNameCardIdList_;
     /**
      * <code>repeated uint32 showNameCardIdList = 10;</code>
@@ -243,7 +309,7 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
     private int showNameCardIdListMemoizedSerializedSize = -1;
 
     public static final int RETCODE_FIELD_NUMBER = 9;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 9;</code>
      * @return The retcode.
@@ -278,7 +344,7 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
       for (int i = 0; i < showNameCardIdList_.size(); i++) {
         output.writeUInt32NoTag(showNameCardIdList_.getInt(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -305,7 +371,7 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
         }
         showNameCardIdListMemoizedSerializedSize = dataSize;
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -324,7 +390,7 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
           .equals(other.getShowNameCardIdListList())) return false;
       if (getRetcode()
           != other.getRetcode()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -341,7 +407,7 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
       }
       hash = (37 * hash) + RETCODE_FIELD_NUMBER;
       hash = (53 * hash) + getRetcode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -458,20 +524,26 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.UpdatePlayerShowNameCardListRspOuterClass.UpdatePlayerShowNameCardListRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         showNameCardIdList_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         retcode_ = 0;
+
         return this;
       }
 
@@ -498,25 +570,15 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.UpdatePlayerShowNameCardListRspOuterClass.UpdatePlayerShowNameCardListRsp buildPartial() {
         emu.grasscutter.net.proto.UpdatePlayerShowNameCardListRspOuterClass.UpdatePlayerShowNameCardListRsp result = new emu.grasscutter.net.proto.UpdatePlayerShowNameCardListRspOuterClass.UpdatePlayerShowNameCardListRsp(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.UpdatePlayerShowNameCardListRspOuterClass.UpdatePlayerShowNameCardListRsp result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           showNameCardIdList_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.showNameCardIdList_ = showNameCardIdList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.UpdatePlayerShowNameCardListRspOuterClass.UpdatePlayerShowNameCardListRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.retcode_ = retcode_;
-        }
+        result.retcode_ = retcode_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -576,7 +638,7 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
         if (other.getRetcode() != 0) {
           setRetcode(other.getRetcode());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -591,51 +653,17 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.UpdatePlayerShowNameCardListRspOuterClass.UpdatePlayerShowNameCardListRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 72: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 72
-              case 80: {
-                int v = input.readUInt32();
-                ensureShowNameCardIdListIsMutable();
-                showNameCardIdList_.addInt(v);
-                break;
-              } // case 80
-              case 82: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureShowNameCardIdListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  showNameCardIdList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 82
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.UpdatePlayerShowNameCardListRspOuterClass.UpdatePlayerShowNameCardListRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -645,7 +673,7 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
         if (!((bitField0_ & 0x00000001) != 0)) {
           showNameCardIdList_ = mutableCopy(showNameCardIdList_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
        * <code>repeated uint32 showNameCardIdList = 10;</code>
@@ -679,7 +707,6 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
        */
       public Builder setShowNameCardIdList(
           int index, int value) {
-        
         ensureShowNameCardIdListIsMutable();
         showNameCardIdList_.setInt(index, value);
         onChanged();
@@ -691,7 +718,6 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder addShowNameCardIdList(int value) {
-        
         ensureShowNameCardIdListIsMutable();
         showNameCardIdList_.addInt(value);
         onChanged();
@@ -738,7 +764,6 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -747,7 +772,7 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -785,18 +810,7 @@ public final class UpdatePlayerShowNameCardListRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new UpdatePlayerShowNameCardListRsp(input, extensionRegistry);
       }
     };
 

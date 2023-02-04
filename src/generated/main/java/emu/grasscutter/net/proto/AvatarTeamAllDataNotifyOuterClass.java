@@ -75,14 +75,14 @@ public final class AvatarTeamAllDataNotifyOuterClass {
     /**
      * <code>map&lt;uint32, .AvatarTeam&gt; avatarTeamMap = 12;</code>
      */
-    /* nullable */
-emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam getAvatarTeamMapOrDefault(
+
+    emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam getAvatarTeamMapOrDefault(
         int key,
-        /* nullable */
-emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue);
+        emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue);
     /**
      * <code>map&lt;uint32, .AvatarTeam&gt; avatarTeamMap = 12;</code>
      */
+
     emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam getAvatarTeamMapOrThrow(
         int key);
   }
@@ -114,6 +114,105 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private AvatarTeamAllDataNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 98: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                avatarTeamMap_ = com.google.protobuf.MapField.newMapField(
+                    AvatarTeamMapDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000004;
+              }
+              com.google.protobuf.MapEntry<java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam>
+              avatarTeamMap__ = input.readMessage(
+                  AvatarTeamMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              avatarTeamMap_.getMutableMap().put(
+                  avatarTeamMap__.getKey(), avatarTeamMap__.getValue());
+              break;
+            }
+            case 112: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                backupAvatarTeamOrderList_ = newIntList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              backupAvatarTeamOrderList_.addInt(input.readUInt32());
+              break;
+            }
+            case 114: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+                backupAvatarTeamOrderList_ = newIntList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                backupAvatarTeamOrderList_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 120: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                tempAvatarGuidList_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              tempAvatarGuidList_.addLong(input.readUInt64());
+              break;
+            }
+            case 122: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                tempAvatarGuidList_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                tempAvatarGuidList_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          backupAvatarTeamOrderList_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          tempAvatarGuidList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -272,7 +371,6 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue);
     }
 
     public static final int TEMPAVATARGUIDLIST_FIELD_NUMBER = 15;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList tempAvatarGuidList_;
     /**
      * <code>repeated uint64 tempAvatarGuidList = 15;</code>
@@ -301,7 +399,6 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue);
     private int tempAvatarGuidListMemoizedSerializedSize = -1;
 
     public static final int BACKUPAVATARTEAMORDERLIST_FIELD_NUMBER = 14;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList backupAvatarTeamOrderList_;
     /**
      * <code>repeated uint32 backupAvatarTeamOrderList = 14;</code>
@@ -341,7 +438,6 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam.getDefaultInstance());
     }
-    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam> avatarTeamMap_;
     private com.google.protobuf.MapField<java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam>
@@ -352,12 +448,14 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue);
       }
       return avatarTeamMap_;
     }
+
     public int getAvatarTeamMapCount() {
       return internalGetAvatarTeamMap().getMap().size();
     }
     /**
      * <code>map&lt;uint32, .AvatarTeam&gt; avatarTeamMap = 12;</code>
      */
+
     @java.lang.Override
     public boolean containsAvatarTeamMap(
         int key) {
@@ -376,6 +474,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue);
      * <code>map&lt;uint32, .AvatarTeam&gt; avatarTeamMap = 12;</code>
      */
     @java.lang.Override
+
     public java.util.Map<java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam> getAvatarTeamMapMap() {
       return internalGetAvatarTeamMap().getMap();
     }
@@ -383,11 +482,10 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue);
      * <code>map&lt;uint32, .AvatarTeam&gt; avatarTeamMap = 12;</code>
      */
     @java.lang.Override
-    public /* nullable */
-emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam getAvatarTeamMapOrDefault(
+
+    public emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam getAvatarTeamMapOrDefault(
         int key,
-        /* nullable */
-emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
+        emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
       
       java.util.Map<java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam> map =
           internalGetAvatarTeamMap().getMap();
@@ -397,6 +495,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
      * <code>map&lt;uint32, .AvatarTeam&gt; avatarTeamMap = 12;</code>
      */
     @java.lang.Override
+
     public emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam getAvatarTeamMapOrThrow(
         int key) {
       
@@ -443,7 +542,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
       for (int i = 0; i < tempAvatarGuidList_.size(); i++) {
         output.writeUInt64NoTag(tempAvatarGuidList_.getLong(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -490,7 +589,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
         }
         tempAvatarGuidListMemoizedSerializedSize = dataSize;
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -511,7 +610,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
           .equals(other.getBackupAvatarTeamOrderListList())) return false;
       if (!internalGetAvatarTeamMap().equals(
           other.internalGetAvatarTeamMap())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -534,7 +633,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
         hash = (37 * hash) + AVATARTEAMMAP_FIELD_NUMBER;
         hash = (53 * hash) + internalGetAvatarTeamMap().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -673,20 +772,26 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
 
       // Construct using emu.grasscutter.net.proto.AvatarTeamAllDataNotifyOuterClass.AvatarTeamAllDataNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         tempAvatarGuidList_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         backupAvatarTeamOrderList_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         internalGetMutableAvatarTeamMap().clear();
         return this;
       }
@@ -714,13 +819,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
       @java.lang.Override
       public emu.grasscutter.net.proto.AvatarTeamAllDataNotifyOuterClass.AvatarTeamAllDataNotify buildPartial() {
         emu.grasscutter.net.proto.AvatarTeamAllDataNotifyOuterClass.AvatarTeamAllDataNotify result = new emu.grasscutter.net.proto.AvatarTeamAllDataNotifyOuterClass.AvatarTeamAllDataNotify(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.AvatarTeamAllDataNotifyOuterClass.AvatarTeamAllDataNotify result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           tempAvatarGuidList_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -731,14 +830,10 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.backupAvatarTeamOrderList_ = backupAvatarTeamOrderList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.AvatarTeamAllDataNotifyOuterClass.AvatarTeamAllDataNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.avatarTeamMap_ = internalGetAvatarTeamMap();
-          result.avatarTeamMap_.makeImmutable();
-        }
+        result.avatarTeamMap_ = internalGetAvatarTeamMap();
+        result.avatarTeamMap_.makeImmutable();
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -807,8 +902,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
         }
         internalGetMutableAvatarTeamMap().mergeFrom(
             other.internalGetAvatarTeamMap());
-        bitField0_ |= 0x00000004;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -823,71 +917,17 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.AvatarTeamAllDataNotifyOuterClass.AvatarTeamAllDataNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 98: {
-                com.google.protobuf.MapEntry<java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam>
-                avatarTeamMap__ = input.readMessage(
-                    AvatarTeamMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                internalGetMutableAvatarTeamMap().getMutableMap().put(
-                    avatarTeamMap__.getKey(), avatarTeamMap__.getValue());
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 98
-              case 112: {
-                int v = input.readUInt32();
-                ensureBackupAvatarTeamOrderListIsMutable();
-                backupAvatarTeamOrderList_.addInt(v);
-                break;
-              } // case 112
-              case 114: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureBackupAvatarTeamOrderListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  backupAvatarTeamOrderList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 114
-              case 120: {
-                long v = input.readUInt64();
-                ensureTempAvatarGuidListIsMutable();
-                tempAvatarGuidList_.addLong(v);
-                break;
-              } // case 120
-              case 122: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureTempAvatarGuidListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  tempAvatarGuidList_.addLong(input.readUInt64());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 122
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.AvatarTeamAllDataNotifyOuterClass.AvatarTeamAllDataNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -897,7 +937,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
         if (!((bitField0_ & 0x00000001) != 0)) {
           tempAvatarGuidList_ = mutableCopy(tempAvatarGuidList_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
        * <code>repeated uint64 tempAvatarGuidList = 15;</code>
@@ -931,7 +971,6 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
        */
       public Builder setTempAvatarGuidList(
           int index, long value) {
-        
         ensureTempAvatarGuidListIsMutable();
         tempAvatarGuidList_.setLong(index, value);
         onChanged();
@@ -943,7 +982,6 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
        * @return This builder for chaining.
        */
       public Builder addTempAvatarGuidList(long value) {
-        
         ensureTempAvatarGuidListIsMutable();
         tempAvatarGuidList_.addLong(value);
         onChanged();
@@ -978,7 +1016,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
         if (!((bitField0_ & 0x00000002) != 0)) {
           backupAvatarTeamOrderList_ = mutableCopy(backupAvatarTeamOrderList_);
           bitField0_ |= 0x00000002;
-        }
+         }
       }
       /**
        * <code>repeated uint32 backupAvatarTeamOrderList = 14;</code>
@@ -1012,7 +1050,6 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
        */
       public Builder setBackupAvatarTeamOrderList(
           int index, int value) {
-        
         ensureBackupAvatarTeamOrderListIsMutable();
         backupAvatarTeamOrderList_.setInt(index, value);
         onChanged();
@@ -1024,7 +1061,6 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
        * @return This builder for chaining.
        */
       public Builder addBackupAvatarTeamOrderList(int value) {
-        
         ensureBackupAvatarTeamOrderListIsMutable();
         backupAvatarTeamOrderList_.addInt(value);
         onChanged();
@@ -1057,7 +1093,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
       private com.google.protobuf.MapField<
           java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam> avatarTeamMap_;
       private com.google.protobuf.MapField<java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam>
-          internalGetAvatarTeamMap() {
+      internalGetAvatarTeamMap() {
         if (avatarTeamMap_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               AvatarTeamMapDefaultEntryHolder.defaultEntry);
@@ -1065,7 +1101,8 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
         return avatarTeamMap_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam>
-          internalGetMutableAvatarTeamMap() {
+      internalGetMutableAvatarTeamMap() {
+        onChanged();;
         if (avatarTeamMap_ == null) {
           avatarTeamMap_ = com.google.protobuf.MapField.newMapField(
               AvatarTeamMapDefaultEntryHolder.defaultEntry);
@@ -1073,16 +1110,16 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
         if (!avatarTeamMap_.isMutable()) {
           avatarTeamMap_ = avatarTeamMap_.copy();
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
         return avatarTeamMap_;
       }
+
       public int getAvatarTeamMapCount() {
         return internalGetAvatarTeamMap().getMap().size();
       }
       /**
        * <code>map&lt;uint32, .AvatarTeam&gt; avatarTeamMap = 12;</code>
        */
+
       @java.lang.Override
       public boolean containsAvatarTeamMap(
           int key) {
@@ -1101,6 +1138,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
        * <code>map&lt;uint32, .AvatarTeam&gt; avatarTeamMap = 12;</code>
        */
       @java.lang.Override
+
       public java.util.Map<java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam> getAvatarTeamMapMap() {
         return internalGetAvatarTeamMap().getMap();
       }
@@ -1108,11 +1146,10 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
        * <code>map&lt;uint32, .AvatarTeam&gt; avatarTeamMap = 12;</code>
        */
       @java.lang.Override
-      public /* nullable */
-emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam getAvatarTeamMapOrDefault(
+
+      public emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam getAvatarTeamMapOrDefault(
           int key,
-          /* nullable */
-emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
+          emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
         
         java.util.Map<java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam> map =
             internalGetAvatarTeamMap().getMap();
@@ -1122,6 +1159,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
        * <code>map&lt;uint32, .AvatarTeam&gt; avatarTeamMap = 12;</code>
        */
       @java.lang.Override
+
       public emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam getAvatarTeamMapOrThrow(
           int key) {
         
@@ -1132,8 +1170,8 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
         }
         return map.get(key);
       }
+
       public Builder clearAvatarTeamMap() {
-        bitField0_ = (bitField0_ & ~0x00000004);
         internalGetMutableAvatarTeamMap().getMutableMap()
             .clear();
         return this;
@@ -1141,6 +1179,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
       /**
        * <code>map&lt;uint32, .AvatarTeam&gt; avatarTeamMap = 12;</code>
        */
+
       public Builder removeAvatarTeamMap(
           int key) {
         
@@ -1153,8 +1192,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam>
-          getMutableAvatarTeamMap() {
-        bitField0_ |= 0x00000004;
+      getMutableAvatarTeamMap() {
         return internalGetMutableAvatarTeamMap().getMutableMap();
       }
       /**
@@ -1164,20 +1202,19 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
           int key,
           emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam value) {
         
-        if (value == null) { throw new NullPointerException("map value"); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableAvatarTeamMap().getMutableMap()
             .put(key, value);
-        bitField0_ |= 0x00000004;
         return this;
       }
       /**
        * <code>map&lt;uint32, .AvatarTeam&gt; avatarTeamMap = 12;</code>
        */
+
       public Builder putAllAvatarTeamMap(
           java.util.Map<java.lang.Integer, emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam> values) {
         internalGetMutableAvatarTeamMap().getMutableMap()
             .putAll(values);
-        bitField0_ |= 0x00000004;
         return this;
       }
       @java.lang.Override
@@ -1213,18 +1250,7 @@ emu.grasscutter.net.proto.AvatarTeamOuterClass.AvatarTeam defaultValue) {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AvatarTeamAllDataNotify(input, extensionRegistry);
       }
     };
 

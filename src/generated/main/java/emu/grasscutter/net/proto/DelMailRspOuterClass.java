@@ -69,6 +69,73 @@ public final class DelMailRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private DelMailRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 56: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 72: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                mailIdList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              mailIdList_.addInt(input.readUInt32());
+              break;
+            }
+            case 74: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                mailIdList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                mailIdList_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          mailIdList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.DelMailRspOuterClass.internal_static_DelMailRsp_descriptor;
@@ -214,7 +281,7 @@ public final class DelMailRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 7;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 7;</code>
      * @return The retcode.
@@ -225,7 +292,6 @@ public final class DelMailRspOuterClass {
     }
 
     public static final int MAILIDLIST_FIELD_NUMBER = 9;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList mailIdList_;
     /**
      * <code>repeated uint32 mailIdList = 9;</code>
@@ -278,7 +344,7 @@ public final class DelMailRspOuterClass {
       for (int i = 0; i < mailIdList_.size(); i++) {
         output.writeUInt32NoTag(mailIdList_.getInt(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -305,7 +371,7 @@ public final class DelMailRspOuterClass {
         }
         mailIdListMemoizedSerializedSize = dataSize;
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -324,7 +390,7 @@ public final class DelMailRspOuterClass {
           != other.getRetcode()) return false;
       if (!getMailIdListList()
           .equals(other.getMailIdListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -341,7 +407,7 @@ public final class DelMailRspOuterClass {
         hash = (37 * hash) + MAILIDLIST_FIELD_NUMBER;
         hash = (53 * hash) + getMailIdListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -458,20 +524,26 @@ public final class DelMailRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.DelMailRspOuterClass.DelMailRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         retcode_ = 0;
+
         mailIdList_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -498,25 +570,15 @@ public final class DelMailRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.DelMailRspOuterClass.DelMailRsp buildPartial() {
         emu.grasscutter.net.proto.DelMailRspOuterClass.DelMailRsp result = new emu.grasscutter.net.proto.DelMailRspOuterClass.DelMailRsp(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.DelMailRspOuterClass.DelMailRsp result) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.retcode_ = retcode_;
+        if (((bitField0_ & 0x00000001) != 0)) {
           mailIdList_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.mailIdList_ = mailIdList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.DelMailRspOuterClass.DelMailRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.retcode_ = retcode_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -569,14 +631,14 @@ public final class DelMailRspOuterClass {
         if (!other.mailIdList_.isEmpty()) {
           if (mailIdList_.isEmpty()) {
             mailIdList_ = other.mailIdList_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureMailIdListIsMutable();
             mailIdList_.addAll(other.mailIdList_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -591,51 +653,17 @@ public final class DelMailRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.DelMailRspOuterClass.DelMailRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 56: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 56
-              case 72: {
-                int v = input.readUInt32();
-                ensureMailIdListIsMutable();
-                mailIdList_.addInt(v);
-                break;
-              } // case 72
-              case 74: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureMailIdListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  mailIdList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 74
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.DelMailRspOuterClass.DelMailRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -657,7 +685,6 @@ public final class DelMailRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -666,7 +693,7 @@ public final class DelMailRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -674,10 +701,10 @@ public final class DelMailRspOuterClass {
 
       private com.google.protobuf.Internal.IntList mailIdList_ = emptyIntList();
       private void ensureMailIdListIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           mailIdList_ = mutableCopy(mailIdList_);
-          bitField0_ |= 0x00000002;
-        }
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
        * <code>repeated uint32 mailIdList = 9;</code>
@@ -685,7 +712,7 @@ public final class DelMailRspOuterClass {
        */
       public java.util.List<java.lang.Integer>
           getMailIdListList() {
-        return ((bitField0_ & 0x00000002) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(mailIdList_) : mailIdList_;
       }
       /**
@@ -711,7 +738,6 @@ public final class DelMailRspOuterClass {
        */
       public Builder setMailIdList(
           int index, int value) {
-        
         ensureMailIdListIsMutable();
         mailIdList_.setInt(index, value);
         onChanged();
@@ -723,7 +749,6 @@ public final class DelMailRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder addMailIdList(int value) {
-        
         ensureMailIdListIsMutable();
         mailIdList_.addInt(value);
         onChanged();
@@ -748,7 +773,7 @@ public final class DelMailRspOuterClass {
        */
       public Builder clearMailIdList() {
         mailIdList_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -785,18 +810,7 @@ public final class DelMailRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new DelMailRsp(input, extensionRegistry);
       }
     };
 

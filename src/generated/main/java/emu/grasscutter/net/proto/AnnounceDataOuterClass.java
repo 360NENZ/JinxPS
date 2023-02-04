@@ -120,6 +120,91 @@ public final class AnnounceDataOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private AnnounceData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dungeonConfirmText_ = s;
+              break;
+            }
+            case 32: {
+
+              beginTime_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+
+              endTime_ = input.readUInt32();
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              countDownText_ = s;
+              break;
+            }
+            case 64: {
+
+              countDownFrequency_ = input.readUInt32();
+              break;
+            }
+            case 72: {
+
+              configId_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+
+              isCenterSystemLast5EveryMinutes_ = input.readBool();
+              break;
+            }
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              centerSystemText_ = s;
+              break;
+            }
+            case 112: {
+
+              centerSystemFrequency_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.AnnounceDataOuterClass.internal_static_AnnounceData_descriptor;
@@ -134,7 +219,7 @@ public final class AnnounceDataOuterClass {
     }
 
     public static final int CONFIGID_FIELD_NUMBER = 9;
-    private int configId_ = 0;
+    private int configId_;
     /**
      * <code>uint32 configId = 9;</code>
      * @return The configId.
@@ -145,7 +230,7 @@ public final class AnnounceDataOuterClass {
     }
 
     public static final int CENTERSYSTEMFREQUENCY_FIELD_NUMBER = 14;
-    private int centerSystemFrequency_ = 0;
+    private int centerSystemFrequency_;
     /**
      * <code>uint32 centerSystemFrequency = 14;</code>
      * @return The centerSystemFrequency.
@@ -156,7 +241,7 @@ public final class AnnounceDataOuterClass {
     }
 
     public static final int ENDTIME_FIELD_NUMBER = 5;
-    private int endTime_ = 0;
+    private int endTime_;
     /**
      * <code>uint32 endTime = 5;</code>
      * @return The endTime.
@@ -167,7 +252,7 @@ public final class AnnounceDataOuterClass {
     }
 
     public static final int BEGINTIME_FIELD_NUMBER = 4;
-    private int beginTime_ = 0;
+    private int beginTime_;
     /**
      * <code>uint32 beginTime = 4;</code>
      * @return The beginTime.
@@ -178,8 +263,7 @@ public final class AnnounceDataOuterClass {
     }
 
     public static final int COUNTDOWNTEXT_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object countDownText_ = "";
+    private volatile java.lang.Object countDownText_;
     /**
      * <code>string countDownText = 7;</code>
      * @return The countDownText.
@@ -217,7 +301,7 @@ public final class AnnounceDataOuterClass {
     }
 
     public static final int ISCENTERSYSTEMLAST_5EVERYMINUTES_FIELD_NUMBER = 12;
-    private boolean isCenterSystemLast5EveryMinutes_ = false;
+    private boolean isCenterSystemLast5EveryMinutes_;
     /**
      * <code>bool isCenterSystemLast_5EveryMinutes = 12;</code>
      * @return The isCenterSystemLast5EveryMinutes.
@@ -228,8 +312,7 @@ public final class AnnounceDataOuterClass {
     }
 
     public static final int DUNGEONCONFIRMTEXT_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object dungeonConfirmText_ = "";
+    private volatile java.lang.Object dungeonConfirmText_;
     /**
      * <code>string dungeonConfirmText = 2;</code>
      * @return The dungeonConfirmText.
@@ -267,7 +350,7 @@ public final class AnnounceDataOuterClass {
     }
 
     public static final int COUNTDOWNFREQUENCY_FIELD_NUMBER = 8;
-    private int countDownFrequency_ = 0;
+    private int countDownFrequency_;
     /**
      * <code>uint32 countDownFrequency = 8;</code>
      * @return The countDownFrequency.
@@ -278,8 +361,7 @@ public final class AnnounceDataOuterClass {
     }
 
     public static final int CENTERSYSTEMTEXT_FIELD_NUMBER = 13;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object centerSystemText_ = "";
+    private volatile java.lang.Object centerSystemText_;
     /**
      * <code>string centerSystemText = 13;</code>
      * @return The centerSystemText.
@@ -357,7 +439,7 @@ public final class AnnounceDataOuterClass {
       if (centerSystemFrequency_ != 0) {
         output.writeUInt32(14, centerSystemFrequency_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -399,7 +481,7 @@ public final class AnnounceDataOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(14, centerSystemFrequency_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -432,7 +514,7 @@ public final class AnnounceDataOuterClass {
           != other.getCountDownFrequency()) return false;
       if (!getCenterSystemText()
           .equals(other.getCenterSystemText())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -462,7 +544,7 @@ public final class AnnounceDataOuterClass {
       hash = (53 * hash) + getCountDownFrequency();
       hash = (37 * hash) + CENTERSYSTEMTEXT_FIELD_NUMBER;
       hash = (53 * hash) + getCenterSystemText().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -579,27 +661,40 @@ public final class AnnounceDataOuterClass {
 
       // Construct using emu.grasscutter.net.proto.AnnounceDataOuterClass.AnnounceData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         configId_ = 0;
+
         centerSystemFrequency_ = 0;
+
         endTime_ = 0;
+
         beginTime_ = 0;
+
         countDownText_ = "";
+
         isCenterSystemLast5EveryMinutes_ = false;
+
         dungeonConfirmText_ = "";
+
         countDownFrequency_ = 0;
+
         centerSystemText_ = "";
+
         return this;
       }
 
@@ -626,40 +721,17 @@ public final class AnnounceDataOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.AnnounceDataOuterClass.AnnounceData buildPartial() {
         emu.grasscutter.net.proto.AnnounceDataOuterClass.AnnounceData result = new emu.grasscutter.net.proto.AnnounceDataOuterClass.AnnounceData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.configId_ = configId_;
+        result.centerSystemFrequency_ = centerSystemFrequency_;
+        result.endTime_ = endTime_;
+        result.beginTime_ = beginTime_;
+        result.countDownText_ = countDownText_;
+        result.isCenterSystemLast5EveryMinutes_ = isCenterSystemLast5EveryMinutes_;
+        result.dungeonConfirmText_ = dungeonConfirmText_;
+        result.countDownFrequency_ = countDownFrequency_;
+        result.centerSystemText_ = centerSystemText_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.AnnounceDataOuterClass.AnnounceData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.configId_ = configId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.centerSystemFrequency_ = centerSystemFrequency_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.endTime_ = endTime_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.beginTime_ = beginTime_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.countDownText_ = countDownText_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.isCenterSystemLast5EveryMinutes_ = isCenterSystemLast5EveryMinutes_;
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.dungeonConfirmText_ = dungeonConfirmText_;
-        }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.countDownFrequency_ = countDownFrequency_;
-        }
-        if (((from_bitField0_ & 0x00000100) != 0)) {
-          result.centerSystemText_ = centerSystemText_;
-        }
       }
 
       @java.lang.Override
@@ -720,7 +792,6 @@ public final class AnnounceDataOuterClass {
         }
         if (!other.getCountDownText().isEmpty()) {
           countDownText_ = other.countDownText_;
-          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (other.getIsCenterSystemLast5EveryMinutes() != false) {
@@ -728,7 +799,6 @@ public final class AnnounceDataOuterClass {
         }
         if (!other.getDungeonConfirmText().isEmpty()) {
           dungeonConfirmText_ = other.dungeonConfirmText_;
-          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (other.getCountDownFrequency() != 0) {
@@ -736,10 +806,9 @@ public final class AnnounceDataOuterClass {
         }
         if (!other.getCenterSystemText().isEmpty()) {
           centerSystemText_ = other.centerSystemText_;
-          bitField0_ |= 0x00000100;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -754,78 +823,19 @@ public final class AnnounceDataOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.AnnounceDataOuterClass.AnnounceData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 18: {
-                dungeonConfirmText_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 18
-              case 32: {
-                beginTime_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 40: {
-                endTime_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 40
-              case 58: {
-                countDownText_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 58
-              case 64: {
-                countDownFrequency_ = input.readUInt32();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 64
-              case 72: {
-                configId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 72
-              case 96: {
-                isCenterSystemLast5EveryMinutes_ = input.readBool();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 96
-              case 106: {
-                centerSystemText_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000100;
-                break;
-              } // case 106
-              case 112: {
-                centerSystemFrequency_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 112
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.AnnounceDataOuterClass.AnnounceData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int configId_ ;
       /**
@@ -844,7 +854,6 @@ public final class AnnounceDataOuterClass {
       public Builder setConfigId(int value) {
         
         configId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -853,7 +862,7 @@ public final class AnnounceDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearConfigId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         configId_ = 0;
         onChanged();
         return this;
@@ -876,7 +885,6 @@ public final class AnnounceDataOuterClass {
       public Builder setCenterSystemFrequency(int value) {
         
         centerSystemFrequency_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -885,7 +893,7 @@ public final class AnnounceDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCenterSystemFrequency() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         centerSystemFrequency_ = 0;
         onChanged();
         return this;
@@ -908,7 +916,6 @@ public final class AnnounceDataOuterClass {
       public Builder setEndTime(int value) {
         
         endTime_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -917,7 +924,7 @@ public final class AnnounceDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEndTime() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         endTime_ = 0;
         onChanged();
         return this;
@@ -940,7 +947,6 @@ public final class AnnounceDataOuterClass {
       public Builder setBeginTime(int value) {
         
         beginTime_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -949,7 +955,7 @@ public final class AnnounceDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearBeginTime() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         beginTime_ = 0;
         onChanged();
         return this;
@@ -996,9 +1002,11 @@ public final class AnnounceDataOuterClass {
        */
       public Builder setCountDownText(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         countDownText_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1007,8 +1015,8 @@ public final class AnnounceDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCountDownText() {
+        
         countDownText_ = getDefaultInstance().getCountDownText();
-        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -1019,10 +1027,12 @@ public final class AnnounceDataOuterClass {
        */
       public Builder setCountDownTextBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         countDownText_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1044,7 +1054,6 @@ public final class AnnounceDataOuterClass {
       public Builder setIsCenterSystemLast5EveryMinutes(boolean value) {
         
         isCenterSystemLast5EveryMinutes_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1053,7 +1062,7 @@ public final class AnnounceDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsCenterSystemLast5EveryMinutes() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         isCenterSystemLast5EveryMinutes_ = false;
         onChanged();
         return this;
@@ -1100,9 +1109,11 @@ public final class AnnounceDataOuterClass {
        */
       public Builder setDungeonConfirmText(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         dungeonConfirmText_ = value;
-        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1111,8 +1122,8 @@ public final class AnnounceDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDungeonConfirmText() {
+        
         dungeonConfirmText_ = getDefaultInstance().getDungeonConfirmText();
-        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -1123,10 +1134,12 @@ public final class AnnounceDataOuterClass {
        */
       public Builder setDungeonConfirmTextBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         dungeonConfirmText_ = value;
-        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1148,7 +1161,6 @@ public final class AnnounceDataOuterClass {
       public Builder setCountDownFrequency(int value) {
         
         countDownFrequency_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -1157,7 +1169,7 @@ public final class AnnounceDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCountDownFrequency() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        
         countDownFrequency_ = 0;
         onChanged();
         return this;
@@ -1204,9 +1216,11 @@ public final class AnnounceDataOuterClass {
        */
       public Builder setCenterSystemText(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         centerSystemText_ = value;
-        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -1215,8 +1229,8 @@ public final class AnnounceDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCenterSystemText() {
+        
         centerSystemText_ = getDefaultInstance().getCenterSystemText();
-        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
         return this;
       }
@@ -1227,10 +1241,12 @@ public final class AnnounceDataOuterClass {
        */
       public Builder setCenterSystemTextBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         centerSystemText_ = value;
-        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -1267,18 +1283,7 @@ public final class AnnounceDataOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AnnounceData(input, extensionRegistry);
       }
     };
 

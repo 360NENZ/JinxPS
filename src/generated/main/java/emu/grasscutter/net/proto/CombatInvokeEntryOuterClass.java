@@ -76,6 +76,60 @@ public final class CombatInvokeEntryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private CombatInvokeEntry(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 58: {
+
+              combatData_ = input.readBytes();
+              break;
+            }
+            case 64: {
+              int rawValue = input.readEnum();
+
+              argumentType_ = rawValue;
+              break;
+            }
+            case 120: {
+              int rawValue = input.readEnum();
+
+              forwardType_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.internal_static_CombatInvokeEntry_descriptor;
@@ -90,7 +144,7 @@ public final class CombatInvokeEntryOuterClass {
     }
 
     public static final int COMBATDATA_FIELD_NUMBER = 7;
-    private com.google.protobuf.ByteString combatData_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString combatData_;
     /**
      * <code>bytes combatData = 7;</code>
      * @return The combatData.
@@ -101,7 +155,7 @@ public final class CombatInvokeEntryOuterClass {
     }
 
     public static final int ARGUMENTTYPE_FIELD_NUMBER = 8;
-    private int argumentType_ = 0;
+    private int argumentType_;
     /**
      * <code>.CombatTypeArgument argumentType = 8;</code>
      * @return The enum numeric value on the wire for argumentType.
@@ -114,12 +168,13 @@ public final class CombatInvokeEntryOuterClass {
      * @return The argumentType.
      */
     @java.lang.Override public emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.CombatTypeArgument getArgumentType() {
-      emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.CombatTypeArgument result = emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.CombatTypeArgument.forNumber(argumentType_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.CombatTypeArgument result = emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.CombatTypeArgument.valueOf(argumentType_);
       return result == null ? emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.CombatTypeArgument.UNRECOGNIZED : result;
     }
 
     public static final int FORWARDTYPE_FIELD_NUMBER = 15;
-    private int forwardType_ = 0;
+    private int forwardType_;
     /**
      * <code>.ForwardType forwardType = 15;</code>
      * @return The enum numeric value on the wire for forwardType.
@@ -132,7 +187,8 @@ public final class CombatInvokeEntryOuterClass {
      * @return The forwardType.
      */
     @java.lang.Override public emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType getForwardType() {
-      emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType result = emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType.forNumber(forwardType_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType result = emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType.valueOf(forwardType_);
       return result == null ? emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType.UNRECOGNIZED : result;
     }
 
@@ -159,7 +215,7 @@ public final class CombatInvokeEntryOuterClass {
       if (forwardType_ != emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType.FORWARD_TYPE_LOCAL.getNumber()) {
         output.writeEnum(15, forwardType_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -180,7 +236,7 @@ public final class CombatInvokeEntryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(15, forwardType_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -199,7 +255,7 @@ public final class CombatInvokeEntryOuterClass {
           .equals(other.getCombatData())) return false;
       if (argumentType_ != other.argumentType_) return false;
       if (forwardType_ != other.forwardType_) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -216,7 +272,7 @@ public final class CombatInvokeEntryOuterClass {
       hash = (53 * hash) + argumentType_;
       hash = (37 * hash) + FORWARDTYPE_FIELD_NUMBER;
       hash = (53 * hash) + forwardType_;
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -333,21 +389,28 @@ public final class CombatInvokeEntryOuterClass {
 
       // Construct using emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.CombatInvokeEntry.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         combatData_ = com.google.protobuf.ByteString.EMPTY;
+
         argumentType_ = 0;
+
         forwardType_ = 0;
+
         return this;
       }
 
@@ -374,22 +437,11 @@ public final class CombatInvokeEntryOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.CombatInvokeEntry buildPartial() {
         emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.CombatInvokeEntry result = new emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.CombatInvokeEntry(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.combatData_ = combatData_;
+        result.argumentType_ = argumentType_;
+        result.forwardType_ = forwardType_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.CombatInvokeEntry result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.combatData_ = combatData_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.argumentType_ = argumentType_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.forwardType_ = forwardType_;
-        }
       }
 
       @java.lang.Override
@@ -445,7 +497,7 @@ public final class CombatInvokeEntryOuterClass {
         if (other.forwardType_ != 0) {
           setForwardTypeValue(other.getForwardTypeValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -460,48 +512,19 @@ public final class CombatInvokeEntryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.CombatInvokeEntry parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 58: {
-                combatData_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 58
-              case 64: {
-                argumentType_ = input.readEnum();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 64
-              case 120: {
-                forwardType_ = input.readEnum();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.CombatInvokeEntry) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString combatData_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -518,9 +541,11 @@ public final class CombatInvokeEntryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setCombatData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         combatData_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -529,7 +554,7 @@ public final class CombatInvokeEntryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCombatData() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         combatData_ = getDefaultInstance().getCombatData();
         onChanged();
         return this;
@@ -549,8 +574,8 @@ public final class CombatInvokeEntryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setArgumentTypeValue(int value) {
+        
         argumentType_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -560,7 +585,8 @@ public final class CombatInvokeEntryOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.CombatTypeArgument getArgumentType() {
-        emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.CombatTypeArgument result = emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.CombatTypeArgument.forNumber(argumentType_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.CombatTypeArgument result = emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.CombatTypeArgument.valueOf(argumentType_);
         return result == null ? emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.CombatTypeArgument.UNRECOGNIZED : result;
       }
       /**
@@ -572,7 +598,7 @@ public final class CombatInvokeEntryOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         argumentType_ = value.getNumber();
         onChanged();
         return this;
@@ -582,7 +608,7 @@ public final class CombatInvokeEntryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearArgumentType() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         argumentType_ = 0;
         onChanged();
         return this;
@@ -602,8 +628,8 @@ public final class CombatInvokeEntryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setForwardTypeValue(int value) {
+        
         forwardType_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -613,7 +639,8 @@ public final class CombatInvokeEntryOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType getForwardType() {
-        emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType result = emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType.forNumber(forwardType_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType result = emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType.valueOf(forwardType_);
         return result == null ? emu.grasscutter.net.proto.ForwardTypeOuterClass.ForwardType.UNRECOGNIZED : result;
       }
       /**
@@ -625,7 +652,7 @@ public final class CombatInvokeEntryOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000004;
+        
         forwardType_ = value.getNumber();
         onChanged();
         return this;
@@ -635,7 +662,7 @@ public final class CombatInvokeEntryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearForwardType() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         forwardType_ = 0;
         onChanged();
         return this;
@@ -673,18 +700,7 @@ public final class CombatInvokeEntryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new CombatInvokeEntry(input, extensionRegistry);
       }
     };
 
@@ -718,16 +734,17 @@ public final class CombatInvokeEntryOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027CombatInvokeEntry.proto\032\030CombatTypeArg" +
-      "ument.proto\032\021ForwardType.proto\"u\n\021Combat" +
-      "InvokeEntry\022\022\n\ncombatData\030\007 \001(\014\022)\n\014argum" +
-      "entType\030\010 \001(\0162\023.CombatTypeArgument\022!\n\013fo" +
-      "rwardType\030\017 \001(\0162\014.ForwardTypeB\033\n\031emu.gra" +
-      "sscutter.net.protob\006proto3"
+      "\n\027CombatInvokeEntry.proto\032\013bytes.proto\032\030" +
+      "CombatTypeArgument.proto\032\021ForwardType.pr" +
+      "oto\"u\n\021CombatInvokeEntry\022\022\n\ncombatData\030\007" +
+      " \001(\014\022)\n\014argumentType\030\010 \001(\0162\023.CombatTypeA" +
+      "rgument\022!\n\013forwardType\030\017 \001(\0162\014.ForwardTy" +
+      "peB\033\n\031emu.grasscutter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          emu.grasscutter.net.proto.Bytes.getDescriptor(),
           emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.getDescriptor(),
           emu.grasscutter.net.proto.ForwardTypeOuterClass.getDescriptor(),
         });
@@ -737,6 +754,7 @@ public final class CombatInvokeEntryOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CombatInvokeEntry_descriptor,
         new java.lang.String[] { "CombatData", "ArgumentType", "ForwardType", });
+    emu.grasscutter.net.proto.Bytes.getDescriptor();
     emu.grasscutter.net.proto.CombatTypeArgumentOuterClass.getDescriptor();
     emu.grasscutter.net.proto.ForwardTypeOuterClass.getDescriptor();
   }

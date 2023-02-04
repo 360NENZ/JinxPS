@@ -88,6 +88,71 @@ public final class GetAllMailRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GetAllMailRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 40: {
+
+              isCollected_ = input.readBool();
+              break;
+            }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                mailList_ = new java.util.ArrayList<emu.grasscutter.net.proto.MailDataOuterClass.MailData>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              mailList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.MailDataOuterClass.MailData.parser(), extensionRegistry));
+              break;
+            }
+            case 64: {
+
+              isTruncated_ = input.readBool();
+              break;
+            }
+            case 72: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          mailList_ = java.util.Collections.unmodifiableList(mailList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.GetAllMailRspOuterClass.internal_static_GetAllMailRsp_descriptor;
@@ -233,7 +298,7 @@ public final class GetAllMailRspOuterClass {
     }
 
     public static final int ISCOLLECTED_FIELD_NUMBER = 5;
-    private boolean isCollected_ = false;
+    private boolean isCollected_;
     /**
      * <code>bool isCollected = 5;</code>
      * @return The isCollected.
@@ -244,7 +309,7 @@ public final class GetAllMailRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 9;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 9;</code>
      * @return The retcode.
@@ -255,7 +320,6 @@ public final class GetAllMailRspOuterClass {
     }
 
     public static final int MAILLIST_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.MailDataOuterClass.MailData> mailList_;
     /**
      * <code>repeated .MailData mailList = 7;</code>
@@ -296,7 +360,7 @@ public final class GetAllMailRspOuterClass {
     }
 
     public static final int ISTRUNCATED_FIELD_NUMBER = 8;
-    private boolean isTruncated_ = false;
+    private boolean isTruncated_;
     /**
      * <code>bool isTruncated = 8;</code>
      * @return The isTruncated.
@@ -332,7 +396,7 @@ public final class GetAllMailRspOuterClass {
       if (retcode_ != 0) {
         output.writeInt32(9, retcode_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -357,7 +421,7 @@ public final class GetAllMailRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(9, retcode_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -380,7 +444,7 @@ public final class GetAllMailRspOuterClass {
           .equals(other.getMailListList())) return false;
       if (getIsTruncated()
           != other.getIsTruncated()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -403,7 +467,7 @@ public final class GetAllMailRspOuterClass {
       hash = (37 * hash) + ISTRUNCATED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsTruncated());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -520,28 +584,35 @@ public final class GetAllMailRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.GetAllMailRspOuterClass.GetAllMailRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getMailListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         isCollected_ = false;
+
         retcode_ = 0;
+
         if (mailListBuilder_ == null) {
           mailList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          mailList_ = null;
           mailListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         isTruncated_ = false;
+
         return this;
       }
 
@@ -568,35 +639,21 @@ public final class GetAllMailRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.GetAllMailRspOuterClass.GetAllMailRsp buildPartial() {
         emu.grasscutter.net.proto.GetAllMailRspOuterClass.GetAllMailRsp result = new emu.grasscutter.net.proto.GetAllMailRspOuterClass.GetAllMailRsp(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.GetAllMailRspOuterClass.GetAllMailRsp result) {
+        int from_bitField0_ = bitField0_;
+        result.isCollected_ = isCollected_;
+        result.retcode_ = retcode_;
         if (mailListBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             mailList_ = java.util.Collections.unmodifiableList(mailList_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.mailList_ = mailList_;
         } else {
           result.mailList_ = mailListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.GetAllMailRspOuterClass.GetAllMailRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.isCollected_ = isCollected_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.retcode_ = retcode_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.isTruncated_ = isTruncated_;
-        }
+        result.isTruncated_ = isTruncated_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -653,7 +710,7 @@ public final class GetAllMailRspOuterClass {
           if (!other.mailList_.isEmpty()) {
             if (mailList_.isEmpty()) {
               mailList_ = other.mailList_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureMailListIsMutable();
               mailList_.addAll(other.mailList_);
@@ -666,7 +723,7 @@ public final class GetAllMailRspOuterClass {
               mailListBuilder_.dispose();
               mailListBuilder_ = null;
               mailList_ = other.mailList_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
               mailListBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getMailListFieldBuilder() : null;
@@ -678,7 +735,7 @@ public final class GetAllMailRspOuterClass {
         if (other.getIsTruncated() != false) {
           setIsTruncated(other.getIsTruncated());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -693,58 +750,17 @@ public final class GetAllMailRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.GetAllMailRspOuterClass.GetAllMailRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 40: {
-                isCollected_ = input.readBool();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 40
-              case 58: {
-                emu.grasscutter.net.proto.MailDataOuterClass.MailData m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.MailDataOuterClass.MailData.parser(),
-                        extensionRegistry);
-                if (mailListBuilder_ == null) {
-                  ensureMailListIsMutable();
-                  mailList_.add(m);
-                } else {
-                  mailListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 58
-              case 64: {
-                isTruncated_ = input.readBool();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 64
-              case 72: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 72
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.GetAllMailRspOuterClass.GetAllMailRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -766,7 +782,6 @@ public final class GetAllMailRspOuterClass {
       public Builder setIsCollected(boolean value) {
         
         isCollected_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -775,7 +790,7 @@ public final class GetAllMailRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsCollected() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         isCollected_ = false;
         onChanged();
         return this;
@@ -798,7 +813,6 @@ public final class GetAllMailRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -807,7 +821,7 @@ public final class GetAllMailRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -816,9 +830,9 @@ public final class GetAllMailRspOuterClass {
       private java.util.List<emu.grasscutter.net.proto.MailDataOuterClass.MailData> mailList_ =
         java.util.Collections.emptyList();
       private void ensureMailListIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           mailList_ = new java.util.ArrayList<emu.grasscutter.net.proto.MailDataOuterClass.MailData>(mailList_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -968,7 +982,7 @@ public final class GetAllMailRspOuterClass {
       public Builder clearMailList() {
         if (mailListBuilder_ == null) {
           mailList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           mailListBuilder_.clear();
@@ -1045,7 +1059,7 @@ public final class GetAllMailRspOuterClass {
           mailListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               emu.grasscutter.net.proto.MailDataOuterClass.MailData, emu.grasscutter.net.proto.MailDataOuterClass.MailData.Builder, emu.grasscutter.net.proto.MailDataOuterClass.MailDataOrBuilder>(
                   mailList_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           mailList_ = null;
@@ -1070,7 +1084,6 @@ public final class GetAllMailRspOuterClass {
       public Builder setIsTruncated(boolean value) {
         
         isTruncated_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1079,7 +1092,7 @@ public final class GetAllMailRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsTruncated() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         isTruncated_ = false;
         onChanged();
         return this;
@@ -1117,18 +1130,7 @@ public final class GetAllMailRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GetAllMailRsp(input, extensionRegistry);
       }
     };
 

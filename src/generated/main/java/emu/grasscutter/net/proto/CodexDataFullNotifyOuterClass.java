@@ -100,6 +100,90 @@ public final class CodexDataFullNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private CodexDataFullNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                recentViewedPushtipsList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              recentViewedPushtipsList_.addInt(input.readUInt32());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                recentViewedPushtipsList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                recentViewedPushtipsList_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                typeDataList_ = new java.util.ArrayList<emu.grasscutter.net.proto.CodexTypeDataOuterClass.CodexTypeData>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              typeDataList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.CodexTypeDataOuterClass.CodexTypeData.parser(), extensionRegistry));
+              break;
+            }
+            case 80: {
+
+              lastReadPushtipsTypeId_ = input.readUInt32();
+              break;
+            }
+            case 88: {
+
+              lastReadPushtipsCodexId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          recentViewedPushtipsList_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          typeDataList_ = java.util.Collections.unmodifiableList(typeDataList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.CodexDataFullNotifyOuterClass.internal_static_CodexDataFullNotify_descriptor;
@@ -245,7 +329,6 @@ public final class CodexDataFullNotifyOuterClass {
     }
 
     public static final int RECENTVIEWEDPUSHTIPSLIST_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList recentViewedPushtipsList_;
     /**
      * <code>repeated uint32 recentViewedPushtipsList = 1;</code>
@@ -274,7 +357,7 @@ public final class CodexDataFullNotifyOuterClass {
     private int recentViewedPushtipsListMemoizedSerializedSize = -1;
 
     public static final int LASTREADPUSHTIPSCODEXID_FIELD_NUMBER = 11;
-    private int lastReadPushtipsCodexId_ = 0;
+    private int lastReadPushtipsCodexId_;
     /**
      * <code>uint32 lastReadPushtipsCodexId = 11;</code>
      * @return The lastReadPushtipsCodexId.
@@ -285,7 +368,7 @@ public final class CodexDataFullNotifyOuterClass {
     }
 
     public static final int LASTREADPUSHTIPSTYPEID_FIELD_NUMBER = 10;
-    private int lastReadPushtipsTypeId_ = 0;
+    private int lastReadPushtipsTypeId_;
     /**
      * <code>uint32 lastReadPushtipsTypeId = 10;</code>
      * @return The lastReadPushtipsTypeId.
@@ -296,7 +379,6 @@ public final class CodexDataFullNotifyOuterClass {
     }
 
     public static final int TYPEDATALIST_FIELD_NUMBER = 8;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.CodexTypeDataOuterClass.CodexTypeData> typeDataList_;
     /**
      * <code>repeated .CodexTypeData typeDataList = 8;</code>
@@ -367,7 +449,7 @@ public final class CodexDataFullNotifyOuterClass {
       if (lastReadPushtipsCodexId_ != 0) {
         output.writeUInt32(11, lastReadPushtipsCodexId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -402,7 +484,7 @@ public final class CodexDataFullNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(11, lastReadPushtipsCodexId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -425,7 +507,7 @@ public final class CodexDataFullNotifyOuterClass {
           != other.getLastReadPushtipsTypeId()) return false;
       if (!getTypeDataListList()
           .equals(other.getTypeDataListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -448,7 +530,7 @@ public final class CodexDataFullNotifyOuterClass {
         hash = (37 * hash) + TYPEDATALIST_FIELD_NUMBER;
         hash = (53 * hash) + getTypeDataListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -565,28 +647,35 @@ public final class CodexDataFullNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.CodexDataFullNotifyOuterClass.CodexDataFullNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getTypeDataListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         recentViewedPushtipsList_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         lastReadPushtipsCodexId_ = 0;
+
         lastReadPushtipsTypeId_ = 0;
+
         if (typeDataListBuilder_ == null) {
           typeDataList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
-          typeDataList_ = null;
           typeDataListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -613,37 +702,25 @@ public final class CodexDataFullNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.CodexDataFullNotifyOuterClass.CodexDataFullNotify buildPartial() {
         emu.grasscutter.net.proto.CodexDataFullNotifyOuterClass.CodexDataFullNotify result = new emu.grasscutter.net.proto.CodexDataFullNotifyOuterClass.CodexDataFullNotify(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.CodexDataFullNotifyOuterClass.CodexDataFullNotify result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           recentViewedPushtipsList_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.recentViewedPushtipsList_ = recentViewedPushtipsList_;
+        result.lastReadPushtipsCodexId_ = lastReadPushtipsCodexId_;
+        result.lastReadPushtipsTypeId_ = lastReadPushtipsTypeId_;
         if (typeDataListBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             typeDataList_ = java.util.Collections.unmodifiableList(typeDataList_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.typeDataList_ = typeDataList_;
         } else {
           result.typeDataList_ = typeDataListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.CodexDataFullNotifyOuterClass.CodexDataFullNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.lastReadPushtipsCodexId_ = lastReadPushtipsCodexId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.lastReadPushtipsTypeId_ = lastReadPushtipsTypeId_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -710,7 +787,7 @@ public final class CodexDataFullNotifyOuterClass {
           if (!other.typeDataList_.isEmpty()) {
             if (typeDataList_.isEmpty()) {
               typeDataList_ = other.typeDataList_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureTypeDataListIsMutable();
               typeDataList_.addAll(other.typeDataList_);
@@ -723,7 +800,7 @@ public final class CodexDataFullNotifyOuterClass {
               typeDataListBuilder_.dispose();
               typeDataListBuilder_ = null;
               typeDataList_ = other.typeDataList_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000002);
               typeDataListBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTypeDataListFieldBuilder() : null;
@@ -732,7 +809,7 @@ public final class CodexDataFullNotifyOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -747,69 +824,17 @@ public final class CodexDataFullNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.CodexDataFullNotifyOuterClass.CodexDataFullNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                int v = input.readUInt32();
-                ensureRecentViewedPushtipsListIsMutable();
-                recentViewedPushtipsList_.addInt(v);
-                break;
-              } // case 8
-              case 10: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureRecentViewedPushtipsListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  recentViewedPushtipsList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 10
-              case 66: {
-                emu.grasscutter.net.proto.CodexTypeDataOuterClass.CodexTypeData m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.CodexTypeDataOuterClass.CodexTypeData.parser(),
-                        extensionRegistry);
-                if (typeDataListBuilder_ == null) {
-                  ensureTypeDataListIsMutable();
-                  typeDataList_.add(m);
-                } else {
-                  typeDataListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 66
-              case 80: {
-                lastReadPushtipsTypeId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 80
-              case 88: {
-                lastReadPushtipsCodexId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 88
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.CodexDataFullNotifyOuterClass.CodexDataFullNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -819,7 +844,7 @@ public final class CodexDataFullNotifyOuterClass {
         if (!((bitField0_ & 0x00000001) != 0)) {
           recentViewedPushtipsList_ = mutableCopy(recentViewedPushtipsList_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
        * <code>repeated uint32 recentViewedPushtipsList = 1;</code>
@@ -853,7 +878,6 @@ public final class CodexDataFullNotifyOuterClass {
        */
       public Builder setRecentViewedPushtipsList(
           int index, int value) {
-        
         ensureRecentViewedPushtipsListIsMutable();
         recentViewedPushtipsList_.setInt(index, value);
         onChanged();
@@ -865,7 +889,6 @@ public final class CodexDataFullNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder addRecentViewedPushtipsList(int value) {
-        
         ensureRecentViewedPushtipsListIsMutable();
         recentViewedPushtipsList_.addInt(value);
         onChanged();
@@ -912,7 +935,6 @@ public final class CodexDataFullNotifyOuterClass {
       public Builder setLastReadPushtipsCodexId(int value) {
         
         lastReadPushtipsCodexId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -921,7 +943,7 @@ public final class CodexDataFullNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearLastReadPushtipsCodexId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         lastReadPushtipsCodexId_ = 0;
         onChanged();
         return this;
@@ -944,7 +966,6 @@ public final class CodexDataFullNotifyOuterClass {
       public Builder setLastReadPushtipsTypeId(int value) {
         
         lastReadPushtipsTypeId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -953,7 +974,7 @@ public final class CodexDataFullNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearLastReadPushtipsTypeId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         lastReadPushtipsTypeId_ = 0;
         onChanged();
         return this;
@@ -962,9 +983,9 @@ public final class CodexDataFullNotifyOuterClass {
       private java.util.List<emu.grasscutter.net.proto.CodexTypeDataOuterClass.CodexTypeData> typeDataList_ =
         java.util.Collections.emptyList();
       private void ensureTypeDataListIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           typeDataList_ = new java.util.ArrayList<emu.grasscutter.net.proto.CodexTypeDataOuterClass.CodexTypeData>(typeDataList_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1114,7 +1135,7 @@ public final class CodexDataFullNotifyOuterClass {
       public Builder clearTypeDataList() {
         if (typeDataListBuilder_ == null) {
           typeDataList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           typeDataListBuilder_.clear();
@@ -1191,7 +1212,7 @@ public final class CodexDataFullNotifyOuterClass {
           typeDataListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               emu.grasscutter.net.proto.CodexTypeDataOuterClass.CodexTypeData, emu.grasscutter.net.proto.CodexTypeDataOuterClass.CodexTypeData.Builder, emu.grasscutter.net.proto.CodexTypeDataOuterClass.CodexTypeDataOrBuilder>(
                   typeDataList_,
-                  ((bitField0_ & 0x00000008) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           typeDataList_ = null;
@@ -1231,18 +1252,7 @@ public final class CodexDataFullNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new CodexDataFullNotify(input, extensionRegistry);
       }
     };
 

@@ -81,6 +81,79 @@ public final class SceneEntityDisappearNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private SceneEntityDisappearNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 56: {
+              int rawValue = input.readEnum();
+
+              disappearType_ = rawValue;
+              break;
+            }
+            case 80: {
+
+              param_ = input.readUInt32();
+              break;
+            }
+            case 104: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                entityList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              entityList_.addInt(input.readUInt32());
+              break;
+            }
+            case 106: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                entityList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                entityList_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          entityList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.SceneEntityDisappearNotifyOuterClass.internal_static_SceneEntityDisappearNotify_descriptor;
@@ -226,7 +299,6 @@ public final class SceneEntityDisappearNotifyOuterClass {
     }
 
     public static final int ENTITYLIST_FIELD_NUMBER = 13;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList entityList_;
     /**
      * <code>repeated uint32 entityList = 13;</code>
@@ -255,7 +327,7 @@ public final class SceneEntityDisappearNotifyOuterClass {
     private int entityListMemoizedSerializedSize = -1;
 
     public static final int PARAM_FIELD_NUMBER = 10;
-    private int param_ = 0;
+    private int param_;
     /**
      * <code>uint32 param = 10;</code>
      * @return The param.
@@ -266,7 +338,7 @@ public final class SceneEntityDisappearNotifyOuterClass {
     }
 
     public static final int DISAPPEARTYPE_FIELD_NUMBER = 7;
-    private int disappearType_ = 0;
+    private int disappearType_;
     /**
      * <code>.VisionType disappearType = 7;</code>
      * @return The enum numeric value on the wire for disappearType.
@@ -279,7 +351,8 @@ public final class SceneEntityDisappearNotifyOuterClass {
      * @return The disappearType.
      */
     @java.lang.Override public emu.grasscutter.net.proto.VisionTypeOuterClass.VisionType getDisappearType() {
-      emu.grasscutter.net.proto.VisionTypeOuterClass.VisionType result = emu.grasscutter.net.proto.VisionTypeOuterClass.VisionType.forNumber(disappearType_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.VisionTypeOuterClass.VisionType result = emu.grasscutter.net.proto.VisionTypeOuterClass.VisionType.valueOf(disappearType_);
       return result == null ? emu.grasscutter.net.proto.VisionTypeOuterClass.VisionType.UNRECOGNIZED : result;
     }
 
@@ -311,7 +384,7 @@ public final class SceneEntityDisappearNotifyOuterClass {
       for (int i = 0; i < entityList_.size(); i++) {
         output.writeUInt32NoTag(entityList_.getInt(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -342,7 +415,7 @@ public final class SceneEntityDisappearNotifyOuterClass {
         }
         entityListMemoizedSerializedSize = dataSize;
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -362,7 +435,7 @@ public final class SceneEntityDisappearNotifyOuterClass {
       if (getParam()
           != other.getParam()) return false;
       if (disappearType_ != other.disappearType_) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -381,7 +454,7 @@ public final class SceneEntityDisappearNotifyOuterClass {
       hash = (53 * hash) + getParam();
       hash = (37 * hash) + DISAPPEARTYPE_FIELD_NUMBER;
       hash = (53 * hash) + disappearType_;
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -498,21 +571,28 @@ public final class SceneEntityDisappearNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.SceneEntityDisappearNotifyOuterClass.SceneEntityDisappearNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         entityList_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         param_ = 0;
+
         disappearType_ = 0;
+
         return this;
       }
 
@@ -539,28 +619,16 @@ public final class SceneEntityDisappearNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.SceneEntityDisappearNotifyOuterClass.SceneEntityDisappearNotify buildPartial() {
         emu.grasscutter.net.proto.SceneEntityDisappearNotifyOuterClass.SceneEntityDisappearNotify result = new emu.grasscutter.net.proto.SceneEntityDisappearNotifyOuterClass.SceneEntityDisappearNotify(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.SceneEntityDisappearNotifyOuterClass.SceneEntityDisappearNotify result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           entityList_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.entityList_ = entityList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.SceneEntityDisappearNotifyOuterClass.SceneEntityDisappearNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.param_ = param_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.disappearType_ = disappearType_;
-        }
+        result.param_ = param_;
+        result.disappearType_ = disappearType_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -623,7 +691,7 @@ public final class SceneEntityDisappearNotifyOuterClass {
         if (other.disappearType_ != 0) {
           setDisappearTypeValue(other.getDisappearTypeValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -638,56 +706,17 @@ public final class SceneEntityDisappearNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.SceneEntityDisappearNotifyOuterClass.SceneEntityDisappearNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 56: {
-                disappearType_ = input.readEnum();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 56
-              case 80: {
-                param_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 80
-              case 104: {
-                int v = input.readUInt32();
-                ensureEntityListIsMutable();
-                entityList_.addInt(v);
-                break;
-              } // case 104
-              case 106: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureEntityListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  entityList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 106
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.SceneEntityDisappearNotifyOuterClass.SceneEntityDisappearNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -697,7 +726,7 @@ public final class SceneEntityDisappearNotifyOuterClass {
         if (!((bitField0_ & 0x00000001) != 0)) {
           entityList_ = mutableCopy(entityList_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
        * <code>repeated uint32 entityList = 13;</code>
@@ -731,7 +760,6 @@ public final class SceneEntityDisappearNotifyOuterClass {
        */
       public Builder setEntityList(
           int index, int value) {
-        
         ensureEntityListIsMutable();
         entityList_.setInt(index, value);
         onChanged();
@@ -743,7 +771,6 @@ public final class SceneEntityDisappearNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder addEntityList(int value) {
-        
         ensureEntityListIsMutable();
         entityList_.addInt(value);
         onChanged();
@@ -790,7 +817,6 @@ public final class SceneEntityDisappearNotifyOuterClass {
       public Builder setParam(int value) {
         
         param_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -799,7 +825,7 @@ public final class SceneEntityDisappearNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearParam() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         param_ = 0;
         onChanged();
         return this;
@@ -819,8 +845,8 @@ public final class SceneEntityDisappearNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder setDisappearTypeValue(int value) {
+        
         disappearType_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -830,7 +856,8 @@ public final class SceneEntityDisappearNotifyOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.VisionTypeOuterClass.VisionType getDisappearType() {
-        emu.grasscutter.net.proto.VisionTypeOuterClass.VisionType result = emu.grasscutter.net.proto.VisionTypeOuterClass.VisionType.forNumber(disappearType_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.VisionTypeOuterClass.VisionType result = emu.grasscutter.net.proto.VisionTypeOuterClass.VisionType.valueOf(disappearType_);
         return result == null ? emu.grasscutter.net.proto.VisionTypeOuterClass.VisionType.UNRECOGNIZED : result;
       }
       /**
@@ -842,7 +869,7 @@ public final class SceneEntityDisappearNotifyOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000004;
+        
         disappearType_ = value.getNumber();
         onChanged();
         return this;
@@ -852,7 +879,7 @@ public final class SceneEntityDisappearNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDisappearType() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         disappearType_ = 0;
         onChanged();
         return this;
@@ -890,18 +917,7 @@ public final class SceneEntityDisappearNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new SceneEntityDisappearNotify(input, extensionRegistry);
       }
     };
 

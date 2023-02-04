@@ -63,6 +63,58 @@ public final class QuestDestroyEntityReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QuestDestroyEntityReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 80: {
+
+              entityId_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+
+              questId_ = input.readUInt32();
+              break;
+            }
+            case 104: {
+
+              sceneId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.QuestDestroyEntityReqOuterClass.internal_static_QuestDestroyEntityReq_descriptor;
@@ -216,7 +268,7 @@ public final class QuestDestroyEntityReqOuterClass {
     }
 
     public static final int ENTITYID_FIELD_NUMBER = 10;
-    private int entityId_ = 0;
+    private int entityId_;
     /**
      * <code>uint32 entityId = 10;</code>
      * @return The entityId.
@@ -227,7 +279,7 @@ public final class QuestDestroyEntityReqOuterClass {
     }
 
     public static final int QUESTID_FIELD_NUMBER = 12;
-    private int questId_ = 0;
+    private int questId_;
     /**
      * <code>uint32 questId = 12;</code>
      * @return The questId.
@@ -238,7 +290,7 @@ public final class QuestDestroyEntityReqOuterClass {
     }
 
     public static final int SCENEID_FIELD_NUMBER = 13;
-    private int sceneId_ = 0;
+    private int sceneId_;
     /**
      * <code>uint32 sceneId = 13;</code>
      * @return The sceneId.
@@ -271,7 +323,7 @@ public final class QuestDestroyEntityReqOuterClass {
       if (sceneId_ != 0) {
         output.writeUInt32(13, sceneId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -292,7 +344,7 @@ public final class QuestDestroyEntityReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(13, sceneId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -313,7 +365,7 @@ public final class QuestDestroyEntityReqOuterClass {
           != other.getQuestId()) return false;
       if (getSceneId()
           != other.getSceneId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -330,7 +382,7 @@ public final class QuestDestroyEntityReqOuterClass {
       hash = (53 * hash) + getQuestId();
       hash = (37 * hash) + SCENEID_FIELD_NUMBER;
       hash = (53 * hash) + getSceneId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -447,21 +499,28 @@ public final class QuestDestroyEntityReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.QuestDestroyEntityReqOuterClass.QuestDestroyEntityReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         entityId_ = 0;
+
         questId_ = 0;
+
         sceneId_ = 0;
+
         return this;
       }
 
@@ -488,22 +547,11 @@ public final class QuestDestroyEntityReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.QuestDestroyEntityReqOuterClass.QuestDestroyEntityReq buildPartial() {
         emu.grasscutter.net.proto.QuestDestroyEntityReqOuterClass.QuestDestroyEntityReq result = new emu.grasscutter.net.proto.QuestDestroyEntityReqOuterClass.QuestDestroyEntityReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.entityId_ = entityId_;
+        result.questId_ = questId_;
+        result.sceneId_ = sceneId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.QuestDestroyEntityReqOuterClass.QuestDestroyEntityReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.entityId_ = entityId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.questId_ = questId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.sceneId_ = sceneId_;
-        }
       }
 
       @java.lang.Override
@@ -559,7 +607,7 @@ public final class QuestDestroyEntityReqOuterClass {
         if (other.getSceneId() != 0) {
           setSceneId(other.getSceneId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -574,48 +622,19 @@ public final class QuestDestroyEntityReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.QuestDestroyEntityReqOuterClass.QuestDestroyEntityReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 80: {
-                entityId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 80
-              case 96: {
-                questId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 96
-              case 104: {
-                sceneId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 104
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.QuestDestroyEntityReqOuterClass.QuestDestroyEntityReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int entityId_ ;
       /**
@@ -634,7 +653,6 @@ public final class QuestDestroyEntityReqOuterClass {
       public Builder setEntityId(int value) {
         
         entityId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -643,7 +661,7 @@ public final class QuestDestroyEntityReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEntityId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         entityId_ = 0;
         onChanged();
         return this;
@@ -666,7 +684,6 @@ public final class QuestDestroyEntityReqOuterClass {
       public Builder setQuestId(int value) {
         
         questId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -675,7 +692,7 @@ public final class QuestDestroyEntityReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearQuestId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         questId_ = 0;
         onChanged();
         return this;
@@ -698,7 +715,6 @@ public final class QuestDestroyEntityReqOuterClass {
       public Builder setSceneId(int value) {
         
         sceneId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -707,7 +723,7 @@ public final class QuestDestroyEntityReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearSceneId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         sceneId_ = 0;
         onChanged();
         return this;
@@ -745,18 +761,7 @@ public final class QuestDestroyEntityReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QuestDestroyEntityReq(input, extensionRegistry);
       }
     };
 

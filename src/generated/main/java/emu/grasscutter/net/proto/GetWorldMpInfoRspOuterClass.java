@@ -63,6 +63,58 @@ public final class GetWorldMpInfoRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GetWorldMpInfoRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 88: {
+
+              isInMpMode_ = input.readBool();
+              break;
+            }
+            case 96: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 120: {
+
+              quitMpValidTime_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.GetWorldMpInfoRspOuterClass.internal_static_GetWorldMpInfoRsp_descriptor;
@@ -208,7 +260,7 @@ public final class GetWorldMpInfoRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 12;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 12;</code>
      * @return The retcode.
@@ -219,7 +271,7 @@ public final class GetWorldMpInfoRspOuterClass {
     }
 
     public static final int ISINMPMODE_FIELD_NUMBER = 11;
-    private boolean isInMpMode_ = false;
+    private boolean isInMpMode_;
     /**
      * <code>bool isInMpMode = 11;</code>
      * @return The isInMpMode.
@@ -230,7 +282,7 @@ public final class GetWorldMpInfoRspOuterClass {
     }
 
     public static final int QUITMPVALIDTIME_FIELD_NUMBER = 15;
-    private int quitMpValidTime_ = 0;
+    private int quitMpValidTime_;
     /**
      * <code>uint32 quitMpValidTime = 15;</code>
      * @return The quitMpValidTime.
@@ -263,7 +315,7 @@ public final class GetWorldMpInfoRspOuterClass {
       if (quitMpValidTime_ != 0) {
         output.writeUInt32(15, quitMpValidTime_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -284,7 +336,7 @@ public final class GetWorldMpInfoRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(15, quitMpValidTime_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -305,7 +357,7 @@ public final class GetWorldMpInfoRspOuterClass {
           != other.getIsInMpMode()) return false;
       if (getQuitMpValidTime()
           != other.getQuitMpValidTime()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -323,7 +375,7 @@ public final class GetWorldMpInfoRspOuterClass {
           getIsInMpMode());
       hash = (37 * hash) + QUITMPVALIDTIME_FIELD_NUMBER;
       hash = (53 * hash) + getQuitMpValidTime();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -440,21 +492,28 @@ public final class GetWorldMpInfoRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.GetWorldMpInfoRspOuterClass.GetWorldMpInfoRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         retcode_ = 0;
+
         isInMpMode_ = false;
+
         quitMpValidTime_ = 0;
+
         return this;
       }
 
@@ -481,22 +540,11 @@ public final class GetWorldMpInfoRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.GetWorldMpInfoRspOuterClass.GetWorldMpInfoRsp buildPartial() {
         emu.grasscutter.net.proto.GetWorldMpInfoRspOuterClass.GetWorldMpInfoRsp result = new emu.grasscutter.net.proto.GetWorldMpInfoRspOuterClass.GetWorldMpInfoRsp(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.retcode_ = retcode_;
+        result.isInMpMode_ = isInMpMode_;
+        result.quitMpValidTime_ = quitMpValidTime_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.GetWorldMpInfoRspOuterClass.GetWorldMpInfoRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.retcode_ = retcode_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.isInMpMode_ = isInMpMode_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.quitMpValidTime_ = quitMpValidTime_;
-        }
       }
 
       @java.lang.Override
@@ -552,7 +600,7 @@ public final class GetWorldMpInfoRspOuterClass {
         if (other.getQuitMpValidTime() != 0) {
           setQuitMpValidTime(other.getQuitMpValidTime());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -567,48 +615,19 @@ public final class GetWorldMpInfoRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.GetWorldMpInfoRspOuterClass.GetWorldMpInfoRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 88: {
-                isInMpMode_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 88
-              case 96: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 96
-              case 120: {
-                quitMpValidTime_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.GetWorldMpInfoRspOuterClass.GetWorldMpInfoRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int retcode_ ;
       /**
@@ -627,7 +646,6 @@ public final class GetWorldMpInfoRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -636,7 +654,7 @@ public final class GetWorldMpInfoRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -659,7 +677,6 @@ public final class GetWorldMpInfoRspOuterClass {
       public Builder setIsInMpMode(boolean value) {
         
         isInMpMode_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -668,7 +685,7 @@ public final class GetWorldMpInfoRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsInMpMode() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         isInMpMode_ = false;
         onChanged();
         return this;
@@ -691,7 +708,6 @@ public final class GetWorldMpInfoRspOuterClass {
       public Builder setQuitMpValidTime(int value) {
         
         quitMpValidTime_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -700,7 +716,7 @@ public final class GetWorldMpInfoRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearQuitMpValidTime() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         quitMpValidTime_ = 0;
         onChanged();
         return this;
@@ -738,18 +754,7 @@ public final class GetWorldMpInfoRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GetWorldMpInfoRsp(input, extensionRegistry);
       }
     };
 

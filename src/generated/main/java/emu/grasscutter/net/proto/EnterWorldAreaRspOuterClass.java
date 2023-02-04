@@ -63,6 +63,58 @@ public final class EnterWorldAreaRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private EnterWorldAreaRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+
+              areaType_ = input.readUInt32();
+              break;
+            }
+            case 48: {
+
+              areaId_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.EnterWorldAreaRspOuterClass.internal_static_EnterWorldAreaRsp_descriptor;
@@ -208,7 +260,7 @@ public final class EnterWorldAreaRspOuterClass {
     }
 
     public static final int AREATYPE_FIELD_NUMBER = 3;
-    private int areaType_ = 0;
+    private int areaType_;
     /**
      * <code>uint32 areaType = 3;</code>
      * @return The areaType.
@@ -219,7 +271,7 @@ public final class EnterWorldAreaRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 12;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 12;</code>
      * @return The retcode.
@@ -230,7 +282,7 @@ public final class EnterWorldAreaRspOuterClass {
     }
 
     public static final int AREAID_FIELD_NUMBER = 6;
-    private int areaId_ = 0;
+    private int areaId_;
     /**
      * <code>uint32 areaId = 6;</code>
      * @return The areaId.
@@ -263,7 +315,7 @@ public final class EnterWorldAreaRspOuterClass {
       if (retcode_ != 0) {
         output.writeInt32(12, retcode_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -284,7 +336,7 @@ public final class EnterWorldAreaRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(12, retcode_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -305,7 +357,7 @@ public final class EnterWorldAreaRspOuterClass {
           != other.getRetcode()) return false;
       if (getAreaId()
           != other.getAreaId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -322,7 +374,7 @@ public final class EnterWorldAreaRspOuterClass {
       hash = (53 * hash) + getRetcode();
       hash = (37 * hash) + AREAID_FIELD_NUMBER;
       hash = (53 * hash) + getAreaId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -439,21 +491,28 @@ public final class EnterWorldAreaRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.EnterWorldAreaRspOuterClass.EnterWorldAreaRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         areaType_ = 0;
+
         retcode_ = 0;
+
         areaId_ = 0;
+
         return this;
       }
 
@@ -480,22 +539,11 @@ public final class EnterWorldAreaRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.EnterWorldAreaRspOuterClass.EnterWorldAreaRsp buildPartial() {
         emu.grasscutter.net.proto.EnterWorldAreaRspOuterClass.EnterWorldAreaRsp result = new emu.grasscutter.net.proto.EnterWorldAreaRspOuterClass.EnterWorldAreaRsp(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.areaType_ = areaType_;
+        result.retcode_ = retcode_;
+        result.areaId_ = areaId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.EnterWorldAreaRspOuterClass.EnterWorldAreaRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.areaType_ = areaType_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.retcode_ = retcode_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.areaId_ = areaId_;
-        }
       }
 
       @java.lang.Override
@@ -551,7 +599,7 @@ public final class EnterWorldAreaRspOuterClass {
         if (other.getAreaId() != 0) {
           setAreaId(other.getAreaId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -566,48 +614,19 @@ public final class EnterWorldAreaRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.EnterWorldAreaRspOuterClass.EnterWorldAreaRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 24: {
-                areaType_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 24
-              case 48: {
-                areaId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 48
-              case 96: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 96
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.EnterWorldAreaRspOuterClass.EnterWorldAreaRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int areaType_ ;
       /**
@@ -626,7 +645,6 @@ public final class EnterWorldAreaRspOuterClass {
       public Builder setAreaType(int value) {
         
         areaType_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -635,7 +653,7 @@ public final class EnterWorldAreaRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAreaType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         areaType_ = 0;
         onChanged();
         return this;
@@ -658,7 +676,6 @@ public final class EnterWorldAreaRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -667,7 +684,7 @@ public final class EnterWorldAreaRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -690,7 +707,6 @@ public final class EnterWorldAreaRspOuterClass {
       public Builder setAreaId(int value) {
         
         areaId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -699,7 +715,7 @@ public final class EnterWorldAreaRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAreaId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         areaId_ = 0;
         onChanged();
         return this;
@@ -737,18 +753,7 @@ public final class EnterWorldAreaRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new EnterWorldAreaRsp(input, extensionRegistry);
       }
     };
 

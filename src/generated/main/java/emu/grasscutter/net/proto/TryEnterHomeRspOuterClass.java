@@ -75,6 +75,78 @@ public final class TryEnterHomeRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private TryEnterHomeRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 80: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                paramList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              paramList_.addInt(input.readUInt32());
+              break;
+            }
+            case 82: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                paramList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                paramList_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 96: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 120: {
+
+              targetUid_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          paramList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.TryEnterHomeRspOuterClass.internal_static_TryEnterHomeRsp_descriptor;
@@ -220,7 +292,7 @@ public final class TryEnterHomeRspOuterClass {
     }
 
     public static final int TARGETUID_FIELD_NUMBER = 15;
-    private int targetUid_ = 0;
+    private int targetUid_;
     /**
      * <code>uint32 targetUid = 15;</code>
      * @return The targetUid.
@@ -231,7 +303,6 @@ public final class TryEnterHomeRspOuterClass {
     }
 
     public static final int PARAMLIST_FIELD_NUMBER = 10;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList paramList_;
     /**
      * <code>repeated uint32 paramList = 10;</code>
@@ -260,7 +331,7 @@ public final class TryEnterHomeRspOuterClass {
     private int paramListMemoizedSerializedSize = -1;
 
     public static final int RETCODE_FIELD_NUMBER = 12;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 12;</code>
      * @return The retcode.
@@ -298,7 +369,7 @@ public final class TryEnterHomeRspOuterClass {
       if (targetUid_ != 0) {
         output.writeUInt32(15, targetUid_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -329,7 +400,7 @@ public final class TryEnterHomeRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(15, targetUid_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -350,7 +421,7 @@ public final class TryEnterHomeRspOuterClass {
           .equals(other.getParamListList())) return false;
       if (getRetcode()
           != other.getRetcode()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -369,7 +440,7 @@ public final class TryEnterHomeRspOuterClass {
       }
       hash = (37 * hash) + RETCODE_FIELD_NUMBER;
       hash = (53 * hash) + getRetcode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -486,21 +557,28 @@ public final class TryEnterHomeRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.TryEnterHomeRspOuterClass.TryEnterHomeRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         targetUid_ = 0;
+
         paramList_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         retcode_ = 0;
+
         return this;
       }
 
@@ -527,28 +605,16 @@ public final class TryEnterHomeRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.TryEnterHomeRspOuterClass.TryEnterHomeRsp buildPartial() {
         emu.grasscutter.net.proto.TryEnterHomeRspOuterClass.TryEnterHomeRsp result = new emu.grasscutter.net.proto.TryEnterHomeRspOuterClass.TryEnterHomeRsp(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.TryEnterHomeRspOuterClass.TryEnterHomeRsp result) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.targetUid_ = targetUid_;
+        if (((bitField0_ & 0x00000001) != 0)) {
           paramList_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.paramList_ = paramList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.TryEnterHomeRspOuterClass.TryEnterHomeRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.targetUid_ = targetUid_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.retcode_ = retcode_;
-        }
+        result.retcode_ = retcode_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -601,7 +667,7 @@ public final class TryEnterHomeRspOuterClass {
         if (!other.paramList_.isEmpty()) {
           if (paramList_.isEmpty()) {
             paramList_ = other.paramList_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureParamListIsMutable();
             paramList_.addAll(other.paramList_);
@@ -611,7 +677,7 @@ public final class TryEnterHomeRspOuterClass {
         if (other.getRetcode() != 0) {
           setRetcode(other.getRetcode());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -626,56 +692,17 @@ public final class TryEnterHomeRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.TryEnterHomeRspOuterClass.TryEnterHomeRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 80: {
-                int v = input.readUInt32();
-                ensureParamListIsMutable();
-                paramList_.addInt(v);
-                break;
-              } // case 80
-              case 82: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureParamListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  paramList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 82
-              case 96: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 96
-              case 120: {
-                targetUid_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.TryEnterHomeRspOuterClass.TryEnterHomeRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -697,7 +724,6 @@ public final class TryEnterHomeRspOuterClass {
       public Builder setTargetUid(int value) {
         
         targetUid_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -706,7 +732,7 @@ public final class TryEnterHomeRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTargetUid() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         targetUid_ = 0;
         onChanged();
         return this;
@@ -714,10 +740,10 @@ public final class TryEnterHomeRspOuterClass {
 
       private com.google.protobuf.Internal.IntList paramList_ = emptyIntList();
       private void ensureParamListIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           paramList_ = mutableCopy(paramList_);
-          bitField0_ |= 0x00000002;
-        }
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
        * <code>repeated uint32 paramList = 10;</code>
@@ -725,7 +751,7 @@ public final class TryEnterHomeRspOuterClass {
        */
       public java.util.List<java.lang.Integer>
           getParamListList() {
-        return ((bitField0_ & 0x00000002) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(paramList_) : paramList_;
       }
       /**
@@ -751,7 +777,6 @@ public final class TryEnterHomeRspOuterClass {
        */
       public Builder setParamList(
           int index, int value) {
-        
         ensureParamListIsMutable();
         paramList_.setInt(index, value);
         onChanged();
@@ -763,7 +788,6 @@ public final class TryEnterHomeRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder addParamList(int value) {
-        
         ensureParamListIsMutable();
         paramList_.addInt(value);
         onChanged();
@@ -788,7 +812,7 @@ public final class TryEnterHomeRspOuterClass {
        */
       public Builder clearParamList() {
         paramList_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -810,7 +834,6 @@ public final class TryEnterHomeRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -819,7 +842,7 @@ public final class TryEnterHomeRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -857,18 +880,7 @@ public final class TryEnterHomeRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TryEnterHomeRsp(input, extensionRegistry);
       }
     };
 

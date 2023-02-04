@@ -41,12 +41,14 @@ public final class AvatarFightPropNotifyOuterClass {
     /**
      * <code>map&lt;uint32, float&gt; fightPropMap = 13;</code>
      */
+
     float getFightPropMapOrDefault(
         int key,
         float defaultValue);
     /**
      * <code>map&lt;uint32, float&gt; fightPropMap = 13;</code>
      */
+
     float getFightPropMapOrThrow(
         int key);
 
@@ -82,6 +84,62 @@ public final class AvatarFightPropNotifyOuterClass {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private AvatarFightPropNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 96: {
+
+              avatarGuid_ = input.readUInt64();
+              break;
+            }
+            case 106: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                fightPropMap_ = com.google.protobuf.MapField.newMapField(
+                    FightPropMapDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Float>
+              fightPropMap__ = input.readMessage(
+                  FightPropMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              fightPropMap_.getMutableMap().put(
+                  fightPropMap__.getKey(), fightPropMap__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -251,7 +309,6 @@ public final class AvatarFightPropNotifyOuterClass {
                   com.google.protobuf.WireFormat.FieldType.FLOAT,
                   0F);
     }
-    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Float> fightPropMap_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
@@ -262,12 +319,14 @@ public final class AvatarFightPropNotifyOuterClass {
       }
       return fightPropMap_;
     }
+
     public int getFightPropMapCount() {
       return internalGetFightPropMap().getMap().size();
     }
     /**
      * <code>map&lt;uint32, float&gt; fightPropMap = 13;</code>
      */
+
     @java.lang.Override
     public boolean containsFightPropMap(
         int key) {
@@ -286,6 +345,7 @@ public final class AvatarFightPropNotifyOuterClass {
      * <code>map&lt;uint32, float&gt; fightPropMap = 13;</code>
      */
     @java.lang.Override
+
     public java.util.Map<java.lang.Integer, java.lang.Float> getFightPropMapMap() {
       return internalGetFightPropMap().getMap();
     }
@@ -293,6 +353,7 @@ public final class AvatarFightPropNotifyOuterClass {
      * <code>map&lt;uint32, float&gt; fightPropMap = 13;</code>
      */
     @java.lang.Override
+
     public float getFightPropMapOrDefault(
         int key,
         float defaultValue) {
@@ -305,6 +366,7 @@ public final class AvatarFightPropNotifyOuterClass {
      * <code>map&lt;uint32, float&gt; fightPropMap = 13;</code>
      */
     @java.lang.Override
+
     public float getFightPropMapOrThrow(
         int key) {
       
@@ -317,7 +379,7 @@ public final class AvatarFightPropNotifyOuterClass {
     }
 
     public static final int AVATARGUID_FIELD_NUMBER = 12;
-    private long avatarGuid_ = 0L;
+    private long avatarGuid_;
     /**
      * <code>uint64 avatarGuid = 12;</code>
      * @return The avatarGuid.
@@ -350,7 +412,7 @@ public final class AvatarFightPropNotifyOuterClass {
           internalGetFightPropMap(),
           FightPropMapDefaultEntryHolder.defaultEntry,
           13);
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -373,7 +435,7 @@ public final class AvatarFightPropNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(13, fightPropMap__);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -392,7 +454,7 @@ public final class AvatarFightPropNotifyOuterClass {
           other.internalGetFightPropMap())) return false;
       if (getAvatarGuid()
           != other.getAvatarGuid()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -410,7 +472,7 @@ public final class AvatarFightPropNotifyOuterClass {
       hash = (37 * hash) + AVATARGUID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getAvatarGuid());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -549,20 +611,25 @@ public final class AvatarFightPropNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.AvatarFightPropNotifyOuterClass.AvatarFightPropNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         internalGetMutableFightPropMap().clear();
         avatarGuid_ = 0L;
+
         return this;
       }
 
@@ -589,20 +656,12 @@ public final class AvatarFightPropNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.AvatarFightPropNotifyOuterClass.AvatarFightPropNotify buildPartial() {
         emu.grasscutter.net.proto.AvatarFightPropNotifyOuterClass.AvatarFightPropNotify result = new emu.grasscutter.net.proto.AvatarFightPropNotifyOuterClass.AvatarFightPropNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        int from_bitField0_ = bitField0_;
+        result.fightPropMap_ = internalGetFightPropMap();
+        result.fightPropMap_.makeImmutable();
+        result.avatarGuid_ = avatarGuid_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.AvatarFightPropNotifyOuterClass.AvatarFightPropNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.fightPropMap_ = internalGetFightPropMap();
-          result.fightPropMap_.makeImmutable();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.avatarGuid_ = avatarGuid_;
-        }
       }
 
       @java.lang.Override
@@ -651,11 +710,10 @@ public final class AvatarFightPropNotifyOuterClass {
         if (other == emu.grasscutter.net.proto.AvatarFightPropNotifyOuterClass.AvatarFightPropNotify.getDefaultInstance()) return this;
         internalGetMutableFightPropMap().mergeFrom(
             other.internalGetFightPropMap());
-        bitField0_ |= 0x00000001;
         if (other.getAvatarGuid() != 0L) {
           setAvatarGuid(other.getAvatarGuid());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -670,44 +728,17 @@ public final class AvatarFightPropNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.AvatarFightPropNotifyOuterClass.AvatarFightPropNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 96: {
-                avatarGuid_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 96
-              case 106: {
-                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Float>
-                fightPropMap__ = input.readMessage(
-                    FightPropMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                internalGetMutableFightPropMap().getMutableMap().put(
-                    fightPropMap__.getKey(), fightPropMap__.getValue());
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 106
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.AvatarFightPropNotifyOuterClass.AvatarFightPropNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -715,7 +746,7 @@ public final class AvatarFightPropNotifyOuterClass {
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Float> fightPropMap_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
-          internalGetFightPropMap() {
+      internalGetFightPropMap() {
         if (fightPropMap_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               FightPropMapDefaultEntryHolder.defaultEntry);
@@ -723,7 +754,8 @@ public final class AvatarFightPropNotifyOuterClass {
         return fightPropMap_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
-          internalGetMutableFightPropMap() {
+      internalGetMutableFightPropMap() {
+        onChanged();;
         if (fightPropMap_ == null) {
           fightPropMap_ = com.google.protobuf.MapField.newMapField(
               FightPropMapDefaultEntryHolder.defaultEntry);
@@ -731,16 +763,16 @@ public final class AvatarFightPropNotifyOuterClass {
         if (!fightPropMap_.isMutable()) {
           fightPropMap_ = fightPropMap_.copy();
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
         return fightPropMap_;
       }
+
       public int getFightPropMapCount() {
         return internalGetFightPropMap().getMap().size();
       }
       /**
        * <code>map&lt;uint32, float&gt; fightPropMap = 13;</code>
        */
+
       @java.lang.Override
       public boolean containsFightPropMap(
           int key) {
@@ -759,6 +791,7 @@ public final class AvatarFightPropNotifyOuterClass {
        * <code>map&lt;uint32, float&gt; fightPropMap = 13;</code>
        */
       @java.lang.Override
+
       public java.util.Map<java.lang.Integer, java.lang.Float> getFightPropMapMap() {
         return internalGetFightPropMap().getMap();
       }
@@ -766,6 +799,7 @@ public final class AvatarFightPropNotifyOuterClass {
        * <code>map&lt;uint32, float&gt; fightPropMap = 13;</code>
        */
       @java.lang.Override
+
       public float getFightPropMapOrDefault(
           int key,
           float defaultValue) {
@@ -778,6 +812,7 @@ public final class AvatarFightPropNotifyOuterClass {
        * <code>map&lt;uint32, float&gt; fightPropMap = 13;</code>
        */
       @java.lang.Override
+
       public float getFightPropMapOrThrow(
           int key) {
         
@@ -788,8 +823,8 @@ public final class AvatarFightPropNotifyOuterClass {
         }
         return map.get(key);
       }
+
       public Builder clearFightPropMap() {
-        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableFightPropMap().getMutableMap()
             .clear();
         return this;
@@ -797,6 +832,7 @@ public final class AvatarFightPropNotifyOuterClass {
       /**
        * <code>map&lt;uint32, float&gt; fightPropMap = 13;</code>
        */
+
       public Builder removeFightPropMap(
           int key) {
         
@@ -809,8 +845,7 @@ public final class AvatarFightPropNotifyOuterClass {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Float>
-          getMutableFightPropMap() {
-        bitField0_ |= 0x00000001;
+      getMutableFightPropMap() {
         return internalGetMutableFightPropMap().getMutableMap();
       }
       /**
@@ -823,17 +858,16 @@ public final class AvatarFightPropNotifyOuterClass {
         
         internalGetMutableFightPropMap().getMutableMap()
             .put(key, value);
-        bitField0_ |= 0x00000001;
         return this;
       }
       /**
        * <code>map&lt;uint32, float&gt; fightPropMap = 13;</code>
        */
+
       public Builder putAllFightPropMap(
           java.util.Map<java.lang.Integer, java.lang.Float> values) {
         internalGetMutableFightPropMap().getMutableMap()
             .putAll(values);
-        bitField0_ |= 0x00000001;
         return this;
       }
 
@@ -854,7 +888,6 @@ public final class AvatarFightPropNotifyOuterClass {
       public Builder setAvatarGuid(long value) {
         
         avatarGuid_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -863,7 +896,7 @@ public final class AvatarFightPropNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAvatarGuid() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         avatarGuid_ = 0L;
         onChanged();
         return this;
@@ -901,18 +934,7 @@ public final class AvatarFightPropNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AvatarFightPropNotify(input, extensionRegistry);
       }
     };
 

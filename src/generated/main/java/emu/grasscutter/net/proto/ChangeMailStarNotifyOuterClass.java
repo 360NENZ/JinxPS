@@ -69,6 +69,73 @@ public final class ChangeMailStarNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ChangeMailStarNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 88: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                mailIdList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              mailIdList_.addInt(input.readUInt32());
+              break;
+            }
+            case 90: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                mailIdList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                mailIdList_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 96: {
+
+              isStar_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          mailIdList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ChangeMailStarNotifyOuterClass.internal_static_ChangeMailStarNotify_descriptor;
@@ -222,7 +289,6 @@ public final class ChangeMailStarNotifyOuterClass {
     }
 
     public static final int MAILIDLIST_FIELD_NUMBER = 11;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList mailIdList_;
     /**
      * <code>repeated uint32 mailIdList = 11;</code>
@@ -251,7 +317,7 @@ public final class ChangeMailStarNotifyOuterClass {
     private int mailIdListMemoizedSerializedSize = -1;
 
     public static final int ISSTAR_FIELD_NUMBER = 12;
-    private boolean isStar_ = false;
+    private boolean isStar_;
     /**
      * <code>bool isStar = 12;</code>
      * @return The isStar.
@@ -286,7 +352,7 @@ public final class ChangeMailStarNotifyOuterClass {
       if (isStar_ != false) {
         output.writeBool(12, isStar_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -313,7 +379,7 @@ public final class ChangeMailStarNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(12, isStar_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -332,7 +398,7 @@ public final class ChangeMailStarNotifyOuterClass {
           .equals(other.getMailIdListList())) return false;
       if (getIsStar()
           != other.getIsStar()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -350,7 +416,7 @@ public final class ChangeMailStarNotifyOuterClass {
       hash = (37 * hash) + ISSTAR_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsStar());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -467,20 +533,26 @@ public final class ChangeMailStarNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ChangeMailStarNotifyOuterClass.ChangeMailStarNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         mailIdList_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         isStar_ = false;
+
         return this;
       }
 
@@ -507,25 +579,15 @@ public final class ChangeMailStarNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ChangeMailStarNotifyOuterClass.ChangeMailStarNotify buildPartial() {
         emu.grasscutter.net.proto.ChangeMailStarNotifyOuterClass.ChangeMailStarNotify result = new emu.grasscutter.net.proto.ChangeMailStarNotifyOuterClass.ChangeMailStarNotify(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.ChangeMailStarNotifyOuterClass.ChangeMailStarNotify result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           mailIdList_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.mailIdList_ = mailIdList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ChangeMailStarNotifyOuterClass.ChangeMailStarNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.isStar_ = isStar_;
-        }
+        result.isStar_ = isStar_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -585,7 +647,7 @@ public final class ChangeMailStarNotifyOuterClass {
         if (other.getIsStar() != false) {
           setIsStar(other.getIsStar());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -600,51 +662,17 @@ public final class ChangeMailStarNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ChangeMailStarNotifyOuterClass.ChangeMailStarNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 88: {
-                int v = input.readUInt32();
-                ensureMailIdListIsMutable();
-                mailIdList_.addInt(v);
-                break;
-              } // case 88
-              case 90: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureMailIdListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  mailIdList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 90
-              case 96: {
-                isStar_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 96
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ChangeMailStarNotifyOuterClass.ChangeMailStarNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -654,7 +682,7 @@ public final class ChangeMailStarNotifyOuterClass {
         if (!((bitField0_ & 0x00000001) != 0)) {
           mailIdList_ = mutableCopy(mailIdList_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
        * <code>repeated uint32 mailIdList = 11;</code>
@@ -688,7 +716,6 @@ public final class ChangeMailStarNotifyOuterClass {
        */
       public Builder setMailIdList(
           int index, int value) {
-        
         ensureMailIdListIsMutable();
         mailIdList_.setInt(index, value);
         onChanged();
@@ -700,7 +727,6 @@ public final class ChangeMailStarNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder addMailIdList(int value) {
-        
         ensureMailIdListIsMutable();
         mailIdList_.addInt(value);
         onChanged();
@@ -747,7 +773,6 @@ public final class ChangeMailStarNotifyOuterClass {
       public Builder setIsStar(boolean value) {
         
         isStar_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -756,7 +781,7 @@ public final class ChangeMailStarNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsStar() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         isStar_ = false;
         onChanged();
         return this;
@@ -794,18 +819,7 @@ public final class ChangeMailStarNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ChangeMailStarNotify(input, extensionRegistry);
       }
     };
 

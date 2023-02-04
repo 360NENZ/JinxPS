@@ -41,12 +41,14 @@ public final class ItemCdGroupTimeNotifyOuterClass {
     /**
      * <code>map&lt;uint32, uint64&gt; itemCdMap = 13;</code>
      */
+
     long getItemCdMapOrDefault(
         int key,
         long defaultValue);
     /**
      * <code>map&lt;uint32, uint64&gt; itemCdMap = 13;</code>
      */
+
     long getItemCdMapOrThrow(
         int key);
   }
@@ -76,6 +78,57 @@ public final class ItemCdGroupTimeNotifyOuterClass {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private ItemCdGroupTimeNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 106: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                itemCdMap_ = com.google.protobuf.MapField.newMapField(
+                    ItemCdMapDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Long>
+              itemCdMap__ = input.readMessage(
+                  ItemCdMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              itemCdMap_.getMutableMap().put(
+                  itemCdMap__.getKey(), itemCdMap__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -245,7 +298,6 @@ public final class ItemCdGroupTimeNotifyOuterClass {
                   com.google.protobuf.WireFormat.FieldType.UINT64,
                   0L);
     }
-    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Long> itemCdMap_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
@@ -256,12 +308,14 @@ public final class ItemCdGroupTimeNotifyOuterClass {
       }
       return itemCdMap_;
     }
+
     public int getItemCdMapCount() {
       return internalGetItemCdMap().getMap().size();
     }
     /**
      * <code>map&lt;uint32, uint64&gt; itemCdMap = 13;</code>
      */
+
     @java.lang.Override
     public boolean containsItemCdMap(
         int key) {
@@ -280,6 +334,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
      * <code>map&lt;uint32, uint64&gt; itemCdMap = 13;</code>
      */
     @java.lang.Override
+
     public java.util.Map<java.lang.Integer, java.lang.Long> getItemCdMapMap() {
       return internalGetItemCdMap().getMap();
     }
@@ -287,6 +342,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
      * <code>map&lt;uint32, uint64&gt; itemCdMap = 13;</code>
      */
     @java.lang.Override
+
     public long getItemCdMapOrDefault(
         int key,
         long defaultValue) {
@@ -299,6 +355,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
      * <code>map&lt;uint32, uint64&gt; itemCdMap = 13;</code>
      */
     @java.lang.Override
+
     public long getItemCdMapOrThrow(
         int key) {
       
@@ -330,7 +387,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
           internalGetItemCdMap(),
           ItemCdMapDefaultEntryHolder.defaultEntry,
           13);
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -349,7 +406,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(13, itemCdMap__);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -366,7 +423,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
 
       if (!internalGetItemCdMap().equals(
           other.internalGetItemCdMap())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -381,7 +438,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
         hash = (37 * hash) + ITEMCDMAP_FIELD_NUMBER;
         hash = (53 * hash) + internalGetItemCdMap().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -520,18 +577,22 @@ public final class ItemCdGroupTimeNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ItemCdGroupTimeNotifyOuterClass.ItemCdGroupTimeNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         internalGetMutableItemCdMap().clear();
         return this;
       }
@@ -559,17 +620,11 @@ public final class ItemCdGroupTimeNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ItemCdGroupTimeNotifyOuterClass.ItemCdGroupTimeNotify buildPartial() {
         emu.grasscutter.net.proto.ItemCdGroupTimeNotifyOuterClass.ItemCdGroupTimeNotify result = new emu.grasscutter.net.proto.ItemCdGroupTimeNotifyOuterClass.ItemCdGroupTimeNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        int from_bitField0_ = bitField0_;
+        result.itemCdMap_ = internalGetItemCdMap();
+        result.itemCdMap_.makeImmutable();
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ItemCdGroupTimeNotifyOuterClass.ItemCdGroupTimeNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.itemCdMap_ = internalGetItemCdMap();
-          result.itemCdMap_.makeImmutable();
-        }
       }
 
       @java.lang.Override
@@ -618,8 +673,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
         if (other == emu.grasscutter.net.proto.ItemCdGroupTimeNotifyOuterClass.ItemCdGroupTimeNotify.getDefaultInstance()) return this;
         internalGetMutableItemCdMap().mergeFrom(
             other.internalGetItemCdMap());
-        bitField0_ |= 0x00000001;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -634,39 +688,17 @@ public final class ItemCdGroupTimeNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ItemCdGroupTimeNotifyOuterClass.ItemCdGroupTimeNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 106: {
-                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Long>
-                itemCdMap__ = input.readMessage(
-                    ItemCdMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                internalGetMutableItemCdMap().getMutableMap().put(
-                    itemCdMap__.getKey(), itemCdMap__.getValue());
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 106
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ItemCdGroupTimeNotifyOuterClass.ItemCdGroupTimeNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -674,7 +706,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Long> itemCdMap_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
-          internalGetItemCdMap() {
+      internalGetItemCdMap() {
         if (itemCdMap_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               ItemCdMapDefaultEntryHolder.defaultEntry);
@@ -682,7 +714,8 @@ public final class ItemCdGroupTimeNotifyOuterClass {
         return itemCdMap_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
-          internalGetMutableItemCdMap() {
+      internalGetMutableItemCdMap() {
+        onChanged();;
         if (itemCdMap_ == null) {
           itemCdMap_ = com.google.protobuf.MapField.newMapField(
               ItemCdMapDefaultEntryHolder.defaultEntry);
@@ -690,16 +723,16 @@ public final class ItemCdGroupTimeNotifyOuterClass {
         if (!itemCdMap_.isMutable()) {
           itemCdMap_ = itemCdMap_.copy();
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
         return itemCdMap_;
       }
+
       public int getItemCdMapCount() {
         return internalGetItemCdMap().getMap().size();
       }
       /**
        * <code>map&lt;uint32, uint64&gt; itemCdMap = 13;</code>
        */
+
       @java.lang.Override
       public boolean containsItemCdMap(
           int key) {
@@ -718,6 +751,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
        * <code>map&lt;uint32, uint64&gt; itemCdMap = 13;</code>
        */
       @java.lang.Override
+
       public java.util.Map<java.lang.Integer, java.lang.Long> getItemCdMapMap() {
         return internalGetItemCdMap().getMap();
       }
@@ -725,6 +759,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
        * <code>map&lt;uint32, uint64&gt; itemCdMap = 13;</code>
        */
       @java.lang.Override
+
       public long getItemCdMapOrDefault(
           int key,
           long defaultValue) {
@@ -737,6 +772,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
        * <code>map&lt;uint32, uint64&gt; itemCdMap = 13;</code>
        */
       @java.lang.Override
+
       public long getItemCdMapOrThrow(
           int key) {
         
@@ -747,8 +783,8 @@ public final class ItemCdGroupTimeNotifyOuterClass {
         }
         return map.get(key);
       }
+
       public Builder clearItemCdMap() {
-        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableItemCdMap().getMutableMap()
             .clear();
         return this;
@@ -756,6 +792,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
       /**
        * <code>map&lt;uint32, uint64&gt; itemCdMap = 13;</code>
        */
+
       public Builder removeItemCdMap(
           int key) {
         
@@ -768,8 +805,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Long>
-          getMutableItemCdMap() {
-        bitField0_ |= 0x00000001;
+      getMutableItemCdMap() {
         return internalGetMutableItemCdMap().getMutableMap();
       }
       /**
@@ -782,17 +818,16 @@ public final class ItemCdGroupTimeNotifyOuterClass {
         
         internalGetMutableItemCdMap().getMutableMap()
             .put(key, value);
-        bitField0_ |= 0x00000001;
         return this;
       }
       /**
        * <code>map&lt;uint32, uint64&gt; itemCdMap = 13;</code>
        */
+
       public Builder putAllItemCdMap(
           java.util.Map<java.lang.Integer, java.lang.Long> values) {
         internalGetMutableItemCdMap().getMutableMap()
             .putAll(values);
-        bitField0_ |= 0x00000001;
         return this;
       }
       @java.lang.Override
@@ -828,18 +863,7 @@ public final class ItemCdGroupTimeNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ItemCdGroupTimeNotify(input, extensionRegistry);
       }
     };
 

@@ -54,7 +54,7 @@ public final class EquipOuterClass {
      */
     boolean getIsLocked();
 
-    public emu.grasscutter.net.proto.EquipOuterClass.Equip.DetailCase getDetailCase();
+    public emu.grasscutter.net.proto.EquipOuterClass.Equip.FOIGJKHHNPGCase getFOIGJKHHNPGCase();
   }
   /**
    * Protobuf type {@code Equip}
@@ -83,6 +83,76 @@ public final class EquipOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Equip(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.Builder subBuilder = null;
+              if (fOIGJKHHNPGCase_ == 1) {
+                subBuilder = ((emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) fOIGJKHHNPG_).toBuilder();
+              }
+              fOIGJKHHNPG_ =
+                  input.readMessage(emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) fOIGJKHHNPG_);
+                fOIGJKHHNPG_ = subBuilder.buildPartial();
+              }
+              fOIGJKHHNPGCase_ = 1;
+              break;
+            }
+            case 18: {
+              emu.grasscutter.net.proto.WeaponOuterClass.Weapon.Builder subBuilder = null;
+              if (fOIGJKHHNPGCase_ == 2) {
+                subBuilder = ((emu.grasscutter.net.proto.WeaponOuterClass.Weapon) fOIGJKHHNPG_).toBuilder();
+              }
+              fOIGJKHHNPG_ =
+                  input.readMessage(emu.grasscutter.net.proto.WeaponOuterClass.Weapon.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.WeaponOuterClass.Weapon) fOIGJKHHNPG_);
+                fOIGJKHHNPG_ = subBuilder.buildPartial();
+              }
+              fOIGJKHHNPGCase_ = 2;
+              break;
+            }
+            case 24: {
+
+              isLocked_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.EquipOuterClass.internal_static_Equip_descriptor;
@@ -96,16 +166,16 @@ public final class EquipOuterClass {
               emu.grasscutter.net.proto.EquipOuterClass.Equip.class, emu.grasscutter.net.proto.EquipOuterClass.Equip.Builder.class);
     }
 
-    private int detailCase_ = 0;
-    private java.lang.Object detail_;
-    public enum DetailCase
+    private int fOIGJKHHNPGCase_ = 0;
+    private java.lang.Object fOIGJKHHNPG_;
+    public enum FOIGJKHHNPGCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       RELIQUARY(1),
       WEAPON(2),
-      DETAIL_NOT_SET(0);
+      FOIGJKHHNPG_NOT_SET(0);
       private final int value;
-      private DetailCase(int value) {
+      private FOIGJKHHNPGCase(int value) {
         this.value = value;
       }
       /**
@@ -114,15 +184,15 @@ public final class EquipOuterClass {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static DetailCase valueOf(int value) {
+      public static FOIGJKHHNPGCase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static DetailCase forNumber(int value) {
+      public static FOIGJKHHNPGCase forNumber(int value) {
         switch (value) {
           case 1: return RELIQUARY;
           case 2: return WEAPON;
-          case 0: return DETAIL_NOT_SET;
+          case 0: return FOIGJKHHNPG_NOT_SET;
           default: return null;
         }
       }
@@ -131,10 +201,10 @@ public final class EquipOuterClass {
       }
     };
 
-    public DetailCase
-    getDetailCase() {
-      return DetailCase.forNumber(
-          detailCase_);
+    public FOIGJKHHNPGCase
+    getFOIGJKHHNPGCase() {
+      return FOIGJKHHNPGCase.forNumber(
+          fOIGJKHHNPGCase_);
     }
 
     public static final int RELIQUARY_FIELD_NUMBER = 1;
@@ -144,7 +214,7 @@ public final class EquipOuterClass {
      */
     @java.lang.Override
     public boolean hasReliquary() {
-      return detailCase_ == 1;
+      return fOIGJKHHNPGCase_ == 1;
     }
     /**
      * <code>.Reliquary reliquary = 1;</code>
@@ -152,8 +222,8 @@ public final class EquipOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary getReliquary() {
-      if (detailCase_ == 1) {
-         return (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) detail_;
+      if (fOIGJKHHNPGCase_ == 1) {
+         return (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) fOIGJKHHNPG_;
       }
       return emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.getDefaultInstance();
     }
@@ -162,8 +232,8 @@ public final class EquipOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.ReliquaryOuterClass.ReliquaryOrBuilder getReliquaryOrBuilder() {
-      if (detailCase_ == 1) {
-         return (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) detail_;
+      if (fOIGJKHHNPGCase_ == 1) {
+         return (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) fOIGJKHHNPG_;
       }
       return emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.getDefaultInstance();
     }
@@ -175,7 +245,7 @@ public final class EquipOuterClass {
      */
     @java.lang.Override
     public boolean hasWeapon() {
-      return detailCase_ == 2;
+      return fOIGJKHHNPGCase_ == 2;
     }
     /**
      * <code>.Weapon weapon = 2;</code>
@@ -183,8 +253,8 @@ public final class EquipOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.WeaponOuterClass.Weapon getWeapon() {
-      if (detailCase_ == 2) {
-         return (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) detail_;
+      if (fOIGJKHHNPGCase_ == 2) {
+         return (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) fOIGJKHHNPG_;
       }
       return emu.grasscutter.net.proto.WeaponOuterClass.Weapon.getDefaultInstance();
     }
@@ -193,14 +263,14 @@ public final class EquipOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.WeaponOuterClass.WeaponOrBuilder getWeaponOrBuilder() {
-      if (detailCase_ == 2) {
-         return (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) detail_;
+      if (fOIGJKHHNPGCase_ == 2) {
+         return (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) fOIGJKHHNPG_;
       }
       return emu.grasscutter.net.proto.WeaponOuterClass.Weapon.getDefaultInstance();
     }
 
     public static final int ISLOCKED_FIELD_NUMBER = 3;
-    private boolean isLocked_ = false;
+    private boolean isLocked_;
     /**
      * <code>bool isLocked = 3;</code>
      * @return The isLocked.
@@ -224,16 +294,16 @@ public final class EquipOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (detailCase_ == 1) {
-        output.writeMessage(1, (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) detail_);
+      if (fOIGJKHHNPGCase_ == 1) {
+        output.writeMessage(1, (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) fOIGJKHHNPG_);
       }
-      if (detailCase_ == 2) {
-        output.writeMessage(2, (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) detail_);
+      if (fOIGJKHHNPGCase_ == 2) {
+        output.writeMessage(2, (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) fOIGJKHHNPG_);
       }
       if (isLocked_ != false) {
         output.writeBool(3, isLocked_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -242,19 +312,19 @@ public final class EquipOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (detailCase_ == 1) {
+      if (fOIGJKHHNPGCase_ == 1) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) detail_);
+          .computeMessageSize(1, (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) fOIGJKHHNPG_);
       }
-      if (detailCase_ == 2) {
+      if (fOIGJKHHNPGCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) detail_);
+          .computeMessageSize(2, (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) fOIGJKHHNPG_);
       }
       if (isLocked_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, isLocked_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -271,8 +341,8 @@ public final class EquipOuterClass {
 
       if (getIsLocked()
           != other.getIsLocked()) return false;
-      if (!getDetailCase().equals(other.getDetailCase())) return false;
-      switch (detailCase_) {
+      if (!getFOIGJKHHNPGCase().equals(other.getFOIGJKHHNPGCase())) return false;
+      switch (fOIGJKHHNPGCase_) {
         case 1:
           if (!getReliquary()
               .equals(other.getReliquary())) return false;
@@ -284,7 +354,7 @@ public final class EquipOuterClass {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -298,7 +368,7 @@ public final class EquipOuterClass {
       hash = (37 * hash) + ISLOCKED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsLocked());
-      switch (detailCase_) {
+      switch (fOIGJKHHNPGCase_) {
         case 1:
           hash = (37 * hash) + RELIQUARY_FIELD_NUMBER;
           hash = (53 * hash) + getReliquary().hashCode();
@@ -310,7 +380,7 @@ public final class EquipOuterClass {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -427,27 +497,26 @@ public final class EquipOuterClass {
 
       // Construct using emu.grasscutter.net.proto.EquipOuterClass.Equip.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        if (reliquaryBuilder_ != null) {
-          reliquaryBuilder_.clear();
-        }
-        if (weaponBuilder_ != null) {
-          weaponBuilder_.clear();
-        }
         isLocked_ = false;
-        detailCase_ = 0;
-        detail_ = null;
+
+        fOIGJKHHNPGCase_ = 0;
+        fOIGJKHHNPG_ = null;
         return this;
       }
 
@@ -474,30 +543,24 @@ public final class EquipOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.EquipOuterClass.Equip buildPartial() {
         emu.grasscutter.net.proto.EquipOuterClass.Equip result = new emu.grasscutter.net.proto.EquipOuterClass.Equip(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        if (fOIGJKHHNPGCase_ == 1) {
+          if (reliquaryBuilder_ == null) {
+            result.fOIGJKHHNPG_ = fOIGJKHHNPG_;
+          } else {
+            result.fOIGJKHHNPG_ = reliquaryBuilder_.build();
+          }
+        }
+        if (fOIGJKHHNPGCase_ == 2) {
+          if (weaponBuilder_ == null) {
+            result.fOIGJKHHNPG_ = fOIGJKHHNPG_;
+          } else {
+            result.fOIGJKHHNPG_ = weaponBuilder_.build();
+          }
+        }
+        result.isLocked_ = isLocked_;
+        result.fOIGJKHHNPGCase_ = fOIGJKHHNPGCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.EquipOuterClass.Equip result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.isLocked_ = isLocked_;
-        }
-      }
-
-      private void buildPartialOneofs(emu.grasscutter.net.proto.EquipOuterClass.Equip result) {
-        result.detailCase_ = detailCase_;
-        result.detail_ = this.detail_;
-        if (detailCase_ == 1 &&
-            reliquaryBuilder_ != null) {
-          result.detail_ = reliquaryBuilder_.build();
-        }
-        if (detailCase_ == 2 &&
-            weaponBuilder_ != null) {
-          result.detail_ = weaponBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -547,7 +610,7 @@ public final class EquipOuterClass {
         if (other.getIsLocked() != false) {
           setIsLocked(other.getIsLocked());
         }
-        switch (other.getDetailCase()) {
+        switch (other.getFOIGJKHHNPGCase()) {
           case RELIQUARY: {
             mergeReliquary(other.getReliquary());
             break;
@@ -556,11 +619,11 @@ public final class EquipOuterClass {
             mergeWeapon(other.getWeapon());
             break;
           }
-          case DETAIL_NOT_SET: {
+          case FOIGJKHHNPG_NOT_SET: {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -575,67 +638,34 @@ public final class EquipOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.EquipOuterClass.Equip parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getReliquaryFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                detailCase_ = 1;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getWeaponFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                detailCase_ = 2;
-                break;
-              } // case 18
-              case 24: {
-                isLocked_ = input.readBool();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.EquipOuterClass.Equip) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int detailCase_ = 0;
-      private java.lang.Object detail_;
-      public DetailCase
-          getDetailCase() {
-        return DetailCase.forNumber(
-            detailCase_);
+      private int fOIGJKHHNPGCase_ = 0;
+      private java.lang.Object fOIGJKHHNPG_;
+      public FOIGJKHHNPGCase
+          getFOIGJKHHNPGCase() {
+        return FOIGJKHHNPGCase.forNumber(
+            fOIGJKHHNPGCase_);
       }
 
-      public Builder clearDetail() {
-        detailCase_ = 0;
-        detail_ = null;
+      public Builder clearFOIGJKHHNPG() {
+        fOIGJKHHNPGCase_ = 0;
+        fOIGJKHHNPG_ = null;
         onChanged();
         return this;
       }
 
-      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary, emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.Builder, emu.grasscutter.net.proto.ReliquaryOuterClass.ReliquaryOrBuilder> reliquaryBuilder_;
@@ -645,7 +675,7 @@ public final class EquipOuterClass {
        */
       @java.lang.Override
       public boolean hasReliquary() {
-        return detailCase_ == 1;
+        return fOIGJKHHNPGCase_ == 1;
       }
       /**
        * <code>.Reliquary reliquary = 1;</code>
@@ -654,12 +684,12 @@ public final class EquipOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary getReliquary() {
         if (reliquaryBuilder_ == null) {
-          if (detailCase_ == 1) {
-            return (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) detail_;
+          if (fOIGJKHHNPGCase_ == 1) {
+            return (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) fOIGJKHHNPG_;
           }
           return emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.getDefaultInstance();
         } else {
-          if (detailCase_ == 1) {
+          if (fOIGJKHHNPGCase_ == 1) {
             return reliquaryBuilder_.getMessage();
           }
           return emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.getDefaultInstance();
@@ -673,12 +703,12 @@ public final class EquipOuterClass {
           if (value == null) {
             throw new NullPointerException();
           }
-          detail_ = value;
+          fOIGJKHHNPG_ = value;
           onChanged();
         } else {
           reliquaryBuilder_.setMessage(value);
         }
-        detailCase_ = 1;
+        fOIGJKHHNPGCase_ = 1;
         return this;
       }
       /**
@@ -687,12 +717,12 @@ public final class EquipOuterClass {
       public Builder setReliquary(
           emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.Builder builderForValue) {
         if (reliquaryBuilder_ == null) {
-          detail_ = builderForValue.build();
+          fOIGJKHHNPG_ = builderForValue.build();
           onChanged();
         } else {
           reliquaryBuilder_.setMessage(builderForValue.build());
         }
-        detailCase_ = 1;
+        fOIGJKHHNPGCase_ = 1;
         return this;
       }
       /**
@@ -700,22 +730,21 @@ public final class EquipOuterClass {
        */
       public Builder mergeReliquary(emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary value) {
         if (reliquaryBuilder_ == null) {
-          if (detailCase_ == 1 &&
-              detail_ != emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.getDefaultInstance()) {
-            detail_ = emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.newBuilder((emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) detail_)
+          if (fOIGJKHHNPGCase_ == 1 &&
+              fOIGJKHHNPG_ != emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.getDefaultInstance()) {
+            fOIGJKHHNPG_ = emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.newBuilder((emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) fOIGJKHHNPG_)
                 .mergeFrom(value).buildPartial();
           } else {
-            detail_ = value;
+            fOIGJKHHNPG_ = value;
           }
           onChanged();
         } else {
-          if (detailCase_ == 1) {
+          if (fOIGJKHHNPGCase_ == 1) {
             reliquaryBuilder_.mergeFrom(value);
-          } else {
-            reliquaryBuilder_.setMessage(value);
           }
+          reliquaryBuilder_.setMessage(value);
         }
-        detailCase_ = 1;
+        fOIGJKHHNPGCase_ = 1;
         return this;
       }
       /**
@@ -723,15 +752,15 @@ public final class EquipOuterClass {
        */
       public Builder clearReliquary() {
         if (reliquaryBuilder_ == null) {
-          if (detailCase_ == 1) {
-            detailCase_ = 0;
-            detail_ = null;
+          if (fOIGJKHHNPGCase_ == 1) {
+            fOIGJKHHNPGCase_ = 0;
+            fOIGJKHHNPG_ = null;
             onChanged();
           }
         } else {
-          if (detailCase_ == 1) {
-            detailCase_ = 0;
-            detail_ = null;
+          if (fOIGJKHHNPGCase_ == 1) {
+            fOIGJKHHNPGCase_ = 0;
+            fOIGJKHHNPG_ = null;
           }
           reliquaryBuilder_.clear();
         }
@@ -748,11 +777,11 @@ public final class EquipOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.ReliquaryOuterClass.ReliquaryOrBuilder getReliquaryOrBuilder() {
-        if ((detailCase_ == 1) && (reliquaryBuilder_ != null)) {
+        if ((fOIGJKHHNPGCase_ == 1) && (reliquaryBuilder_ != null)) {
           return reliquaryBuilder_.getMessageOrBuilder();
         } else {
-          if (detailCase_ == 1) {
-            return (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) detail_;
+          if (fOIGJKHHNPGCase_ == 1) {
+            return (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) fOIGJKHHNPG_;
           }
           return emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.getDefaultInstance();
         }
@@ -764,18 +793,18 @@ public final class EquipOuterClass {
           emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary, emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.Builder, emu.grasscutter.net.proto.ReliquaryOuterClass.ReliquaryOrBuilder> 
           getReliquaryFieldBuilder() {
         if (reliquaryBuilder_ == null) {
-          if (!(detailCase_ == 1)) {
-            detail_ = emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.getDefaultInstance();
+          if (!(fOIGJKHHNPGCase_ == 1)) {
+            fOIGJKHHNPG_ = emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.getDefaultInstance();
           }
           reliquaryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary, emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary.Builder, emu.grasscutter.net.proto.ReliquaryOuterClass.ReliquaryOrBuilder>(
-                  (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) detail_,
+                  (emu.grasscutter.net.proto.ReliquaryOuterClass.Reliquary) fOIGJKHHNPG_,
                   getParentForChildren(),
                   isClean());
-          detail_ = null;
+          fOIGJKHHNPG_ = null;
         }
-        detailCase_ = 1;
-        onChanged();
+        fOIGJKHHNPGCase_ = 1;
+        onChanged();;
         return reliquaryBuilder_;
       }
 
@@ -787,7 +816,7 @@ public final class EquipOuterClass {
        */
       @java.lang.Override
       public boolean hasWeapon() {
-        return detailCase_ == 2;
+        return fOIGJKHHNPGCase_ == 2;
       }
       /**
        * <code>.Weapon weapon = 2;</code>
@@ -796,12 +825,12 @@ public final class EquipOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.WeaponOuterClass.Weapon getWeapon() {
         if (weaponBuilder_ == null) {
-          if (detailCase_ == 2) {
-            return (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) detail_;
+          if (fOIGJKHHNPGCase_ == 2) {
+            return (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) fOIGJKHHNPG_;
           }
           return emu.grasscutter.net.proto.WeaponOuterClass.Weapon.getDefaultInstance();
         } else {
-          if (detailCase_ == 2) {
+          if (fOIGJKHHNPGCase_ == 2) {
             return weaponBuilder_.getMessage();
           }
           return emu.grasscutter.net.proto.WeaponOuterClass.Weapon.getDefaultInstance();
@@ -815,12 +844,12 @@ public final class EquipOuterClass {
           if (value == null) {
             throw new NullPointerException();
           }
-          detail_ = value;
+          fOIGJKHHNPG_ = value;
           onChanged();
         } else {
           weaponBuilder_.setMessage(value);
         }
-        detailCase_ = 2;
+        fOIGJKHHNPGCase_ = 2;
         return this;
       }
       /**
@@ -829,12 +858,12 @@ public final class EquipOuterClass {
       public Builder setWeapon(
           emu.grasscutter.net.proto.WeaponOuterClass.Weapon.Builder builderForValue) {
         if (weaponBuilder_ == null) {
-          detail_ = builderForValue.build();
+          fOIGJKHHNPG_ = builderForValue.build();
           onChanged();
         } else {
           weaponBuilder_.setMessage(builderForValue.build());
         }
-        detailCase_ = 2;
+        fOIGJKHHNPGCase_ = 2;
         return this;
       }
       /**
@@ -842,22 +871,21 @@ public final class EquipOuterClass {
        */
       public Builder mergeWeapon(emu.grasscutter.net.proto.WeaponOuterClass.Weapon value) {
         if (weaponBuilder_ == null) {
-          if (detailCase_ == 2 &&
-              detail_ != emu.grasscutter.net.proto.WeaponOuterClass.Weapon.getDefaultInstance()) {
-            detail_ = emu.grasscutter.net.proto.WeaponOuterClass.Weapon.newBuilder((emu.grasscutter.net.proto.WeaponOuterClass.Weapon) detail_)
+          if (fOIGJKHHNPGCase_ == 2 &&
+              fOIGJKHHNPG_ != emu.grasscutter.net.proto.WeaponOuterClass.Weapon.getDefaultInstance()) {
+            fOIGJKHHNPG_ = emu.grasscutter.net.proto.WeaponOuterClass.Weapon.newBuilder((emu.grasscutter.net.proto.WeaponOuterClass.Weapon) fOIGJKHHNPG_)
                 .mergeFrom(value).buildPartial();
           } else {
-            detail_ = value;
+            fOIGJKHHNPG_ = value;
           }
           onChanged();
         } else {
-          if (detailCase_ == 2) {
+          if (fOIGJKHHNPGCase_ == 2) {
             weaponBuilder_.mergeFrom(value);
-          } else {
-            weaponBuilder_.setMessage(value);
           }
+          weaponBuilder_.setMessage(value);
         }
-        detailCase_ = 2;
+        fOIGJKHHNPGCase_ = 2;
         return this;
       }
       /**
@@ -865,15 +893,15 @@ public final class EquipOuterClass {
        */
       public Builder clearWeapon() {
         if (weaponBuilder_ == null) {
-          if (detailCase_ == 2) {
-            detailCase_ = 0;
-            detail_ = null;
+          if (fOIGJKHHNPGCase_ == 2) {
+            fOIGJKHHNPGCase_ = 0;
+            fOIGJKHHNPG_ = null;
             onChanged();
           }
         } else {
-          if (detailCase_ == 2) {
-            detailCase_ = 0;
-            detail_ = null;
+          if (fOIGJKHHNPGCase_ == 2) {
+            fOIGJKHHNPGCase_ = 0;
+            fOIGJKHHNPG_ = null;
           }
           weaponBuilder_.clear();
         }
@@ -890,11 +918,11 @@ public final class EquipOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.WeaponOuterClass.WeaponOrBuilder getWeaponOrBuilder() {
-        if ((detailCase_ == 2) && (weaponBuilder_ != null)) {
+        if ((fOIGJKHHNPGCase_ == 2) && (weaponBuilder_ != null)) {
           return weaponBuilder_.getMessageOrBuilder();
         } else {
-          if (detailCase_ == 2) {
-            return (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) detail_;
+          if (fOIGJKHHNPGCase_ == 2) {
+            return (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) fOIGJKHHNPG_;
           }
           return emu.grasscutter.net.proto.WeaponOuterClass.Weapon.getDefaultInstance();
         }
@@ -906,18 +934,18 @@ public final class EquipOuterClass {
           emu.grasscutter.net.proto.WeaponOuterClass.Weapon, emu.grasscutter.net.proto.WeaponOuterClass.Weapon.Builder, emu.grasscutter.net.proto.WeaponOuterClass.WeaponOrBuilder> 
           getWeaponFieldBuilder() {
         if (weaponBuilder_ == null) {
-          if (!(detailCase_ == 2)) {
-            detail_ = emu.grasscutter.net.proto.WeaponOuterClass.Weapon.getDefaultInstance();
+          if (!(fOIGJKHHNPGCase_ == 2)) {
+            fOIGJKHHNPG_ = emu.grasscutter.net.proto.WeaponOuterClass.Weapon.getDefaultInstance();
           }
           weaponBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               emu.grasscutter.net.proto.WeaponOuterClass.Weapon, emu.grasscutter.net.proto.WeaponOuterClass.Weapon.Builder, emu.grasscutter.net.proto.WeaponOuterClass.WeaponOrBuilder>(
-                  (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) detail_,
+                  (emu.grasscutter.net.proto.WeaponOuterClass.Weapon) fOIGJKHHNPG_,
                   getParentForChildren(),
                   isClean());
-          detail_ = null;
+          fOIGJKHHNPG_ = null;
         }
-        detailCase_ = 2;
-        onChanged();
+        fOIGJKHHNPGCase_ = 2;
+        onChanged();;
         return weaponBuilder_;
       }
 
@@ -938,7 +966,6 @@ public final class EquipOuterClass {
       public Builder setIsLocked(boolean value) {
         
         isLocked_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -947,7 +974,7 @@ public final class EquipOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsLocked() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         isLocked_ = false;
         onChanged();
         return this;
@@ -985,18 +1012,7 @@ public final class EquipOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Equip(input, extensionRegistry);
       }
     };
 
@@ -1031,10 +1047,10 @@ public final class EquipOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\013Equip.proto\032\017Reliquary.proto\032\014Weapon.p" +
-      "roto\"_\n\005Equip\022\037\n\treliquary\030\001 \001(\0132\n.Reliq" +
+      "roto\"d\n\005Equip\022\037\n\treliquary\030\001 \001(\0132\n.Reliq" +
       "uaryH\000\022\031\n\006weapon\030\002 \001(\0132\007.WeaponH\000\022\020\n\010isL" +
-      "ocked\030\003 \001(\010B\010\n\006detailB\033\n\031emu.grasscutter" +
-      ".net.protob\006proto3"
+      "ocked\030\003 \001(\010B\r\n\013FOIGJKHHNPGB\033\n\031emu.grassc" +
+      "utter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1047,7 +1063,7 @@ public final class EquipOuterClass {
     internal_static_Equip_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Equip_descriptor,
-        new java.lang.String[] { "Reliquary", "Weapon", "IsLocked", "Detail", });
+        new java.lang.String[] { "Reliquary", "Weapon", "IsLocked", "FOIGJKHHNPG", });
     emu.grasscutter.net.proto.ReliquaryOuterClass.getDescriptor();
     emu.grasscutter.net.proto.WeaponOuterClass.getDescriptor();
   }

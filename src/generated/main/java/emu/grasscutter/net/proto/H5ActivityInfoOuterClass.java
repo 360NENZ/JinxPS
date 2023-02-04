@@ -107,6 +107,85 @@ public final class H5ActivityInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private H5ActivityInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              contentCloseTime_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              url_ = s;
+              break;
+            }
+            case 32: {
+
+              unk3300DMBNFECAKBH_ = input.readUInt32();
+              break;
+            }
+            case 48: {
+
+              isEntranceOpen_ = input.readBool();
+              break;
+            }
+            case 64: {
+
+              beginTime_ = input.readUInt32();
+              break;
+            }
+            case 72: {
+
+              unk3300OBKEBDCKHJF_ = input.readUInt32();
+              break;
+            }
+            case 88: {
+
+              endTime_ = input.readUInt32();
+              break;
+            }
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              prefabPath_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.H5ActivityInfoOuterClass.internal_static_H5ActivityInfo_descriptor;
@@ -121,8 +200,7 @@ public final class H5ActivityInfoOuterClass {
     }
 
     public static final int PREFABPATH_FIELD_NUMBER = 13;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object prefabPath_ = "";
+    private volatile java.lang.Object prefabPath_;
     /**
      * <code>string prefabPath = 13;</code>
      * @return The prefabPath.
@@ -160,7 +238,7 @@ public final class H5ActivityInfoOuterClass {
     }
 
     public static final int CONTENTCLOSETIME_FIELD_NUMBER = 1;
-    private int contentCloseTime_ = 0;
+    private int contentCloseTime_;
     /**
      * <code>uint32 contentCloseTime = 1;</code>
      * @return The contentCloseTime.
@@ -171,7 +249,7 @@ public final class H5ActivityInfoOuterClass {
     }
 
     public static final int ISENTRANCEOPEN_FIELD_NUMBER = 6;
-    private boolean isEntranceOpen_ = false;
+    private boolean isEntranceOpen_;
     /**
      * <code>bool isEntranceOpen = 6;</code>
      * @return The isEntranceOpen.
@@ -182,7 +260,7 @@ public final class H5ActivityInfoOuterClass {
     }
 
     public static final int ENDTIME_FIELD_NUMBER = 11;
-    private int endTime_ = 0;
+    private int endTime_;
     /**
      * <code>uint32 endTime = 11;</code>
      * @return The endTime.
@@ -193,7 +271,7 @@ public final class H5ActivityInfoOuterClass {
     }
 
     public static final int UNK3300_DMBNFECAKBH_FIELD_NUMBER = 4;
-    private int unk3300DMBNFECAKBH_ = 0;
+    private int unk3300DMBNFECAKBH_;
     /**
      * <code>uint32 Unk3300_DMBNFECAKBH = 4;</code>
      * @return The unk3300DMBNFECAKBH.
@@ -204,7 +282,7 @@ public final class H5ActivityInfoOuterClass {
     }
 
     public static final int BEGINTIME_FIELD_NUMBER = 8;
-    private int beginTime_ = 0;
+    private int beginTime_;
     /**
      * <code>uint32 beginTime = 8;</code>
      * @return The beginTime.
@@ -215,8 +293,7 @@ public final class H5ActivityInfoOuterClass {
     }
 
     public static final int URL_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object url_ = "";
+    private volatile java.lang.Object url_;
     /**
      * <code>string url = 3;</code>
      * @return The url.
@@ -254,7 +331,7 @@ public final class H5ActivityInfoOuterClass {
     }
 
     public static final int UNK3300_OBKEBDCKHJF_FIELD_NUMBER = 9;
-    private int unk3300OBKEBDCKHJF_ = 0;
+    private int unk3300OBKEBDCKHJF_;
     /**
      * <code>uint32 Unk3300_OBKEBDCKHJF = 9;</code>
      * @return The unk3300OBKEBDCKHJF.
@@ -302,7 +379,7 @@ public final class H5ActivityInfoOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(prefabPath_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 13, prefabPath_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -341,7 +418,7 @@ public final class H5ActivityInfoOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(prefabPath_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, prefabPath_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -372,7 +449,7 @@ public final class H5ActivityInfoOuterClass {
           .equals(other.getUrl())) return false;
       if (getUnk3300OBKEBDCKHJF()
           != other.getUnk3300OBKEBDCKHJF()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -400,7 +477,7 @@ public final class H5ActivityInfoOuterClass {
       hash = (53 * hash) + getUrl().hashCode();
       hash = (37 * hash) + UNK3300_OBKEBDCKHJF_FIELD_NUMBER;
       hash = (53 * hash) + getUnk3300OBKEBDCKHJF();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -517,26 +594,38 @@ public final class H5ActivityInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.H5ActivityInfoOuterClass.H5ActivityInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         prefabPath_ = "";
+
         contentCloseTime_ = 0;
+
         isEntranceOpen_ = false;
+
         endTime_ = 0;
+
         unk3300DMBNFECAKBH_ = 0;
+
         beginTime_ = 0;
+
         url_ = "";
+
         unk3300OBKEBDCKHJF_ = 0;
+
         return this;
       }
 
@@ -563,37 +652,16 @@ public final class H5ActivityInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.H5ActivityInfoOuterClass.H5ActivityInfo buildPartial() {
         emu.grasscutter.net.proto.H5ActivityInfoOuterClass.H5ActivityInfo result = new emu.grasscutter.net.proto.H5ActivityInfoOuterClass.H5ActivityInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.prefabPath_ = prefabPath_;
+        result.contentCloseTime_ = contentCloseTime_;
+        result.isEntranceOpen_ = isEntranceOpen_;
+        result.endTime_ = endTime_;
+        result.unk3300DMBNFECAKBH_ = unk3300DMBNFECAKBH_;
+        result.beginTime_ = beginTime_;
+        result.url_ = url_;
+        result.unk3300OBKEBDCKHJF_ = unk3300OBKEBDCKHJF_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.H5ActivityInfoOuterClass.H5ActivityInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.prefabPath_ = prefabPath_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.contentCloseTime_ = contentCloseTime_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.isEntranceOpen_ = isEntranceOpen_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.endTime_ = endTime_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.unk3300DMBNFECAKBH_ = unk3300DMBNFECAKBH_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.beginTime_ = beginTime_;
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.url_ = url_;
-        }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.unk3300OBKEBDCKHJF_ = unk3300OBKEBDCKHJF_;
-        }
       }
 
       @java.lang.Override
@@ -642,7 +710,6 @@ public final class H5ActivityInfoOuterClass {
         if (other == emu.grasscutter.net.proto.H5ActivityInfoOuterClass.H5ActivityInfo.getDefaultInstance()) return this;
         if (!other.getPrefabPath().isEmpty()) {
           prefabPath_ = other.prefabPath_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getContentCloseTime() != 0) {
@@ -662,13 +729,12 @@ public final class H5ActivityInfoOuterClass {
         }
         if (!other.getUrl().isEmpty()) {
           url_ = other.url_;
-          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (other.getUnk3300OBKEBDCKHJF() != 0) {
           setUnk3300OBKEBDCKHJF(other.getUnk3300OBKEBDCKHJF());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -683,73 +749,19 @@ public final class H5ActivityInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.H5ActivityInfoOuterClass.H5ActivityInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                contentCloseTime_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 8
-              case 26: {
-                url_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 26
-              case 32: {
-                unk3300DMBNFECAKBH_ = input.readUInt32();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 32
-              case 48: {
-                isEntranceOpen_ = input.readBool();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 48
-              case 64: {
-                beginTime_ = input.readUInt32();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 64
-              case 72: {
-                unk3300OBKEBDCKHJF_ = input.readUInt32();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 72
-              case 88: {
-                endTime_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 88
-              case 106: {
-                prefabPath_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 106
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.H5ActivityInfoOuterClass.H5ActivityInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object prefabPath_ = "";
       /**
@@ -792,9 +804,11 @@ public final class H5ActivityInfoOuterClass {
        */
       public Builder setPrefabPath(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         prefabPath_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -803,8 +817,8 @@ public final class H5ActivityInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPrefabPath() {
+        
         prefabPath_ = getDefaultInstance().getPrefabPath();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -815,10 +829,12 @@ public final class H5ActivityInfoOuterClass {
        */
       public Builder setPrefabPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         prefabPath_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -840,7 +856,6 @@ public final class H5ActivityInfoOuterClass {
       public Builder setContentCloseTime(int value) {
         
         contentCloseTime_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -849,7 +864,7 @@ public final class H5ActivityInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearContentCloseTime() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         contentCloseTime_ = 0;
         onChanged();
         return this;
@@ -872,7 +887,6 @@ public final class H5ActivityInfoOuterClass {
       public Builder setIsEntranceOpen(boolean value) {
         
         isEntranceOpen_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -881,7 +895,7 @@ public final class H5ActivityInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsEntranceOpen() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         isEntranceOpen_ = false;
         onChanged();
         return this;
@@ -904,7 +918,6 @@ public final class H5ActivityInfoOuterClass {
       public Builder setEndTime(int value) {
         
         endTime_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -913,7 +926,7 @@ public final class H5ActivityInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEndTime() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         endTime_ = 0;
         onChanged();
         return this;
@@ -936,7 +949,6 @@ public final class H5ActivityInfoOuterClass {
       public Builder setUnk3300DMBNFECAKBH(int value) {
         
         unk3300DMBNFECAKBH_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -945,7 +957,7 @@ public final class H5ActivityInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300DMBNFECAKBH() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         unk3300DMBNFECAKBH_ = 0;
         onChanged();
         return this;
@@ -968,7 +980,6 @@ public final class H5ActivityInfoOuterClass {
       public Builder setBeginTime(int value) {
         
         beginTime_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -977,7 +988,7 @@ public final class H5ActivityInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearBeginTime() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         beginTime_ = 0;
         onChanged();
         return this;
@@ -1024,9 +1035,11 @@ public final class H5ActivityInfoOuterClass {
        */
       public Builder setUrl(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         url_ = value;
-        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1035,8 +1048,8 @@ public final class H5ActivityInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUrl() {
+        
         url_ = getDefaultInstance().getUrl();
-        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -1047,10 +1060,12 @@ public final class H5ActivityInfoOuterClass {
        */
       public Builder setUrlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         url_ = value;
-        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1072,7 +1087,6 @@ public final class H5ActivityInfoOuterClass {
       public Builder setUnk3300OBKEBDCKHJF(int value) {
         
         unk3300OBKEBDCKHJF_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -1081,7 +1095,7 @@ public final class H5ActivityInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300OBKEBDCKHJF() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        
         unk3300OBKEBDCKHJF_ = 0;
         onChanged();
         return this;
@@ -1119,18 +1133,7 @@ public final class H5ActivityInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new H5ActivityInfo(input, extensionRegistry);
       }
     };
 

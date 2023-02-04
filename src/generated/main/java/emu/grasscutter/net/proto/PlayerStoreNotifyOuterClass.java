@@ -88,6 +88,67 @@ public final class PlayerStoreNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private PlayerStoreNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                itemList_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemOuterClass.Item>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              itemList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.ItemOuterClass.Item.parser(), extensionRegistry));
+              break;
+            }
+            case 48: {
+
+              weightLimit_ = input.readUInt32();
+              break;
+            }
+            case 80: {
+              int rawValue = input.readEnum();
+
+              storeType_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          itemList_ = java.util.Collections.unmodifiableList(itemList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.PlayerStoreNotifyOuterClass.internal_static_PlayerStoreNotify_descriptor;
@@ -233,7 +294,6 @@ public final class PlayerStoreNotifyOuterClass {
     }
 
     public static final int ITEMLIST_FIELD_NUMBER = 5;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.ItemOuterClass.Item> itemList_;
     /**
      * <code>repeated .Item itemList = 5;</code>
@@ -274,7 +334,7 @@ public final class PlayerStoreNotifyOuterClass {
     }
 
     public static final int WEIGHTLIMIT_FIELD_NUMBER = 6;
-    private int weightLimit_ = 0;
+    private int weightLimit_;
     /**
      * <code>uint32 weightLimit = 6;</code>
      * @return The weightLimit.
@@ -285,7 +345,7 @@ public final class PlayerStoreNotifyOuterClass {
     }
 
     public static final int STORETYPE_FIELD_NUMBER = 10;
-    private int storeType_ = 0;
+    private int storeType_;
     /**
      * <code>.StoreType storeType = 10;</code>
      * @return The enum numeric value on the wire for storeType.
@@ -298,7 +358,8 @@ public final class PlayerStoreNotifyOuterClass {
      * @return The storeType.
      */
     @java.lang.Override public emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType getStoreType() {
-      emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType result = emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.forNumber(storeType_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType result = emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.valueOf(storeType_);
       return result == null ? emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.UNRECOGNIZED : result;
     }
 
@@ -325,7 +386,7 @@ public final class PlayerStoreNotifyOuterClass {
       if (storeType_ != emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.STORE_TYPE_NONE.getNumber()) {
         output.writeEnum(10, storeType_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -346,7 +407,7 @@ public final class PlayerStoreNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(10, storeType_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -366,7 +427,7 @@ public final class PlayerStoreNotifyOuterClass {
       if (getWeightLimit()
           != other.getWeightLimit()) return false;
       if (storeType_ != other.storeType_) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -385,7 +446,7 @@ public final class PlayerStoreNotifyOuterClass {
       hash = (53 * hash) + getWeightLimit();
       hash = (37 * hash) + STORETYPE_FIELD_NUMBER;
       hash = (53 * hash) + storeType_;
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -502,27 +563,33 @@ public final class PlayerStoreNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.PlayerStoreNotifyOuterClass.PlayerStoreNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getItemListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (itemListBuilder_ == null) {
           itemList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          itemList_ = null;
           itemListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         weightLimit_ = 0;
+
         storeType_ = 0;
+
         return this;
       }
 
@@ -549,13 +616,7 @@ public final class PlayerStoreNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.PlayerStoreNotifyOuterClass.PlayerStoreNotify buildPartial() {
         emu.grasscutter.net.proto.PlayerStoreNotifyOuterClass.PlayerStoreNotify result = new emu.grasscutter.net.proto.PlayerStoreNotifyOuterClass.PlayerStoreNotify(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.PlayerStoreNotifyOuterClass.PlayerStoreNotify result) {
+        int from_bitField0_ = bitField0_;
         if (itemListBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             itemList_ = java.util.Collections.unmodifiableList(itemList_);
@@ -565,16 +626,10 @@ public final class PlayerStoreNotifyOuterClass {
         } else {
           result.itemList_ = itemListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.PlayerStoreNotifyOuterClass.PlayerStoreNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.weightLimit_ = weightLimit_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.storeType_ = storeType_;
-        }
+        result.weightLimit_ = weightLimit_;
+        result.storeType_ = storeType_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -653,7 +708,7 @@ public final class PlayerStoreNotifyOuterClass {
         if (other.storeType_ != 0) {
           setStoreTypeValue(other.getStoreTypeValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -668,53 +723,17 @@ public final class PlayerStoreNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.PlayerStoreNotifyOuterClass.PlayerStoreNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 42: {
-                emu.grasscutter.net.proto.ItemOuterClass.Item m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.ItemOuterClass.Item.parser(),
-                        extensionRegistry);
-                if (itemListBuilder_ == null) {
-                  ensureItemListIsMutable();
-                  itemList_.add(m);
-                } else {
-                  itemListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 42
-              case 48: {
-                weightLimit_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 48
-              case 80: {
-                storeType_ = input.readEnum();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 80
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.PlayerStoreNotifyOuterClass.PlayerStoreNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -976,7 +995,6 @@ public final class PlayerStoreNotifyOuterClass {
       public Builder setWeightLimit(int value) {
         
         weightLimit_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -985,7 +1003,7 @@ public final class PlayerStoreNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearWeightLimit() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         weightLimit_ = 0;
         onChanged();
         return this;
@@ -1005,8 +1023,8 @@ public final class PlayerStoreNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder setStoreTypeValue(int value) {
+        
         storeType_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1016,7 +1034,8 @@ public final class PlayerStoreNotifyOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType getStoreType() {
-        emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType result = emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.forNumber(storeType_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType result = emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.valueOf(storeType_);
         return result == null ? emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.UNRECOGNIZED : result;
       }
       /**
@@ -1028,7 +1047,7 @@ public final class PlayerStoreNotifyOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000004;
+        
         storeType_ = value.getNumber();
         onChanged();
         return this;
@@ -1038,7 +1057,7 @@ public final class PlayerStoreNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearStoreType() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         storeType_ = 0;
         onChanged();
         return this;
@@ -1076,18 +1095,7 @@ public final class PlayerStoreNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new PlayerStoreNotify(input, extensionRegistry);
       }
     };
 

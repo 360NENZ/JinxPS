@@ -51,6 +51,48 @@ public final class TowerEnterLevelReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private TowerEnterLevelReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 72: {
+
+              enterPointId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.TowerEnterLevelReqOuterClass.internal_static_TowerEnterLevelReq_descriptor;
@@ -204,7 +246,7 @@ public final class TowerEnterLevelReqOuterClass {
     }
 
     public static final int ENTERPOINTID_FIELD_NUMBER = 9;
-    private int enterPointId_ = 0;
+    private int enterPointId_;
     /**
      * <code>uint32 enterPointId = 9;</code>
      * @return The enterPointId.
@@ -231,7 +273,7 @@ public final class TowerEnterLevelReqOuterClass {
       if (enterPointId_ != 0) {
         output.writeUInt32(9, enterPointId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -244,7 +286,7 @@ public final class TowerEnterLevelReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(9, enterPointId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -261,7 +303,7 @@ public final class TowerEnterLevelReqOuterClass {
 
       if (getEnterPointId()
           != other.getEnterPointId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -274,7 +316,7 @@ public final class TowerEnterLevelReqOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ENTERPOINTID_FIELD_NUMBER;
       hash = (53 * hash) + getEnterPointId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -391,19 +433,24 @@ public final class TowerEnterLevelReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.TowerEnterLevelReqOuterClass.TowerEnterLevelReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         enterPointId_ = 0;
+
         return this;
       }
 
@@ -430,16 +477,9 @@ public final class TowerEnterLevelReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.TowerEnterLevelReqOuterClass.TowerEnterLevelReq buildPartial() {
         emu.grasscutter.net.proto.TowerEnterLevelReqOuterClass.TowerEnterLevelReq result = new emu.grasscutter.net.proto.TowerEnterLevelReqOuterClass.TowerEnterLevelReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.enterPointId_ = enterPointId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.TowerEnterLevelReqOuterClass.TowerEnterLevelReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.enterPointId_ = enterPointId_;
-        }
       }
 
       @java.lang.Override
@@ -489,7 +529,7 @@ public final class TowerEnterLevelReqOuterClass {
         if (other.getEnterPointId() != 0) {
           setEnterPointId(other.getEnterPointId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -504,38 +544,19 @@ public final class TowerEnterLevelReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.TowerEnterLevelReqOuterClass.TowerEnterLevelReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 72: {
-                enterPointId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 72
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.TowerEnterLevelReqOuterClass.TowerEnterLevelReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int enterPointId_ ;
       /**
@@ -554,7 +575,6 @@ public final class TowerEnterLevelReqOuterClass {
       public Builder setEnterPointId(int value) {
         
         enterPointId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -563,7 +583,7 @@ public final class TowerEnterLevelReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEnterPointId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         enterPointId_ = 0;
         onChanged();
         return this;
@@ -601,18 +621,7 @@ public final class TowerEnterLevelReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TowerEnterLevelReq(input, extensionRegistry);
       }
     };
 

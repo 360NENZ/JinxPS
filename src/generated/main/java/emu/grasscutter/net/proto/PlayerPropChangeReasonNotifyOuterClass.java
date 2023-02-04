@@ -75,6 +75,64 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private PlayerPropChangeReasonNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              reason_ = rawValue;
+              break;
+            }
+            case 48: {
+
+              propType_ = input.readUInt32();
+              break;
+            }
+            case 77: {
+
+              curValue_ = input.readFloat();
+              break;
+            }
+            case 101: {
+
+              oldValue_ = input.readFloat();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.PlayerPropChangeReasonNotifyOuterClass.internal_static_PlayerPropChangeReasonNotify_descriptor;
@@ -220,7 +278,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
     }
 
     public static final int PROPTYPE_FIELD_NUMBER = 6;
-    private int propType_ = 0;
+    private int propType_;
     /**
      * <code>uint32 propType = 6;</code>
      * @return The propType.
@@ -231,7 +289,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
     }
 
     public static final int OLDVALUE_FIELD_NUMBER = 12;
-    private float oldValue_ = 0F;
+    private float oldValue_;
     /**
      * <code>float oldValue = 12;</code>
      * @return The oldValue.
@@ -242,7 +300,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
     }
 
     public static final int CURVALUE_FIELD_NUMBER = 9;
-    private float curValue_ = 0F;
+    private float curValue_;
     /**
      * <code>float curValue = 9;</code>
      * @return The curValue.
@@ -253,7 +311,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
     }
 
     public static final int REASON_FIELD_NUMBER = 1;
-    private int reason_ = 0;
+    private int reason_;
     /**
      * <code>.PropChangeReason reason = 1;</code>
      * @return The enum numeric value on the wire for reason.
@@ -266,7 +324,8 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
      * @return The reason.
      */
     @java.lang.Override public emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason getReason() {
-      emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason result = emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason.forNumber(reason_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason result = emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason.valueOf(reason_);
       return result == null ? emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason.UNRECOGNIZED : result;
     }
 
@@ -290,13 +349,13 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
       if (propType_ != 0) {
         output.writeUInt32(6, propType_);
       }
-      if (java.lang.Float.floatToRawIntBits(curValue_) != 0) {
+      if (curValue_ != 0F) {
         output.writeFloat(9, curValue_);
       }
-      if (java.lang.Float.floatToRawIntBits(oldValue_) != 0) {
+      if (oldValue_ != 0F) {
         output.writeFloat(12, oldValue_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -313,15 +372,15 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, propType_);
       }
-      if (java.lang.Float.floatToRawIntBits(curValue_) != 0) {
+      if (curValue_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(9, curValue_);
       }
-      if (java.lang.Float.floatToRawIntBits(oldValue_) != 0) {
+      if (oldValue_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(12, oldValue_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -345,7 +404,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
           != java.lang.Float.floatToIntBits(
               other.getCurValue())) return false;
       if (reason_ != other.reason_) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -366,7 +425,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
           getCurValue());
       hash = (37 * hash) + REASON_FIELD_NUMBER;
       hash = (53 * hash) + reason_;
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -483,22 +542,30 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.PlayerPropChangeReasonNotifyOuterClass.PlayerPropChangeReasonNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         propType_ = 0;
+
         oldValue_ = 0F;
+
         curValue_ = 0F;
+
         reason_ = 0;
+
         return this;
       }
 
@@ -525,25 +592,12 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.PlayerPropChangeReasonNotifyOuterClass.PlayerPropChangeReasonNotify buildPartial() {
         emu.grasscutter.net.proto.PlayerPropChangeReasonNotifyOuterClass.PlayerPropChangeReasonNotify result = new emu.grasscutter.net.proto.PlayerPropChangeReasonNotifyOuterClass.PlayerPropChangeReasonNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.propType_ = propType_;
+        result.oldValue_ = oldValue_;
+        result.curValue_ = curValue_;
+        result.reason_ = reason_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.PlayerPropChangeReasonNotifyOuterClass.PlayerPropChangeReasonNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.propType_ = propType_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.oldValue_ = oldValue_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.curValue_ = curValue_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.reason_ = reason_;
-        }
       }
 
       @java.lang.Override
@@ -602,7 +656,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
         if (other.reason_ != 0) {
           setReasonValue(other.getReasonValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -617,53 +671,19 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.PlayerPropChangeReasonNotifyOuterClass.PlayerPropChangeReasonNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                reason_ = input.readEnum();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 8
-              case 48: {
-                propType_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 48
-              case 77: {
-                curValue_ = input.readFloat();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 77
-              case 101: {
-                oldValue_ = input.readFloat();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 101
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.PlayerPropChangeReasonNotifyOuterClass.PlayerPropChangeReasonNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int propType_ ;
       /**
@@ -682,7 +702,6 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
       public Builder setPropType(int value) {
         
         propType_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -691,7 +710,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPropType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         propType_ = 0;
         onChanged();
         return this;
@@ -714,7 +733,6 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
       public Builder setOldValue(float value) {
         
         oldValue_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -723,7 +741,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearOldValue() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         oldValue_ = 0F;
         onChanged();
         return this;
@@ -746,7 +764,6 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
       public Builder setCurValue(float value) {
         
         curValue_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -755,7 +772,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCurValue() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         curValue_ = 0F;
         onChanged();
         return this;
@@ -775,8 +792,8 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder setReasonValue(int value) {
+        
         reason_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -786,7 +803,8 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason getReason() {
-        emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason result = emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason.forNumber(reason_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason result = emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason.valueOf(reason_);
         return result == null ? emu.grasscutter.net.proto.PropChangeReasonOuterClass.PropChangeReason.UNRECOGNIZED : result;
       }
       /**
@@ -798,7 +816,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000008;
+        
         reason_ = value.getNumber();
         onChanged();
         return this;
@@ -808,7 +826,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearReason() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         reason_ = 0;
         onChanged();
         return this;
@@ -846,18 +864,7 @@ public final class PlayerPropChangeReasonNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new PlayerPropChangeReasonNotify(input, extensionRegistry);
       }
     };
 

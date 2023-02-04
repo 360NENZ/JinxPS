@@ -76,6 +76,61 @@ public final class ElectroherculesBattleInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ElectroherculesBattleInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                stageInfoList_ = new java.util.ArrayList<emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              stageInfoList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD.parser(), extensionRegistry));
+              break;
+            }
+            case 112: {
+
+              pdpfimhpajd_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          stageInfoList_ = java.util.Collections.unmodifiableList(stageInfoList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ElectroherculesBattleInfoOuterClass.internal_static_ElectroherculesBattleInfo_descriptor;
@@ -90,7 +145,6 @@ public final class ElectroherculesBattleInfoOuterClass {
     }
 
     public static final int STAGEINFOLIST_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD> stageInfoList_;
     /**
      * <code>repeated .KJJKCDHJMGD stageInfoList = 7;</code>
@@ -131,7 +185,7 @@ public final class ElectroherculesBattleInfoOuterClass {
     }
 
     public static final int PDPFIMHPAJD_FIELD_NUMBER = 14;
-    private boolean pdpfimhpajd_ = false;
+    private boolean pdpfimhpajd_;
     /**
      * <code>bool pdpfimhpajd = 14;</code>
      * @return The pdpfimhpajd.
@@ -161,7 +215,7 @@ public final class ElectroherculesBattleInfoOuterClass {
       if (pdpfimhpajd_ != false) {
         output.writeBool(14, pdpfimhpajd_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -178,7 +232,7 @@ public final class ElectroherculesBattleInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(14, pdpfimhpajd_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -197,7 +251,7 @@ public final class ElectroherculesBattleInfoOuterClass {
           .equals(other.getStageInfoListList())) return false;
       if (getPdpfimhpajd()
           != other.getPdpfimhpajd()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -215,7 +269,7 @@ public final class ElectroherculesBattleInfoOuterClass {
       hash = (37 * hash) + PDPFIMHPAJD_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getPdpfimhpajd());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -332,26 +386,31 @@ public final class ElectroherculesBattleInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ElectroherculesBattleInfoOuterClass.ElectroherculesBattleInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getStageInfoListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (stageInfoListBuilder_ == null) {
           stageInfoList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          stageInfoList_ = null;
           stageInfoListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         pdpfimhpajd_ = false;
+
         return this;
       }
 
@@ -378,13 +437,7 @@ public final class ElectroherculesBattleInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ElectroherculesBattleInfoOuterClass.ElectroherculesBattleInfo buildPartial() {
         emu.grasscutter.net.proto.ElectroherculesBattleInfoOuterClass.ElectroherculesBattleInfo result = new emu.grasscutter.net.proto.ElectroherculesBattleInfoOuterClass.ElectroherculesBattleInfo(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.ElectroherculesBattleInfoOuterClass.ElectroherculesBattleInfo result) {
+        int from_bitField0_ = bitField0_;
         if (stageInfoListBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             stageInfoList_ = java.util.Collections.unmodifiableList(stageInfoList_);
@@ -394,13 +447,9 @@ public final class ElectroherculesBattleInfoOuterClass {
         } else {
           result.stageInfoList_ = stageInfoListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ElectroherculesBattleInfoOuterClass.ElectroherculesBattleInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.pdpfimhpajd_ = pdpfimhpajd_;
-        }
+        result.pdpfimhpajd_ = pdpfimhpajd_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -476,7 +525,7 @@ public final class ElectroherculesBattleInfoOuterClass {
         if (other.getPdpfimhpajd() != false) {
           setPdpfimhpajd(other.getPdpfimhpajd());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -491,48 +540,17 @@ public final class ElectroherculesBattleInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ElectroherculesBattleInfoOuterClass.ElectroherculesBattleInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 58: {
-                emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.KJJKCDHJMGDOuterClass.KJJKCDHJMGD.parser(),
-                        extensionRegistry);
-                if (stageInfoListBuilder_ == null) {
-                  ensureStageInfoListIsMutable();
-                  stageInfoList_.add(m);
-                } else {
-                  stageInfoListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 58
-              case 112: {
-                pdpfimhpajd_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 112
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ElectroherculesBattleInfoOuterClass.ElectroherculesBattleInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -794,7 +812,6 @@ public final class ElectroherculesBattleInfoOuterClass {
       public Builder setPdpfimhpajd(boolean value) {
         
         pdpfimhpajd_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -803,7 +820,7 @@ public final class ElectroherculesBattleInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPdpfimhpajd() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         pdpfimhpajd_ = false;
         onChanged();
         return this;
@@ -841,18 +858,7 @@ public final class ElectroherculesBattleInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ElectroherculesBattleInfo(input, extensionRegistry);
       }
     };
 

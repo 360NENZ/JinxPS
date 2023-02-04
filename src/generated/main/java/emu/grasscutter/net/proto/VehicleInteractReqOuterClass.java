@@ -69,6 +69,59 @@ public final class VehicleInteractReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private VehicleInteractReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 88: {
+              int rawValue = input.readEnum();
+
+              interactType_ = rawValue;
+              break;
+            }
+            case 104: {
+
+              entityId_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+
+              pos_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.VehicleInteractReqOuterClass.internal_static_VehicleInteractReq_descriptor;
@@ -222,7 +275,7 @@ public final class VehicleInteractReqOuterClass {
     }
 
     public static final int POS_FIELD_NUMBER = 14;
-    private int pos_ = 0;
+    private int pos_;
     /**
      * <code>uint32 pos = 14;</code>
      * @return The pos.
@@ -233,7 +286,7 @@ public final class VehicleInteractReqOuterClass {
     }
 
     public static final int INTERACTTYPE_FIELD_NUMBER = 11;
-    private int interactType_ = 0;
+    private int interactType_;
     /**
      * <code>.VehicleInteractType interactType = 11;</code>
      * @return The enum numeric value on the wire for interactType.
@@ -246,12 +299,13 @@ public final class VehicleInteractReqOuterClass {
      * @return The interactType.
      */
     @java.lang.Override public emu.grasscutter.net.proto.VehicleInteractTypeOuterClass.VehicleInteractType getInteractType() {
-      emu.grasscutter.net.proto.VehicleInteractTypeOuterClass.VehicleInteractType result = emu.grasscutter.net.proto.VehicleInteractTypeOuterClass.VehicleInteractType.forNumber(interactType_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.VehicleInteractTypeOuterClass.VehicleInteractType result = emu.grasscutter.net.proto.VehicleInteractTypeOuterClass.VehicleInteractType.valueOf(interactType_);
       return result == null ? emu.grasscutter.net.proto.VehicleInteractTypeOuterClass.VehicleInteractType.UNRECOGNIZED : result;
     }
 
     public static final int ENTITYID_FIELD_NUMBER = 13;
-    private int entityId_ = 0;
+    private int entityId_;
     /**
      * <code>uint32 entityId = 13;</code>
      * @return The entityId.
@@ -284,7 +338,7 @@ public final class VehicleInteractReqOuterClass {
       if (pos_ != 0) {
         output.writeUInt32(14, pos_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -305,7 +359,7 @@ public final class VehicleInteractReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(14, pos_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -325,7 +379,7 @@ public final class VehicleInteractReqOuterClass {
       if (interactType_ != other.interactType_) return false;
       if (getEntityId()
           != other.getEntityId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -342,7 +396,7 @@ public final class VehicleInteractReqOuterClass {
       hash = (53 * hash) + interactType_;
       hash = (37 * hash) + ENTITYID_FIELD_NUMBER;
       hash = (53 * hash) + getEntityId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -459,21 +513,28 @@ public final class VehicleInteractReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.VehicleInteractReqOuterClass.VehicleInteractReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         pos_ = 0;
+
         interactType_ = 0;
+
         entityId_ = 0;
+
         return this;
       }
 
@@ -500,22 +561,11 @@ public final class VehicleInteractReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.VehicleInteractReqOuterClass.VehicleInteractReq buildPartial() {
         emu.grasscutter.net.proto.VehicleInteractReqOuterClass.VehicleInteractReq result = new emu.grasscutter.net.proto.VehicleInteractReqOuterClass.VehicleInteractReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.pos_ = pos_;
+        result.interactType_ = interactType_;
+        result.entityId_ = entityId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.VehicleInteractReqOuterClass.VehicleInteractReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.pos_ = pos_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.interactType_ = interactType_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.entityId_ = entityId_;
-        }
       }
 
       @java.lang.Override
@@ -571,7 +621,7 @@ public final class VehicleInteractReqOuterClass {
         if (other.getEntityId() != 0) {
           setEntityId(other.getEntityId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -586,48 +636,19 @@ public final class VehicleInteractReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.VehicleInteractReqOuterClass.VehicleInteractReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 88: {
-                interactType_ = input.readEnum();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 88
-              case 104: {
-                entityId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 104
-              case 112: {
-                pos_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 112
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.VehicleInteractReqOuterClass.VehicleInteractReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int pos_ ;
       /**
@@ -646,7 +667,6 @@ public final class VehicleInteractReqOuterClass {
       public Builder setPos(int value) {
         
         pos_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -655,7 +675,7 @@ public final class VehicleInteractReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPos() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         pos_ = 0;
         onChanged();
         return this;
@@ -675,8 +695,8 @@ public final class VehicleInteractReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder setInteractTypeValue(int value) {
+        
         interactType_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -686,7 +706,8 @@ public final class VehicleInteractReqOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.VehicleInteractTypeOuterClass.VehicleInteractType getInteractType() {
-        emu.grasscutter.net.proto.VehicleInteractTypeOuterClass.VehicleInteractType result = emu.grasscutter.net.proto.VehicleInteractTypeOuterClass.VehicleInteractType.forNumber(interactType_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.VehicleInteractTypeOuterClass.VehicleInteractType result = emu.grasscutter.net.proto.VehicleInteractTypeOuterClass.VehicleInteractType.valueOf(interactType_);
         return result == null ? emu.grasscutter.net.proto.VehicleInteractTypeOuterClass.VehicleInteractType.UNRECOGNIZED : result;
       }
       /**
@@ -698,7 +719,7 @@ public final class VehicleInteractReqOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         interactType_ = value.getNumber();
         onChanged();
         return this;
@@ -708,7 +729,7 @@ public final class VehicleInteractReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearInteractType() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         interactType_ = 0;
         onChanged();
         return this;
@@ -731,7 +752,6 @@ public final class VehicleInteractReqOuterClass {
       public Builder setEntityId(int value) {
         
         entityId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -740,7 +760,7 @@ public final class VehicleInteractReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEntityId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         entityId_ = 0;
         onChanged();
         return this;
@@ -778,18 +798,7 @@ public final class VehicleInteractReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new VehicleInteractReq(input, extensionRegistry);
       }
     };
 

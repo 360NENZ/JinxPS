@@ -94,6 +94,85 @@ public final class WeaponUpgradeReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private WeaponUpgradeReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                itemParamList_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              itemParamList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(), extensionRegistry));
+              break;
+            }
+            case 56: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                foodWeaponGuidList_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              foodWeaponGuidList_.addLong(input.readUInt64());
+              break;
+            }
+            case 58: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+                foodWeaponGuidList_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                foodWeaponGuidList_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 88: {
+
+              targetWeaponGuid_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          itemParamList_ = java.util.Collections.unmodifiableList(itemParamList_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          foodWeaponGuidList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.WeaponUpgradeReqOuterClass.internal_static_WeaponUpgradeReq_descriptor;
@@ -247,7 +326,6 @@ public final class WeaponUpgradeReqOuterClass {
     }
 
     public static final int ITEMPARAMLIST_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> itemParamList_;
     /**
      * <code>repeated .ItemParam itemParamList = 1;</code>
@@ -288,7 +366,7 @@ public final class WeaponUpgradeReqOuterClass {
     }
 
     public static final int TARGETWEAPONGUID_FIELD_NUMBER = 11;
-    private long targetWeaponGuid_ = 0L;
+    private long targetWeaponGuid_;
     /**
      * <code>uint64 targetWeaponGuid = 11;</code>
      * @return The targetWeaponGuid.
@@ -299,7 +377,6 @@ public final class WeaponUpgradeReqOuterClass {
     }
 
     public static final int FOODWEAPONGUIDLIST_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList foodWeaponGuidList_;
     /**
      * <code>repeated uint64 foodWeaponGuidList = 7;</code>
@@ -355,7 +432,7 @@ public final class WeaponUpgradeReqOuterClass {
       if (targetWeaponGuid_ != 0L) {
         output.writeUInt64(11, targetWeaponGuid_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -386,7 +463,7 @@ public final class WeaponUpgradeReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(11, targetWeaponGuid_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -407,7 +484,7 @@ public final class WeaponUpgradeReqOuterClass {
           != other.getTargetWeaponGuid()) return false;
       if (!getFoodWeaponGuidListList()
           .equals(other.getFoodWeaponGuidListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -429,7 +506,7 @@ public final class WeaponUpgradeReqOuterClass {
         hash = (37 * hash) + FOODWEAPONGUIDLIST_FIELD_NUMBER;
         hash = (53 * hash) + getFoodWeaponGuidListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -546,27 +623,33 @@ public final class WeaponUpgradeReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.WeaponUpgradeReqOuterClass.WeaponUpgradeReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getItemParamListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (itemParamListBuilder_ == null) {
           itemParamList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          itemParamList_ = null;
           itemParamListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         targetWeaponGuid_ = 0L;
+
         foodWeaponGuidList_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -593,13 +676,7 @@ public final class WeaponUpgradeReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.WeaponUpgradeReqOuterClass.WeaponUpgradeReq buildPartial() {
         emu.grasscutter.net.proto.WeaponUpgradeReqOuterClass.WeaponUpgradeReq result = new emu.grasscutter.net.proto.WeaponUpgradeReqOuterClass.WeaponUpgradeReq(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.WeaponUpgradeReqOuterClass.WeaponUpgradeReq result) {
+        int from_bitField0_ = bitField0_;
         if (itemParamListBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             itemParamList_ = java.util.Collections.unmodifiableList(itemParamList_);
@@ -609,18 +686,14 @@ public final class WeaponUpgradeReqOuterClass {
         } else {
           result.itemParamList_ = itemParamListBuilder_.build();
         }
-        if (((bitField0_ & 0x00000004) != 0)) {
+        result.targetWeaponGuid_ = targetWeaponGuid_;
+        if (((bitField0_ & 0x00000002) != 0)) {
           foodWeaponGuidList_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.foodWeaponGuidList_ = foodWeaponGuidList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.WeaponUpgradeReqOuterClass.WeaponUpgradeReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.targetWeaponGuid_ = targetWeaponGuid_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -699,14 +772,14 @@ public final class WeaponUpgradeReqOuterClass {
         if (!other.foodWeaponGuidList_.isEmpty()) {
           if (foodWeaponGuidList_.isEmpty()) {
             foodWeaponGuidList_ = other.foodWeaponGuidList_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureFoodWeaponGuidListIsMutable();
             foodWeaponGuidList_.addAll(other.foodWeaponGuidList_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -721,64 +794,17 @@ public final class WeaponUpgradeReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.WeaponUpgradeReqOuterClass.WeaponUpgradeReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(),
-                        extensionRegistry);
-                if (itemParamListBuilder_ == null) {
-                  ensureItemParamListIsMutable();
-                  itemParamList_.add(m);
-                } else {
-                  itemParamListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              case 56: {
-                long v = input.readUInt64();
-                ensureFoodWeaponGuidListIsMutable();
-                foodWeaponGuidList_.addLong(v);
-                break;
-              } // case 56
-              case 58: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureFoodWeaponGuidListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  foodWeaponGuidList_.addLong(input.readUInt64());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 58
-              case 88: {
-                targetWeaponGuid_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 88
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.WeaponUpgradeReqOuterClass.WeaponUpgradeReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -1040,7 +1066,6 @@ public final class WeaponUpgradeReqOuterClass {
       public Builder setTargetWeaponGuid(long value) {
         
         targetWeaponGuid_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1049,7 +1074,7 @@ public final class WeaponUpgradeReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTargetWeaponGuid() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         targetWeaponGuid_ = 0L;
         onChanged();
         return this;
@@ -1057,10 +1082,10 @@ public final class WeaponUpgradeReqOuterClass {
 
       private com.google.protobuf.Internal.LongList foodWeaponGuidList_ = emptyLongList();
       private void ensureFoodWeaponGuidListIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           foodWeaponGuidList_ = mutableCopy(foodWeaponGuidList_);
-          bitField0_ |= 0x00000004;
-        }
+          bitField0_ |= 0x00000002;
+         }
       }
       /**
        * <code>repeated uint64 foodWeaponGuidList = 7;</code>
@@ -1068,7 +1093,7 @@ public final class WeaponUpgradeReqOuterClass {
        */
       public java.util.List<java.lang.Long>
           getFoodWeaponGuidListList() {
-        return ((bitField0_ & 0x00000004) != 0) ?
+        return ((bitField0_ & 0x00000002) != 0) ?
                  java.util.Collections.unmodifiableList(foodWeaponGuidList_) : foodWeaponGuidList_;
       }
       /**
@@ -1094,7 +1119,6 @@ public final class WeaponUpgradeReqOuterClass {
        */
       public Builder setFoodWeaponGuidList(
           int index, long value) {
-        
         ensureFoodWeaponGuidListIsMutable();
         foodWeaponGuidList_.setLong(index, value);
         onChanged();
@@ -1106,7 +1130,6 @@ public final class WeaponUpgradeReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder addFoodWeaponGuidList(long value) {
-        
         ensureFoodWeaponGuidListIsMutable();
         foodWeaponGuidList_.addLong(value);
         onChanged();
@@ -1131,7 +1154,7 @@ public final class WeaponUpgradeReqOuterClass {
        */
       public Builder clearFoodWeaponGuidList() {
         foodWeaponGuidList_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1168,18 +1191,7 @@ public final class WeaponUpgradeReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new WeaponUpgradeReq(input, extensionRegistry);
       }
     };
 

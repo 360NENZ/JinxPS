@@ -113,6 +113,79 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private PlayerCompoundMaterialBoostReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                compoundQueueDataList_ = new java.util.ArrayList<emu.grasscutter.net.proto.CompoundQueueDataOuterClass.CompoundQueueData>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              compoundQueueDataList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.CompoundQueueDataOuterClass.CompoundQueueData.parser(), extensionRegistry));
+              break;
+            }
+            case 64: {
+              int rawValue = input.readEnum();
+
+              obkcgkalonf_ = rawValue;
+              break;
+            }
+            case 114: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                ikceidbkdla_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              ikceidbkdla_.add(
+                  input.readMessage(emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(), extensionRegistry));
+              break;
+            }
+            case 120: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          compoundQueueDataList_ = java.util.Collections.unmodifiableList(compoundQueueDataList_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          ikceidbkdla_ = java.util.Collections.unmodifiableList(ikceidbkdla_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.PlayerCompoundMaterialBoostReqOuterClass.internal_static_PlayerCompoundMaterialBoostReq_descriptor;
@@ -258,7 +331,6 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
     }
 
     public static final int COMPOUNDQUEUEDATALIST_FIELD_NUMBER = 6;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.CompoundQueueDataOuterClass.CompoundQueueData> compoundQueueDataList_;
     /**
      * <code>repeated .CompoundQueueData compoundQueueDataList = 6;</code>
@@ -299,7 +371,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 15;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 15;</code>
      * @return The retcode.
@@ -310,7 +382,6 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
     }
 
     public static final int IKCEIDBKDLA_FIELD_NUMBER = 14;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> ikceidbkdla_;
     /**
      * <code>repeated .ItemParam ikceidbkdla = 14;</code>
@@ -351,7 +422,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
     }
 
     public static final int OBKCGKALONF_FIELD_NUMBER = 8;
-    private int obkcgkalonf_ = 0;
+    private int obkcgkalonf_;
     /**
      * <code>.CompoundBoostTakeStatusType obkcgkalonf = 8;</code>
      * @return The enum numeric value on the wire for obkcgkalonf.
@@ -364,7 +435,8 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
      * @return The obkcgkalonf.
      */
     @java.lang.Override public emu.grasscutter.net.proto.CompoundBoostTakeStatusTypeOuterClass.CompoundBoostTakeStatusType getObkcgkalonf() {
-      emu.grasscutter.net.proto.CompoundBoostTakeStatusTypeOuterClass.CompoundBoostTakeStatusType result = emu.grasscutter.net.proto.CompoundBoostTakeStatusTypeOuterClass.CompoundBoostTakeStatusType.forNumber(obkcgkalonf_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.CompoundBoostTakeStatusTypeOuterClass.CompoundBoostTakeStatusType result = emu.grasscutter.net.proto.CompoundBoostTakeStatusTypeOuterClass.CompoundBoostTakeStatusType.valueOf(obkcgkalonf_);
       return result == null ? emu.grasscutter.net.proto.CompoundBoostTakeStatusTypeOuterClass.CompoundBoostTakeStatusType.UNRECOGNIZED : result;
     }
 
@@ -394,7 +466,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
       if (retcode_ != 0) {
         output.writeInt32(15, retcode_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -419,7 +491,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(15, retcode_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -441,7 +513,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
       if (!getIkceidbkdlaList()
           .equals(other.getIkceidbkdlaList())) return false;
       if (obkcgkalonf_ != other.obkcgkalonf_) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -464,7 +536,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
       }
       hash = (37 * hash) + OBKCGKALONF_FIELD_NUMBER;
       hash = (53 * hash) + obkcgkalonf_;
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -581,34 +653,40 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.PlayerCompoundMaterialBoostReqOuterClass.PlayerCompoundMaterialBoostReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getCompoundQueueDataListFieldBuilder();
+          getIkceidbkdlaFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (compoundQueueDataListBuilder_ == null) {
           compoundQueueDataList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          compoundQueueDataList_ = null;
           compoundQueueDataListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         retcode_ = 0;
+
         if (ikceidbkdlaBuilder_ == null) {
           ikceidbkdla_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
-          ikceidbkdla_ = null;
           ikceidbkdlaBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         obkcgkalonf_ = 0;
+
         return this;
       }
 
@@ -635,13 +713,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.PlayerCompoundMaterialBoostReqOuterClass.PlayerCompoundMaterialBoostReq buildPartial() {
         emu.grasscutter.net.proto.PlayerCompoundMaterialBoostReqOuterClass.PlayerCompoundMaterialBoostReq result = new emu.grasscutter.net.proto.PlayerCompoundMaterialBoostReqOuterClass.PlayerCompoundMaterialBoostReq(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.PlayerCompoundMaterialBoostReqOuterClass.PlayerCompoundMaterialBoostReq result) {
+        int from_bitField0_ = bitField0_;
         if (compoundQueueDataListBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             compoundQueueDataList_ = java.util.Collections.unmodifiableList(compoundQueueDataList_);
@@ -651,25 +723,19 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
         } else {
           result.compoundQueueDataList_ = compoundQueueDataListBuilder_.build();
         }
+        result.retcode_ = retcode_;
         if (ikceidbkdlaBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             ikceidbkdla_ = java.util.Collections.unmodifiableList(ikceidbkdla_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.ikceidbkdla_ = ikceidbkdla_;
         } else {
           result.ikceidbkdla_ = ikceidbkdlaBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.PlayerCompoundMaterialBoostReqOuterClass.PlayerCompoundMaterialBoostReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.retcode_ = retcode_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.obkcgkalonf_ = obkcgkalonf_;
-        }
+        result.obkcgkalonf_ = obkcgkalonf_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -749,7 +815,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
           if (!other.ikceidbkdla_.isEmpty()) {
             if (ikceidbkdla_.isEmpty()) {
               ikceidbkdla_ = other.ikceidbkdla_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureIkceidbkdlaIsMutable();
               ikceidbkdla_.addAll(other.ikceidbkdla_);
@@ -762,7 +828,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
               ikceidbkdlaBuilder_.dispose();
               ikceidbkdlaBuilder_ = null;
               ikceidbkdla_ = other.ikceidbkdla_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
               ikceidbkdlaBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getIkceidbkdlaFieldBuilder() : null;
@@ -774,7 +840,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
         if (other.obkcgkalonf_ != 0) {
           setObkcgkalonfValue(other.getObkcgkalonfValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -789,66 +855,17 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.PlayerCompoundMaterialBoostReqOuterClass.PlayerCompoundMaterialBoostReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 50: {
-                emu.grasscutter.net.proto.CompoundQueueDataOuterClass.CompoundQueueData m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.CompoundQueueDataOuterClass.CompoundQueueData.parser(),
-                        extensionRegistry);
-                if (compoundQueueDataListBuilder_ == null) {
-                  ensureCompoundQueueDataListIsMutable();
-                  compoundQueueDataList_.add(m);
-                } else {
-                  compoundQueueDataListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 50
-              case 64: {
-                obkcgkalonf_ = input.readEnum();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 64
-              case 114: {
-                emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(),
-                        extensionRegistry);
-                if (ikceidbkdlaBuilder_ == null) {
-                  ensureIkceidbkdlaIsMutable();
-                  ikceidbkdla_.add(m);
-                } else {
-                  ikceidbkdlaBuilder_.addMessage(m);
-                }
-                break;
-              } // case 114
-              case 120: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.PlayerCompoundMaterialBoostReqOuterClass.PlayerCompoundMaterialBoostReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -1110,7 +1127,6 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1119,7 +1135,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -1128,9 +1144,9 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
       private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> ikceidbkdla_ =
         java.util.Collections.emptyList();
       private void ensureIkceidbkdlaIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           ikceidbkdla_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>(ikceidbkdla_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1280,7 +1296,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
       public Builder clearIkceidbkdla() {
         if (ikceidbkdlaBuilder_ == null) {
           ikceidbkdla_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           ikceidbkdlaBuilder_.clear();
@@ -1357,7 +1373,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
           ikceidbkdlaBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.Builder, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParamOrBuilder>(
                   ikceidbkdla_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           ikceidbkdla_ = null;
@@ -1379,8 +1395,8 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder setObkcgkalonfValue(int value) {
+        
         obkcgkalonf_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1390,7 +1406,8 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.CompoundBoostTakeStatusTypeOuterClass.CompoundBoostTakeStatusType getObkcgkalonf() {
-        emu.grasscutter.net.proto.CompoundBoostTakeStatusTypeOuterClass.CompoundBoostTakeStatusType result = emu.grasscutter.net.proto.CompoundBoostTakeStatusTypeOuterClass.CompoundBoostTakeStatusType.forNumber(obkcgkalonf_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.CompoundBoostTakeStatusTypeOuterClass.CompoundBoostTakeStatusType result = emu.grasscutter.net.proto.CompoundBoostTakeStatusTypeOuterClass.CompoundBoostTakeStatusType.valueOf(obkcgkalonf_);
         return result == null ? emu.grasscutter.net.proto.CompoundBoostTakeStatusTypeOuterClass.CompoundBoostTakeStatusType.UNRECOGNIZED : result;
       }
       /**
@@ -1402,7 +1419,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000008;
+        
         obkcgkalonf_ = value.getNumber();
         onChanged();
         return this;
@@ -1412,7 +1429,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearObkcgkalonf() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         obkcgkalonf_ = 0;
         onChanged();
         return this;
@@ -1450,18 +1467,7 @@ public final class PlayerCompoundMaterialBoostReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new PlayerCompoundMaterialBoostReq(input, extensionRegistry);
       }
     };
 

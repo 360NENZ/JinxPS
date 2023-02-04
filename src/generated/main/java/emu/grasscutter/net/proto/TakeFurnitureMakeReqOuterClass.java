@@ -63,6 +63,58 @@ public final class TakeFurnitureMakeReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private TakeFurnitureMakeReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 48: {
+
+              index_ = input.readUInt32();
+              break;
+            }
+            case 72: {
+
+              makeId_ = input.readUInt32();
+              break;
+            }
+            case 120: {
+
+              isFastFinish_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.TakeFurnitureMakeReqOuterClass.internal_static_TakeFurnitureMakeReq_descriptor;
@@ -216,7 +268,7 @@ public final class TakeFurnitureMakeReqOuterClass {
     }
 
     public static final int INDEX_FIELD_NUMBER = 6;
-    private int index_ = 0;
+    private int index_;
     /**
      * <code>uint32 index = 6;</code>
      * @return The index.
@@ -227,7 +279,7 @@ public final class TakeFurnitureMakeReqOuterClass {
     }
 
     public static final int ISFASTFINISH_FIELD_NUMBER = 15;
-    private boolean isFastFinish_ = false;
+    private boolean isFastFinish_;
     /**
      * <code>bool isFastFinish = 15;</code>
      * @return The isFastFinish.
@@ -238,7 +290,7 @@ public final class TakeFurnitureMakeReqOuterClass {
     }
 
     public static final int MAKEID_FIELD_NUMBER = 9;
-    private int makeId_ = 0;
+    private int makeId_;
     /**
      * <code>uint32 makeId = 9;</code>
      * @return The makeId.
@@ -271,7 +323,7 @@ public final class TakeFurnitureMakeReqOuterClass {
       if (isFastFinish_ != false) {
         output.writeBool(15, isFastFinish_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -292,7 +344,7 @@ public final class TakeFurnitureMakeReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(15, isFastFinish_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -313,7 +365,7 @@ public final class TakeFurnitureMakeReqOuterClass {
           != other.getIsFastFinish()) return false;
       if (getMakeId()
           != other.getMakeId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -331,7 +383,7 @@ public final class TakeFurnitureMakeReqOuterClass {
           getIsFastFinish());
       hash = (37 * hash) + MAKEID_FIELD_NUMBER;
       hash = (53 * hash) + getMakeId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -448,21 +500,28 @@ public final class TakeFurnitureMakeReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.TakeFurnitureMakeReqOuterClass.TakeFurnitureMakeReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         index_ = 0;
+
         isFastFinish_ = false;
+
         makeId_ = 0;
+
         return this;
       }
 
@@ -489,22 +548,11 @@ public final class TakeFurnitureMakeReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.TakeFurnitureMakeReqOuterClass.TakeFurnitureMakeReq buildPartial() {
         emu.grasscutter.net.proto.TakeFurnitureMakeReqOuterClass.TakeFurnitureMakeReq result = new emu.grasscutter.net.proto.TakeFurnitureMakeReqOuterClass.TakeFurnitureMakeReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.index_ = index_;
+        result.isFastFinish_ = isFastFinish_;
+        result.makeId_ = makeId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.TakeFurnitureMakeReqOuterClass.TakeFurnitureMakeReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.index_ = index_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.isFastFinish_ = isFastFinish_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.makeId_ = makeId_;
-        }
       }
 
       @java.lang.Override
@@ -560,7 +608,7 @@ public final class TakeFurnitureMakeReqOuterClass {
         if (other.getMakeId() != 0) {
           setMakeId(other.getMakeId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -575,48 +623,19 @@ public final class TakeFurnitureMakeReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.TakeFurnitureMakeReqOuterClass.TakeFurnitureMakeReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 48: {
-                index_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 48
-              case 72: {
-                makeId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 72
-              case 120: {
-                isFastFinish_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.TakeFurnitureMakeReqOuterClass.TakeFurnitureMakeReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int index_ ;
       /**
@@ -635,7 +654,6 @@ public final class TakeFurnitureMakeReqOuterClass {
       public Builder setIndex(int value) {
         
         index_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -644,7 +662,7 @@ public final class TakeFurnitureMakeReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIndex() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         index_ = 0;
         onChanged();
         return this;
@@ -667,7 +685,6 @@ public final class TakeFurnitureMakeReqOuterClass {
       public Builder setIsFastFinish(boolean value) {
         
         isFastFinish_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -676,7 +693,7 @@ public final class TakeFurnitureMakeReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsFastFinish() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         isFastFinish_ = false;
         onChanged();
         return this;
@@ -699,7 +716,6 @@ public final class TakeFurnitureMakeReqOuterClass {
       public Builder setMakeId(int value) {
         
         makeId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -708,7 +724,7 @@ public final class TakeFurnitureMakeReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearMakeId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         makeId_ = 0;
         onChanged();
         return this;
@@ -746,18 +762,7 @@ public final class TakeFurnitureMakeReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TakeFurnitureMakeReq(input, extensionRegistry);
       }
     };
 

@@ -69,6 +69,59 @@ public final class DropItemRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private DropItemRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 72: {
+
+              guid_ = input.readUInt64();
+              break;
+            }
+            case 80: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 112: {
+              int rawValue = input.readEnum();
+
+              storeType_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.DropItemRspOuterClass.internal_static_DropItemRsp_descriptor;
@@ -214,7 +267,7 @@ public final class DropItemRspOuterClass {
     }
 
     public static final int STORETYPE_FIELD_NUMBER = 14;
-    private int storeType_ = 0;
+    private int storeType_;
     /**
      * <code>.StoreType storeType = 14;</code>
      * @return The enum numeric value on the wire for storeType.
@@ -227,12 +280,13 @@ public final class DropItemRspOuterClass {
      * @return The storeType.
      */
     @java.lang.Override public emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType getStoreType() {
-      emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType result = emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.forNumber(storeType_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType result = emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.valueOf(storeType_);
       return result == null ? emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.UNRECOGNIZED : result;
     }
 
     public static final int GUID_FIELD_NUMBER = 9;
-    private long guid_ = 0L;
+    private long guid_;
     /**
      * <code>uint64 guid = 9;</code>
      * @return The guid.
@@ -243,7 +297,7 @@ public final class DropItemRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 10;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 10;</code>
      * @return The retcode.
@@ -276,7 +330,7 @@ public final class DropItemRspOuterClass {
       if (storeType_ != emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.STORE_TYPE_NONE.getNumber()) {
         output.writeEnum(14, storeType_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -297,7 +351,7 @@ public final class DropItemRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(14, storeType_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -317,7 +371,7 @@ public final class DropItemRspOuterClass {
           != other.getGuid()) return false;
       if (getRetcode()
           != other.getRetcode()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -335,7 +389,7 @@ public final class DropItemRspOuterClass {
           getGuid());
       hash = (37 * hash) + RETCODE_FIELD_NUMBER;
       hash = (53 * hash) + getRetcode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -452,21 +506,28 @@ public final class DropItemRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.DropItemRspOuterClass.DropItemRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         storeType_ = 0;
+
         guid_ = 0L;
+
         retcode_ = 0;
+
         return this;
       }
 
@@ -493,22 +554,11 @@ public final class DropItemRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.DropItemRspOuterClass.DropItemRsp buildPartial() {
         emu.grasscutter.net.proto.DropItemRspOuterClass.DropItemRsp result = new emu.grasscutter.net.proto.DropItemRspOuterClass.DropItemRsp(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.storeType_ = storeType_;
+        result.guid_ = guid_;
+        result.retcode_ = retcode_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.DropItemRspOuterClass.DropItemRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.storeType_ = storeType_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.guid_ = guid_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.retcode_ = retcode_;
-        }
       }
 
       @java.lang.Override
@@ -564,7 +614,7 @@ public final class DropItemRspOuterClass {
         if (other.getRetcode() != 0) {
           setRetcode(other.getRetcode());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -579,48 +629,19 @@ public final class DropItemRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.DropItemRspOuterClass.DropItemRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 72: {
-                guid_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 72
-              case 80: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 80
-              case 112: {
-                storeType_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 112
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.DropItemRspOuterClass.DropItemRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int storeType_ = 0;
       /**
@@ -636,8 +657,8 @@ public final class DropItemRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder setStoreTypeValue(int value) {
+        
         storeType_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -647,7 +668,8 @@ public final class DropItemRspOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType getStoreType() {
-        emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType result = emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.forNumber(storeType_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType result = emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.valueOf(storeType_);
         return result == null ? emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.UNRECOGNIZED : result;
       }
       /**
@@ -659,7 +681,7 @@ public final class DropItemRspOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000001;
+        
         storeType_ = value.getNumber();
         onChanged();
         return this;
@@ -669,7 +691,7 @@ public final class DropItemRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearStoreType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         storeType_ = 0;
         onChanged();
         return this;
@@ -692,7 +714,6 @@ public final class DropItemRspOuterClass {
       public Builder setGuid(long value) {
         
         guid_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -701,7 +722,7 @@ public final class DropItemRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGuid() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         guid_ = 0L;
         onChanged();
         return this;
@@ -724,7 +745,6 @@ public final class DropItemRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -733,7 +753,7 @@ public final class DropItemRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -771,18 +791,7 @@ public final class DropItemRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new DropItemRsp(input, extensionRegistry);
       }
     };
 

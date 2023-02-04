@@ -98,6 +98,77 @@ public final class MusicGameCreateBeatmapReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MusicGameCreateBeatmapReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 82: {
+              emu.grasscutter.net.proto.MusicBeatmapOuterClass.MusicBeatmap.Builder subBuilder = null;
+              if (beatmapCase_ == 10) {
+                subBuilder = ((emu.grasscutter.net.proto.MusicBeatmapOuterClass.MusicBeatmap) beatmap_).toBuilder();
+              }
+              beatmap_ =
+                  input.readMessage(emu.grasscutter.net.proto.MusicBeatmapOuterClass.MusicBeatmap.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.MusicBeatmapOuterClass.MusicBeatmap) beatmap_);
+                beatmap_ = subBuilder.buildPartial();
+              }
+              beatmapCase_ = 10;
+              break;
+            }
+            case 96: {
+              int rawValue = input.readEnum();
+
+              unknownEnum1_ = rawValue;
+              break;
+            }
+            case 8170: {
+              emu.grasscutter.net.proto.MusicBriefInfoOuterClass.MusicBriefInfo.Builder subBuilder = null;
+              if (briefInfoCase_ == 1021) {
+                subBuilder = ((emu.grasscutter.net.proto.MusicBriefInfoOuterClass.MusicBriefInfo) briefInfo_).toBuilder();
+              }
+              briefInfo_ =
+                  input.readMessage(emu.grasscutter.net.proto.MusicBriefInfoOuterClass.MusicBriefInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.MusicBriefInfoOuterClass.MusicBriefInfo) briefInfo_);
+                briefInfo_ = subBuilder.buildPartial();
+              }
+              briefInfoCase_ = 1021;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.MusicGameCreateBeatmapReqOuterClass.internal_static_MusicGameCreateBeatmapReq_descriptor;
@@ -190,7 +261,7 @@ public final class MusicGameCreateBeatmapReqOuterClass {
     }
 
     public static final int UNKNOWN_ENUM1_FIELD_NUMBER = 12;
-    private int unknownEnum1_ = 0;
+    private int unknownEnum1_;
     /**
      * <code>.MusicGameUnknown1Enum unknown_enum1 = 12;</code>
      * @return The enum numeric value on the wire for unknownEnum1.
@@ -203,7 +274,8 @@ public final class MusicGameCreateBeatmapReqOuterClass {
      * @return The unknownEnum1.
      */
     @java.lang.Override public emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum getUnknownEnum1() {
-      emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum result = emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.forNumber(unknownEnum1_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum result = emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.valueOf(unknownEnum1_);
       return result == null ? emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.UNRECOGNIZED : result;
     }
 
@@ -292,7 +364,7 @@ public final class MusicGameCreateBeatmapReqOuterClass {
       if (briefInfoCase_ == 1021) {
         output.writeMessage(1021, (emu.grasscutter.net.proto.MusicBriefInfoOuterClass.MusicBriefInfo) briefInfo_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -313,7 +385,7 @@ public final class MusicGameCreateBeatmapReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1021, (emu.grasscutter.net.proto.MusicBriefInfoOuterClass.MusicBriefInfo) briefInfo_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -347,7 +419,7 @@ public final class MusicGameCreateBeatmapReqOuterClass {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -376,7 +448,7 @@ public final class MusicGameCreateBeatmapReqOuterClass {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -500,25 +572,24 @@ public final class MusicGameCreateBeatmapReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.MusicGameCreateBeatmapReqOuterClass.MusicGameCreateBeatmapReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         unknownEnum1_ = 0;
-        if (musicRecordBuilder_ != null) {
-          musicRecordBuilder_.clear();
-        }
-        if (musicBriefInfoBuilder_ != null) {
-          musicBriefInfoBuilder_.clear();
-        }
+
         beatmapCase_ = 0;
         beatmap_ = null;
         briefInfoCase_ = 0;
@@ -549,32 +620,25 @@ public final class MusicGameCreateBeatmapReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.MusicGameCreateBeatmapReqOuterClass.MusicGameCreateBeatmapReq buildPartial() {
         emu.grasscutter.net.proto.MusicGameCreateBeatmapReqOuterClass.MusicGameCreateBeatmapReq result = new emu.grasscutter.net.proto.MusicGameCreateBeatmapReqOuterClass.MusicGameCreateBeatmapReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        result.unknownEnum1_ = unknownEnum1_;
+        if (beatmapCase_ == 10) {
+          if (musicRecordBuilder_ == null) {
+            result.beatmap_ = beatmap_;
+          } else {
+            result.beatmap_ = musicRecordBuilder_.build();
+          }
+        }
+        if (briefInfoCase_ == 1021) {
+          if (musicBriefInfoBuilder_ == null) {
+            result.briefInfo_ = briefInfo_;
+          } else {
+            result.briefInfo_ = musicBriefInfoBuilder_.build();
+          }
+        }
+        result.beatmapCase_ = beatmapCase_;
+        result.briefInfoCase_ = briefInfoCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.MusicGameCreateBeatmapReqOuterClass.MusicGameCreateBeatmapReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.unknownEnum1_ = unknownEnum1_;
-        }
-      }
-
-      private void buildPartialOneofs(emu.grasscutter.net.proto.MusicGameCreateBeatmapReqOuterClass.MusicGameCreateBeatmapReq result) {
-        result.beatmapCase_ = beatmapCase_;
-        result.beatmap_ = this.beatmap_;
-        if (beatmapCase_ == 10 &&
-            musicRecordBuilder_ != null) {
-          result.beatmap_ = musicRecordBuilder_.build();
-        }
-        result.briefInfoCase_ = briefInfoCase_;
-        result.briefInfo_ = this.briefInfo_;
-        if (briefInfoCase_ == 1021 &&
-            musicBriefInfoBuilder_ != null) {
-          result.briefInfo_ = musicBriefInfoBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -642,7 +706,7 @@ public final class MusicGameCreateBeatmapReqOuterClass {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -657,49 +721,17 @@ public final class MusicGameCreateBeatmapReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.MusicGameCreateBeatmapReqOuterClass.MusicGameCreateBeatmapReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 82: {
-                input.readMessage(
-                    getMusicRecordFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                beatmapCase_ = 10;
-                break;
-              } // case 82
-              case 96: {
-                unknownEnum1_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 96
-              case 8170: {
-                input.readMessage(
-                    getMusicBriefInfoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                briefInfoCase_ = 1021;
-                break;
-              } // case 8170
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.MusicGameCreateBeatmapReqOuterClass.MusicGameCreateBeatmapReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int beatmapCase_ = 0;
@@ -732,7 +764,6 @@ public final class MusicGameCreateBeatmapReqOuterClass {
         return this;
       }
 
-      private int bitField0_;
 
       private int unknownEnum1_ = 0;
       /**
@@ -748,8 +779,8 @@ public final class MusicGameCreateBeatmapReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder setUnknownEnum1Value(int value) {
+        
         unknownEnum1_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -759,7 +790,8 @@ public final class MusicGameCreateBeatmapReqOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum getUnknownEnum1() {
-        emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum result = emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.forNumber(unknownEnum1_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum result = emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.valueOf(unknownEnum1_);
         return result == null ? emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.UNRECOGNIZED : result;
       }
       /**
@@ -771,7 +803,7 @@ public final class MusicGameCreateBeatmapReqOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000001;
+        
         unknownEnum1_ = value.getNumber();
         onChanged();
         return this;
@@ -781,7 +813,7 @@ public final class MusicGameCreateBeatmapReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnknownEnum1() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         unknownEnum1_ = 0;
         onChanged();
         return this;
@@ -861,9 +893,8 @@ public final class MusicGameCreateBeatmapReqOuterClass {
         } else {
           if (beatmapCase_ == 10) {
             musicRecordBuilder_.mergeFrom(value);
-          } else {
-            musicRecordBuilder_.setMessage(value);
           }
+          musicRecordBuilder_.setMessage(value);
         }
         beatmapCase_ = 10;
         return this;
@@ -925,7 +956,7 @@ public final class MusicGameCreateBeatmapReqOuterClass {
           beatmap_ = null;
         }
         beatmapCase_ = 10;
-        onChanged();
+        onChanged();;
         return musicRecordBuilder_;
       }
 
@@ -1003,9 +1034,8 @@ public final class MusicGameCreateBeatmapReqOuterClass {
         } else {
           if (briefInfoCase_ == 1021) {
             musicBriefInfoBuilder_.mergeFrom(value);
-          } else {
-            musicBriefInfoBuilder_.setMessage(value);
           }
+          musicBriefInfoBuilder_.setMessage(value);
         }
         briefInfoCase_ = 1021;
         return this;
@@ -1067,7 +1097,7 @@ public final class MusicGameCreateBeatmapReqOuterClass {
           briefInfo_ = null;
         }
         briefInfoCase_ = 1021;
-        onChanged();
+        onChanged();;
         return musicBriefInfoBuilder_;
       }
       @java.lang.Override
@@ -1103,18 +1133,7 @@ public final class MusicGameCreateBeatmapReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MusicGameCreateBeatmapReq(input, extensionRegistry);
       }
     };
 

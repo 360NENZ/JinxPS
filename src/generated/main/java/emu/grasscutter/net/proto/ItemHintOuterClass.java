@@ -69,6 +69,63 @@ public final class ItemHintOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ItemHint(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 64: {
+
+              guid_ = input.readUInt64();
+              break;
+            }
+            case 96: {
+
+              count_ = input.readUInt32();
+              break;
+            }
+            case 104: {
+
+              itemId_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+
+              isNew_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ItemHintOuterClass.internal_static_ItemHint_descriptor;
@@ -83,7 +140,7 @@ public final class ItemHintOuterClass {
     }
 
     public static final int COUNT_FIELD_NUMBER = 12;
-    private int count_ = 0;
+    private int count_;
     /**
      * <code>uint32 count = 12;</code>
      * @return The count.
@@ -94,7 +151,7 @@ public final class ItemHintOuterClass {
     }
 
     public static final int GUID_FIELD_NUMBER = 8;
-    private long guid_ = 0L;
+    private long guid_;
     /**
      * <code>uint64 guid = 8;</code>
      * @return The guid.
@@ -105,7 +162,7 @@ public final class ItemHintOuterClass {
     }
 
     public static final int ITEMID_FIELD_NUMBER = 13;
-    private int itemId_ = 0;
+    private int itemId_;
     /**
      * <code>uint32 itemId = 13;</code>
      * @return The itemId.
@@ -116,7 +173,7 @@ public final class ItemHintOuterClass {
     }
 
     public static final int ISNEW_FIELD_NUMBER = 14;
-    private boolean isNew_ = false;
+    private boolean isNew_;
     /**
      * <code>bool isNew = 14;</code>
      * @return The isNew.
@@ -152,7 +209,7 @@ public final class ItemHintOuterClass {
       if (isNew_ != false) {
         output.writeBool(14, isNew_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -177,7 +234,7 @@ public final class ItemHintOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(14, isNew_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -200,7 +257,7 @@ public final class ItemHintOuterClass {
           != other.getItemId()) return false;
       if (getIsNew()
           != other.getIsNew()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -221,7 +278,7 @@ public final class ItemHintOuterClass {
       hash = (37 * hash) + ISNEW_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsNew());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -338,22 +395,30 @@ public final class ItemHintOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ItemHintOuterClass.ItemHint.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         count_ = 0;
+
         guid_ = 0L;
+
         itemId_ = 0;
+
         isNew_ = false;
+
         return this;
       }
 
@@ -380,25 +445,12 @@ public final class ItemHintOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ItemHintOuterClass.ItemHint buildPartial() {
         emu.grasscutter.net.proto.ItemHintOuterClass.ItemHint result = new emu.grasscutter.net.proto.ItemHintOuterClass.ItemHint(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.count_ = count_;
+        result.guid_ = guid_;
+        result.itemId_ = itemId_;
+        result.isNew_ = isNew_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ItemHintOuterClass.ItemHint result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.count_ = count_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.guid_ = guid_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.itemId_ = itemId_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.isNew_ = isNew_;
-        }
       }
 
       @java.lang.Override
@@ -457,7 +509,7 @@ public final class ItemHintOuterClass {
         if (other.getIsNew() != false) {
           setIsNew(other.getIsNew());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -472,53 +524,19 @@ public final class ItemHintOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ItemHintOuterClass.ItemHint parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 64: {
-                guid_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 64
-              case 96: {
-                count_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 96
-              case 104: {
-                itemId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 104
-              case 112: {
-                isNew_ = input.readBool();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 112
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ItemHintOuterClass.ItemHint) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int count_ ;
       /**
@@ -537,7 +555,6 @@ public final class ItemHintOuterClass {
       public Builder setCount(int value) {
         
         count_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -546,7 +563,7 @@ public final class ItemHintOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCount() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         count_ = 0;
         onChanged();
         return this;
@@ -569,7 +586,6 @@ public final class ItemHintOuterClass {
       public Builder setGuid(long value) {
         
         guid_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -578,7 +594,7 @@ public final class ItemHintOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGuid() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         guid_ = 0L;
         onChanged();
         return this;
@@ -601,7 +617,6 @@ public final class ItemHintOuterClass {
       public Builder setItemId(int value) {
         
         itemId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -610,7 +625,7 @@ public final class ItemHintOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearItemId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         itemId_ = 0;
         onChanged();
         return this;
@@ -633,7 +648,6 @@ public final class ItemHintOuterClass {
       public Builder setIsNew(boolean value) {
         
         isNew_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -642,7 +656,7 @@ public final class ItemHintOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsNew() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         isNew_ = false;
         onChanged();
         return this;
@@ -680,18 +694,7 @@ public final class ItemHintOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ItemHint(input, extensionRegistry);
       }
     };
 

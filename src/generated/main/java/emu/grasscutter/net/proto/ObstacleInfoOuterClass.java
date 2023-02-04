@@ -108,6 +108,93 @@ public final class ObstacleInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ObstacleInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              emu.grasscutter.net.proto.MathQuaternionOuterClass.MathQuaternion.Builder subBuilder = null;
+              if (vector_ != null) {
+                subBuilder = vector_.toBuilder();
+              }
+              vector_ = input.readMessage(emu.grasscutter.net.proto.MathQuaternionOuterClass.MathQuaternion.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(vector_);
+                vector_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder subBuilder = null;
+              if (center_ != null) {
+                subBuilder = center_.toBuilder();
+              }
+              center_ = input.readMessage(emu.grasscutter.net.proto.VectorOuterClass.Vector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(center_);
+                center_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 40: {
+              int rawValue = input.readEnum();
+
+              shape_ = rawValue;
+              break;
+            }
+            case 72: {
+
+              obstacleId_ = input.readInt32();
+              break;
+            }
+            case 98: {
+              emu.grasscutter.net.proto.Vector3IntOuterClass.Vector3Int.Builder subBuilder = null;
+              if (extents_ != null) {
+                subBuilder = extents_.toBuilder();
+              }
+              extents_ = input.readMessage(emu.grasscutter.net.proto.Vector3IntOuterClass.Vector3Int.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(extents_);
+                extents_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ObstacleInfoOuterClass.internal_static_ObstacleInfo_descriptor;
@@ -144,7 +231,7 @@ public final class ObstacleInfoOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getCenterOrBuilder() {
-      return center_ == null ? emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance() : center_;
+      return getCenter();
     }
 
     public static final int EXTENTS_FIELD_NUMBER = 12;
@@ -170,11 +257,11 @@ public final class ObstacleInfoOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.Vector3IntOuterClass.Vector3IntOrBuilder getExtentsOrBuilder() {
-      return extents_ == null ? emu.grasscutter.net.proto.Vector3IntOuterClass.Vector3Int.getDefaultInstance() : extents_;
+      return getExtents();
     }
 
     public static final int SHAPE_FIELD_NUMBER = 5;
-    private int shape_ = 0;
+    private int shape_;
     /**
      * <code>.ShapeType shape = 5;</code>
      * @return The enum numeric value on the wire for shape.
@@ -187,12 +274,13 @@ public final class ObstacleInfoOuterClass {
      * @return The shape.
      */
     @java.lang.Override public emu.grasscutter.net.proto.ShapeTypeOuterClass.ShapeType getShape() {
-      emu.grasscutter.net.proto.ShapeTypeOuterClass.ShapeType result = emu.grasscutter.net.proto.ShapeTypeOuterClass.ShapeType.forNumber(shape_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.ShapeTypeOuterClass.ShapeType result = emu.grasscutter.net.proto.ShapeTypeOuterClass.ShapeType.valueOf(shape_);
       return result == null ? emu.grasscutter.net.proto.ShapeTypeOuterClass.ShapeType.UNRECOGNIZED : result;
     }
 
     public static final int OBSTACLEID_FIELD_NUMBER = 9;
-    private int obstacleId_ = 0;
+    private int obstacleId_;
     /**
      * <code>int32 obstacleId = 9;</code>
      * @return The obstacleId.
@@ -225,7 +313,7 @@ public final class ObstacleInfoOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.MathQuaternionOuterClass.MathQuaternionOrBuilder getVectorOrBuilder() {
-      return vector_ == null ? emu.grasscutter.net.proto.MathQuaternionOuterClass.MathQuaternion.getDefaultInstance() : vector_;
+      return getVector();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -257,7 +345,7 @@ public final class ObstacleInfoOuterClass {
       if (extents_ != null) {
         output.writeMessage(12, getExtents());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -286,7 +374,7 @@ public final class ObstacleInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, getExtents());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -319,7 +407,7 @@ public final class ObstacleInfoOuterClass {
         if (!getVector()
             .equals(other.getVector())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -346,7 +434,7 @@ public final class ObstacleInfoOuterClass {
         hash = (37 * hash) + VECTOR_FIELD_NUMBER;
         hash = (53 * hash) + getVector().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -463,33 +551,42 @@ public final class ObstacleInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ObstacleInfoOuterClass.ObstacleInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        center_ = null;
-        if (centerBuilder_ != null) {
-          centerBuilder_.dispose();
+        if (centerBuilder_ == null) {
+          center_ = null;
+        } else {
+          center_ = null;
           centerBuilder_ = null;
         }
-        extents_ = null;
-        if (extentsBuilder_ != null) {
-          extentsBuilder_.dispose();
+        if (extentsBuilder_ == null) {
+          extents_ = null;
+        } else {
+          extents_ = null;
           extentsBuilder_ = null;
         }
         shape_ = 0;
+
         obstacleId_ = 0;
-        vector_ = null;
-        if (vectorBuilder_ != null) {
-          vectorBuilder_.dispose();
+
+        if (vectorBuilder_ == null) {
+          vector_ = null;
+        } else {
+          vector_ = null;
           vectorBuilder_ = null;
         }
         return this;
@@ -518,34 +615,25 @@ public final class ObstacleInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ObstacleInfoOuterClass.ObstacleInfo buildPartial() {
         emu.grasscutter.net.proto.ObstacleInfoOuterClass.ObstacleInfo result = new emu.grasscutter.net.proto.ObstacleInfoOuterClass.ObstacleInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (centerBuilder_ == null) {
+          result.center_ = center_;
+        } else {
+          result.center_ = centerBuilder_.build();
+        }
+        if (extentsBuilder_ == null) {
+          result.extents_ = extents_;
+        } else {
+          result.extents_ = extentsBuilder_.build();
+        }
+        result.shape_ = shape_;
+        result.obstacleId_ = obstacleId_;
+        if (vectorBuilder_ == null) {
+          result.vector_ = vector_;
+        } else {
+          result.vector_ = vectorBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ObstacleInfoOuterClass.ObstacleInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.center_ = centerBuilder_ == null
-              ? center_
-              : centerBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.extents_ = extentsBuilder_ == null
-              ? extents_
-              : extentsBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.shape_ = shape_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.obstacleId_ = obstacleId_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.vector_ = vectorBuilder_ == null
-              ? vector_
-              : vectorBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -607,7 +695,7 @@ public final class ObstacleInfoOuterClass {
         if (other.hasVector()) {
           mergeVector(other.getVector());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -622,64 +710,19 @@ public final class ObstacleInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ObstacleInfoOuterClass.ObstacleInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 18: {
-                input.readMessage(
-                    getVectorFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 18
-              case 34: {
-                input.readMessage(
-                    getCenterFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 34
-              case 40: {
-                shape_ = input.readEnum();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 40
-              case 72: {
-                obstacleId_ = input.readInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 72
-              case 98: {
-                input.readMessage(
-                    getExtentsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 98
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ObstacleInfoOuterClass.ObstacleInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private emu.grasscutter.net.proto.VectorOuterClass.Vector center_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -689,7 +732,7 @@ public final class ObstacleInfoOuterClass {
        * @return Whether the center field is set.
        */
       public boolean hasCenter() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return centerBuilder_ != null || center_ != null;
       }
       /**
        * <code>.Vector center = 4;</code>
@@ -711,11 +754,11 @@ public final class ObstacleInfoOuterClass {
             throw new NullPointerException();
           }
           center_ = value;
+          onChanged();
         } else {
           centerBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -725,11 +768,11 @@ public final class ObstacleInfoOuterClass {
           emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder builderForValue) {
         if (centerBuilder_ == null) {
           center_ = builderForValue.build();
+          onChanged();
         } else {
           centerBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -737,38 +780,38 @@ public final class ObstacleInfoOuterClass {
        */
       public Builder mergeCenter(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (centerBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            center_ != null &&
-            center_ != emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance()) {
-            getCenterBuilder().mergeFrom(value);
+          if (center_ != null) {
+            center_ =
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.newBuilder(center_).mergeFrom(value).buildPartial();
           } else {
             center_ = value;
           }
+          onChanged();
         } else {
           centerBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector center = 4;</code>
        */
       public Builder clearCenter() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        center_ = null;
-        if (centerBuilder_ != null) {
-          centerBuilder_.dispose();
+        if (centerBuilder_ == null) {
+          center_ = null;
+          onChanged();
+        } else {
+          center_ = null;
           centerBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector center = 4;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder getCenterBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getCenterFieldBuilder().getBuilder();
       }
@@ -808,7 +851,7 @@ public final class ObstacleInfoOuterClass {
        * @return Whether the extents field is set.
        */
       public boolean hasExtents() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return extentsBuilder_ != null || extents_ != null;
       }
       /**
        * <code>.Vector3Int extents = 12;</code>
@@ -830,11 +873,11 @@ public final class ObstacleInfoOuterClass {
             throw new NullPointerException();
           }
           extents_ = value;
+          onChanged();
         } else {
           extentsBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -844,11 +887,11 @@ public final class ObstacleInfoOuterClass {
           emu.grasscutter.net.proto.Vector3IntOuterClass.Vector3Int.Builder builderForValue) {
         if (extentsBuilder_ == null) {
           extents_ = builderForValue.build();
+          onChanged();
         } else {
           extentsBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -856,38 +899,38 @@ public final class ObstacleInfoOuterClass {
        */
       public Builder mergeExtents(emu.grasscutter.net.proto.Vector3IntOuterClass.Vector3Int value) {
         if (extentsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            extents_ != null &&
-            extents_ != emu.grasscutter.net.proto.Vector3IntOuterClass.Vector3Int.getDefaultInstance()) {
-            getExtentsBuilder().mergeFrom(value);
+          if (extents_ != null) {
+            extents_ =
+              emu.grasscutter.net.proto.Vector3IntOuterClass.Vector3Int.newBuilder(extents_).mergeFrom(value).buildPartial();
           } else {
             extents_ = value;
           }
+          onChanged();
         } else {
           extentsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector3Int extents = 12;</code>
        */
       public Builder clearExtents() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        extents_ = null;
-        if (extentsBuilder_ != null) {
-          extentsBuilder_.dispose();
+        if (extentsBuilder_ == null) {
+          extents_ = null;
+          onChanged();
+        } else {
+          extents_ = null;
           extentsBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector3Int extents = 12;</code>
        */
       public emu.grasscutter.net.proto.Vector3IntOuterClass.Vector3Int.Builder getExtentsBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getExtentsFieldBuilder().getBuilder();
       }
@@ -933,8 +976,8 @@ public final class ObstacleInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder setShapeValue(int value) {
+        
         shape_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -944,7 +987,8 @@ public final class ObstacleInfoOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.ShapeTypeOuterClass.ShapeType getShape() {
-        emu.grasscutter.net.proto.ShapeTypeOuterClass.ShapeType result = emu.grasscutter.net.proto.ShapeTypeOuterClass.ShapeType.forNumber(shape_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.ShapeTypeOuterClass.ShapeType result = emu.grasscutter.net.proto.ShapeTypeOuterClass.ShapeType.valueOf(shape_);
         return result == null ? emu.grasscutter.net.proto.ShapeTypeOuterClass.ShapeType.UNRECOGNIZED : result;
       }
       /**
@@ -956,7 +1000,7 @@ public final class ObstacleInfoOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000004;
+        
         shape_ = value.getNumber();
         onChanged();
         return this;
@@ -966,7 +1010,7 @@ public final class ObstacleInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearShape() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         shape_ = 0;
         onChanged();
         return this;
@@ -989,7 +1033,6 @@ public final class ObstacleInfoOuterClass {
       public Builder setObstacleId(int value) {
         
         obstacleId_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -998,7 +1041,7 @@ public final class ObstacleInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearObstacleId() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         obstacleId_ = 0;
         onChanged();
         return this;
@@ -1012,7 +1055,7 @@ public final class ObstacleInfoOuterClass {
        * @return Whether the vector field is set.
        */
       public boolean hasVector() {
-        return ((bitField0_ & 0x00000010) != 0);
+        return vectorBuilder_ != null || vector_ != null;
       }
       /**
        * <code>.MathQuaternion Vector = 2;</code>
@@ -1034,11 +1077,11 @@ public final class ObstacleInfoOuterClass {
             throw new NullPointerException();
           }
           vector_ = value;
+          onChanged();
         } else {
           vectorBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000010;
-        onChanged();
+
         return this;
       }
       /**
@@ -1048,11 +1091,11 @@ public final class ObstacleInfoOuterClass {
           emu.grasscutter.net.proto.MathQuaternionOuterClass.MathQuaternion.Builder builderForValue) {
         if (vectorBuilder_ == null) {
           vector_ = builderForValue.build();
+          onChanged();
         } else {
           vectorBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000010;
-        onChanged();
+
         return this;
       }
       /**
@@ -1060,38 +1103,38 @@ public final class ObstacleInfoOuterClass {
        */
       public Builder mergeVector(emu.grasscutter.net.proto.MathQuaternionOuterClass.MathQuaternion value) {
         if (vectorBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) != 0) &&
-            vector_ != null &&
-            vector_ != emu.grasscutter.net.proto.MathQuaternionOuterClass.MathQuaternion.getDefaultInstance()) {
-            getVectorBuilder().mergeFrom(value);
+          if (vector_ != null) {
+            vector_ =
+              emu.grasscutter.net.proto.MathQuaternionOuterClass.MathQuaternion.newBuilder(vector_).mergeFrom(value).buildPartial();
           } else {
             vector_ = value;
           }
+          onChanged();
         } else {
           vectorBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000010;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.MathQuaternion Vector = 2;</code>
        */
       public Builder clearVector() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        vector_ = null;
-        if (vectorBuilder_ != null) {
-          vectorBuilder_.dispose();
+        if (vectorBuilder_ == null) {
+          vector_ = null;
+          onChanged();
+        } else {
+          vector_ = null;
           vectorBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.MathQuaternion Vector = 2;</code>
        */
       public emu.grasscutter.net.proto.MathQuaternionOuterClass.MathQuaternion.Builder getVectorBuilder() {
-        bitField0_ |= 0x00000010;
+        
         onChanged();
         return getVectorFieldBuilder().getBuilder();
       }
@@ -1155,18 +1198,7 @@ public final class ObstacleInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ObstacleInfo(input, extensionRegistry);
       }
     };
 

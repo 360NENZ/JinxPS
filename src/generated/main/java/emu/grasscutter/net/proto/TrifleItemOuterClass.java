@@ -104,6 +104,95 @@ public final class TrifleItemOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private TrifleItem(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              itemId_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+
+              guid_ = input.readUInt64();
+              break;
+            }
+            case 42: {
+              emu.grasscutter.net.proto.MaterialOuterClass.Material.Builder subBuilder = null;
+              if (nNFJENNPJMKCase_ == 5) {
+                subBuilder = ((emu.grasscutter.net.proto.MaterialOuterClass.Material) nNFJENNPJMK_).toBuilder();
+              }
+              nNFJENNPJMK_ =
+                  input.readMessage(emu.grasscutter.net.proto.MaterialOuterClass.Material.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.MaterialOuterClass.Material) nNFJENNPJMK_);
+                nNFJENNPJMK_ = subBuilder.buildPartial();
+              }
+              nNFJENNPJMKCase_ = 5;
+              break;
+            }
+            case 50: {
+              emu.grasscutter.net.proto.EquipOuterClass.Equip.Builder subBuilder = null;
+              if (nNFJENNPJMKCase_ == 6) {
+                subBuilder = ((emu.grasscutter.net.proto.EquipOuterClass.Equip) nNFJENNPJMK_).toBuilder();
+              }
+              nNFJENNPJMK_ =
+                  input.readMessage(emu.grasscutter.net.proto.EquipOuterClass.Equip.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.EquipOuterClass.Equip) nNFJENNPJMK_);
+                nNFJENNPJMK_ = subBuilder.buildPartial();
+              }
+              nNFJENNPJMKCase_ = 6;
+              break;
+            }
+            case 58: {
+              emu.grasscutter.net.proto.FurnitureOuterClass.Furniture.Builder subBuilder = null;
+              if (nNFJENNPJMKCase_ == 7) {
+                subBuilder = ((emu.grasscutter.net.proto.FurnitureOuterClass.Furniture) nNFJENNPJMK_).toBuilder();
+              }
+              nNFJENNPJMK_ =
+                  input.readMessage(emu.grasscutter.net.proto.FurnitureOuterClass.Furniture.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.FurnitureOuterClass.Furniture) nNFJENNPJMK_);
+                nNFJENNPJMK_ = subBuilder.buildPartial();
+              }
+              nNFJENNPJMKCase_ = 7;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.TrifleItemOuterClass.internal_static_TrifleItem_descriptor;
@@ -161,7 +250,7 @@ public final class TrifleItemOuterClass {
     }
 
     public static final int ITEMID_FIELD_NUMBER = 1;
-    private int itemId_ = 0;
+    private int itemId_;
     /**
      * <code>uint32 itemId = 1;</code>
      * @return The itemId.
@@ -172,7 +261,7 @@ public final class TrifleItemOuterClass {
     }
 
     public static final int GUID_FIELD_NUMBER = 2;
-    private long guid_ = 0L;
+    private long guid_;
     /**
      * <code>uint64 guid = 2;</code>
      * @return The guid.
@@ -304,7 +393,7 @@ public final class TrifleItemOuterClass {
       if (nNFJENNPJMKCase_ == 7) {
         output.writeMessage(7, (emu.grasscutter.net.proto.FurnitureOuterClass.Furniture) nNFJENNPJMK_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -333,7 +422,7 @@ public final class TrifleItemOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, (emu.grasscutter.net.proto.FurnitureOuterClass.Furniture) nNFJENNPJMK_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -369,7 +458,7 @@ public final class TrifleItemOuterClass {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -401,7 +490,7 @@ public final class TrifleItemOuterClass {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -518,29 +607,26 @@ public final class TrifleItemOuterClass {
 
       // Construct using emu.grasscutter.net.proto.TrifleItemOuterClass.TrifleItem.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         itemId_ = 0;
+
         guid_ = 0L;
-        if (materialBuilder_ != null) {
-          materialBuilder_.clear();
-        }
-        if (equipBuilder_ != null) {
-          equipBuilder_.clear();
-        }
-        if (furnitureBuilder_ != null) {
-          furnitureBuilder_.clear();
-        }
+
         nNFJENNPJMKCase_ = 0;
         nNFJENNPJMK_ = null;
         return this;
@@ -569,37 +655,32 @@ public final class TrifleItemOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.TrifleItemOuterClass.TrifleItem buildPartial() {
         emu.grasscutter.net.proto.TrifleItemOuterClass.TrifleItem result = new emu.grasscutter.net.proto.TrifleItemOuterClass.TrifleItem(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        result.itemId_ = itemId_;
+        result.guid_ = guid_;
+        if (nNFJENNPJMKCase_ == 5) {
+          if (materialBuilder_ == null) {
+            result.nNFJENNPJMK_ = nNFJENNPJMK_;
+          } else {
+            result.nNFJENNPJMK_ = materialBuilder_.build();
+          }
+        }
+        if (nNFJENNPJMKCase_ == 6) {
+          if (equipBuilder_ == null) {
+            result.nNFJENNPJMK_ = nNFJENNPJMK_;
+          } else {
+            result.nNFJENNPJMK_ = equipBuilder_.build();
+          }
+        }
+        if (nNFJENNPJMKCase_ == 7) {
+          if (furnitureBuilder_ == null) {
+            result.nNFJENNPJMK_ = nNFJENNPJMK_;
+          } else {
+            result.nNFJENNPJMK_ = furnitureBuilder_.build();
+          }
+        }
+        result.nNFJENNPJMKCase_ = nNFJENNPJMKCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.TrifleItemOuterClass.TrifleItem result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.itemId_ = itemId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.guid_ = guid_;
-        }
-      }
-
-      private void buildPartialOneofs(emu.grasscutter.net.proto.TrifleItemOuterClass.TrifleItem result) {
-        result.nNFJENNPJMKCase_ = nNFJENNPJMKCase_;
-        result.nNFJENNPJMK_ = this.nNFJENNPJMK_;
-        if (nNFJENNPJMKCase_ == 5 &&
-            materialBuilder_ != null) {
-          result.nNFJENNPJMK_ = materialBuilder_.build();
-        }
-        if (nNFJENNPJMKCase_ == 6 &&
-            equipBuilder_ != null) {
-          result.nNFJENNPJMK_ = equipBuilder_.build();
-        }
-        if (nNFJENNPJMKCase_ == 7 &&
-            furnitureBuilder_ != null) {
-          result.nNFJENNPJMK_ = furnitureBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -669,7 +750,7 @@ public final class TrifleItemOuterClass {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -684,61 +765,17 @@ public final class TrifleItemOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.TrifleItemOuterClass.TrifleItem parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                itemId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                guid_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 42: {
-                input.readMessage(
-                    getMaterialFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                nNFJENNPJMKCase_ = 5;
-                break;
-              } // case 42
-              case 50: {
-                input.readMessage(
-                    getEquipFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                nNFJENNPJMKCase_ = 6;
-                break;
-              } // case 50
-              case 58: {
-                input.readMessage(
-                    getFurnitureFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                nNFJENNPJMKCase_ = 7;
-                break;
-              } // case 58
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.TrifleItemOuterClass.TrifleItem) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int nNFJENNPJMKCase_ = 0;
@@ -756,7 +793,6 @@ public final class TrifleItemOuterClass {
         return this;
       }
 
-      private int bitField0_;
 
       private int itemId_ ;
       /**
@@ -775,7 +811,6 @@ public final class TrifleItemOuterClass {
       public Builder setItemId(int value) {
         
         itemId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -784,7 +819,7 @@ public final class TrifleItemOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearItemId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         itemId_ = 0;
         onChanged();
         return this;
@@ -807,7 +842,6 @@ public final class TrifleItemOuterClass {
       public Builder setGuid(long value) {
         
         guid_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -816,7 +850,7 @@ public final class TrifleItemOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGuid() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         guid_ = 0L;
         onChanged();
         return this;
@@ -896,9 +930,8 @@ public final class TrifleItemOuterClass {
         } else {
           if (nNFJENNPJMKCase_ == 5) {
             materialBuilder_.mergeFrom(value);
-          } else {
-            materialBuilder_.setMessage(value);
           }
+          materialBuilder_.setMessage(value);
         }
         nNFJENNPJMKCase_ = 5;
         return this;
@@ -960,7 +993,7 @@ public final class TrifleItemOuterClass {
           nNFJENNPJMK_ = null;
         }
         nNFJENNPJMKCase_ = 5;
-        onChanged();
+        onChanged();;
         return materialBuilder_;
       }
 
@@ -1038,9 +1071,8 @@ public final class TrifleItemOuterClass {
         } else {
           if (nNFJENNPJMKCase_ == 6) {
             equipBuilder_.mergeFrom(value);
-          } else {
-            equipBuilder_.setMessage(value);
           }
+          equipBuilder_.setMessage(value);
         }
         nNFJENNPJMKCase_ = 6;
         return this;
@@ -1102,7 +1134,7 @@ public final class TrifleItemOuterClass {
           nNFJENNPJMK_ = null;
         }
         nNFJENNPJMKCase_ = 6;
-        onChanged();
+        onChanged();;
         return equipBuilder_;
       }
 
@@ -1180,9 +1212,8 @@ public final class TrifleItemOuterClass {
         } else {
           if (nNFJENNPJMKCase_ == 7) {
             furnitureBuilder_.mergeFrom(value);
-          } else {
-            furnitureBuilder_.setMessage(value);
           }
+          furnitureBuilder_.setMessage(value);
         }
         nNFJENNPJMKCase_ = 7;
         return this;
@@ -1244,7 +1275,7 @@ public final class TrifleItemOuterClass {
           nNFJENNPJMK_ = null;
         }
         nNFJENNPJMKCase_ = 7;
-        onChanged();
+        onChanged();;
         return furnitureBuilder_;
       }
       @java.lang.Override
@@ -1280,18 +1311,7 @@ public final class TrifleItemOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TrifleItem(input, extensionRegistry);
       }
     };
 

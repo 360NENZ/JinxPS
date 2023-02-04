@@ -87,7 +87,7 @@ public final class ShopCardProductOuterClass {
      */
     emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCardOrBuilder getResinCardOrBuilder();
 
-    public emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ExtraCardDataCase getExtraCardDataCase();
+    public emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.KNKJCIMNEPFCase getKNKJCIMNEPFCase();
   }
   /**
    * Protobuf type {@code ShopCardProduct}
@@ -117,6 +117,94 @@ public final class ShopCardProductOuterClass {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private ShopCardProduct(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              productId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              priceTier_ = s;
+              break;
+            }
+            case 24: {
+
+              mcoinBase_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+
+              hcoinPerDay_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+
+              days_ = input.readUInt32();
+              break;
+            }
+            case 48: {
+
+              remainRewardDays_ = input.readUInt32();
+              break;
+            }
+            case 56: {
+
+              cardProductType_ = input.readUInt32();
+              break;
+            }
+            case 810: {
+              emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.Builder subBuilder = null;
+              if (kNKJCIMNEPFCase_ == 101) {
+                subBuilder = ((emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) kNKJCIMNEPF_).toBuilder();
+              }
+              kNKJCIMNEPF_ =
+                  input.readMessage(emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) kNKJCIMNEPF_);
+                kNKJCIMNEPF_ = subBuilder.buildPartial();
+              }
+              kNKJCIMNEPFCase_ = 101;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -212,6 +300,68 @@ public final class ShopCardProductOuterClass {
       getUnknownFields() {
         return this.unknownFields;
       }
+      private ResinCard(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                  baseItemList_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>();
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                baseItemList_.add(
+                    input.readMessage(emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(), extensionRegistry));
+                break;
+              }
+              case 18: {
+                if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                  perDayItemList_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>();
+                  mutable_bitField0_ |= 0x00000002;
+                }
+                perDayItemList_.add(
+                    input.readMessage(emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(), extensionRegistry));
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          if (((mutable_bitField0_ & 0x00000001) != 0)) {
+            baseItemList_ = java.util.Collections.unmodifiableList(baseItemList_);
+          }
+          if (((mutable_bitField0_ & 0x00000002) != 0)) {
+            perDayItemList_ = java.util.Collections.unmodifiableList(perDayItemList_);
+          }
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return emu.grasscutter.net.proto.ShopCardProductOuterClass.internal_static_ShopCardProduct_ResinCard_descriptor;
@@ -226,7 +376,6 @@ public final class ShopCardProductOuterClass {
       }
 
       public static final int BASEITEMLIST_FIELD_NUMBER = 1;
-      @SuppressWarnings("serial")
       private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> baseItemList_;
       /**
        * <code>repeated .ItemParam baseItemList = 1;</code>
@@ -267,7 +416,6 @@ public final class ShopCardProductOuterClass {
       }
 
       public static final int PERDAYITEMLIST_FIELD_NUMBER = 2;
-      @SuppressWarnings("serial")
       private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> perDayItemList_;
       /**
        * <code>repeated .ItemParam perDayItemList = 2;</code>
@@ -327,7 +475,7 @@ public final class ShopCardProductOuterClass {
         for (int i = 0; i < perDayItemList_.size(); i++) {
           output.writeMessage(2, perDayItemList_.get(i));
         }
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
 
       @java.lang.Override
@@ -344,7 +492,7 @@ public final class ShopCardProductOuterClass {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, perDayItemList_.get(i));
         }
-        size += getUnknownFields().getSerializedSize();
+        size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -363,7 +511,7 @@ public final class ShopCardProductOuterClass {
             .equals(other.getBaseItemListList())) return false;
         if (!getPerDayItemListList()
             .equals(other.getPerDayItemListList())) return false;
-        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
 
@@ -382,7 +530,7 @@ public final class ShopCardProductOuterClass {
           hash = (37 * hash) + PERDAYITEMLIST_FIELD_NUMBER;
           hash = (53 * hash) + getPerDayItemListList().hashCode();
         }
-        hash = (29 * hash) + getUnknownFields().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -499,32 +647,36 @@ public final class ShopCardProductOuterClass {
 
         // Construct using emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.newBuilder()
         private Builder() {
-
+          maybeForceBuilderInitialization();
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+            getBaseItemListFieldBuilder();
+            getPerDayItemListFieldBuilder();
+          }
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          bitField0_ = 0;
           if (baseItemListBuilder_ == null) {
             baseItemList_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            baseItemList_ = null;
             baseItemListBuilder_.clear();
           }
-          bitField0_ = (bitField0_ & ~0x00000001);
           if (perDayItemListBuilder_ == null) {
             perDayItemList_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
-            perDayItemList_ = null;
             perDayItemListBuilder_.clear();
           }
-          bitField0_ = (bitField0_ & ~0x00000002);
           return this;
         }
 
@@ -551,13 +703,7 @@ public final class ShopCardProductOuterClass {
         @java.lang.Override
         public emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard buildPartial() {
           emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard result = new emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard(this);
-          buildPartialRepeatedFields(result);
-          if (bitField0_ != 0) { buildPartial0(result); }
-          onBuilt();
-          return result;
-        }
-
-        private void buildPartialRepeatedFields(emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard result) {
+          int from_bitField0_ = bitField0_;
           if (baseItemListBuilder_ == null) {
             if (((bitField0_ & 0x00000001) != 0)) {
               baseItemList_ = java.util.Collections.unmodifiableList(baseItemList_);
@@ -576,10 +722,8 @@ public final class ShopCardProductOuterClass {
           } else {
             result.perDayItemList_ = perDayItemListBuilder_.build();
           }
-        }
-
-        private void buildPartial0(emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard result) {
-          int from_bitField0_ = bitField0_;
+          onBuilt();
+          return result;
         }
 
         @java.lang.Override
@@ -678,7 +822,7 @@ public final class ShopCardProductOuterClass {
               }
             }
           }
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
         }
@@ -693,56 +837,17 @@ public final class ShopCardProductOuterClass {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
+          emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard parsedMessage = null;
           try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam m =
-                      input.readMessage(
-                          emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(),
-                          extensionRegistry);
-                  if (baseItemListBuilder_ == null) {
-                    ensureBaseItemListIsMutable();
-                    baseItemList_.add(m);
-                  } else {
-                    baseItemListBuilder_.addMessage(m);
-                  }
-                  break;
-                } // case 10
-                case 18: {
-                  emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam m =
-                      input.readMessage(
-                          emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(),
-                          extensionRegistry);
-                  if (perDayItemListBuilder_ == null) {
-                    ensurePerDayItemListIsMutable();
-                    perDayItemList_.add(m);
-                  } else {
-                    perDayItemListBuilder_.addMessage(m);
-                  }
-                  break;
-                } // case 18
-                default: {
-                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                    done = true; // was an endgroup tag
-                  }
-                  break;
-                } // default:
-              } // switch (tag)
-            } // while (!done)
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            onChanged();
-          } // finally
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
           return this;
         }
         private int bitField0_;
@@ -1259,18 +1364,7 @@ public final class ShopCardProductOuterClass {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(builder.buildPartial());
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(e)
-                .setUnfinishedMessage(builder.buildPartial());
-          }
-          return builder.buildPartial();
+          return new ResinCard(input, extensionRegistry);
         }
       };
 
@@ -1290,15 +1384,15 @@ public final class ShopCardProductOuterClass {
 
     }
 
-    private int extraCardDataCase_ = 0;
-    private java.lang.Object extraCardData_;
-    public enum ExtraCardDataCase
+    private int kNKJCIMNEPFCase_ = 0;
+    private java.lang.Object kNKJCIMNEPF_;
+    public enum KNKJCIMNEPFCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       RESIN_CARD(101),
-      EXTRACARDDATA_NOT_SET(0);
+      KNKJCIMNEPF_NOT_SET(0);
       private final int value;
-      private ExtraCardDataCase(int value) {
+      private KNKJCIMNEPFCase(int value) {
         this.value = value;
       }
       /**
@@ -1307,14 +1401,14 @@ public final class ShopCardProductOuterClass {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static ExtraCardDataCase valueOf(int value) {
+      public static KNKJCIMNEPFCase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static ExtraCardDataCase forNumber(int value) {
+      public static KNKJCIMNEPFCase forNumber(int value) {
         switch (value) {
           case 101: return RESIN_CARD;
-          case 0: return EXTRACARDDATA_NOT_SET;
+          case 0: return KNKJCIMNEPF_NOT_SET;
           default: return null;
         }
       }
@@ -1323,15 +1417,14 @@ public final class ShopCardProductOuterClass {
       }
     };
 
-    public ExtraCardDataCase
-    getExtraCardDataCase() {
-      return ExtraCardDataCase.forNumber(
-          extraCardDataCase_);
+    public KNKJCIMNEPFCase
+    getKNKJCIMNEPFCase() {
+      return KNKJCIMNEPFCase.forNumber(
+          kNKJCIMNEPFCase_);
     }
 
     public static final int PRODUCTID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object productId_ = "";
+    private volatile java.lang.Object productId_;
     /**
      * <code>string productId = 1;</code>
      * @return The productId.
@@ -1369,8 +1462,7 @@ public final class ShopCardProductOuterClass {
     }
 
     public static final int PRICETIER_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object priceTier_ = "";
+    private volatile java.lang.Object priceTier_;
     /**
      * <code>string priceTier = 2;</code>
      * @return The priceTier.
@@ -1408,7 +1500,7 @@ public final class ShopCardProductOuterClass {
     }
 
     public static final int MCOINBASE_FIELD_NUMBER = 3;
-    private int mcoinBase_ = 0;
+    private int mcoinBase_;
     /**
      * <code>uint32 mcoinBase = 3;</code>
      * @return The mcoinBase.
@@ -1419,7 +1511,7 @@ public final class ShopCardProductOuterClass {
     }
 
     public static final int HCOINPERDAY_FIELD_NUMBER = 4;
-    private int hcoinPerDay_ = 0;
+    private int hcoinPerDay_;
     /**
      * <code>uint32 hcoinPerDay = 4;</code>
      * @return The hcoinPerDay.
@@ -1430,7 +1522,7 @@ public final class ShopCardProductOuterClass {
     }
 
     public static final int DAYS_FIELD_NUMBER = 5;
-    private int days_ = 0;
+    private int days_;
     /**
      * <code>uint32 days = 5;</code>
      * @return The days.
@@ -1441,7 +1533,7 @@ public final class ShopCardProductOuterClass {
     }
 
     public static final int REMAINREWARDDAYS_FIELD_NUMBER = 6;
-    private int remainRewardDays_ = 0;
+    private int remainRewardDays_;
     /**
      * <code>uint32 remainRewardDays = 6;</code>
      * @return The remainRewardDays.
@@ -1452,7 +1544,7 @@ public final class ShopCardProductOuterClass {
     }
 
     public static final int CARDPRODUCTTYPE_FIELD_NUMBER = 7;
-    private int cardProductType_ = 0;
+    private int cardProductType_;
     /**
      * <code>uint32 cardProductType = 7;</code>
      * @return The cardProductType.
@@ -1469,7 +1561,7 @@ public final class ShopCardProductOuterClass {
      */
     @java.lang.Override
     public boolean hasResinCard() {
-      return extraCardDataCase_ == 101;
+      return kNKJCIMNEPFCase_ == 101;
     }
     /**
      * <code>.ShopCardProduct.ResinCard resin_card = 101;</code>
@@ -1477,8 +1569,8 @@ public final class ShopCardProductOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard getResinCard() {
-      if (extraCardDataCase_ == 101) {
-         return (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) extraCardData_;
+      if (kNKJCIMNEPFCase_ == 101) {
+         return (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) kNKJCIMNEPF_;
       }
       return emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.getDefaultInstance();
     }
@@ -1487,8 +1579,8 @@ public final class ShopCardProductOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCardOrBuilder getResinCardOrBuilder() {
-      if (extraCardDataCase_ == 101) {
-         return (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) extraCardData_;
+      if (kNKJCIMNEPFCase_ == 101) {
+         return (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) kNKJCIMNEPF_;
       }
       return emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.getDefaultInstance();
     }
@@ -1528,10 +1620,10 @@ public final class ShopCardProductOuterClass {
       if (cardProductType_ != 0) {
         output.writeUInt32(7, cardProductType_);
       }
-      if (extraCardDataCase_ == 101) {
-        output.writeMessage(101, (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) extraCardData_);
+      if (kNKJCIMNEPFCase_ == 101) {
+        output.writeMessage(101, (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) kNKJCIMNEPF_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1566,11 +1658,11 @@ public final class ShopCardProductOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(7, cardProductType_);
       }
-      if (extraCardDataCase_ == 101) {
+      if (kNKJCIMNEPFCase_ == 101) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(101, (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) extraCardData_);
+          .computeMessageSize(101, (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) kNKJCIMNEPF_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1599,8 +1691,8 @@ public final class ShopCardProductOuterClass {
           != other.getRemainRewardDays()) return false;
       if (getCardProductType()
           != other.getCardProductType()) return false;
-      if (!getExtraCardDataCase().equals(other.getExtraCardDataCase())) return false;
-      switch (extraCardDataCase_) {
+      if (!getKNKJCIMNEPFCase().equals(other.getKNKJCIMNEPFCase())) return false;
+      switch (kNKJCIMNEPFCase_) {
         case 101:
           if (!getResinCard()
               .equals(other.getResinCard())) return false;
@@ -1608,7 +1700,7 @@ public final class ShopCardProductOuterClass {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1633,7 +1725,7 @@ public final class ShopCardProductOuterClass {
       hash = (53 * hash) + getRemainRewardDays();
       hash = (37 * hash) + CARDPRODUCTTYPE_FIELD_NUMBER;
       hash = (53 * hash) + getCardProductType();
-      switch (extraCardDataCase_) {
+      switch (kNKJCIMNEPFCase_) {
         case 101:
           hash = (37 * hash) + RESIN_CARD_FIELD_NUMBER;
           hash = (53 * hash) + getResinCard().hashCode();
@@ -1641,7 +1733,7 @@ public final class ShopCardProductOuterClass {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1758,30 +1850,38 @@ public final class ShopCardProductOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         productId_ = "";
+
         priceTier_ = "";
+
         mcoinBase_ = 0;
+
         hcoinPerDay_ = 0;
+
         days_ = 0;
+
         remainRewardDays_ = 0;
+
         cardProductType_ = 0;
-        if (resinCardBuilder_ != null) {
-          resinCardBuilder_.clear();
-        }
-        extraCardDataCase_ = 0;
-        extraCardData_ = null;
+
+        kNKJCIMNEPFCase_ = 0;
+        kNKJCIMNEPF_ = null;
         return this;
       }
 
@@ -1808,44 +1908,23 @@ public final class ShopCardProductOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct buildPartial() {
         emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct result = new emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        result.productId_ = productId_;
+        result.priceTier_ = priceTier_;
+        result.mcoinBase_ = mcoinBase_;
+        result.hcoinPerDay_ = hcoinPerDay_;
+        result.days_ = days_;
+        result.remainRewardDays_ = remainRewardDays_;
+        result.cardProductType_ = cardProductType_;
+        if (kNKJCIMNEPFCase_ == 101) {
+          if (resinCardBuilder_ == null) {
+            result.kNKJCIMNEPF_ = kNKJCIMNEPF_;
+          } else {
+            result.kNKJCIMNEPF_ = resinCardBuilder_.build();
+          }
+        }
+        result.kNKJCIMNEPFCase_ = kNKJCIMNEPFCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.productId_ = productId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.priceTier_ = priceTier_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.mcoinBase_ = mcoinBase_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.hcoinPerDay_ = hcoinPerDay_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.days_ = days_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.remainRewardDays_ = remainRewardDays_;
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.cardProductType_ = cardProductType_;
-        }
-      }
-
-      private void buildPartialOneofs(emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct result) {
-        result.extraCardDataCase_ = extraCardDataCase_;
-        result.extraCardData_ = this.extraCardData_;
-        if (extraCardDataCase_ == 101 &&
-            resinCardBuilder_ != null) {
-          result.extraCardData_ = resinCardBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -1894,12 +1973,10 @@ public final class ShopCardProductOuterClass {
         if (other == emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.getDefaultInstance()) return this;
         if (!other.getProductId().isEmpty()) {
           productId_ = other.productId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getPriceTier().isEmpty()) {
           priceTier_ = other.priceTier_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getMcoinBase() != 0) {
@@ -1917,16 +1994,16 @@ public final class ShopCardProductOuterClass {
         if (other.getCardProductType() != 0) {
           setCardProductType(other.getCardProductType());
         }
-        switch (other.getExtraCardDataCase()) {
+        switch (other.getKNKJCIMNEPFCase()) {
           case RESIN_CARD: {
             mergeResinCard(other.getResinCard());
             break;
           }
-          case EXTRACARDDATA_NOT_SET: {
+          case KNKJCIMNEPF_NOT_SET: {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1941,90 +2018,34 @@ public final class ShopCardProductOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                productId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                priceTier_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                mcoinBase_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 32: {
-                hcoinPerDay_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 40: {
-                days_ = input.readUInt32();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              case 48: {
-                remainRewardDays_ = input.readUInt32();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 48
-              case 56: {
-                cardProductType_ = input.readUInt32();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 56
-              case 810: {
-                input.readMessage(
-                    getResinCardFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                extraCardDataCase_ = 101;
-                break;
-              } // case 810
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int extraCardDataCase_ = 0;
-      private java.lang.Object extraCardData_;
-      public ExtraCardDataCase
-          getExtraCardDataCase() {
-        return ExtraCardDataCase.forNumber(
-            extraCardDataCase_);
+      private int kNKJCIMNEPFCase_ = 0;
+      private java.lang.Object kNKJCIMNEPF_;
+      public KNKJCIMNEPFCase
+          getKNKJCIMNEPFCase() {
+        return KNKJCIMNEPFCase.forNumber(
+            kNKJCIMNEPFCase_);
       }
 
-      public Builder clearExtraCardData() {
-        extraCardDataCase_ = 0;
-        extraCardData_ = null;
+      public Builder clearKNKJCIMNEPF() {
+        kNKJCIMNEPFCase_ = 0;
+        kNKJCIMNEPF_ = null;
         onChanged();
         return this;
       }
 
-      private int bitField0_;
 
       private java.lang.Object productId_ = "";
       /**
@@ -2067,9 +2088,11 @@ public final class ShopCardProductOuterClass {
        */
       public Builder setProductId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         productId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2078,8 +2101,8 @@ public final class ShopCardProductOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearProductId() {
+        
         productId_ = getDefaultInstance().getProductId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2090,10 +2113,12 @@ public final class ShopCardProductOuterClass {
        */
       public Builder setProductIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         productId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2139,9 +2164,11 @@ public final class ShopCardProductOuterClass {
        */
       public Builder setPriceTier(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         priceTier_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2150,8 +2177,8 @@ public final class ShopCardProductOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPriceTier() {
+        
         priceTier_ = getDefaultInstance().getPriceTier();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2162,10 +2189,12 @@ public final class ShopCardProductOuterClass {
        */
       public Builder setPriceTierBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         priceTier_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2187,7 +2216,6 @@ public final class ShopCardProductOuterClass {
       public Builder setMcoinBase(int value) {
         
         mcoinBase_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2196,7 +2224,7 @@ public final class ShopCardProductOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearMcoinBase() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         mcoinBase_ = 0;
         onChanged();
         return this;
@@ -2219,7 +2247,6 @@ public final class ShopCardProductOuterClass {
       public Builder setHcoinPerDay(int value) {
         
         hcoinPerDay_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2228,7 +2255,7 @@ public final class ShopCardProductOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearHcoinPerDay() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         hcoinPerDay_ = 0;
         onChanged();
         return this;
@@ -2251,7 +2278,6 @@ public final class ShopCardProductOuterClass {
       public Builder setDays(int value) {
         
         days_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2260,7 +2286,7 @@ public final class ShopCardProductOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDays() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         days_ = 0;
         onChanged();
         return this;
@@ -2283,7 +2309,6 @@ public final class ShopCardProductOuterClass {
       public Builder setRemainRewardDays(int value) {
         
         remainRewardDays_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -2292,7 +2317,7 @@ public final class ShopCardProductOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRemainRewardDays() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         remainRewardDays_ = 0;
         onChanged();
         return this;
@@ -2315,7 +2340,6 @@ public final class ShopCardProductOuterClass {
       public Builder setCardProductType(int value) {
         
         cardProductType_ = value;
-        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -2324,7 +2348,7 @@ public final class ShopCardProductOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCardProductType() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        
         cardProductType_ = 0;
         onChanged();
         return this;
@@ -2338,7 +2362,7 @@ public final class ShopCardProductOuterClass {
        */
       @java.lang.Override
       public boolean hasResinCard() {
-        return extraCardDataCase_ == 101;
+        return kNKJCIMNEPFCase_ == 101;
       }
       /**
        * <code>.ShopCardProduct.ResinCard resin_card = 101;</code>
@@ -2347,12 +2371,12 @@ public final class ShopCardProductOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard getResinCard() {
         if (resinCardBuilder_ == null) {
-          if (extraCardDataCase_ == 101) {
-            return (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) extraCardData_;
+          if (kNKJCIMNEPFCase_ == 101) {
+            return (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) kNKJCIMNEPF_;
           }
           return emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.getDefaultInstance();
         } else {
-          if (extraCardDataCase_ == 101) {
+          if (kNKJCIMNEPFCase_ == 101) {
             return resinCardBuilder_.getMessage();
           }
           return emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.getDefaultInstance();
@@ -2366,12 +2390,12 @@ public final class ShopCardProductOuterClass {
           if (value == null) {
             throw new NullPointerException();
           }
-          extraCardData_ = value;
+          kNKJCIMNEPF_ = value;
           onChanged();
         } else {
           resinCardBuilder_.setMessage(value);
         }
-        extraCardDataCase_ = 101;
+        kNKJCIMNEPFCase_ = 101;
         return this;
       }
       /**
@@ -2380,12 +2404,12 @@ public final class ShopCardProductOuterClass {
       public Builder setResinCard(
           emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.Builder builderForValue) {
         if (resinCardBuilder_ == null) {
-          extraCardData_ = builderForValue.build();
+          kNKJCIMNEPF_ = builderForValue.build();
           onChanged();
         } else {
           resinCardBuilder_.setMessage(builderForValue.build());
         }
-        extraCardDataCase_ = 101;
+        kNKJCIMNEPFCase_ = 101;
         return this;
       }
       /**
@@ -2393,22 +2417,21 @@ public final class ShopCardProductOuterClass {
        */
       public Builder mergeResinCard(emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard value) {
         if (resinCardBuilder_ == null) {
-          if (extraCardDataCase_ == 101 &&
-              extraCardData_ != emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.getDefaultInstance()) {
-            extraCardData_ = emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.newBuilder((emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) extraCardData_)
+          if (kNKJCIMNEPFCase_ == 101 &&
+              kNKJCIMNEPF_ != emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.getDefaultInstance()) {
+            kNKJCIMNEPF_ = emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.newBuilder((emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) kNKJCIMNEPF_)
                 .mergeFrom(value).buildPartial();
           } else {
-            extraCardData_ = value;
+            kNKJCIMNEPF_ = value;
           }
           onChanged();
         } else {
-          if (extraCardDataCase_ == 101) {
+          if (kNKJCIMNEPFCase_ == 101) {
             resinCardBuilder_.mergeFrom(value);
-          } else {
-            resinCardBuilder_.setMessage(value);
           }
+          resinCardBuilder_.setMessage(value);
         }
-        extraCardDataCase_ = 101;
+        kNKJCIMNEPFCase_ = 101;
         return this;
       }
       /**
@@ -2416,15 +2439,15 @@ public final class ShopCardProductOuterClass {
        */
       public Builder clearResinCard() {
         if (resinCardBuilder_ == null) {
-          if (extraCardDataCase_ == 101) {
-            extraCardDataCase_ = 0;
-            extraCardData_ = null;
+          if (kNKJCIMNEPFCase_ == 101) {
+            kNKJCIMNEPFCase_ = 0;
+            kNKJCIMNEPF_ = null;
             onChanged();
           }
         } else {
-          if (extraCardDataCase_ == 101) {
-            extraCardDataCase_ = 0;
-            extraCardData_ = null;
+          if (kNKJCIMNEPFCase_ == 101) {
+            kNKJCIMNEPFCase_ = 0;
+            kNKJCIMNEPF_ = null;
           }
           resinCardBuilder_.clear();
         }
@@ -2441,11 +2464,11 @@ public final class ShopCardProductOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCardOrBuilder getResinCardOrBuilder() {
-        if ((extraCardDataCase_ == 101) && (resinCardBuilder_ != null)) {
+        if ((kNKJCIMNEPFCase_ == 101) && (resinCardBuilder_ != null)) {
           return resinCardBuilder_.getMessageOrBuilder();
         } else {
-          if (extraCardDataCase_ == 101) {
-            return (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) extraCardData_;
+          if (kNKJCIMNEPFCase_ == 101) {
+            return (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) kNKJCIMNEPF_;
           }
           return emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.getDefaultInstance();
         }
@@ -2457,18 +2480,18 @@ public final class ShopCardProductOuterClass {
           emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard, emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.Builder, emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCardOrBuilder> 
           getResinCardFieldBuilder() {
         if (resinCardBuilder_ == null) {
-          if (!(extraCardDataCase_ == 101)) {
-            extraCardData_ = emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.getDefaultInstance();
+          if (!(kNKJCIMNEPFCase_ == 101)) {
+            kNKJCIMNEPF_ = emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.getDefaultInstance();
           }
           resinCardBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard, emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard.Builder, emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCardOrBuilder>(
-                  (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) extraCardData_,
+                  (emu.grasscutter.net.proto.ShopCardProductOuterClass.ShopCardProduct.ResinCard) kNKJCIMNEPF_,
                   getParentForChildren(),
                   isClean());
-          extraCardData_ = null;
+          kNKJCIMNEPF_ = null;
         }
-        extraCardDataCase_ = 101;
-        onChanged();
+        kNKJCIMNEPFCase_ = 101;
+        onChanged();;
         return resinCardBuilder_;
       }
       @java.lang.Override
@@ -2504,18 +2527,7 @@ public final class ShopCardProductOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ShopCardProduct(input, extensionRegistry);
       }
     };
 
@@ -2555,15 +2567,15 @@ public final class ShopCardProductOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\025ShopCardProduct.proto\032\017ItemParam.proto" +
-      "\"\270\002\n\017ShopCardProduct\022\021\n\tproductId\030\001 \001(\t\022" +
+      "\"\264\002\n\017ShopCardProduct\022\021\n\tproductId\030\001 \001(\t\022" +
       "\021\n\tpriceTier\030\002 \001(\t\022\021\n\tmcoinBase\030\003 \001(\r\022\023\n" +
       "\013hcoinPerDay\030\004 \001(\r\022\014\n\004days\030\005 \001(\r\022\030\n\020rema" +
       "inRewardDays\030\006 \001(\r\022\027\n\017cardProductType\030\007 " +
       "\001(\r\0220\n\nresin_card\030e \001(\0132\032.ShopCardProduc" +
       "t.ResinCardH\000\032Q\n\tResinCard\022 \n\014baseItemLi" +
       "st\030\001 \003(\0132\n.ItemParam\022\"\n\016perDayItemList\030\002" +
-      " \003(\0132\n.ItemParamB\021\n\017extra_card_dataB\033\n\031e" +
-      "mu.grasscutter.net.protob\006proto3"
+      " \003(\0132\n.ItemParamB\r\n\013KNKJCIMNEPFB\033\n\031emu.g" +
+      "rasscutter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2575,7 +2587,7 @@ public final class ShopCardProductOuterClass {
     internal_static_ShopCardProduct_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ShopCardProduct_descriptor,
-        new java.lang.String[] { "ProductId", "PriceTier", "McoinBase", "HcoinPerDay", "Days", "RemainRewardDays", "CardProductType", "ResinCard", "ExtraCardData", });
+        new java.lang.String[] { "ProductId", "PriceTier", "McoinBase", "HcoinPerDay", "Days", "RemainRewardDays", "CardProductType", "ResinCard", "KNKJCIMNEPF", });
     internal_static_ShopCardProduct_ResinCard_descriptor =
       internal_static_ShopCardProduct_descriptor.getNestedTypes().get(0);
     internal_static_ShopCardProduct_ResinCard_fieldAccessorTable = new

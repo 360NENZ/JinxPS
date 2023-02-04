@@ -63,6 +63,58 @@ public final class WearEquipRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private WearEquipRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 48: {
+
+              avatarGuid_ = input.readUInt64();
+              break;
+            }
+            case 72: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 104: {
+
+              equipGuid_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.WearEquipRspOuterClass.internal_static_WearEquipRsp_descriptor;
@@ -208,7 +260,7 @@ public final class WearEquipRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 9;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 9;</code>
      * @return The retcode.
@@ -219,7 +271,7 @@ public final class WearEquipRspOuterClass {
     }
 
     public static final int AVATARGUID_FIELD_NUMBER = 6;
-    private long avatarGuid_ = 0L;
+    private long avatarGuid_;
     /**
      * <code>uint64 avatarGuid = 6;</code>
      * @return The avatarGuid.
@@ -230,7 +282,7 @@ public final class WearEquipRspOuterClass {
     }
 
     public static final int EQUIPGUID_FIELD_NUMBER = 13;
-    private long equipGuid_ = 0L;
+    private long equipGuid_;
     /**
      * <code>uint64 equipGuid = 13;</code>
      * @return The equipGuid.
@@ -263,7 +315,7 @@ public final class WearEquipRspOuterClass {
       if (equipGuid_ != 0L) {
         output.writeUInt64(13, equipGuid_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -284,7 +336,7 @@ public final class WearEquipRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(13, equipGuid_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -305,7 +357,7 @@ public final class WearEquipRspOuterClass {
           != other.getAvatarGuid()) return false;
       if (getEquipGuid()
           != other.getEquipGuid()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -324,7 +376,7 @@ public final class WearEquipRspOuterClass {
       hash = (37 * hash) + EQUIPGUID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getEquipGuid());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -441,21 +493,28 @@ public final class WearEquipRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.WearEquipRspOuterClass.WearEquipRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         retcode_ = 0;
+
         avatarGuid_ = 0L;
+
         equipGuid_ = 0L;
+
         return this;
       }
 
@@ -482,22 +541,11 @@ public final class WearEquipRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.WearEquipRspOuterClass.WearEquipRsp buildPartial() {
         emu.grasscutter.net.proto.WearEquipRspOuterClass.WearEquipRsp result = new emu.grasscutter.net.proto.WearEquipRspOuterClass.WearEquipRsp(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.retcode_ = retcode_;
+        result.avatarGuid_ = avatarGuid_;
+        result.equipGuid_ = equipGuid_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.WearEquipRspOuterClass.WearEquipRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.retcode_ = retcode_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.avatarGuid_ = avatarGuid_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.equipGuid_ = equipGuid_;
-        }
       }
 
       @java.lang.Override
@@ -553,7 +601,7 @@ public final class WearEquipRspOuterClass {
         if (other.getEquipGuid() != 0L) {
           setEquipGuid(other.getEquipGuid());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -568,48 +616,19 @@ public final class WearEquipRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.WearEquipRspOuterClass.WearEquipRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 48: {
-                avatarGuid_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 48
-              case 72: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 72
-              case 104: {
-                equipGuid_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 104
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.WearEquipRspOuterClass.WearEquipRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int retcode_ ;
       /**
@@ -628,7 +647,6 @@ public final class WearEquipRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -637,7 +655,7 @@ public final class WearEquipRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -660,7 +678,6 @@ public final class WearEquipRspOuterClass {
       public Builder setAvatarGuid(long value) {
         
         avatarGuid_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -669,7 +686,7 @@ public final class WearEquipRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAvatarGuid() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         avatarGuid_ = 0L;
         onChanged();
         return this;
@@ -692,7 +709,6 @@ public final class WearEquipRspOuterClass {
       public Builder setEquipGuid(long value) {
         
         equipGuid_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -701,7 +717,7 @@ public final class WearEquipRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEquipGuid() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         equipGuid_ = 0L;
         onChanged();
         return this;
@@ -739,18 +755,7 @@ public final class WearEquipRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new WearEquipRsp(input, extensionRegistry);
       }
     };
 

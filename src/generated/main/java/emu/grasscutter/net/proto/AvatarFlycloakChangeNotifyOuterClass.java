@@ -57,6 +57,53 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private AvatarFlycloakChangeNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 32: {
+
+              flycloakId_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+
+              avatarGuid_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.AvatarFlycloakChangeNotifyOuterClass.internal_static_AvatarFlycloakChangeNotify_descriptor;
@@ -202,7 +249,7 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
     }
 
     public static final int FLYCLOAKID_FIELD_NUMBER = 4;
-    private int flycloakId_ = 0;
+    private int flycloakId_;
     /**
      * <code>uint32 flycloakId = 4;</code>
      * @return The flycloakId.
@@ -213,7 +260,7 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
     }
 
     public static final int AVATARGUID_FIELD_NUMBER = 12;
-    private long avatarGuid_ = 0L;
+    private long avatarGuid_;
     /**
      * <code>uint64 avatarGuid = 12;</code>
      * @return The avatarGuid.
@@ -243,7 +290,7 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
       if (avatarGuid_ != 0L) {
         output.writeUInt64(12, avatarGuid_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -260,7 +307,7 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(12, avatarGuid_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -279,7 +326,7 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
           != other.getFlycloakId()) return false;
       if (getAvatarGuid()
           != other.getAvatarGuid()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -295,7 +342,7 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
       hash = (37 * hash) + AVATARGUID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getAvatarGuid());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -412,20 +459,26 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.AvatarFlycloakChangeNotifyOuterClass.AvatarFlycloakChangeNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         flycloakId_ = 0;
+
         avatarGuid_ = 0L;
+
         return this;
       }
 
@@ -452,19 +505,10 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.AvatarFlycloakChangeNotifyOuterClass.AvatarFlycloakChangeNotify buildPartial() {
         emu.grasscutter.net.proto.AvatarFlycloakChangeNotifyOuterClass.AvatarFlycloakChangeNotify result = new emu.grasscutter.net.proto.AvatarFlycloakChangeNotifyOuterClass.AvatarFlycloakChangeNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.flycloakId_ = flycloakId_;
+        result.avatarGuid_ = avatarGuid_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.AvatarFlycloakChangeNotifyOuterClass.AvatarFlycloakChangeNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.flycloakId_ = flycloakId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.avatarGuid_ = avatarGuid_;
-        }
       }
 
       @java.lang.Override
@@ -517,7 +561,7 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
         if (other.getAvatarGuid() != 0L) {
           setAvatarGuid(other.getAvatarGuid());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -532,43 +576,19 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.AvatarFlycloakChangeNotifyOuterClass.AvatarFlycloakChangeNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 32: {
-                flycloakId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 32
-              case 96: {
-                avatarGuid_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 96
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.AvatarFlycloakChangeNotifyOuterClass.AvatarFlycloakChangeNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int flycloakId_ ;
       /**
@@ -587,7 +607,6 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
       public Builder setFlycloakId(int value) {
         
         flycloakId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -596,7 +615,7 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearFlycloakId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         flycloakId_ = 0;
         onChanged();
         return this;
@@ -619,7 +638,6 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
       public Builder setAvatarGuid(long value) {
         
         avatarGuid_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -628,7 +646,7 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAvatarGuid() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         avatarGuid_ = 0L;
         onChanged();
         return this;
@@ -666,18 +684,7 @@ public final class AvatarFlycloakChangeNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AvatarFlycloakChangeNotify(input, extensionRegistry);
       }
     };
 

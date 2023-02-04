@@ -76,6 +76,61 @@ public final class MarkMapRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MarkMapRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                markList_ = new java.util.ArrayList<emu.grasscutter.net.proto.MapMarkPointOuterClass.MapMarkPoint>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              markList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.MapMarkPointOuterClass.MapMarkPoint.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          markList_ = java.util.Collections.unmodifiableList(markList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.MarkMapRspOuterClass.internal_static_MarkMapRsp_descriptor;
@@ -221,7 +276,7 @@ public final class MarkMapRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 1;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 1;</code>
      * @return The retcode.
@@ -232,7 +287,6 @@ public final class MarkMapRspOuterClass {
     }
 
     public static final int MARKLIST_FIELD_NUMBER = 5;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.MapMarkPointOuterClass.MapMarkPoint> markList_;
     /**
      * <code>repeated .MapMarkPoint markList = 5;</code>
@@ -292,7 +346,7 @@ public final class MarkMapRspOuterClass {
       for (int i = 0; i < markList_.size(); i++) {
         output.writeMessage(5, markList_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -309,7 +363,7 @@ public final class MarkMapRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, markList_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -328,7 +382,7 @@ public final class MarkMapRspOuterClass {
           != other.getRetcode()) return false;
       if (!getMarkListList()
           .equals(other.getMarkListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -345,7 +399,7 @@ public final class MarkMapRspOuterClass {
         hash = (37 * hash) + MARKLIST_FIELD_NUMBER;
         hash = (53 * hash) + getMarkListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -462,26 +516,31 @@ public final class MarkMapRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.MarkMapRspOuterClass.MarkMapRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getMarkListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         retcode_ = 0;
+
         if (markListBuilder_ == null) {
           markList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          markList_ = null;
           markListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -508,29 +567,19 @@ public final class MarkMapRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.MarkMapRspOuterClass.MarkMapRsp buildPartial() {
         emu.grasscutter.net.proto.MarkMapRspOuterClass.MarkMapRsp result = new emu.grasscutter.net.proto.MarkMapRspOuterClass.MarkMapRsp(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.MarkMapRspOuterClass.MarkMapRsp result) {
+        int from_bitField0_ = bitField0_;
+        result.retcode_ = retcode_;
         if (markListBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             markList_ = java.util.Collections.unmodifiableList(markList_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.markList_ = markList_;
         } else {
           result.markList_ = markListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.MarkMapRspOuterClass.MarkMapRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.retcode_ = retcode_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -584,7 +633,7 @@ public final class MarkMapRspOuterClass {
           if (!other.markList_.isEmpty()) {
             if (markList_.isEmpty()) {
               markList_ = other.markList_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureMarkListIsMutable();
               markList_.addAll(other.markList_);
@@ -597,7 +646,7 @@ public final class MarkMapRspOuterClass {
               markListBuilder_.dispose();
               markListBuilder_ = null;
               markList_ = other.markList_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               markListBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getMarkListFieldBuilder() : null;
@@ -606,7 +655,7 @@ public final class MarkMapRspOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -621,48 +670,17 @@ public final class MarkMapRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.MarkMapRspOuterClass.MarkMapRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 42: {
-                emu.grasscutter.net.proto.MapMarkPointOuterClass.MapMarkPoint m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.MapMarkPointOuterClass.MapMarkPoint.parser(),
-                        extensionRegistry);
-                if (markListBuilder_ == null) {
-                  ensureMarkListIsMutable();
-                  markList_.add(m);
-                } else {
-                  markListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 42
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.MarkMapRspOuterClass.MarkMapRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -684,7 +702,6 @@ public final class MarkMapRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -693,7 +710,7 @@ public final class MarkMapRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -702,9 +719,9 @@ public final class MarkMapRspOuterClass {
       private java.util.List<emu.grasscutter.net.proto.MapMarkPointOuterClass.MapMarkPoint> markList_ =
         java.util.Collections.emptyList();
       private void ensureMarkListIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           markList_ = new java.util.ArrayList<emu.grasscutter.net.proto.MapMarkPointOuterClass.MapMarkPoint>(markList_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -854,7 +871,7 @@ public final class MarkMapRspOuterClass {
       public Builder clearMarkList() {
         if (markListBuilder_ == null) {
           markList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           markListBuilder_.clear();
@@ -931,7 +948,7 @@ public final class MarkMapRspOuterClass {
           markListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               emu.grasscutter.net.proto.MapMarkPointOuterClass.MapMarkPoint, emu.grasscutter.net.proto.MapMarkPointOuterClass.MapMarkPoint.Builder, emu.grasscutter.net.proto.MapMarkPointOuterClass.MapMarkPointOrBuilder>(
                   markList_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           markList_ = null;
@@ -971,18 +988,7 @@ public final class MarkMapRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MarkMapRsp(input, extensionRegistry);
       }
     };
 

@@ -75,6 +75,74 @@ public final class StoreItemDelNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private StoreItemDelNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 48: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                guidList_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              guidList_.addLong(input.readUInt64());
+              break;
+            }
+            case 50: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                guidList_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                guidList_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 80: {
+              int rawValue = input.readEnum();
+
+              storeType_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          guidList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.StoreItemDelNotifyOuterClass.internal_static_StoreItemDelNotify_descriptor;
@@ -220,7 +288,6 @@ public final class StoreItemDelNotifyOuterClass {
     }
 
     public static final int GUIDLIST_FIELD_NUMBER = 6;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList guidList_;
     /**
      * <code>repeated uint64 guidList = 6;</code>
@@ -249,7 +316,7 @@ public final class StoreItemDelNotifyOuterClass {
     private int guidListMemoizedSerializedSize = -1;
 
     public static final int STORETYPE_FIELD_NUMBER = 10;
-    private int storeType_ = 0;
+    private int storeType_;
     /**
      * <code>.StoreType storeType = 10;</code>
      * @return The enum numeric value on the wire for storeType.
@@ -262,7 +329,8 @@ public final class StoreItemDelNotifyOuterClass {
      * @return The storeType.
      */
     @java.lang.Override public emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType getStoreType() {
-      emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType result = emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.forNumber(storeType_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType result = emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.valueOf(storeType_);
       return result == null ? emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.UNRECOGNIZED : result;
     }
 
@@ -291,7 +359,7 @@ public final class StoreItemDelNotifyOuterClass {
       if (storeType_ != emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.STORE_TYPE_NONE.getNumber()) {
         output.writeEnum(10, storeType_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -318,7 +386,7 @@ public final class StoreItemDelNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(10, storeType_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -336,7 +404,7 @@ public final class StoreItemDelNotifyOuterClass {
       if (!getGuidListList()
           .equals(other.getGuidListList())) return false;
       if (storeType_ != other.storeType_) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -353,7 +421,7 @@ public final class StoreItemDelNotifyOuterClass {
       }
       hash = (37 * hash) + STORETYPE_FIELD_NUMBER;
       hash = (53 * hash) + storeType_;
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -470,20 +538,26 @@ public final class StoreItemDelNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.StoreItemDelNotifyOuterClass.StoreItemDelNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         guidList_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         storeType_ = 0;
+
         return this;
       }
 
@@ -510,25 +584,15 @@ public final class StoreItemDelNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.StoreItemDelNotifyOuterClass.StoreItemDelNotify buildPartial() {
         emu.grasscutter.net.proto.StoreItemDelNotifyOuterClass.StoreItemDelNotify result = new emu.grasscutter.net.proto.StoreItemDelNotifyOuterClass.StoreItemDelNotify(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.StoreItemDelNotifyOuterClass.StoreItemDelNotify result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           guidList_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.guidList_ = guidList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.StoreItemDelNotifyOuterClass.StoreItemDelNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.storeType_ = storeType_;
-        }
+        result.storeType_ = storeType_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -588,7 +652,7 @@ public final class StoreItemDelNotifyOuterClass {
         if (other.storeType_ != 0) {
           setStoreTypeValue(other.getStoreTypeValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -603,51 +667,17 @@ public final class StoreItemDelNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.StoreItemDelNotifyOuterClass.StoreItemDelNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 48: {
-                long v = input.readUInt64();
-                ensureGuidListIsMutable();
-                guidList_.addLong(v);
-                break;
-              } // case 48
-              case 50: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureGuidListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  guidList_.addLong(input.readUInt64());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 50
-              case 80: {
-                storeType_ = input.readEnum();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 80
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.StoreItemDelNotifyOuterClass.StoreItemDelNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -657,7 +687,7 @@ public final class StoreItemDelNotifyOuterClass {
         if (!((bitField0_ & 0x00000001) != 0)) {
           guidList_ = mutableCopy(guidList_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
        * <code>repeated uint64 guidList = 6;</code>
@@ -691,7 +721,6 @@ public final class StoreItemDelNotifyOuterClass {
        */
       public Builder setGuidList(
           int index, long value) {
-        
         ensureGuidListIsMutable();
         guidList_.setLong(index, value);
         onChanged();
@@ -703,7 +732,6 @@ public final class StoreItemDelNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder addGuidList(long value) {
-        
         ensureGuidListIsMutable();
         guidList_.addLong(value);
         onChanged();
@@ -747,8 +775,8 @@ public final class StoreItemDelNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder setStoreTypeValue(int value) {
+        
         storeType_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -758,7 +786,8 @@ public final class StoreItemDelNotifyOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType getStoreType() {
-        emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType result = emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.forNumber(storeType_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType result = emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.valueOf(storeType_);
         return result == null ? emu.grasscutter.net.proto.StoreTypeOuterClass.StoreType.UNRECOGNIZED : result;
       }
       /**
@@ -770,7 +799,7 @@ public final class StoreItemDelNotifyOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         storeType_ = value.getNumber();
         onChanged();
         return this;
@@ -780,7 +809,7 @@ public final class StoreItemDelNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearStoreType() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         storeType_ = 0;
         onChanged();
         return this;
@@ -818,18 +847,7 @@ public final class StoreItemDelNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new StoreItemDelNotify(input, extensionRegistry);
       }
     };
 

@@ -63,6 +63,68 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ServerAnnounceRevokeNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 96: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                configIdList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              configIdList_.addInt(input.readUInt32());
+              break;
+            }
+            case 98: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                configIdList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                configIdList_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          configIdList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ServerAnnounceRevokeNotifyOuterClass.internal_static_ServerAnnounceRevokeNotify_descriptor;
@@ -208,7 +270,6 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
     }
 
     public static final int CONFIGIDLIST_FIELD_NUMBER = 12;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList configIdList_;
     /**
      * <code>repeated uint32 configIdList = 12;</code>
@@ -258,7 +319,7 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
       for (int i = 0; i < configIdList_.size(); i++) {
         output.writeUInt32NoTag(configIdList_.getInt(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -281,7 +342,7 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
         }
         configIdListMemoizedSerializedSize = dataSize;
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -298,7 +359,7 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
 
       if (!getConfigIdListList()
           .equals(other.getConfigIdListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -313,7 +374,7 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
         hash = (37 * hash) + CONFIGIDLIST_FIELD_NUMBER;
         hash = (53 * hash) + getConfigIdListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -430,19 +491,24 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ServerAnnounceRevokeNotifyOuterClass.ServerAnnounceRevokeNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         configIdList_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -469,22 +535,14 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ServerAnnounceRevokeNotifyOuterClass.ServerAnnounceRevokeNotify buildPartial() {
         emu.grasscutter.net.proto.ServerAnnounceRevokeNotifyOuterClass.ServerAnnounceRevokeNotify result = new emu.grasscutter.net.proto.ServerAnnounceRevokeNotifyOuterClass.ServerAnnounceRevokeNotify(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.ServerAnnounceRevokeNotifyOuterClass.ServerAnnounceRevokeNotify result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           configIdList_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.configIdList_ = configIdList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ServerAnnounceRevokeNotifyOuterClass.ServerAnnounceRevokeNotify result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -541,7 +599,7 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -556,46 +614,17 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ServerAnnounceRevokeNotifyOuterClass.ServerAnnounceRevokeNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 96: {
-                int v = input.readUInt32();
-                ensureConfigIdListIsMutable();
-                configIdList_.addInt(v);
-                break;
-              } // case 96
-              case 98: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureConfigIdListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  configIdList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 98
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ServerAnnounceRevokeNotifyOuterClass.ServerAnnounceRevokeNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -605,7 +634,7 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
         if (!((bitField0_ & 0x00000001) != 0)) {
           configIdList_ = mutableCopy(configIdList_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
        * <code>repeated uint32 configIdList = 12;</code>
@@ -639,7 +668,6 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
        */
       public Builder setConfigIdList(
           int index, int value) {
-        
         ensureConfigIdListIsMutable();
         configIdList_.setInt(index, value);
         onChanged();
@@ -651,7 +679,6 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder addConfigIdList(int value) {
-        
         ensureConfigIdListIsMutable();
         configIdList_.addInt(value);
         onChanged();
@@ -713,18 +740,7 @@ public final class ServerAnnounceRevokeNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ServerAnnounceRevokeNotify(input, extensionRegistry);
       }
     };
 

@@ -82,6 +82,66 @@ public final class GetActivityShopSheetInfoRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GetActivityShopSheetInfoRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 40: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 56: {
+
+              shopType_ = input.readUInt32();
+              break;
+            }
+            case 82: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                sheetInfoList_ = new java.util.ArrayList<emu.grasscutter.net.proto.ActivityShopSheetInfoOuterClass.ActivityShopSheetInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              sheetInfoList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.ActivityShopSheetInfoOuterClass.ActivityShopSheetInfo.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          sheetInfoList_ = java.util.Collections.unmodifiableList(sheetInfoList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.GetActivityShopSheetInfoRspOuterClass.internal_static_GetActivityShopSheetInfoRsp_descriptor;
@@ -227,7 +287,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
     }
 
     public static final int SHOPTYPE_FIELD_NUMBER = 7;
-    private int shopType_ = 0;
+    private int shopType_;
     /**
      * <code>uint32 shopType = 7;</code>
      * @return The shopType.
@@ -238,7 +298,6 @@ public final class GetActivityShopSheetInfoRspOuterClass {
     }
 
     public static final int SHEETINFOLIST_FIELD_NUMBER = 10;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.ActivityShopSheetInfoOuterClass.ActivityShopSheetInfo> sheetInfoList_;
     /**
      * <code>repeated .ActivityShopSheetInfo sheetInfoList = 10;</code>
@@ -279,7 +338,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 5;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 5;</code>
      * @return The retcode.
@@ -312,7 +371,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
       for (int i = 0; i < sheetInfoList_.size(); i++) {
         output.writeMessage(10, sheetInfoList_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -333,7 +392,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(10, sheetInfoList_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -354,7 +413,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
           .equals(other.getSheetInfoListList())) return false;
       if (getRetcode()
           != other.getRetcode()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -373,7 +432,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
       }
       hash = (37 * hash) + RETCODE_FIELD_NUMBER;
       hash = (53 * hash) + getRetcode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -490,27 +549,33 @@ public final class GetActivityShopSheetInfoRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.GetActivityShopSheetInfoRspOuterClass.GetActivityShopSheetInfoRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getSheetInfoListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         shopType_ = 0;
+
         if (sheetInfoListBuilder_ == null) {
           sheetInfoList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          sheetInfoList_ = null;
           sheetInfoListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         retcode_ = 0;
+
         return this;
       }
 
@@ -537,32 +602,20 @@ public final class GetActivityShopSheetInfoRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.GetActivityShopSheetInfoRspOuterClass.GetActivityShopSheetInfoRsp buildPartial() {
         emu.grasscutter.net.proto.GetActivityShopSheetInfoRspOuterClass.GetActivityShopSheetInfoRsp result = new emu.grasscutter.net.proto.GetActivityShopSheetInfoRspOuterClass.GetActivityShopSheetInfoRsp(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.GetActivityShopSheetInfoRspOuterClass.GetActivityShopSheetInfoRsp result) {
+        int from_bitField0_ = bitField0_;
+        result.shopType_ = shopType_;
         if (sheetInfoListBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             sheetInfoList_ = java.util.Collections.unmodifiableList(sheetInfoList_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.sheetInfoList_ = sheetInfoList_;
         } else {
           result.sheetInfoList_ = sheetInfoListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.GetActivityShopSheetInfoRspOuterClass.GetActivityShopSheetInfoRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.shopType_ = shopType_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.retcode_ = retcode_;
-        }
+        result.retcode_ = retcode_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -616,7 +669,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
           if (!other.sheetInfoList_.isEmpty()) {
             if (sheetInfoList_.isEmpty()) {
               sheetInfoList_ = other.sheetInfoList_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureSheetInfoListIsMutable();
               sheetInfoList_.addAll(other.sheetInfoList_);
@@ -629,7 +682,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
               sheetInfoListBuilder_.dispose();
               sheetInfoListBuilder_ = null;
               sheetInfoList_ = other.sheetInfoList_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               sheetInfoListBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getSheetInfoListFieldBuilder() : null;
@@ -641,7 +694,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
         if (other.getRetcode() != 0) {
           setRetcode(other.getRetcode());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -656,53 +709,17 @@ public final class GetActivityShopSheetInfoRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.GetActivityShopSheetInfoRspOuterClass.GetActivityShopSheetInfoRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 40: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 40
-              case 56: {
-                shopType_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 56
-              case 82: {
-                emu.grasscutter.net.proto.ActivityShopSheetInfoOuterClass.ActivityShopSheetInfo m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.ActivityShopSheetInfoOuterClass.ActivityShopSheetInfo.parser(),
-                        extensionRegistry);
-                if (sheetInfoListBuilder_ == null) {
-                  ensureSheetInfoListIsMutable();
-                  sheetInfoList_.add(m);
-                } else {
-                  sheetInfoListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 82
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.GetActivityShopSheetInfoRspOuterClass.GetActivityShopSheetInfoRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -724,7 +741,6 @@ public final class GetActivityShopSheetInfoRspOuterClass {
       public Builder setShopType(int value) {
         
         shopType_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -733,7 +749,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearShopType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         shopType_ = 0;
         onChanged();
         return this;
@@ -742,9 +758,9 @@ public final class GetActivityShopSheetInfoRspOuterClass {
       private java.util.List<emu.grasscutter.net.proto.ActivityShopSheetInfoOuterClass.ActivityShopSheetInfo> sheetInfoList_ =
         java.util.Collections.emptyList();
       private void ensureSheetInfoListIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           sheetInfoList_ = new java.util.ArrayList<emu.grasscutter.net.proto.ActivityShopSheetInfoOuterClass.ActivityShopSheetInfo>(sheetInfoList_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -894,7 +910,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
       public Builder clearSheetInfoList() {
         if (sheetInfoListBuilder_ == null) {
           sheetInfoList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           sheetInfoListBuilder_.clear();
@@ -971,7 +987,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
           sheetInfoListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               emu.grasscutter.net.proto.ActivityShopSheetInfoOuterClass.ActivityShopSheetInfo, emu.grasscutter.net.proto.ActivityShopSheetInfoOuterClass.ActivityShopSheetInfo.Builder, emu.grasscutter.net.proto.ActivityShopSheetInfoOuterClass.ActivityShopSheetInfoOrBuilder>(
                   sheetInfoList_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           sheetInfoList_ = null;
@@ -996,7 +1012,6 @@ public final class GetActivityShopSheetInfoRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1005,7 +1020,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -1043,18 +1058,7 @@ public final class GetActivityShopSheetInfoRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GetActivityShopSheetInfoRsp(input, extensionRegistry);
       }
     };
 

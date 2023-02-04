@@ -81,6 +81,74 @@ public final class DigMarkPointOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private DigMarkPoint(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder subBuilder = null;
+              if (pos_ != null) {
+                subBuilder = pos_.toBuilder();
+              }
+              pos_ = input.readMessage(emu.grasscutter.net.proto.VectorOuterClass.Vector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pos_);
+                pos_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 24: {
+
+              bundleId_ = input.readUInt32();
+              break;
+            }
+            case 114: {
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder subBuilder = null;
+              if (rot_ != null) {
+                subBuilder = rot_.toBuilder();
+              }
+              rot_ = input.readMessage(emu.grasscutter.net.proto.VectorOuterClass.Vector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(rot_);
+                rot_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.DigMarkPointOuterClass.internal_static_DigMarkPoint_descriptor;
@@ -117,7 +185,7 @@ public final class DigMarkPointOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getRotOrBuilder() {
-      return rot_ == null ? emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance() : rot_;
+      return getRot();
     }
 
     public static final int POS_FIELD_NUMBER = 2;
@@ -143,11 +211,11 @@ public final class DigMarkPointOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getPosOrBuilder() {
-      return pos_ == null ? emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance() : pos_;
+      return getPos();
     }
 
     public static final int BUNDLEID_FIELD_NUMBER = 3;
-    private int bundleId_ = 0;
+    private int bundleId_;
     /**
      * <code>uint32 bundleId = 3;</code>
      * @return The bundleId.
@@ -180,7 +248,7 @@ public final class DigMarkPointOuterClass {
       if (rot_ != null) {
         output.writeMessage(14, getRot());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -201,7 +269,7 @@ public final class DigMarkPointOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(14, getRot());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -228,7 +296,7 @@ public final class DigMarkPointOuterClass {
       }
       if (getBundleId()
           != other.getBundleId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -249,7 +317,7 @@ public final class DigMarkPointOuterClass {
       }
       hash = (37 * hash) + BUNDLEID_FIELD_NUMBER;
       hash = (53 * hash) + getBundleId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -366,29 +434,36 @@ public final class DigMarkPointOuterClass {
 
       // Construct using emu.grasscutter.net.proto.DigMarkPointOuterClass.DigMarkPoint.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        rot_ = null;
-        if (rotBuilder_ != null) {
-          rotBuilder_.dispose();
+        if (rotBuilder_ == null) {
+          rot_ = null;
+        } else {
+          rot_ = null;
           rotBuilder_ = null;
         }
-        pos_ = null;
-        if (posBuilder_ != null) {
-          posBuilder_.dispose();
+        if (posBuilder_ == null) {
+          pos_ = null;
+        } else {
+          pos_ = null;
           posBuilder_ = null;
         }
         bundleId_ = 0;
+
         return this;
       }
 
@@ -415,26 +490,19 @@ public final class DigMarkPointOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.DigMarkPointOuterClass.DigMarkPoint buildPartial() {
         emu.grasscutter.net.proto.DigMarkPointOuterClass.DigMarkPoint result = new emu.grasscutter.net.proto.DigMarkPointOuterClass.DigMarkPoint(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (rotBuilder_ == null) {
+          result.rot_ = rot_;
+        } else {
+          result.rot_ = rotBuilder_.build();
+        }
+        if (posBuilder_ == null) {
+          result.pos_ = pos_;
+        } else {
+          result.pos_ = posBuilder_.build();
+        }
+        result.bundleId_ = bundleId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.DigMarkPointOuterClass.DigMarkPoint result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.rot_ = rotBuilder_ == null
-              ? rot_
-              : rotBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.pos_ = posBuilder_ == null
-              ? pos_
-              : posBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.bundleId_ = bundleId_;
-        }
       }
 
       @java.lang.Override
@@ -490,7 +558,7 @@ public final class DigMarkPointOuterClass {
         if (other.getBundleId() != 0) {
           setBundleId(other.getBundleId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -505,52 +573,19 @@ public final class DigMarkPointOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.DigMarkPointOuterClass.DigMarkPoint parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 18: {
-                input.readMessage(
-                    getPosFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                bundleId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 114: {
-                input.readMessage(
-                    getRotFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 114
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.DigMarkPointOuterClass.DigMarkPoint) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private emu.grasscutter.net.proto.VectorOuterClass.Vector rot_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -560,7 +595,7 @@ public final class DigMarkPointOuterClass {
        * @return Whether the rot field is set.
        */
       public boolean hasRot() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return rotBuilder_ != null || rot_ != null;
       }
       /**
        * <code>.Vector rot = 14;</code>
@@ -582,11 +617,11 @@ public final class DigMarkPointOuterClass {
             throw new NullPointerException();
           }
           rot_ = value;
+          onChanged();
         } else {
           rotBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -596,11 +631,11 @@ public final class DigMarkPointOuterClass {
           emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder builderForValue) {
         if (rotBuilder_ == null) {
           rot_ = builderForValue.build();
+          onChanged();
         } else {
           rotBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -608,38 +643,38 @@ public final class DigMarkPointOuterClass {
        */
       public Builder mergeRot(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (rotBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            rot_ != null &&
-            rot_ != emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance()) {
-            getRotBuilder().mergeFrom(value);
+          if (rot_ != null) {
+            rot_ =
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.newBuilder(rot_).mergeFrom(value).buildPartial();
           } else {
             rot_ = value;
           }
+          onChanged();
         } else {
           rotBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector rot = 14;</code>
        */
       public Builder clearRot() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        rot_ = null;
-        if (rotBuilder_ != null) {
-          rotBuilder_.dispose();
+        if (rotBuilder_ == null) {
+          rot_ = null;
+          onChanged();
+        } else {
+          rot_ = null;
           rotBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector rot = 14;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder getRotBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getRotFieldBuilder().getBuilder();
       }
@@ -679,7 +714,7 @@ public final class DigMarkPointOuterClass {
        * @return Whether the pos field is set.
        */
       public boolean hasPos() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return posBuilder_ != null || pos_ != null;
       }
       /**
        * <code>.Vector pos = 2;</code>
@@ -701,11 +736,11 @@ public final class DigMarkPointOuterClass {
             throw new NullPointerException();
           }
           pos_ = value;
+          onChanged();
         } else {
           posBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -715,11 +750,11 @@ public final class DigMarkPointOuterClass {
           emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder builderForValue) {
         if (posBuilder_ == null) {
           pos_ = builderForValue.build();
+          onChanged();
         } else {
           posBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -727,38 +762,38 @@ public final class DigMarkPointOuterClass {
        */
       public Builder mergePos(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (posBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            pos_ != null &&
-            pos_ != emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance()) {
-            getPosBuilder().mergeFrom(value);
+          if (pos_ != null) {
+            pos_ =
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.newBuilder(pos_).mergeFrom(value).buildPartial();
           } else {
             pos_ = value;
           }
+          onChanged();
         } else {
           posBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector pos = 2;</code>
        */
       public Builder clearPos() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        pos_ = null;
-        if (posBuilder_ != null) {
-          posBuilder_.dispose();
+        if (posBuilder_ == null) {
+          pos_ = null;
+          onChanged();
+        } else {
+          pos_ = null;
           posBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector pos = 2;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder getPosBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getPosFieldBuilder().getBuilder();
       }
@@ -807,7 +842,6 @@ public final class DigMarkPointOuterClass {
       public Builder setBundleId(int value) {
         
         bundleId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -816,7 +850,7 @@ public final class DigMarkPointOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearBundleId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         bundleId_ = 0;
         onChanged();
         return this;
@@ -854,18 +888,7 @@ public final class DigMarkPointOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new DigMarkPoint(input, extensionRegistry);
       }
     };
 

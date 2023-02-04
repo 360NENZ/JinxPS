@@ -78,6 +78,71 @@ public final class SkyCrystalDetectorDataOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private SkyCrystalDetectorData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+
+              isHintValid_ = input.readBool();
+              break;
+            }
+            case 50: {
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder subBuilder = null;
+              if (hintCenterPos_ != null) {
+                subBuilder = hintCenterPos_.toBuilder();
+              }
+              hintCenterPos_ = input.readMessage(emu.grasscutter.net.proto.VectorOuterClass.Vector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(hintCenterPos_);
+                hintCenterPos_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 64: {
+
+              configId_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+
+              groupId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.SkyCrystalDetectorDataOuterClass.internal_static_SkyCrystalDetectorData_descriptor;
@@ -114,11 +179,11 @@ public final class SkyCrystalDetectorDataOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getHintCenterPosOrBuilder() {
-      return hintCenterPos_ == null ? emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance() : hintCenterPos_;
+      return getHintCenterPos();
     }
 
     public static final int GROUPID_FIELD_NUMBER = 14;
-    private int groupId_ = 0;
+    private int groupId_;
     /**
      * <code>uint32 groupId = 14;</code>
      * @return The groupId.
@@ -129,7 +194,7 @@ public final class SkyCrystalDetectorDataOuterClass {
     }
 
     public static final int CONFIGID_FIELD_NUMBER = 8;
-    private int configId_ = 0;
+    private int configId_;
     /**
      * <code>uint32 configId = 8;</code>
      * @return The configId.
@@ -140,7 +205,7 @@ public final class SkyCrystalDetectorDataOuterClass {
     }
 
     public static final int ISHINTVALID_FIELD_NUMBER = 3;
-    private boolean isHintValid_ = false;
+    private boolean isHintValid_;
     /**
      * <code>bool isHintValid = 3;</code>
      * @return The isHintValid.
@@ -176,7 +241,7 @@ public final class SkyCrystalDetectorDataOuterClass {
       if (groupId_ != 0) {
         output.writeUInt32(14, groupId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -201,7 +266,7 @@ public final class SkyCrystalDetectorDataOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(14, groupId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -227,7 +292,7 @@ public final class SkyCrystalDetectorDataOuterClass {
           != other.getConfigId()) return false;
       if (getIsHintValid()
           != other.getIsHintValid()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -249,7 +314,7 @@ public final class SkyCrystalDetectorDataOuterClass {
       hash = (37 * hash) + ISHINTVALID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsHintValid());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -366,26 +431,34 @@ public final class SkyCrystalDetectorDataOuterClass {
 
       // Construct using emu.grasscutter.net.proto.SkyCrystalDetectorDataOuterClass.SkyCrystalDetectorData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        hintCenterPos_ = null;
-        if (hintCenterPosBuilder_ != null) {
-          hintCenterPosBuilder_.dispose();
+        if (hintCenterPosBuilder_ == null) {
+          hintCenterPos_ = null;
+        } else {
+          hintCenterPos_ = null;
           hintCenterPosBuilder_ = null;
         }
         groupId_ = 0;
+
         configId_ = 0;
+
         isHintValid_ = false;
+
         return this;
       }
 
@@ -412,27 +485,16 @@ public final class SkyCrystalDetectorDataOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.SkyCrystalDetectorDataOuterClass.SkyCrystalDetectorData buildPartial() {
         emu.grasscutter.net.proto.SkyCrystalDetectorDataOuterClass.SkyCrystalDetectorData result = new emu.grasscutter.net.proto.SkyCrystalDetectorDataOuterClass.SkyCrystalDetectorData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (hintCenterPosBuilder_ == null) {
+          result.hintCenterPos_ = hintCenterPos_;
+        } else {
+          result.hintCenterPos_ = hintCenterPosBuilder_.build();
+        }
+        result.groupId_ = groupId_;
+        result.configId_ = configId_;
+        result.isHintValid_ = isHintValid_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.SkyCrystalDetectorDataOuterClass.SkyCrystalDetectorData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.hintCenterPos_ = hintCenterPosBuilder_ == null
-              ? hintCenterPos_
-              : hintCenterPosBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.groupId_ = groupId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.configId_ = configId_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.isHintValid_ = isHintValid_;
-        }
       }
 
       @java.lang.Override
@@ -491,7 +553,7 @@ public final class SkyCrystalDetectorDataOuterClass {
         if (other.getIsHintValid() != false) {
           setIsHintValid(other.getIsHintValid());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -506,55 +568,19 @@ public final class SkyCrystalDetectorDataOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.SkyCrystalDetectorDataOuterClass.SkyCrystalDetectorData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 24: {
-                isHintValid_ = input.readBool();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 24
-              case 50: {
-                input.readMessage(
-                    getHintCenterPosFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 50
-              case 64: {
-                configId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 64
-              case 112: {
-                groupId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 112
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.SkyCrystalDetectorDataOuterClass.SkyCrystalDetectorData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private emu.grasscutter.net.proto.VectorOuterClass.Vector hintCenterPos_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -564,7 +590,7 @@ public final class SkyCrystalDetectorDataOuterClass {
        * @return Whether the hintCenterPos field is set.
        */
       public boolean hasHintCenterPos() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return hintCenterPosBuilder_ != null || hintCenterPos_ != null;
       }
       /**
        * <code>.Vector hintCenterPos = 6;</code>
@@ -586,11 +612,11 @@ public final class SkyCrystalDetectorDataOuterClass {
             throw new NullPointerException();
           }
           hintCenterPos_ = value;
+          onChanged();
         } else {
           hintCenterPosBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -600,11 +626,11 @@ public final class SkyCrystalDetectorDataOuterClass {
           emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder builderForValue) {
         if (hintCenterPosBuilder_ == null) {
           hintCenterPos_ = builderForValue.build();
+          onChanged();
         } else {
           hintCenterPosBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -612,38 +638,38 @@ public final class SkyCrystalDetectorDataOuterClass {
        */
       public Builder mergeHintCenterPos(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (hintCenterPosBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            hintCenterPos_ != null &&
-            hintCenterPos_ != emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance()) {
-            getHintCenterPosBuilder().mergeFrom(value);
+          if (hintCenterPos_ != null) {
+            hintCenterPos_ =
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.newBuilder(hintCenterPos_).mergeFrom(value).buildPartial();
           } else {
             hintCenterPos_ = value;
           }
+          onChanged();
         } else {
           hintCenterPosBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector hintCenterPos = 6;</code>
        */
       public Builder clearHintCenterPos() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        hintCenterPos_ = null;
-        if (hintCenterPosBuilder_ != null) {
-          hintCenterPosBuilder_.dispose();
+        if (hintCenterPosBuilder_ == null) {
+          hintCenterPos_ = null;
+          onChanged();
+        } else {
+          hintCenterPos_ = null;
           hintCenterPosBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector hintCenterPos = 6;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder getHintCenterPosBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getHintCenterPosFieldBuilder().getBuilder();
       }
@@ -692,7 +718,6 @@ public final class SkyCrystalDetectorDataOuterClass {
       public Builder setGroupId(int value) {
         
         groupId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -701,7 +726,7 @@ public final class SkyCrystalDetectorDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGroupId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         groupId_ = 0;
         onChanged();
         return this;
@@ -724,7 +749,6 @@ public final class SkyCrystalDetectorDataOuterClass {
       public Builder setConfigId(int value) {
         
         configId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -733,7 +757,7 @@ public final class SkyCrystalDetectorDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearConfigId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         configId_ = 0;
         onChanged();
         return this;
@@ -756,7 +780,6 @@ public final class SkyCrystalDetectorDataOuterClass {
       public Builder setIsHintValid(boolean value) {
         
         isHintValid_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -765,7 +788,7 @@ public final class SkyCrystalDetectorDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsHintValid() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         isHintValid_ = false;
         onChanged();
         return this;
@@ -803,18 +826,7 @@ public final class SkyCrystalDetectorDataOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new SkyCrystalDetectorData(input, extensionRegistry);
       }
     };
 

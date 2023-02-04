@@ -63,6 +63,58 @@ public final class ChangeAvatarRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ChangeAvatarRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 48: {
+
+              skillId_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+
+              curGuid_ = input.readUInt64();
+              break;
+            }
+            case 120: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ChangeAvatarRspOuterClass.internal_static_ChangeAvatarRsp_descriptor;
@@ -208,7 +260,7 @@ public final class ChangeAvatarRspOuterClass {
     }
 
     public static final int CURGUID_FIELD_NUMBER = 14;
-    private long curGuid_ = 0L;
+    private long curGuid_;
     /**
      * <code>uint64 curGuid = 14;</code>
      * @return The curGuid.
@@ -219,7 +271,7 @@ public final class ChangeAvatarRspOuterClass {
     }
 
     public static final int SKILLID_FIELD_NUMBER = 6;
-    private int skillId_ = 0;
+    private int skillId_;
     /**
      * <code>uint32 skillId = 6;</code>
      * @return The skillId.
@@ -230,7 +282,7 @@ public final class ChangeAvatarRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 15;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 15;</code>
      * @return The retcode.
@@ -263,7 +315,7 @@ public final class ChangeAvatarRspOuterClass {
       if (retcode_ != 0) {
         output.writeInt32(15, retcode_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -284,7 +336,7 @@ public final class ChangeAvatarRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(15, retcode_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -305,7 +357,7 @@ public final class ChangeAvatarRspOuterClass {
           != other.getSkillId()) return false;
       if (getRetcode()
           != other.getRetcode()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -323,7 +375,7 @@ public final class ChangeAvatarRspOuterClass {
       hash = (53 * hash) + getSkillId();
       hash = (37 * hash) + RETCODE_FIELD_NUMBER;
       hash = (53 * hash) + getRetcode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -440,21 +492,28 @@ public final class ChangeAvatarRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ChangeAvatarRspOuterClass.ChangeAvatarRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         curGuid_ = 0L;
+
         skillId_ = 0;
+
         retcode_ = 0;
+
         return this;
       }
 
@@ -481,22 +540,11 @@ public final class ChangeAvatarRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ChangeAvatarRspOuterClass.ChangeAvatarRsp buildPartial() {
         emu.grasscutter.net.proto.ChangeAvatarRspOuterClass.ChangeAvatarRsp result = new emu.grasscutter.net.proto.ChangeAvatarRspOuterClass.ChangeAvatarRsp(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.curGuid_ = curGuid_;
+        result.skillId_ = skillId_;
+        result.retcode_ = retcode_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ChangeAvatarRspOuterClass.ChangeAvatarRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.curGuid_ = curGuid_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.skillId_ = skillId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.retcode_ = retcode_;
-        }
       }
 
       @java.lang.Override
@@ -552,7 +600,7 @@ public final class ChangeAvatarRspOuterClass {
         if (other.getRetcode() != 0) {
           setRetcode(other.getRetcode());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -567,48 +615,19 @@ public final class ChangeAvatarRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ChangeAvatarRspOuterClass.ChangeAvatarRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 48: {
-                skillId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 48
-              case 112: {
-                curGuid_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 112
-              case 120: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ChangeAvatarRspOuterClass.ChangeAvatarRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long curGuid_ ;
       /**
@@ -627,7 +646,6 @@ public final class ChangeAvatarRspOuterClass {
       public Builder setCurGuid(long value) {
         
         curGuid_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -636,7 +654,7 @@ public final class ChangeAvatarRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCurGuid() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         curGuid_ = 0L;
         onChanged();
         return this;
@@ -659,7 +677,6 @@ public final class ChangeAvatarRspOuterClass {
       public Builder setSkillId(int value) {
         
         skillId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -668,7 +685,7 @@ public final class ChangeAvatarRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearSkillId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         skillId_ = 0;
         onChanged();
         return this;
@@ -691,7 +708,6 @@ public final class ChangeAvatarRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -700,7 +716,7 @@ public final class ChangeAvatarRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -738,18 +754,7 @@ public final class ChangeAvatarRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ChangeAvatarRsp(input, extensionRegistry);
       }
     };
 

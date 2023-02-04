@@ -81,6 +81,73 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private EffigyChallengeV2SettleInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              unk3300NGBKNDHJPCP_ = input.readBool();
+              break;
+            }
+            case 40: {
+
+              unk3300AKMPCDIKBJD_ = input.readBool();
+              break;
+            }
+            case 80: {
+
+              unk3300PHEIMLOKIJG_ = input.readUInt32();
+              break;
+            }
+            case 104: {
+
+              challengeModeDifficulty_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+
+              unk3300MHOIIPJKAMN_ = input.readUInt32();
+              break;
+            }
+            case 120: {
+
+              unk3300ONKPGFOLDFL_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.EffigyChallengeV2SettleInfoOuterClass.internal_static_EffigyChallengeV2SettleInfo_descriptor;
@@ -95,7 +162,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
     }
 
     public static final int UNK3300_MHOIIPJKAMN_FIELD_NUMBER = 14;
-    private int unk3300MHOIIPJKAMN_ = 0;
+    private int unk3300MHOIIPJKAMN_;
     /**
      * <code>uint32 Unk3300_MHOIIPJKAMN = 14;</code>
      * @return The unk3300MHOIIPJKAMN.
@@ -106,7 +173,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
     }
 
     public static final int UNK3300_AKMPCDIKBJD_FIELD_NUMBER = 5;
-    private boolean unk3300AKMPCDIKBJD_ = false;
+    private boolean unk3300AKMPCDIKBJD_;
     /**
      * <code>bool Unk3300_AKMPCDIKBJD = 5;</code>
      * @return The unk3300AKMPCDIKBJD.
@@ -117,7 +184,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
     }
 
     public static final int UNK3300_ONKPGFOLDFL_FIELD_NUMBER = 15;
-    private int unk3300ONKPGFOLDFL_ = 0;
+    private int unk3300ONKPGFOLDFL_;
     /**
      * <code>uint32 Unk3300_ONKPGFOLDFL = 15;</code>
      * @return The unk3300ONKPGFOLDFL.
@@ -128,7 +195,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
     }
 
     public static final int UNK3300_PHEIMLOKIJG_FIELD_NUMBER = 10;
-    private int unk3300PHEIMLOKIJG_ = 0;
+    private int unk3300PHEIMLOKIJG_;
     /**
      * <code>uint32 Unk3300_PHEIMLOKIJG = 10;</code>
      * @return The unk3300PHEIMLOKIJG.
@@ -139,7 +206,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
     }
 
     public static final int CHALLENGEMODEDIFFICULTY_FIELD_NUMBER = 13;
-    private int challengeModeDifficulty_ = 0;
+    private int challengeModeDifficulty_;
     /**
      * <code>uint32 challengeModeDifficulty = 13;</code>
      * @return The challengeModeDifficulty.
@@ -150,7 +217,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
     }
 
     public static final int UNK3300_NGBKNDHJPCP_FIELD_NUMBER = 1;
-    private boolean unk3300NGBKNDHJPCP_ = false;
+    private boolean unk3300NGBKNDHJPCP_;
     /**
      * <code>bool Unk3300_NGBKNDHJPCP = 1;</code>
      * @return The unk3300NGBKNDHJPCP.
@@ -192,7 +259,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
       if (unk3300ONKPGFOLDFL_ != 0) {
         output.writeUInt32(15, unk3300ONKPGFOLDFL_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -225,7 +292,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(15, unk3300ONKPGFOLDFL_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -252,7 +319,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
           != other.getChallengeModeDifficulty()) return false;
       if (getUnk3300NGBKNDHJPCP()
           != other.getUnk3300NGBKNDHJPCP()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -277,7 +344,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
       hash = (37 * hash) + UNK3300_NGBKNDHJPCP_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getUnk3300NGBKNDHJPCP());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -394,24 +461,34 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.EffigyChallengeV2SettleInfoOuterClass.EffigyChallengeV2SettleInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         unk3300MHOIIPJKAMN_ = 0;
+
         unk3300AKMPCDIKBJD_ = false;
+
         unk3300ONKPGFOLDFL_ = 0;
+
         unk3300PHEIMLOKIJG_ = 0;
+
         challengeModeDifficulty_ = 0;
+
         unk3300NGBKNDHJPCP_ = false;
+
         return this;
       }
 
@@ -438,31 +515,14 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.EffigyChallengeV2SettleInfoOuterClass.EffigyChallengeV2SettleInfo buildPartial() {
         emu.grasscutter.net.proto.EffigyChallengeV2SettleInfoOuterClass.EffigyChallengeV2SettleInfo result = new emu.grasscutter.net.proto.EffigyChallengeV2SettleInfoOuterClass.EffigyChallengeV2SettleInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.unk3300MHOIIPJKAMN_ = unk3300MHOIIPJKAMN_;
+        result.unk3300AKMPCDIKBJD_ = unk3300AKMPCDIKBJD_;
+        result.unk3300ONKPGFOLDFL_ = unk3300ONKPGFOLDFL_;
+        result.unk3300PHEIMLOKIJG_ = unk3300PHEIMLOKIJG_;
+        result.challengeModeDifficulty_ = challengeModeDifficulty_;
+        result.unk3300NGBKNDHJPCP_ = unk3300NGBKNDHJPCP_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.EffigyChallengeV2SettleInfoOuterClass.EffigyChallengeV2SettleInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.unk3300MHOIIPJKAMN_ = unk3300MHOIIPJKAMN_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.unk3300AKMPCDIKBJD_ = unk3300AKMPCDIKBJD_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.unk3300ONKPGFOLDFL_ = unk3300ONKPGFOLDFL_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.unk3300PHEIMLOKIJG_ = unk3300PHEIMLOKIJG_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.challengeModeDifficulty_ = challengeModeDifficulty_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.unk3300NGBKNDHJPCP_ = unk3300NGBKNDHJPCP_;
-        }
       }
 
       @java.lang.Override
@@ -527,7 +587,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
         if (other.getUnk3300NGBKNDHJPCP() != false) {
           setUnk3300NGBKNDHJPCP(other.getUnk3300NGBKNDHJPCP());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -542,63 +602,19 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.EffigyChallengeV2SettleInfoOuterClass.EffigyChallengeV2SettleInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                unk3300NGBKNDHJPCP_ = input.readBool();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 8
-              case 40: {
-                unk3300AKMPCDIKBJD_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 40
-              case 80: {
-                unk3300PHEIMLOKIJG_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 80
-              case 104: {
-                challengeModeDifficulty_ = input.readUInt32();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 104
-              case 112: {
-                unk3300MHOIIPJKAMN_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 112
-              case 120: {
-                unk3300ONKPGFOLDFL_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.EffigyChallengeV2SettleInfoOuterClass.EffigyChallengeV2SettleInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int unk3300MHOIIPJKAMN_ ;
       /**
@@ -617,7 +633,6 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
       public Builder setUnk3300MHOIIPJKAMN(int value) {
         
         unk3300MHOIIPJKAMN_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -626,7 +641,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300MHOIIPJKAMN() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         unk3300MHOIIPJKAMN_ = 0;
         onChanged();
         return this;
@@ -649,7 +664,6 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
       public Builder setUnk3300AKMPCDIKBJD(boolean value) {
         
         unk3300AKMPCDIKBJD_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -658,7 +672,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300AKMPCDIKBJD() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         unk3300AKMPCDIKBJD_ = false;
         onChanged();
         return this;
@@ -681,7 +695,6 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
       public Builder setUnk3300ONKPGFOLDFL(int value) {
         
         unk3300ONKPGFOLDFL_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -690,7 +703,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300ONKPGFOLDFL() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         unk3300ONKPGFOLDFL_ = 0;
         onChanged();
         return this;
@@ -713,7 +726,6 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
       public Builder setUnk3300PHEIMLOKIJG(int value) {
         
         unk3300PHEIMLOKIJG_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -722,7 +734,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300PHEIMLOKIJG() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         unk3300PHEIMLOKIJG_ = 0;
         onChanged();
         return this;
@@ -745,7 +757,6 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
       public Builder setChallengeModeDifficulty(int value) {
         
         challengeModeDifficulty_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -754,7 +765,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChallengeModeDifficulty() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         challengeModeDifficulty_ = 0;
         onChanged();
         return this;
@@ -777,7 +788,6 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
       public Builder setUnk3300NGBKNDHJPCP(boolean value) {
         
         unk3300NGBKNDHJPCP_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -786,7 +796,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300NGBKNDHJPCP() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         unk3300NGBKNDHJPCP_ = false;
         onChanged();
         return this;
@@ -824,18 +834,7 @@ public final class EffigyChallengeV2SettleInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new EffigyChallengeV2SettleInfo(input, extensionRegistry);
       }
     };
 

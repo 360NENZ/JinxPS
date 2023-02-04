@@ -75,6 +75,68 @@ public final class UseItemReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private UseItemReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 48: {
+
+              targetGuid_ = input.readUInt64();
+              break;
+            }
+            case 64: {
+
+              guid_ = input.readUInt64();
+              break;
+            }
+            case 96: {
+
+              count_ = input.readUInt32();
+              break;
+            }
+            case 104: {
+
+              isEnterMpDungeonTeam_ = input.readBool();
+              break;
+            }
+            case 112: {
+
+              optionIdx_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.UseItemReqOuterClass.internal_static_UseItemReq_descriptor;
@@ -228,7 +290,7 @@ public final class UseItemReqOuterClass {
     }
 
     public static final int GUID_FIELD_NUMBER = 8;
-    private long guid_ = 0L;
+    private long guid_;
     /**
      * <code>uint64 guid = 8;</code>
      * @return The guid.
@@ -239,7 +301,7 @@ public final class UseItemReqOuterClass {
     }
 
     public static final int OPTIONIDX_FIELD_NUMBER = 14;
-    private int optionIdx_ = 0;
+    private int optionIdx_;
     /**
      * <code>uint32 optionIdx = 14;</code>
      * @return The optionIdx.
@@ -250,7 +312,7 @@ public final class UseItemReqOuterClass {
     }
 
     public static final int COUNT_FIELD_NUMBER = 12;
-    private int count_ = 0;
+    private int count_;
     /**
      * <code>uint32 count = 12;</code>
      * @return The count.
@@ -261,7 +323,7 @@ public final class UseItemReqOuterClass {
     }
 
     public static final int ISENTERMPDUNGEONTEAM_FIELD_NUMBER = 13;
-    private boolean isEnterMpDungeonTeam_ = false;
+    private boolean isEnterMpDungeonTeam_;
     /**
      * <code>bool isEnterMpDungeonTeam = 13;</code>
      * @return The isEnterMpDungeonTeam.
@@ -272,7 +334,7 @@ public final class UseItemReqOuterClass {
     }
 
     public static final int TARGETGUID_FIELD_NUMBER = 6;
-    private long targetGuid_ = 0L;
+    private long targetGuid_;
     /**
      * <code>uint64 targetGuid = 6;</code>
      * @return The targetGuid.
@@ -311,7 +373,7 @@ public final class UseItemReqOuterClass {
       if (optionIdx_ != 0) {
         output.writeUInt32(14, optionIdx_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -340,7 +402,7 @@ public final class UseItemReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(14, optionIdx_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -365,7 +427,7 @@ public final class UseItemReqOuterClass {
           != other.getIsEnterMpDungeonTeam()) return false;
       if (getTargetGuid()
           != other.getTargetGuid()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -389,7 +451,7 @@ public final class UseItemReqOuterClass {
       hash = (37 * hash) + TARGETGUID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTargetGuid());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -506,23 +568,32 @@ public final class UseItemReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.UseItemReqOuterClass.UseItemReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         guid_ = 0L;
+
         optionIdx_ = 0;
+
         count_ = 0;
+
         isEnterMpDungeonTeam_ = false;
+
         targetGuid_ = 0L;
+
         return this;
       }
 
@@ -549,28 +620,13 @@ public final class UseItemReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.UseItemReqOuterClass.UseItemReq buildPartial() {
         emu.grasscutter.net.proto.UseItemReqOuterClass.UseItemReq result = new emu.grasscutter.net.proto.UseItemReqOuterClass.UseItemReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.guid_ = guid_;
+        result.optionIdx_ = optionIdx_;
+        result.count_ = count_;
+        result.isEnterMpDungeonTeam_ = isEnterMpDungeonTeam_;
+        result.targetGuid_ = targetGuid_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.UseItemReqOuterClass.UseItemReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.guid_ = guid_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.optionIdx_ = optionIdx_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.count_ = count_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.isEnterMpDungeonTeam_ = isEnterMpDungeonTeam_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.targetGuid_ = targetGuid_;
-        }
       }
 
       @java.lang.Override
@@ -632,7 +688,7 @@ public final class UseItemReqOuterClass {
         if (other.getTargetGuid() != 0L) {
           setTargetGuid(other.getTargetGuid());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -647,58 +703,19 @@ public final class UseItemReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.UseItemReqOuterClass.UseItemReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 48: {
-                targetGuid_ = input.readUInt64();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 48
-              case 64: {
-                guid_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 64
-              case 96: {
-                count_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 96
-              case 104: {
-                isEnterMpDungeonTeam_ = input.readBool();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 104
-              case 112: {
-                optionIdx_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 112
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.UseItemReqOuterClass.UseItemReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long guid_ ;
       /**
@@ -717,7 +734,6 @@ public final class UseItemReqOuterClass {
       public Builder setGuid(long value) {
         
         guid_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -726,7 +742,7 @@ public final class UseItemReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGuid() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         guid_ = 0L;
         onChanged();
         return this;
@@ -749,7 +765,6 @@ public final class UseItemReqOuterClass {
       public Builder setOptionIdx(int value) {
         
         optionIdx_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -758,7 +773,7 @@ public final class UseItemReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearOptionIdx() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         optionIdx_ = 0;
         onChanged();
         return this;
@@ -781,7 +796,6 @@ public final class UseItemReqOuterClass {
       public Builder setCount(int value) {
         
         count_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -790,7 +804,7 @@ public final class UseItemReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCount() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         count_ = 0;
         onChanged();
         return this;
@@ -813,7 +827,6 @@ public final class UseItemReqOuterClass {
       public Builder setIsEnterMpDungeonTeam(boolean value) {
         
         isEnterMpDungeonTeam_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -822,7 +835,7 @@ public final class UseItemReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsEnterMpDungeonTeam() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         isEnterMpDungeonTeam_ = false;
         onChanged();
         return this;
@@ -845,7 +858,6 @@ public final class UseItemReqOuterClass {
       public Builder setTargetGuid(long value) {
         
         targetGuid_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -854,7 +866,7 @@ public final class UseItemReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTargetGuid() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         targetGuid_ = 0L;
         onChanged();
         return this;
@@ -892,18 +904,7 @@ public final class UseItemReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new UseItemReq(input, extensionRegistry);
       }
     };
 

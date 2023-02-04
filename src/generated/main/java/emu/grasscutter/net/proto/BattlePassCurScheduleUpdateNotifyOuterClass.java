@@ -66,6 +66,61 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private BattlePassCurScheduleUpdateNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 40: {
+
+              haveCurSchedule_ = input.readBool();
+              break;
+            }
+            case 114: {
+              emu.grasscutter.net.proto.BattlePassScheduleOuterClass.BattlePassSchedule.Builder subBuilder = null;
+              if (curSchedule_ != null) {
+                subBuilder = curSchedule_.toBuilder();
+              }
+              curSchedule_ = input.readMessage(emu.grasscutter.net.proto.BattlePassScheduleOuterClass.BattlePassSchedule.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(curSchedule_);
+                curSchedule_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.BattlePassCurScheduleUpdateNotifyOuterClass.internal_static_BattlePassCurScheduleUpdateNotify_descriptor;
@@ -211,7 +266,7 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
     }
 
     public static final int HAVECURSCHEDULE_FIELD_NUMBER = 5;
-    private boolean haveCurSchedule_ = false;
+    private boolean haveCurSchedule_;
     /**
      * <code>bool haveCurSchedule = 5;</code>
      * @return The haveCurSchedule.
@@ -244,7 +299,7 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.BattlePassScheduleOuterClass.BattlePassScheduleOrBuilder getCurScheduleOrBuilder() {
-      return curSchedule_ == null ? emu.grasscutter.net.proto.BattlePassScheduleOuterClass.BattlePassSchedule.getDefaultInstance() : curSchedule_;
+      return getCurSchedule();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -267,7 +322,7 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
       if (curSchedule_ != null) {
         output.writeMessage(14, getCurSchedule());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -284,7 +339,7 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(14, getCurSchedule());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -306,7 +361,7 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
         if (!getCurSchedule()
             .equals(other.getCurSchedule())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -324,7 +379,7 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
         hash = (37 * hash) + CURSCHEDULE_FIELD_NUMBER;
         hash = (53 * hash) + getCurSchedule().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -441,22 +496,28 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.BattlePassCurScheduleUpdateNotifyOuterClass.BattlePassCurScheduleUpdateNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         haveCurSchedule_ = false;
-        curSchedule_ = null;
-        if (curScheduleBuilder_ != null) {
-          curScheduleBuilder_.dispose();
+
+        if (curScheduleBuilder_ == null) {
+          curSchedule_ = null;
+        } else {
+          curSchedule_ = null;
           curScheduleBuilder_ = null;
         }
         return this;
@@ -485,21 +546,14 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.BattlePassCurScheduleUpdateNotifyOuterClass.BattlePassCurScheduleUpdateNotify buildPartial() {
         emu.grasscutter.net.proto.BattlePassCurScheduleUpdateNotifyOuterClass.BattlePassCurScheduleUpdateNotify result = new emu.grasscutter.net.proto.BattlePassCurScheduleUpdateNotifyOuterClass.BattlePassCurScheduleUpdateNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.haveCurSchedule_ = haveCurSchedule_;
+        if (curScheduleBuilder_ == null) {
+          result.curSchedule_ = curSchedule_;
+        } else {
+          result.curSchedule_ = curScheduleBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.BattlePassCurScheduleUpdateNotifyOuterClass.BattlePassCurScheduleUpdateNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.haveCurSchedule_ = haveCurSchedule_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.curSchedule_ = curScheduleBuilder_ == null
-              ? curSchedule_
-              : curScheduleBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -552,7 +606,7 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
         if (other.hasCurSchedule()) {
           mergeCurSchedule(other.getCurSchedule());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -567,45 +621,19 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.BattlePassCurScheduleUpdateNotifyOuterClass.BattlePassCurScheduleUpdateNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 40: {
-                haveCurSchedule_ = input.readBool();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 40
-              case 114: {
-                input.readMessage(
-                    getCurScheduleFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 114
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.BattlePassCurScheduleUpdateNotifyOuterClass.BattlePassCurScheduleUpdateNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private boolean haveCurSchedule_ ;
       /**
@@ -624,7 +652,6 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
       public Builder setHaveCurSchedule(boolean value) {
         
         haveCurSchedule_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -633,7 +660,7 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearHaveCurSchedule() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         haveCurSchedule_ = false;
         onChanged();
         return this;
@@ -647,7 +674,7 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
        * @return Whether the curSchedule field is set.
        */
       public boolean hasCurSchedule() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return curScheduleBuilder_ != null || curSchedule_ != null;
       }
       /**
        * <code>.BattlePassSchedule curSchedule = 14;</code>
@@ -669,11 +696,11 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
             throw new NullPointerException();
           }
           curSchedule_ = value;
+          onChanged();
         } else {
           curScheduleBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -683,11 +710,11 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
           emu.grasscutter.net.proto.BattlePassScheduleOuterClass.BattlePassSchedule.Builder builderForValue) {
         if (curScheduleBuilder_ == null) {
           curSchedule_ = builderForValue.build();
+          onChanged();
         } else {
           curScheduleBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -695,38 +722,38 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
        */
       public Builder mergeCurSchedule(emu.grasscutter.net.proto.BattlePassScheduleOuterClass.BattlePassSchedule value) {
         if (curScheduleBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            curSchedule_ != null &&
-            curSchedule_ != emu.grasscutter.net.proto.BattlePassScheduleOuterClass.BattlePassSchedule.getDefaultInstance()) {
-            getCurScheduleBuilder().mergeFrom(value);
+          if (curSchedule_ != null) {
+            curSchedule_ =
+              emu.grasscutter.net.proto.BattlePassScheduleOuterClass.BattlePassSchedule.newBuilder(curSchedule_).mergeFrom(value).buildPartial();
           } else {
             curSchedule_ = value;
           }
+          onChanged();
         } else {
           curScheduleBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.BattlePassSchedule curSchedule = 14;</code>
        */
       public Builder clearCurSchedule() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        curSchedule_ = null;
-        if (curScheduleBuilder_ != null) {
-          curScheduleBuilder_.dispose();
+        if (curScheduleBuilder_ == null) {
+          curSchedule_ = null;
+          onChanged();
+        } else {
+          curSchedule_ = null;
           curScheduleBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.BattlePassSchedule curSchedule = 14;</code>
        */
       public emu.grasscutter.net.proto.BattlePassScheduleOuterClass.BattlePassSchedule.Builder getCurScheduleBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getCurScheduleFieldBuilder().getBuilder();
       }
@@ -790,18 +817,7 @@ public final class BattlePassCurScheduleUpdateNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new BattlePassCurScheduleUpdateNotify(input, extensionRegistry);
       }
     };
 

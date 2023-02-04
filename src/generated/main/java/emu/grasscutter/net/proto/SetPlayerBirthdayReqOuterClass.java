@@ -60,6 +60,56 @@ public final class SetPlayerBirthdayReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private SetPlayerBirthdayReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 122: {
+              emu.grasscutter.net.proto.BirthdayOuterClass.Birthday.Builder subBuilder = null;
+              if (birthday_ != null) {
+                subBuilder = birthday_.toBuilder();
+              }
+              birthday_ = input.readMessage(emu.grasscutter.net.proto.BirthdayOuterClass.Birthday.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(birthday_);
+                birthday_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.SetPlayerBirthdayReqOuterClass.internal_static_SetPlayerBirthdayReq_descriptor;
@@ -235,7 +285,7 @@ public final class SetPlayerBirthdayReqOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.BirthdayOuterClass.BirthdayOrBuilder getBirthdayOrBuilder() {
-      return birthday_ == null ? emu.grasscutter.net.proto.BirthdayOuterClass.Birthday.getDefaultInstance() : birthday_;
+      return getBirthday();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -255,7 +305,7 @@ public final class SetPlayerBirthdayReqOuterClass {
       if (birthday_ != null) {
         output.writeMessage(15, getBirthday());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -268,7 +318,7 @@ public final class SetPlayerBirthdayReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(15, getBirthday());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -288,7 +338,7 @@ public final class SetPlayerBirthdayReqOuterClass {
         if (!getBirthday()
             .equals(other.getBirthday())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -303,7 +353,7 @@ public final class SetPlayerBirthdayReqOuterClass {
         hash = (37 * hash) + BIRTHDAY_FIELD_NUMBER;
         hash = (53 * hash) + getBirthday().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -420,21 +470,26 @@ public final class SetPlayerBirthdayReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.SetPlayerBirthdayReqOuterClass.SetPlayerBirthdayReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        birthday_ = null;
-        if (birthdayBuilder_ != null) {
-          birthdayBuilder_.dispose();
+        if (birthdayBuilder_ == null) {
+          birthday_ = null;
+        } else {
+          birthday_ = null;
           birthdayBuilder_ = null;
         }
         return this;
@@ -463,18 +518,13 @@ public final class SetPlayerBirthdayReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.SetPlayerBirthdayReqOuterClass.SetPlayerBirthdayReq buildPartial() {
         emu.grasscutter.net.proto.SetPlayerBirthdayReqOuterClass.SetPlayerBirthdayReq result = new emu.grasscutter.net.proto.SetPlayerBirthdayReqOuterClass.SetPlayerBirthdayReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (birthdayBuilder_ == null) {
+          result.birthday_ = birthday_;
+        } else {
+          result.birthday_ = birthdayBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.SetPlayerBirthdayReqOuterClass.SetPlayerBirthdayReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.birthday_ = birthdayBuilder_ == null
-              ? birthday_
-              : birthdayBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -524,7 +574,7 @@ public final class SetPlayerBirthdayReqOuterClass {
         if (other.hasBirthday()) {
           mergeBirthday(other.getBirthday());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -539,40 +589,19 @@ public final class SetPlayerBirthdayReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.SetPlayerBirthdayReqOuterClass.SetPlayerBirthdayReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 122: {
-                input.readMessage(
-                    getBirthdayFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 122
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.SetPlayerBirthdayReqOuterClass.SetPlayerBirthdayReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private emu.grasscutter.net.proto.BirthdayOuterClass.Birthday birthday_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -582,7 +611,7 @@ public final class SetPlayerBirthdayReqOuterClass {
        * @return Whether the birthday field is set.
        */
       public boolean hasBirthday() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return birthdayBuilder_ != null || birthday_ != null;
       }
       /**
        * <code>.Birthday birthday = 15;</code>
@@ -604,11 +633,11 @@ public final class SetPlayerBirthdayReqOuterClass {
             throw new NullPointerException();
           }
           birthday_ = value;
+          onChanged();
         } else {
           birthdayBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -618,11 +647,11 @@ public final class SetPlayerBirthdayReqOuterClass {
           emu.grasscutter.net.proto.BirthdayOuterClass.Birthday.Builder builderForValue) {
         if (birthdayBuilder_ == null) {
           birthday_ = builderForValue.build();
+          onChanged();
         } else {
           birthdayBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -630,38 +659,38 @@ public final class SetPlayerBirthdayReqOuterClass {
        */
       public Builder mergeBirthday(emu.grasscutter.net.proto.BirthdayOuterClass.Birthday value) {
         if (birthdayBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            birthday_ != null &&
-            birthday_ != emu.grasscutter.net.proto.BirthdayOuterClass.Birthday.getDefaultInstance()) {
-            getBirthdayBuilder().mergeFrom(value);
+          if (birthday_ != null) {
+            birthday_ =
+              emu.grasscutter.net.proto.BirthdayOuterClass.Birthday.newBuilder(birthday_).mergeFrom(value).buildPartial();
           } else {
             birthday_ = value;
           }
+          onChanged();
         } else {
           birthdayBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Birthday birthday = 15;</code>
        */
       public Builder clearBirthday() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        birthday_ = null;
-        if (birthdayBuilder_ != null) {
-          birthdayBuilder_.dispose();
+        if (birthdayBuilder_ == null) {
+          birthday_ = null;
+          onChanged();
+        } else {
+          birthday_ = null;
           birthdayBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Birthday birthday = 15;</code>
        */
       public emu.grasscutter.net.proto.BirthdayOuterClass.Birthday.Builder getBirthdayBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getBirthdayFieldBuilder().getBuilder();
       }
@@ -725,18 +754,7 @@ public final class SetPlayerBirthdayReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new SetPlayerBirthdayReq(input, extensionRegistry);
       }
     };
 

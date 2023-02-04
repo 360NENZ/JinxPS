@@ -76,6 +76,61 @@ public final class GetWidgetSlotRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GetWidgetSlotRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 106: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                slotList_ = new java.util.ArrayList<emu.grasscutter.net.proto.WidgetSlotDataOuterClass.WidgetSlotData>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              slotList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.WidgetSlotDataOuterClass.WidgetSlotData.parser(), extensionRegistry));
+              break;
+            }
+            case 120: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          slotList_ = java.util.Collections.unmodifiableList(slotList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.GetWidgetSlotRspOuterClass.internal_static_GetWidgetSlotRsp_descriptor;
@@ -221,7 +276,7 @@ public final class GetWidgetSlotRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 15;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 15;</code>
      * @return The retcode.
@@ -232,7 +287,6 @@ public final class GetWidgetSlotRspOuterClass {
     }
 
     public static final int SLOTLIST_FIELD_NUMBER = 13;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.WidgetSlotDataOuterClass.WidgetSlotData> slotList_;
     /**
      * <code>repeated .WidgetSlotData slotList = 13;</code>
@@ -292,7 +346,7 @@ public final class GetWidgetSlotRspOuterClass {
       if (retcode_ != 0) {
         output.writeInt32(15, retcode_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -309,7 +363,7 @@ public final class GetWidgetSlotRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(15, retcode_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -328,7 +382,7 @@ public final class GetWidgetSlotRspOuterClass {
           != other.getRetcode()) return false;
       if (!getSlotListList()
           .equals(other.getSlotListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -345,7 +399,7 @@ public final class GetWidgetSlotRspOuterClass {
         hash = (37 * hash) + SLOTLIST_FIELD_NUMBER;
         hash = (53 * hash) + getSlotListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -462,26 +516,31 @@ public final class GetWidgetSlotRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.GetWidgetSlotRspOuterClass.GetWidgetSlotRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getSlotListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         retcode_ = 0;
+
         if (slotListBuilder_ == null) {
           slotList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          slotList_ = null;
           slotListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -508,29 +567,19 @@ public final class GetWidgetSlotRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.GetWidgetSlotRspOuterClass.GetWidgetSlotRsp buildPartial() {
         emu.grasscutter.net.proto.GetWidgetSlotRspOuterClass.GetWidgetSlotRsp result = new emu.grasscutter.net.proto.GetWidgetSlotRspOuterClass.GetWidgetSlotRsp(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.GetWidgetSlotRspOuterClass.GetWidgetSlotRsp result) {
+        int from_bitField0_ = bitField0_;
+        result.retcode_ = retcode_;
         if (slotListBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             slotList_ = java.util.Collections.unmodifiableList(slotList_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.slotList_ = slotList_;
         } else {
           result.slotList_ = slotListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.GetWidgetSlotRspOuterClass.GetWidgetSlotRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.retcode_ = retcode_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -584,7 +633,7 @@ public final class GetWidgetSlotRspOuterClass {
           if (!other.slotList_.isEmpty()) {
             if (slotList_.isEmpty()) {
               slotList_ = other.slotList_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureSlotListIsMutable();
               slotList_.addAll(other.slotList_);
@@ -597,7 +646,7 @@ public final class GetWidgetSlotRspOuterClass {
               slotListBuilder_.dispose();
               slotListBuilder_ = null;
               slotList_ = other.slotList_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               slotListBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getSlotListFieldBuilder() : null;
@@ -606,7 +655,7 @@ public final class GetWidgetSlotRspOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -621,48 +670,17 @@ public final class GetWidgetSlotRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.GetWidgetSlotRspOuterClass.GetWidgetSlotRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 106: {
-                emu.grasscutter.net.proto.WidgetSlotDataOuterClass.WidgetSlotData m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.WidgetSlotDataOuterClass.WidgetSlotData.parser(),
-                        extensionRegistry);
-                if (slotListBuilder_ == null) {
-                  ensureSlotListIsMutable();
-                  slotList_.add(m);
-                } else {
-                  slotListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 106
-              case 120: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.GetWidgetSlotRspOuterClass.GetWidgetSlotRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -684,7 +702,6 @@ public final class GetWidgetSlotRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -693,7 +710,7 @@ public final class GetWidgetSlotRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -702,9 +719,9 @@ public final class GetWidgetSlotRspOuterClass {
       private java.util.List<emu.grasscutter.net.proto.WidgetSlotDataOuterClass.WidgetSlotData> slotList_ =
         java.util.Collections.emptyList();
       private void ensureSlotListIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           slotList_ = new java.util.ArrayList<emu.grasscutter.net.proto.WidgetSlotDataOuterClass.WidgetSlotData>(slotList_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -854,7 +871,7 @@ public final class GetWidgetSlotRspOuterClass {
       public Builder clearSlotList() {
         if (slotListBuilder_ == null) {
           slotList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           slotListBuilder_.clear();
@@ -931,7 +948,7 @@ public final class GetWidgetSlotRspOuterClass {
           slotListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               emu.grasscutter.net.proto.WidgetSlotDataOuterClass.WidgetSlotData, emu.grasscutter.net.proto.WidgetSlotDataOuterClass.WidgetSlotData.Builder, emu.grasscutter.net.proto.WidgetSlotDataOuterClass.WidgetSlotDataOrBuilder>(
                   slotList_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           slotList_ = null;
@@ -971,18 +988,7 @@ public final class GetWidgetSlotRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GetWidgetSlotRsp(input, extensionRegistry);
       }
     };
 

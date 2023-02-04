@@ -60,6 +60,56 @@ public final class HomeBasicInfoNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private HomeBasicInfoNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 58: {
+              emu.grasscutter.net.proto.HomeBasicInfoOuterClass.HomeBasicInfo.Builder subBuilder = null;
+              if (basicInfo_ != null) {
+                subBuilder = basicInfo_.toBuilder();
+              }
+              basicInfo_ = input.readMessage(emu.grasscutter.net.proto.HomeBasicInfoOuterClass.HomeBasicInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(basicInfo_);
+                basicInfo_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.HomeBasicInfoNotifyOuterClass.internal_static_HomeBasicInfoNotify_descriptor;
@@ -227,7 +277,7 @@ public final class HomeBasicInfoNotifyOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.HomeBasicInfoOuterClass.HomeBasicInfoOrBuilder getBasicInfoOrBuilder() {
-      return basicInfo_ == null ? emu.grasscutter.net.proto.HomeBasicInfoOuterClass.HomeBasicInfo.getDefaultInstance() : basicInfo_;
+      return getBasicInfo();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -247,7 +297,7 @@ public final class HomeBasicInfoNotifyOuterClass {
       if (basicInfo_ != null) {
         output.writeMessage(7, getBasicInfo());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -260,7 +310,7 @@ public final class HomeBasicInfoNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getBasicInfo());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -280,7 +330,7 @@ public final class HomeBasicInfoNotifyOuterClass {
         if (!getBasicInfo()
             .equals(other.getBasicInfo())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -295,7 +345,7 @@ public final class HomeBasicInfoNotifyOuterClass {
         hash = (37 * hash) + BASICINFO_FIELD_NUMBER;
         hash = (53 * hash) + getBasicInfo().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -412,21 +462,26 @@ public final class HomeBasicInfoNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.HomeBasicInfoNotifyOuterClass.HomeBasicInfoNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        basicInfo_ = null;
-        if (basicInfoBuilder_ != null) {
-          basicInfoBuilder_.dispose();
+        if (basicInfoBuilder_ == null) {
+          basicInfo_ = null;
+        } else {
+          basicInfo_ = null;
           basicInfoBuilder_ = null;
         }
         return this;
@@ -455,18 +510,13 @@ public final class HomeBasicInfoNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.HomeBasicInfoNotifyOuterClass.HomeBasicInfoNotify buildPartial() {
         emu.grasscutter.net.proto.HomeBasicInfoNotifyOuterClass.HomeBasicInfoNotify result = new emu.grasscutter.net.proto.HomeBasicInfoNotifyOuterClass.HomeBasicInfoNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (basicInfoBuilder_ == null) {
+          result.basicInfo_ = basicInfo_;
+        } else {
+          result.basicInfo_ = basicInfoBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.HomeBasicInfoNotifyOuterClass.HomeBasicInfoNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.basicInfo_ = basicInfoBuilder_ == null
-              ? basicInfo_
-              : basicInfoBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -516,7 +566,7 @@ public final class HomeBasicInfoNotifyOuterClass {
         if (other.hasBasicInfo()) {
           mergeBasicInfo(other.getBasicInfo());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -531,40 +581,19 @@ public final class HomeBasicInfoNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.HomeBasicInfoNotifyOuterClass.HomeBasicInfoNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 58: {
-                input.readMessage(
-                    getBasicInfoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 58
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.HomeBasicInfoNotifyOuterClass.HomeBasicInfoNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private emu.grasscutter.net.proto.HomeBasicInfoOuterClass.HomeBasicInfo basicInfo_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -574,7 +603,7 @@ public final class HomeBasicInfoNotifyOuterClass {
        * @return Whether the basicInfo field is set.
        */
       public boolean hasBasicInfo() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return basicInfoBuilder_ != null || basicInfo_ != null;
       }
       /**
        * <code>.HomeBasicInfo basicInfo = 7;</code>
@@ -596,11 +625,11 @@ public final class HomeBasicInfoNotifyOuterClass {
             throw new NullPointerException();
           }
           basicInfo_ = value;
+          onChanged();
         } else {
           basicInfoBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -610,11 +639,11 @@ public final class HomeBasicInfoNotifyOuterClass {
           emu.grasscutter.net.proto.HomeBasicInfoOuterClass.HomeBasicInfo.Builder builderForValue) {
         if (basicInfoBuilder_ == null) {
           basicInfo_ = builderForValue.build();
+          onChanged();
         } else {
           basicInfoBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -622,38 +651,38 @@ public final class HomeBasicInfoNotifyOuterClass {
        */
       public Builder mergeBasicInfo(emu.grasscutter.net.proto.HomeBasicInfoOuterClass.HomeBasicInfo value) {
         if (basicInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            basicInfo_ != null &&
-            basicInfo_ != emu.grasscutter.net.proto.HomeBasicInfoOuterClass.HomeBasicInfo.getDefaultInstance()) {
-            getBasicInfoBuilder().mergeFrom(value);
+          if (basicInfo_ != null) {
+            basicInfo_ =
+              emu.grasscutter.net.proto.HomeBasicInfoOuterClass.HomeBasicInfo.newBuilder(basicInfo_).mergeFrom(value).buildPartial();
           } else {
             basicInfo_ = value;
           }
+          onChanged();
         } else {
           basicInfoBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.HomeBasicInfo basicInfo = 7;</code>
        */
       public Builder clearBasicInfo() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        basicInfo_ = null;
-        if (basicInfoBuilder_ != null) {
-          basicInfoBuilder_.dispose();
+        if (basicInfoBuilder_ == null) {
+          basicInfo_ = null;
+          onChanged();
+        } else {
+          basicInfo_ = null;
           basicInfoBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.HomeBasicInfo basicInfo = 7;</code>
        */
       public emu.grasscutter.net.proto.HomeBasicInfoOuterClass.HomeBasicInfo.Builder getBasicInfoBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getBasicInfoFieldBuilder().getBuilder();
       }
@@ -717,18 +746,7 @@ public final class HomeBasicInfoNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new HomeBasicInfoNotify(input, extensionRegistry);
       }
     };
 

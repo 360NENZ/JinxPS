@@ -63,6 +63,58 @@ public final class MusicGameStartReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MusicGameStartReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 40: {
+
+              ugcGuid_ = input.readUInt64();
+              break;
+            }
+            case 56: {
+
+              musicBasicId_ = input.readUInt32();
+              break;
+            }
+            case 120: {
+
+              isSaveScore_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.MusicGameStartReqOuterClass.internal_static_MusicGameStartReq_descriptor;
@@ -216,7 +268,7 @@ public final class MusicGameStartReqOuterClass {
     }
 
     public static final int UGCGUID_FIELD_NUMBER = 5;
-    private long ugcGuid_ = 0L;
+    private long ugcGuid_;
     /**
      * <code>uint64 ugcGuid = 5;</code>
      * @return The ugcGuid.
@@ -227,7 +279,7 @@ public final class MusicGameStartReqOuterClass {
     }
 
     public static final int MUSICBASICID_FIELD_NUMBER = 7;
-    private int musicBasicId_ = 0;
+    private int musicBasicId_;
     /**
      * <code>uint32 musicBasicId = 7;</code>
      * @return The musicBasicId.
@@ -238,7 +290,7 @@ public final class MusicGameStartReqOuterClass {
     }
 
     public static final int ISSAVESCORE_FIELD_NUMBER = 15;
-    private boolean isSaveScore_ = false;
+    private boolean isSaveScore_;
     /**
      * <code>bool isSaveScore = 15;</code>
      * @return The isSaveScore.
@@ -271,7 +323,7 @@ public final class MusicGameStartReqOuterClass {
       if (isSaveScore_ != false) {
         output.writeBool(15, isSaveScore_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -292,7 +344,7 @@ public final class MusicGameStartReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(15, isSaveScore_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -313,7 +365,7 @@ public final class MusicGameStartReqOuterClass {
           != other.getMusicBasicId()) return false;
       if (getIsSaveScore()
           != other.getIsSaveScore()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -332,7 +384,7 @@ public final class MusicGameStartReqOuterClass {
       hash = (37 * hash) + ISSAVESCORE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsSaveScore());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -449,21 +501,28 @@ public final class MusicGameStartReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.MusicGameStartReqOuterClass.MusicGameStartReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         ugcGuid_ = 0L;
+
         musicBasicId_ = 0;
+
         isSaveScore_ = false;
+
         return this;
       }
 
@@ -490,22 +549,11 @@ public final class MusicGameStartReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.MusicGameStartReqOuterClass.MusicGameStartReq buildPartial() {
         emu.grasscutter.net.proto.MusicGameStartReqOuterClass.MusicGameStartReq result = new emu.grasscutter.net.proto.MusicGameStartReqOuterClass.MusicGameStartReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.ugcGuid_ = ugcGuid_;
+        result.musicBasicId_ = musicBasicId_;
+        result.isSaveScore_ = isSaveScore_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.MusicGameStartReqOuterClass.MusicGameStartReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.ugcGuid_ = ugcGuid_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.musicBasicId_ = musicBasicId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.isSaveScore_ = isSaveScore_;
-        }
       }
 
       @java.lang.Override
@@ -561,7 +609,7 @@ public final class MusicGameStartReqOuterClass {
         if (other.getIsSaveScore() != false) {
           setIsSaveScore(other.getIsSaveScore());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -576,48 +624,19 @@ public final class MusicGameStartReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.MusicGameStartReqOuterClass.MusicGameStartReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 40: {
-                ugcGuid_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 40
-              case 56: {
-                musicBasicId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 56
-              case 120: {
-                isSaveScore_ = input.readBool();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.MusicGameStartReqOuterClass.MusicGameStartReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long ugcGuid_ ;
       /**
@@ -636,7 +655,6 @@ public final class MusicGameStartReqOuterClass {
       public Builder setUgcGuid(long value) {
         
         ugcGuid_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -645,7 +663,7 @@ public final class MusicGameStartReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUgcGuid() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         ugcGuid_ = 0L;
         onChanged();
         return this;
@@ -668,7 +686,6 @@ public final class MusicGameStartReqOuterClass {
       public Builder setMusicBasicId(int value) {
         
         musicBasicId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -677,7 +694,7 @@ public final class MusicGameStartReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearMusicBasicId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         musicBasicId_ = 0;
         onChanged();
         return this;
@@ -700,7 +717,6 @@ public final class MusicGameStartReqOuterClass {
       public Builder setIsSaveScore(boolean value) {
         
         isSaveScore_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -709,7 +725,7 @@ public final class MusicGameStartReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsSaveScore() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         isSaveScore_ = false;
         onChanged();
         return this;
@@ -747,18 +763,7 @@ public final class MusicGameStartReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MusicGameStartReq(input, extensionRegistry);
       }
     };
 

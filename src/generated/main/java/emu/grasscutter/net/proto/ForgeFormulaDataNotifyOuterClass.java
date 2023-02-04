@@ -57,6 +57,53 @@ public final class ForgeFormulaDataNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ForgeFormulaDataNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              isLocked_ = input.readBool();
+              break;
+            }
+            case 96: {
+
+              forgeId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ForgeFormulaDataNotifyOuterClass.internal_static_ForgeFormulaDataNotify_descriptor;
@@ -202,7 +249,7 @@ public final class ForgeFormulaDataNotifyOuterClass {
     }
 
     public static final int ISLOCKED_FIELD_NUMBER = 1;
-    private boolean isLocked_ = false;
+    private boolean isLocked_;
     /**
      * <code>bool isLocked = 1;</code>
      * @return The isLocked.
@@ -213,7 +260,7 @@ public final class ForgeFormulaDataNotifyOuterClass {
     }
 
     public static final int FORGEID_FIELD_NUMBER = 12;
-    private int forgeId_ = 0;
+    private int forgeId_;
     /**
      * <code>uint32 forgeId = 12;</code>
      * @return The forgeId.
@@ -243,7 +290,7 @@ public final class ForgeFormulaDataNotifyOuterClass {
       if (forgeId_ != 0) {
         output.writeUInt32(12, forgeId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -260,7 +307,7 @@ public final class ForgeFormulaDataNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(12, forgeId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -279,7 +326,7 @@ public final class ForgeFormulaDataNotifyOuterClass {
           != other.getIsLocked()) return false;
       if (getForgeId()
           != other.getForgeId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -295,7 +342,7 @@ public final class ForgeFormulaDataNotifyOuterClass {
           getIsLocked());
       hash = (37 * hash) + FORGEID_FIELD_NUMBER;
       hash = (53 * hash) + getForgeId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -412,20 +459,26 @@ public final class ForgeFormulaDataNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ForgeFormulaDataNotifyOuterClass.ForgeFormulaDataNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         isLocked_ = false;
+
         forgeId_ = 0;
+
         return this;
       }
 
@@ -452,19 +505,10 @@ public final class ForgeFormulaDataNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ForgeFormulaDataNotifyOuterClass.ForgeFormulaDataNotify buildPartial() {
         emu.grasscutter.net.proto.ForgeFormulaDataNotifyOuterClass.ForgeFormulaDataNotify result = new emu.grasscutter.net.proto.ForgeFormulaDataNotifyOuterClass.ForgeFormulaDataNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.isLocked_ = isLocked_;
+        result.forgeId_ = forgeId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ForgeFormulaDataNotifyOuterClass.ForgeFormulaDataNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.isLocked_ = isLocked_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.forgeId_ = forgeId_;
-        }
       }
 
       @java.lang.Override
@@ -517,7 +561,7 @@ public final class ForgeFormulaDataNotifyOuterClass {
         if (other.getForgeId() != 0) {
           setForgeId(other.getForgeId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -532,43 +576,19 @@ public final class ForgeFormulaDataNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ForgeFormulaDataNotifyOuterClass.ForgeFormulaDataNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                isLocked_ = input.readBool();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 96: {
-                forgeId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 96
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ForgeFormulaDataNotifyOuterClass.ForgeFormulaDataNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private boolean isLocked_ ;
       /**
@@ -587,7 +607,6 @@ public final class ForgeFormulaDataNotifyOuterClass {
       public Builder setIsLocked(boolean value) {
         
         isLocked_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -596,7 +615,7 @@ public final class ForgeFormulaDataNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsLocked() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         isLocked_ = false;
         onChanged();
         return this;
@@ -619,7 +638,6 @@ public final class ForgeFormulaDataNotifyOuterClass {
       public Builder setForgeId(int value) {
         
         forgeId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -628,7 +646,7 @@ public final class ForgeFormulaDataNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearForgeId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         forgeId_ = 0;
         onChanged();
         return this;
@@ -666,18 +684,7 @@ public final class ForgeFormulaDataNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ForgeFormulaDataNotify(input, extensionRegistry);
       }
     };
 

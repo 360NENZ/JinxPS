@@ -75,6 +75,78 @@ public final class ReliquaryDecomposeReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ReliquaryDecomposeReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                guidList_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              guidList_.addLong(input.readUInt64());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                guidList_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                guidList_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 40: {
+
+              targetCount_ = input.readUInt32();
+              break;
+            }
+            case 104: {
+
+              configId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          guidList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ReliquaryDecomposeReqOuterClass.internal_static_ReliquaryDecomposeReq_descriptor;
@@ -228,7 +300,7 @@ public final class ReliquaryDecomposeReqOuterClass {
     }
 
     public static final int TARGETCOUNT_FIELD_NUMBER = 5;
-    private int targetCount_ = 0;
+    private int targetCount_;
     /**
      * <code>uint32 targetCount = 5;</code>
      * @return The targetCount.
@@ -239,7 +311,7 @@ public final class ReliquaryDecomposeReqOuterClass {
     }
 
     public static final int CONFIGID_FIELD_NUMBER = 13;
-    private int configId_ = 0;
+    private int configId_;
     /**
      * <code>uint32 configId = 13;</code>
      * @return The configId.
@@ -250,7 +322,6 @@ public final class ReliquaryDecomposeReqOuterClass {
     }
 
     public static final int GUIDLIST_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList guidList_;
     /**
      * <code>repeated uint64 guidList = 2;</code>
@@ -306,7 +377,7 @@ public final class ReliquaryDecomposeReqOuterClass {
       if (configId_ != 0) {
         output.writeUInt32(13, configId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -337,7 +408,7 @@ public final class ReliquaryDecomposeReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(13, configId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -358,7 +429,7 @@ public final class ReliquaryDecomposeReqOuterClass {
           != other.getConfigId()) return false;
       if (!getGuidListList()
           .equals(other.getGuidListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -377,7 +448,7 @@ public final class ReliquaryDecomposeReqOuterClass {
         hash = (37 * hash) + GUIDLIST_FIELD_NUMBER;
         hash = (53 * hash) + getGuidListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -494,21 +565,28 @@ public final class ReliquaryDecomposeReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ReliquaryDecomposeReqOuterClass.ReliquaryDecomposeReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         targetCount_ = 0;
+
         configId_ = 0;
+
         guidList_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -535,28 +613,16 @@ public final class ReliquaryDecomposeReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ReliquaryDecomposeReqOuterClass.ReliquaryDecomposeReq buildPartial() {
         emu.grasscutter.net.proto.ReliquaryDecomposeReqOuterClass.ReliquaryDecomposeReq result = new emu.grasscutter.net.proto.ReliquaryDecomposeReqOuterClass.ReliquaryDecomposeReq(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.ReliquaryDecomposeReqOuterClass.ReliquaryDecomposeReq result) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.targetCount_ = targetCount_;
+        result.configId_ = configId_;
+        if (((bitField0_ & 0x00000001) != 0)) {
           guidList_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.guidList_ = guidList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ReliquaryDecomposeReqOuterClass.ReliquaryDecomposeReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.targetCount_ = targetCount_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.configId_ = configId_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -612,14 +678,14 @@ public final class ReliquaryDecomposeReqOuterClass {
         if (!other.guidList_.isEmpty()) {
           if (guidList_.isEmpty()) {
             guidList_ = other.guidList_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureGuidListIsMutable();
             guidList_.addAll(other.guidList_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -634,56 +700,17 @@ public final class ReliquaryDecomposeReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ReliquaryDecomposeReqOuterClass.ReliquaryDecomposeReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 16: {
-                long v = input.readUInt64();
-                ensureGuidListIsMutable();
-                guidList_.addLong(v);
-                break;
-              } // case 16
-              case 18: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureGuidListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  guidList_.addLong(input.readUInt64());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 18
-              case 40: {
-                targetCount_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 40
-              case 104: {
-                configId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 104
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ReliquaryDecomposeReqOuterClass.ReliquaryDecomposeReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -705,7 +732,6 @@ public final class ReliquaryDecomposeReqOuterClass {
       public Builder setTargetCount(int value) {
         
         targetCount_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -714,7 +740,7 @@ public final class ReliquaryDecomposeReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTargetCount() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         targetCount_ = 0;
         onChanged();
         return this;
@@ -737,7 +763,6 @@ public final class ReliquaryDecomposeReqOuterClass {
       public Builder setConfigId(int value) {
         
         configId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -746,7 +771,7 @@ public final class ReliquaryDecomposeReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearConfigId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         configId_ = 0;
         onChanged();
         return this;
@@ -754,10 +779,10 @@ public final class ReliquaryDecomposeReqOuterClass {
 
       private com.google.protobuf.Internal.LongList guidList_ = emptyLongList();
       private void ensureGuidListIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           guidList_ = mutableCopy(guidList_);
-          bitField0_ |= 0x00000004;
-        }
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
        * <code>repeated uint64 guidList = 2;</code>
@@ -765,7 +790,7 @@ public final class ReliquaryDecomposeReqOuterClass {
        */
       public java.util.List<java.lang.Long>
           getGuidListList() {
-        return ((bitField0_ & 0x00000004) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(guidList_) : guidList_;
       }
       /**
@@ -791,7 +816,6 @@ public final class ReliquaryDecomposeReqOuterClass {
        */
       public Builder setGuidList(
           int index, long value) {
-        
         ensureGuidListIsMutable();
         guidList_.setLong(index, value);
         onChanged();
@@ -803,7 +827,6 @@ public final class ReliquaryDecomposeReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder addGuidList(long value) {
-        
         ensureGuidListIsMutable();
         guidList_.addLong(value);
         onChanged();
@@ -828,7 +851,7 @@ public final class ReliquaryDecomposeReqOuterClass {
        */
       public Builder clearGuidList() {
         guidList_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -865,18 +888,7 @@ public final class ReliquaryDecomposeReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ReliquaryDecomposeReq(input, extensionRegistry);
       }
     };
 

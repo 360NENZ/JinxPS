@@ -114,6 +114,101 @@ public final class BlossomBriefInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private BlossomBriefInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+
+              circleCampId_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+
+              resin_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+
+              refreshId_ = input.readUInt32();
+              break;
+            }
+            case 48: {
+
+              isGuideOpened_ = input.readBool();
+              break;
+            }
+            case 64: {
+
+              cityId_ = input.readUInt32();
+              break;
+            }
+            case 74: {
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder subBuilder = null;
+              if (pos_ != null) {
+                subBuilder = pos_.toBuilder();
+              }
+              pos_ = input.readMessage(emu.grasscutter.net.proto.VectorOuterClass.Vector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pos_);
+                pos_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 80: {
+
+              state_ = input.readUInt32();
+              break;
+            }
+            case 88: {
+
+              rewardId_ = input.readUInt32();
+              break;
+            }
+            case 104: {
+
+              sceneId_ = input.readUInt32();
+              break;
+            }
+            case 120: {
+
+              monsterLevel_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.BlossomBriefInfoOuterClass.internal_static_BlossomBriefInfo_descriptor;
@@ -128,7 +223,7 @@ public final class BlossomBriefInfoOuterClass {
     }
 
     public static final int ISGUIDEOPENED_FIELD_NUMBER = 6;
-    private boolean isGuideOpened_ = false;
+    private boolean isGuideOpened_;
     /**
      * <code>bool isGuideOpened = 6;</code>
      * @return The isGuideOpened.
@@ -139,7 +234,7 @@ public final class BlossomBriefInfoOuterClass {
     }
 
     public static final int RESIN_FIELD_NUMBER = 3;
-    private int resin_ = 0;
+    private int resin_;
     /**
      * <code>uint32 resin = 3;</code>
      * @return The resin.
@@ -172,11 +267,11 @@ public final class BlossomBriefInfoOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getPosOrBuilder() {
-      return pos_ == null ? emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance() : pos_;
+      return getPos();
     }
 
     public static final int SCENEID_FIELD_NUMBER = 13;
-    private int sceneId_ = 0;
+    private int sceneId_;
     /**
      * <code>uint32 sceneId = 13;</code>
      * @return The sceneId.
@@ -187,7 +282,7 @@ public final class BlossomBriefInfoOuterClass {
     }
 
     public static final int STATE_FIELD_NUMBER = 10;
-    private int state_ = 0;
+    private int state_;
     /**
      * <code>uint32 state = 10;</code>
      * @return The state.
@@ -198,7 +293,7 @@ public final class BlossomBriefInfoOuterClass {
     }
 
     public static final int CITYID_FIELD_NUMBER = 8;
-    private int cityId_ = 0;
+    private int cityId_;
     /**
      * <code>uint32 cityId = 8;</code>
      * @return The cityId.
@@ -209,7 +304,7 @@ public final class BlossomBriefInfoOuterClass {
     }
 
     public static final int REWARDID_FIELD_NUMBER = 11;
-    private int rewardId_ = 0;
+    private int rewardId_;
     /**
      * <code>uint32 rewardId = 11;</code>
      * @return The rewardId.
@@ -220,7 +315,7 @@ public final class BlossomBriefInfoOuterClass {
     }
 
     public static final int CIRCLECAMPID_FIELD_NUMBER = 2;
-    private int circleCampId_ = 0;
+    private int circleCampId_;
     /**
      * <code>uint32 circleCampId = 2;</code>
      * @return The circleCampId.
@@ -231,7 +326,7 @@ public final class BlossomBriefInfoOuterClass {
     }
 
     public static final int MONSTERLEVEL_FIELD_NUMBER = 15;
-    private int monsterLevel_ = 0;
+    private int monsterLevel_;
     /**
      * <code>uint32 monsterLevel = 15;</code>
      * @return The monsterLevel.
@@ -242,7 +337,7 @@ public final class BlossomBriefInfoOuterClass {
     }
 
     public static final int REFRESHID_FIELD_NUMBER = 5;
-    private int refreshId_ = 0;
+    private int refreshId_;
     /**
      * <code>uint32 refreshId = 5;</code>
      * @return The refreshId.
@@ -296,7 +391,7 @@ public final class BlossomBriefInfoOuterClass {
       if (monsterLevel_ != 0) {
         output.writeUInt32(15, monsterLevel_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -345,7 +440,7 @@ public final class BlossomBriefInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(15, monsterLevel_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -383,7 +478,7 @@ public final class BlossomBriefInfoOuterClass {
           != other.getMonsterLevel()) return false;
       if (getRefreshId()
           != other.getRefreshId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -417,7 +512,7 @@ public final class BlossomBriefInfoOuterClass {
       hash = (53 * hash) + getMonsterLevel();
       hash = (37 * hash) + REFRESHID_FIELD_NUMBER;
       hash = (53 * hash) + getRefreshId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -534,32 +629,46 @@ public final class BlossomBriefInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.BlossomBriefInfoOuterClass.BlossomBriefInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         isGuideOpened_ = false;
+
         resin_ = 0;
-        pos_ = null;
-        if (posBuilder_ != null) {
-          posBuilder_.dispose();
+
+        if (posBuilder_ == null) {
+          pos_ = null;
+        } else {
+          pos_ = null;
           posBuilder_ = null;
         }
         sceneId_ = 0;
+
         state_ = 0;
+
         cityId_ = 0;
+
         rewardId_ = 0;
+
         circleCampId_ = 0;
+
         monsterLevel_ = 0;
+
         refreshId_ = 0;
+
         return this;
       }
 
@@ -586,45 +695,22 @@ public final class BlossomBriefInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.BlossomBriefInfoOuterClass.BlossomBriefInfo buildPartial() {
         emu.grasscutter.net.proto.BlossomBriefInfoOuterClass.BlossomBriefInfo result = new emu.grasscutter.net.proto.BlossomBriefInfoOuterClass.BlossomBriefInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.isGuideOpened_ = isGuideOpened_;
+        result.resin_ = resin_;
+        if (posBuilder_ == null) {
+          result.pos_ = pos_;
+        } else {
+          result.pos_ = posBuilder_.build();
+        }
+        result.sceneId_ = sceneId_;
+        result.state_ = state_;
+        result.cityId_ = cityId_;
+        result.rewardId_ = rewardId_;
+        result.circleCampId_ = circleCampId_;
+        result.monsterLevel_ = monsterLevel_;
+        result.refreshId_ = refreshId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.BlossomBriefInfoOuterClass.BlossomBriefInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.isGuideOpened_ = isGuideOpened_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.resin_ = resin_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.pos_ = posBuilder_ == null
-              ? pos_
-              : posBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.sceneId_ = sceneId_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.state_ = state_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.cityId_ = cityId_;
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.rewardId_ = rewardId_;
-        }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.circleCampId_ = circleCampId_;
-        }
-        if (((from_bitField0_ & 0x00000100) != 0)) {
-          result.monsterLevel_ = monsterLevel_;
-        }
-        if (((from_bitField0_ & 0x00000200) != 0)) {
-          result.refreshId_ = refreshId_;
-        }
       }
 
       @java.lang.Override
@@ -701,7 +787,7 @@ public final class BlossomBriefInfoOuterClass {
         if (other.getRefreshId() != 0) {
           setRefreshId(other.getRefreshId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -716,85 +802,19 @@ public final class BlossomBriefInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.BlossomBriefInfoOuterClass.BlossomBriefInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 16: {
-                circleCampId_ = input.readUInt32();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 16
-              case 24: {
-                resin_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 24
-              case 40: {
-                refreshId_ = input.readUInt32();
-                bitField0_ |= 0x00000200;
-                break;
-              } // case 40
-              case 48: {
-                isGuideOpened_ = input.readBool();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 48
-              case 64: {
-                cityId_ = input.readUInt32();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 64
-              case 74: {
-                input.readMessage(
-                    getPosFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 74
-              case 80: {
-                state_ = input.readUInt32();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 80
-              case 88: {
-                rewardId_ = input.readUInt32();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 88
-              case 104: {
-                sceneId_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 104
-              case 120: {
-                monsterLevel_ = input.readUInt32();
-                bitField0_ |= 0x00000100;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.BlossomBriefInfoOuterClass.BlossomBriefInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private boolean isGuideOpened_ ;
       /**
@@ -813,7 +833,6 @@ public final class BlossomBriefInfoOuterClass {
       public Builder setIsGuideOpened(boolean value) {
         
         isGuideOpened_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -822,7 +841,7 @@ public final class BlossomBriefInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsGuideOpened() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         isGuideOpened_ = false;
         onChanged();
         return this;
@@ -845,7 +864,6 @@ public final class BlossomBriefInfoOuterClass {
       public Builder setResin(int value) {
         
         resin_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -854,7 +872,7 @@ public final class BlossomBriefInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearResin() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         resin_ = 0;
         onChanged();
         return this;
@@ -868,7 +886,7 @@ public final class BlossomBriefInfoOuterClass {
        * @return Whether the pos field is set.
        */
       public boolean hasPos() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return posBuilder_ != null || pos_ != null;
       }
       /**
        * <code>.Vector pos = 9;</code>
@@ -890,11 +908,11 @@ public final class BlossomBriefInfoOuterClass {
             throw new NullPointerException();
           }
           pos_ = value;
+          onChanged();
         } else {
           posBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -904,11 +922,11 @@ public final class BlossomBriefInfoOuterClass {
           emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder builderForValue) {
         if (posBuilder_ == null) {
           pos_ = builderForValue.build();
+          onChanged();
         } else {
           posBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -916,38 +934,38 @@ public final class BlossomBriefInfoOuterClass {
        */
       public Builder mergePos(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (posBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            pos_ != null &&
-            pos_ != emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance()) {
-            getPosBuilder().mergeFrom(value);
+          if (pos_ != null) {
+            pos_ =
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.newBuilder(pos_).mergeFrom(value).buildPartial();
           } else {
             pos_ = value;
           }
+          onChanged();
         } else {
           posBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector pos = 9;</code>
        */
       public Builder clearPos() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        pos_ = null;
-        if (posBuilder_ != null) {
-          posBuilder_.dispose();
+        if (posBuilder_ == null) {
+          pos_ = null;
+          onChanged();
+        } else {
+          pos_ = null;
           posBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector pos = 9;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder getPosBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getPosFieldBuilder().getBuilder();
       }
@@ -996,7 +1014,6 @@ public final class BlossomBriefInfoOuterClass {
       public Builder setSceneId(int value) {
         
         sceneId_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1005,7 +1022,7 @@ public final class BlossomBriefInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearSceneId() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         sceneId_ = 0;
         onChanged();
         return this;
@@ -1028,7 +1045,6 @@ public final class BlossomBriefInfoOuterClass {
       public Builder setState(int value) {
         
         state_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1037,7 +1053,7 @@ public final class BlossomBriefInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         state_ = 0;
         onChanged();
         return this;
@@ -1060,7 +1076,6 @@ public final class BlossomBriefInfoOuterClass {
       public Builder setCityId(int value) {
         
         cityId_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1069,7 +1084,7 @@ public final class BlossomBriefInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCityId() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         cityId_ = 0;
         onChanged();
         return this;
@@ -1092,7 +1107,6 @@ public final class BlossomBriefInfoOuterClass {
       public Builder setRewardId(int value) {
         
         rewardId_ = value;
-        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1101,7 +1115,7 @@ public final class BlossomBriefInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRewardId() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        
         rewardId_ = 0;
         onChanged();
         return this;
@@ -1124,7 +1138,6 @@ public final class BlossomBriefInfoOuterClass {
       public Builder setCircleCampId(int value) {
         
         circleCampId_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -1133,7 +1146,7 @@ public final class BlossomBriefInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCircleCampId() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        
         circleCampId_ = 0;
         onChanged();
         return this;
@@ -1156,7 +1169,6 @@ public final class BlossomBriefInfoOuterClass {
       public Builder setMonsterLevel(int value) {
         
         monsterLevel_ = value;
-        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -1165,7 +1177,7 @@ public final class BlossomBriefInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearMonsterLevel() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        
         monsterLevel_ = 0;
         onChanged();
         return this;
@@ -1188,7 +1200,6 @@ public final class BlossomBriefInfoOuterClass {
       public Builder setRefreshId(int value) {
         
         refreshId_ = value;
-        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -1197,7 +1208,7 @@ public final class BlossomBriefInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRefreshId() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        
         refreshId_ = 0;
         onChanged();
         return this;
@@ -1235,18 +1246,7 @@ public final class BlossomBriefInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new BlossomBriefInfo(input, extensionRegistry);
       }
     };
 

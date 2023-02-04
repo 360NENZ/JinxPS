@@ -81,6 +81,69 @@ public final class AsterLittleDetailInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private AsterLittleDetailInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 48: {
+
+              stageId_ = input.readUInt32();
+              break;
+            }
+            case 72: {
+              int rawValue = input.readEnum();
+
+              stageState_ = rawValue;
+              break;
+            }
+            case 88: {
+
+              beginTime_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+
+              isOpen_ = input.readBool();
+              break;
+            }
+            case 104: {
+
+              stageBeginTime_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.AsterLittleDetailInfoOuterClass.internal_static_AsterLittleDetailInfo_descriptor;
@@ -95,7 +158,7 @@ public final class AsterLittleDetailInfoOuterClass {
     }
 
     public static final int STAGEBEGINTIME_FIELD_NUMBER = 13;
-    private int stageBeginTime_ = 0;
+    private int stageBeginTime_;
     /**
      * <code>uint32 stageBeginTime = 13;</code>
      * @return The stageBeginTime.
@@ -106,7 +169,7 @@ public final class AsterLittleDetailInfoOuterClass {
     }
 
     public static final int STAGESTATE_FIELD_NUMBER = 9;
-    private int stageState_ = 0;
+    private int stageState_;
     /**
      * <code>.AsterLittleStageState stageState = 9;</code>
      * @return The enum numeric value on the wire for stageState.
@@ -119,12 +182,13 @@ public final class AsterLittleDetailInfoOuterClass {
      * @return The stageState.
      */
     @java.lang.Override public emu.grasscutter.net.proto.AsterLittleStageStateOuterClass.AsterLittleStageState getStageState() {
-      emu.grasscutter.net.proto.AsterLittleStageStateOuterClass.AsterLittleStageState result = emu.grasscutter.net.proto.AsterLittleStageStateOuterClass.AsterLittleStageState.forNumber(stageState_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.AsterLittleStageStateOuterClass.AsterLittleStageState result = emu.grasscutter.net.proto.AsterLittleStageStateOuterClass.AsterLittleStageState.valueOf(stageState_);
       return result == null ? emu.grasscutter.net.proto.AsterLittleStageStateOuterClass.AsterLittleStageState.UNRECOGNIZED : result;
     }
 
     public static final int STAGEID_FIELD_NUMBER = 6;
-    private int stageId_ = 0;
+    private int stageId_;
     /**
      * <code>uint32 stageId = 6;</code>
      * @return The stageId.
@@ -135,7 +199,7 @@ public final class AsterLittleDetailInfoOuterClass {
     }
 
     public static final int BEGINTIME_FIELD_NUMBER = 11;
-    private int beginTime_ = 0;
+    private int beginTime_;
     /**
      * <code>uint32 beginTime = 11;</code>
      * @return The beginTime.
@@ -146,7 +210,7 @@ public final class AsterLittleDetailInfoOuterClass {
     }
 
     public static final int ISOPEN_FIELD_NUMBER = 12;
-    private boolean isOpen_ = false;
+    private boolean isOpen_;
     /**
      * <code>bool isOpen = 12;</code>
      * @return The isOpen.
@@ -185,7 +249,7 @@ public final class AsterLittleDetailInfoOuterClass {
       if (stageBeginTime_ != 0) {
         output.writeUInt32(13, stageBeginTime_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -214,7 +278,7 @@ public final class AsterLittleDetailInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(13, stageBeginTime_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -238,7 +302,7 @@ public final class AsterLittleDetailInfoOuterClass {
           != other.getBeginTime()) return false;
       if (getIsOpen()
           != other.getIsOpen()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -260,7 +324,7 @@ public final class AsterLittleDetailInfoOuterClass {
       hash = (37 * hash) + ISOPEN_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsOpen());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -377,23 +441,32 @@ public final class AsterLittleDetailInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.AsterLittleDetailInfoOuterClass.AsterLittleDetailInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         stageBeginTime_ = 0;
+
         stageState_ = 0;
+
         stageId_ = 0;
+
         beginTime_ = 0;
+
         isOpen_ = false;
+
         return this;
       }
 
@@ -420,28 +493,13 @@ public final class AsterLittleDetailInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.AsterLittleDetailInfoOuterClass.AsterLittleDetailInfo buildPartial() {
         emu.grasscutter.net.proto.AsterLittleDetailInfoOuterClass.AsterLittleDetailInfo result = new emu.grasscutter.net.proto.AsterLittleDetailInfoOuterClass.AsterLittleDetailInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.stageBeginTime_ = stageBeginTime_;
+        result.stageState_ = stageState_;
+        result.stageId_ = stageId_;
+        result.beginTime_ = beginTime_;
+        result.isOpen_ = isOpen_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.AsterLittleDetailInfoOuterClass.AsterLittleDetailInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.stageBeginTime_ = stageBeginTime_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.stageState_ = stageState_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.stageId_ = stageId_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.beginTime_ = beginTime_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.isOpen_ = isOpen_;
-        }
       }
 
       @java.lang.Override
@@ -503,7 +561,7 @@ public final class AsterLittleDetailInfoOuterClass {
         if (other.getIsOpen() != false) {
           setIsOpen(other.getIsOpen());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -518,58 +576,19 @@ public final class AsterLittleDetailInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.AsterLittleDetailInfoOuterClass.AsterLittleDetailInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 48: {
-                stageId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 48
-              case 72: {
-                stageState_ = input.readEnum();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 72
-              case 88: {
-                beginTime_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 88
-              case 96: {
-                isOpen_ = input.readBool();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 96
-              case 104: {
-                stageBeginTime_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 104
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.AsterLittleDetailInfoOuterClass.AsterLittleDetailInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int stageBeginTime_ ;
       /**
@@ -588,7 +607,6 @@ public final class AsterLittleDetailInfoOuterClass {
       public Builder setStageBeginTime(int value) {
         
         stageBeginTime_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -597,7 +615,7 @@ public final class AsterLittleDetailInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearStageBeginTime() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         stageBeginTime_ = 0;
         onChanged();
         return this;
@@ -617,8 +635,8 @@ public final class AsterLittleDetailInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder setStageStateValue(int value) {
+        
         stageState_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -628,7 +646,8 @@ public final class AsterLittleDetailInfoOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.AsterLittleStageStateOuterClass.AsterLittleStageState getStageState() {
-        emu.grasscutter.net.proto.AsterLittleStageStateOuterClass.AsterLittleStageState result = emu.grasscutter.net.proto.AsterLittleStageStateOuterClass.AsterLittleStageState.forNumber(stageState_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.AsterLittleStageStateOuterClass.AsterLittleStageState result = emu.grasscutter.net.proto.AsterLittleStageStateOuterClass.AsterLittleStageState.valueOf(stageState_);
         return result == null ? emu.grasscutter.net.proto.AsterLittleStageStateOuterClass.AsterLittleStageState.UNRECOGNIZED : result;
       }
       /**
@@ -640,7 +659,7 @@ public final class AsterLittleDetailInfoOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         stageState_ = value.getNumber();
         onChanged();
         return this;
@@ -650,7 +669,7 @@ public final class AsterLittleDetailInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearStageState() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         stageState_ = 0;
         onChanged();
         return this;
@@ -673,7 +692,6 @@ public final class AsterLittleDetailInfoOuterClass {
       public Builder setStageId(int value) {
         
         stageId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -682,7 +700,7 @@ public final class AsterLittleDetailInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearStageId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         stageId_ = 0;
         onChanged();
         return this;
@@ -705,7 +723,6 @@ public final class AsterLittleDetailInfoOuterClass {
       public Builder setBeginTime(int value) {
         
         beginTime_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -714,7 +731,7 @@ public final class AsterLittleDetailInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearBeginTime() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         beginTime_ = 0;
         onChanged();
         return this;
@@ -737,7 +754,6 @@ public final class AsterLittleDetailInfoOuterClass {
       public Builder setIsOpen(boolean value) {
         
         isOpen_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -746,7 +762,7 @@ public final class AsterLittleDetailInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsOpen() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         isOpen_ = false;
         onChanged();
         return this;
@@ -784,18 +800,7 @@ public final class AsterLittleDetailInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AsterLittleDetailInfo(input, extensionRegistry);
       }
     };
 

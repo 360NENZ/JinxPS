@@ -75,6 +75,68 @@ public final class DailyTaskInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private DailyTaskInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+
+              isFinished_ = input.readBool();
+              break;
+            }
+            case 40: {
+
+              dailyTaskId_ = input.readUInt32();
+              break;
+            }
+            case 56: {
+
+              progress_ = input.readUInt32();
+              break;
+            }
+            case 72: {
+
+              finishProgress_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+
+              rewardId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.DailyTaskInfoOuterClass.internal_static_DailyTaskInfo_descriptor;
@@ -89,7 +151,7 @@ public final class DailyTaskInfoOuterClass {
     }
 
     public static final int FINISHPROGRESS_FIELD_NUMBER = 9;
-    private int finishProgress_ = 0;
+    private int finishProgress_;
     /**
      * <code>uint32 finishProgress = 9;</code>
      * @return The finishProgress.
@@ -100,7 +162,7 @@ public final class DailyTaskInfoOuterClass {
     }
 
     public static final int ISFINISHED_FIELD_NUMBER = 3;
-    private boolean isFinished_ = false;
+    private boolean isFinished_;
     /**
      * <code>bool isFinished = 3;</code>
      * @return The isFinished.
@@ -111,7 +173,7 @@ public final class DailyTaskInfoOuterClass {
     }
 
     public static final int PROGRESS_FIELD_NUMBER = 7;
-    private int progress_ = 0;
+    private int progress_;
     /**
      * <code>uint32 progress = 7;</code>
      * @return The progress.
@@ -122,7 +184,7 @@ public final class DailyTaskInfoOuterClass {
     }
 
     public static final int DAILYTASKID_FIELD_NUMBER = 5;
-    private int dailyTaskId_ = 0;
+    private int dailyTaskId_;
     /**
      * <code>uint32 dailyTaskId = 5;</code>
      * @return The dailyTaskId.
@@ -133,7 +195,7 @@ public final class DailyTaskInfoOuterClass {
     }
 
     public static final int REWARDID_FIELD_NUMBER = 14;
-    private int rewardId_ = 0;
+    private int rewardId_;
     /**
      * <code>uint32 rewardId = 14;</code>
      * @return The rewardId.
@@ -172,7 +234,7 @@ public final class DailyTaskInfoOuterClass {
       if (rewardId_ != 0) {
         output.writeUInt32(14, rewardId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -201,7 +263,7 @@ public final class DailyTaskInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(14, rewardId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -226,7 +288,7 @@ public final class DailyTaskInfoOuterClass {
           != other.getDailyTaskId()) return false;
       if (getRewardId()
           != other.getRewardId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -248,7 +310,7 @@ public final class DailyTaskInfoOuterClass {
       hash = (53 * hash) + getDailyTaskId();
       hash = (37 * hash) + REWARDID_FIELD_NUMBER;
       hash = (53 * hash) + getRewardId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -365,23 +427,32 @@ public final class DailyTaskInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         finishProgress_ = 0;
+
         isFinished_ = false;
+
         progress_ = 0;
+
         dailyTaskId_ = 0;
+
         rewardId_ = 0;
+
         return this;
       }
 
@@ -408,28 +479,13 @@ public final class DailyTaskInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo buildPartial() {
         emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo result = new emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.finishProgress_ = finishProgress_;
+        result.isFinished_ = isFinished_;
+        result.progress_ = progress_;
+        result.dailyTaskId_ = dailyTaskId_;
+        result.rewardId_ = rewardId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.finishProgress_ = finishProgress_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.isFinished_ = isFinished_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.progress_ = progress_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.dailyTaskId_ = dailyTaskId_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.rewardId_ = rewardId_;
-        }
       }
 
       @java.lang.Override
@@ -491,7 +547,7 @@ public final class DailyTaskInfoOuterClass {
         if (other.getRewardId() != 0) {
           setRewardId(other.getRewardId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -506,58 +562,19 @@ public final class DailyTaskInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 24: {
-                isFinished_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 24
-              case 40: {
-                dailyTaskId_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 40
-              case 56: {
-                progress_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 56
-              case 72: {
-                finishProgress_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 72
-              case 112: {
-                rewardId_ = input.readUInt32();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 112
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int finishProgress_ ;
       /**
@@ -576,7 +593,6 @@ public final class DailyTaskInfoOuterClass {
       public Builder setFinishProgress(int value) {
         
         finishProgress_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -585,7 +601,7 @@ public final class DailyTaskInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearFinishProgress() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         finishProgress_ = 0;
         onChanged();
         return this;
@@ -608,7 +624,6 @@ public final class DailyTaskInfoOuterClass {
       public Builder setIsFinished(boolean value) {
         
         isFinished_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -617,7 +632,7 @@ public final class DailyTaskInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsFinished() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         isFinished_ = false;
         onChanged();
         return this;
@@ -640,7 +655,6 @@ public final class DailyTaskInfoOuterClass {
       public Builder setProgress(int value) {
         
         progress_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -649,7 +663,7 @@ public final class DailyTaskInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearProgress() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         progress_ = 0;
         onChanged();
         return this;
@@ -672,7 +686,6 @@ public final class DailyTaskInfoOuterClass {
       public Builder setDailyTaskId(int value) {
         
         dailyTaskId_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -681,7 +694,7 @@ public final class DailyTaskInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDailyTaskId() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         dailyTaskId_ = 0;
         onChanged();
         return this;
@@ -704,7 +717,6 @@ public final class DailyTaskInfoOuterClass {
       public Builder setRewardId(int value) {
         
         rewardId_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -713,7 +725,7 @@ public final class DailyTaskInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRewardId() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         rewardId_ = 0;
         onChanged();
         return this;
@@ -751,18 +763,7 @@ public final class DailyTaskInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new DailyTaskInfo(input, extensionRegistry);
       }
     };
 

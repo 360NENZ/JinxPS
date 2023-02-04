@@ -60,6 +60,56 @@ public final class DailyTaskProgressNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private DailyTaskProgressNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 98: {
+              emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo.Builder subBuilder = null;
+              if (info_ != null) {
+                subBuilder = info_.toBuilder();
+              }
+              info_ = input.readMessage(emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(info_);
+                info_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.DailyTaskProgressNotifyOuterClass.internal_static_DailyTaskProgressNotify_descriptor;
@@ -227,7 +277,7 @@ public final class DailyTaskProgressNotifyOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfoOrBuilder getInfoOrBuilder() {
-      return info_ == null ? emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo.getDefaultInstance() : info_;
+      return getInfo();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -247,7 +297,7 @@ public final class DailyTaskProgressNotifyOuterClass {
       if (info_ != null) {
         output.writeMessage(12, getInfo());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -260,7 +310,7 @@ public final class DailyTaskProgressNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, getInfo());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -280,7 +330,7 @@ public final class DailyTaskProgressNotifyOuterClass {
         if (!getInfo()
             .equals(other.getInfo())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -295,7 +345,7 @@ public final class DailyTaskProgressNotifyOuterClass {
         hash = (37 * hash) + INFO_FIELD_NUMBER;
         hash = (53 * hash) + getInfo().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -412,21 +462,26 @@ public final class DailyTaskProgressNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.DailyTaskProgressNotifyOuterClass.DailyTaskProgressNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        info_ = null;
-        if (infoBuilder_ != null) {
-          infoBuilder_.dispose();
+        if (infoBuilder_ == null) {
+          info_ = null;
+        } else {
+          info_ = null;
           infoBuilder_ = null;
         }
         return this;
@@ -455,18 +510,13 @@ public final class DailyTaskProgressNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.DailyTaskProgressNotifyOuterClass.DailyTaskProgressNotify buildPartial() {
         emu.grasscutter.net.proto.DailyTaskProgressNotifyOuterClass.DailyTaskProgressNotify result = new emu.grasscutter.net.proto.DailyTaskProgressNotifyOuterClass.DailyTaskProgressNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (infoBuilder_ == null) {
+          result.info_ = info_;
+        } else {
+          result.info_ = infoBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.DailyTaskProgressNotifyOuterClass.DailyTaskProgressNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.info_ = infoBuilder_ == null
-              ? info_
-              : infoBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -516,7 +566,7 @@ public final class DailyTaskProgressNotifyOuterClass {
         if (other.hasInfo()) {
           mergeInfo(other.getInfo());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -531,40 +581,19 @@ public final class DailyTaskProgressNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.DailyTaskProgressNotifyOuterClass.DailyTaskProgressNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 98: {
-                input.readMessage(
-                    getInfoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 98
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.DailyTaskProgressNotifyOuterClass.DailyTaskProgressNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo info_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -574,7 +603,7 @@ public final class DailyTaskProgressNotifyOuterClass {
        * @return Whether the info field is set.
        */
       public boolean hasInfo() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return infoBuilder_ != null || info_ != null;
       }
       /**
        * <code>.DailyTaskInfo info = 12;</code>
@@ -596,11 +625,11 @@ public final class DailyTaskProgressNotifyOuterClass {
             throw new NullPointerException();
           }
           info_ = value;
+          onChanged();
         } else {
           infoBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -610,11 +639,11 @@ public final class DailyTaskProgressNotifyOuterClass {
           emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo.Builder builderForValue) {
         if (infoBuilder_ == null) {
           info_ = builderForValue.build();
+          onChanged();
         } else {
           infoBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -622,38 +651,38 @@ public final class DailyTaskProgressNotifyOuterClass {
        */
       public Builder mergeInfo(emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo value) {
         if (infoBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            info_ != null &&
-            info_ != emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo.getDefaultInstance()) {
-            getInfoBuilder().mergeFrom(value);
+          if (info_ != null) {
+            info_ =
+              emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo.newBuilder(info_).mergeFrom(value).buildPartial();
           } else {
             info_ = value;
           }
+          onChanged();
         } else {
           infoBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.DailyTaskInfo info = 12;</code>
        */
       public Builder clearInfo() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        info_ = null;
-        if (infoBuilder_ != null) {
-          infoBuilder_.dispose();
+        if (infoBuilder_ == null) {
+          info_ = null;
+          onChanged();
+        } else {
+          info_ = null;
           infoBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.DailyTaskInfo info = 12;</code>
        */
       public emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo.Builder getInfoBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getInfoFieldBuilder().getBuilder();
       }
@@ -717,18 +746,7 @@ public final class DailyTaskProgressNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new DailyTaskProgressNotify(input, extensionRegistry);
       }
     };
 

@@ -57,6 +57,53 @@ public final class SetEquipLockStateReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private SetEquipLockStateReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+
+              isLocked_ = input.readBool();
+              break;
+            }
+            case 80: {
+
+              targetEquipGuid_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.SetEquipLockStateReqOuterClass.internal_static_SetEquipLockStateReq_descriptor;
@@ -210,7 +257,7 @@ public final class SetEquipLockStateReqOuterClass {
     }
 
     public static final int TARGETEQUIPGUID_FIELD_NUMBER = 10;
-    private long targetEquipGuid_ = 0L;
+    private long targetEquipGuid_;
     /**
      * <code>uint64 targetEquipGuid = 10;</code>
      * @return The targetEquipGuid.
@@ -221,7 +268,7 @@ public final class SetEquipLockStateReqOuterClass {
     }
 
     public static final int ISLOCKED_FIELD_NUMBER = 3;
-    private boolean isLocked_ = false;
+    private boolean isLocked_;
     /**
      * <code>bool isLocked = 3;</code>
      * @return The isLocked.
@@ -251,7 +298,7 @@ public final class SetEquipLockStateReqOuterClass {
       if (targetEquipGuid_ != 0L) {
         output.writeUInt64(10, targetEquipGuid_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -268,7 +315,7 @@ public final class SetEquipLockStateReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(10, targetEquipGuid_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -287,7 +334,7 @@ public final class SetEquipLockStateReqOuterClass {
           != other.getTargetEquipGuid()) return false;
       if (getIsLocked()
           != other.getIsLocked()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -304,7 +351,7 @@ public final class SetEquipLockStateReqOuterClass {
       hash = (37 * hash) + ISLOCKED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsLocked());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -421,20 +468,26 @@ public final class SetEquipLockStateReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.SetEquipLockStateReqOuterClass.SetEquipLockStateReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         targetEquipGuid_ = 0L;
+
         isLocked_ = false;
+
         return this;
       }
 
@@ -461,19 +514,10 @@ public final class SetEquipLockStateReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.SetEquipLockStateReqOuterClass.SetEquipLockStateReq buildPartial() {
         emu.grasscutter.net.proto.SetEquipLockStateReqOuterClass.SetEquipLockStateReq result = new emu.grasscutter.net.proto.SetEquipLockStateReqOuterClass.SetEquipLockStateReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.targetEquipGuid_ = targetEquipGuid_;
+        result.isLocked_ = isLocked_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.SetEquipLockStateReqOuterClass.SetEquipLockStateReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.targetEquipGuid_ = targetEquipGuid_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.isLocked_ = isLocked_;
-        }
       }
 
       @java.lang.Override
@@ -526,7 +570,7 @@ public final class SetEquipLockStateReqOuterClass {
         if (other.getIsLocked() != false) {
           setIsLocked(other.getIsLocked());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -541,43 +585,19 @@ public final class SetEquipLockStateReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.SetEquipLockStateReqOuterClass.SetEquipLockStateReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 24: {
-                isLocked_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 24
-              case 80: {
-                targetEquipGuid_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 80
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.SetEquipLockStateReqOuterClass.SetEquipLockStateReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long targetEquipGuid_ ;
       /**
@@ -596,7 +616,6 @@ public final class SetEquipLockStateReqOuterClass {
       public Builder setTargetEquipGuid(long value) {
         
         targetEquipGuid_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -605,7 +624,7 @@ public final class SetEquipLockStateReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTargetEquipGuid() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         targetEquipGuid_ = 0L;
         onChanged();
         return this;
@@ -628,7 +647,6 @@ public final class SetEquipLockStateReqOuterClass {
       public Builder setIsLocked(boolean value) {
         
         isLocked_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -637,7 +655,7 @@ public final class SetEquipLockStateReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsLocked() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         isLocked_ = false;
         onChanged();
         return this;
@@ -675,18 +693,7 @@ public final class SetEquipLockStateReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new SetEquipLockStateReq(input, extensionRegistry);
       }
     };
 

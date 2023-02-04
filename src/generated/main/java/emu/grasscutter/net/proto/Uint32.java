@@ -81,7 +81,7 @@ public final class Uint32 {
      */
     emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfoOrBuilder getMusicInfoOrBuilder();
 
-    public emu.grasscutter.net.proto.Uint32.uint32.DetailCase getDetailCase();
+    public emu.grasscutter.net.proto.Uint32.uint32.HNMEDAOCKOICase getHNMEDAOCKOICase();
   }
   /**
    * Protobuf type {@code uint32}
@@ -140,44 +140,44 @@ public final class Uint32 {
             }
             case 74: {
               emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.Builder subBuilder = null;
-              if (detailCase_ == 9) {
-                subBuilder = ((emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) detail_).toBuilder();
+              if (hNMEDAOCKOICase_ == 9) {
+                subBuilder = ((emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) hNMEDAOCKOI_).toBuilder();
               }
-              detail_ =
+              hNMEDAOCKOI_ =
                   input.readMessage(emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) detail_);
-                detail_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) hNMEDAOCKOI_);
+                hNMEDAOCKOI_ = subBuilder.buildPartial();
               }
-              detailCase_ = 9;
+              hNMEDAOCKOICase_ = 9;
               break;
             }
             case 90: {
               emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.Builder subBuilder = null;
-              if (detailCase_ == 11) {
-                subBuilder = ((emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) detail_).toBuilder();
+              if (hNMEDAOCKOICase_ == 11) {
+                subBuilder = ((emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) hNMEDAOCKOI_).toBuilder();
               }
-              detail_ =
+              hNMEDAOCKOI_ =
                   input.readMessage(emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) detail_);
-                detail_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) hNMEDAOCKOI_);
+                hNMEDAOCKOI_ = subBuilder.buildPartial();
               }
-              detailCase_ = 11;
+              hNMEDAOCKOICase_ = 11;
               break;
             }
             case 106: {
               emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.Builder subBuilder = null;
-              if (detailCase_ == 13) {
-                subBuilder = ((emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) detail_).toBuilder();
+              if (hNMEDAOCKOICase_ == 13) {
+                subBuilder = ((emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) hNMEDAOCKOI_).toBuilder();
               }
-              detail_ =
+              hNMEDAOCKOI_ =
                   input.readMessage(emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) detail_);
-                detail_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) hNMEDAOCKOI_);
+                hNMEDAOCKOI_ = subBuilder.buildPartial();
               }
-              detailCase_ = 13;
+              hNMEDAOCKOICase_ = 13;
               break;
             }
             case 112: {
@@ -217,17 +217,17 @@ public final class Uint32 {
               emu.grasscutter.net.proto.Uint32.uint32.class, emu.grasscutter.net.proto.Uint32.uint32.Builder.class);
     }
 
-    private int detailCase_ = 0;
-    private java.lang.Object detail_;
-    public enum DetailCase
+    private int hNMEDAOCKOICase_ = 0;
+    private java.lang.Object hNMEDAOCKOI_;
+    public enum HNMEDAOCKOICase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       BALLOON_INFO(13),
       FALL_INFO(11),
       MUSIC_INFO(9),
-      DETAIL_NOT_SET(0);
+      HNMEDAOCKOI_NOT_SET(0);
       private final int value;
-      private DetailCase(int value) {
+      private HNMEDAOCKOICase(int value) {
         this.value = value;
       }
       /**
@@ -236,16 +236,16 @@ public final class Uint32 {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static DetailCase valueOf(int value) {
+      public static HNMEDAOCKOICase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static DetailCase forNumber(int value) {
+      public static HNMEDAOCKOICase forNumber(int value) {
         switch (value) {
           case 13: return BALLOON_INFO;
           case 11: return FALL_INFO;
           case 9: return MUSIC_INFO;
-          case 0: return DETAIL_NOT_SET;
+          case 0: return HNMEDAOCKOI_NOT_SET;
           default: return null;
         }
       }
@@ -254,10 +254,10 @@ public final class Uint32 {
       }
     };
 
-    public DetailCase
-    getDetailCase() {
-      return DetailCase.forNumber(
-          detailCase_);
+    public HNMEDAOCKOICase
+    getHNMEDAOCKOICase() {
+      return HNMEDAOCKOICase.forNumber(
+          hNMEDAOCKOICase_);
     }
 
     public static final int MINIGAMEID_FIELD_NUMBER = 14;
@@ -300,7 +300,7 @@ public final class Uint32 {
      */
     @java.lang.Override
     public boolean hasBalloonInfo() {
-      return detailCase_ == 13;
+      return hNMEDAOCKOICase_ == 13;
     }
     /**
      * <code>.BalloonInfo balloon_info = 13;</code>
@@ -308,8 +308,8 @@ public final class Uint32 {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo getBalloonInfo() {
-      if (detailCase_ == 13) {
-         return (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) detail_;
+      if (hNMEDAOCKOICase_ == 13) {
+         return (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) hNMEDAOCKOI_;
       }
       return emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.getDefaultInstance();
     }
@@ -318,8 +318,8 @@ public final class Uint32 {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfoOrBuilder getBalloonInfoOrBuilder() {
-      if (detailCase_ == 13) {
-         return (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) detail_;
+      if (hNMEDAOCKOICase_ == 13) {
+         return (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) hNMEDAOCKOI_;
       }
       return emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.getDefaultInstance();
     }
@@ -331,7 +331,7 @@ public final class Uint32 {
      */
     @java.lang.Override
     public boolean hasFallInfo() {
-      return detailCase_ == 11;
+      return hNMEDAOCKOICase_ == 11;
     }
     /**
      * <code>.FallInfo fall_info = 11;</code>
@@ -339,8 +339,8 @@ public final class Uint32 {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo getFallInfo() {
-      if (detailCase_ == 11) {
-         return (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) detail_;
+      if (hNMEDAOCKOICase_ == 11) {
+         return (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) hNMEDAOCKOI_;
       }
       return emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.getDefaultInstance();
     }
@@ -349,8 +349,8 @@ public final class Uint32 {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.FallInfoOuterClass.FallInfoOrBuilder getFallInfoOrBuilder() {
-      if (detailCase_ == 11) {
-         return (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) detail_;
+      if (hNMEDAOCKOICase_ == 11) {
+         return (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) hNMEDAOCKOI_;
       }
       return emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.getDefaultInstance();
     }
@@ -362,7 +362,7 @@ public final class Uint32 {
      */
     @java.lang.Override
     public boolean hasMusicInfo() {
-      return detailCase_ == 9;
+      return hNMEDAOCKOICase_ == 9;
     }
     /**
      * <code>.MusicInfo music_info = 9;</code>
@@ -370,8 +370,8 @@ public final class Uint32 {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo getMusicInfo() {
-      if (detailCase_ == 9) {
-         return (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) detail_;
+      if (hNMEDAOCKOICase_ == 9) {
+         return (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) hNMEDAOCKOI_;
       }
       return emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.getDefaultInstance();
     }
@@ -380,8 +380,8 @@ public final class Uint32 {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfoOrBuilder getMusicInfoOrBuilder() {
-      if (detailCase_ == 9) {
-         return (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) detail_;
+      if (hNMEDAOCKOICase_ == 9) {
+         return (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) hNMEDAOCKOI_;
       }
       return emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.getDefaultInstance();
     }
@@ -406,14 +406,14 @@ public final class Uint32 {
       if (openTime_ != 0) {
         output.writeUInt32(6, openTime_);
       }
-      if (detailCase_ == 9) {
-        output.writeMessage(9, (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) detail_);
+      if (hNMEDAOCKOICase_ == 9) {
+        output.writeMessage(9, (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) hNMEDAOCKOI_);
       }
-      if (detailCase_ == 11) {
-        output.writeMessage(11, (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) detail_);
+      if (hNMEDAOCKOICase_ == 11) {
+        output.writeMessage(11, (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) hNMEDAOCKOI_);
       }
-      if (detailCase_ == 13) {
-        output.writeMessage(13, (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) detail_);
+      if (hNMEDAOCKOICase_ == 13) {
+        output.writeMessage(13, (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) hNMEDAOCKOI_);
       }
       if (minigameId_ != 0) {
         output.writeUInt32(14, minigameId_);
@@ -435,17 +435,17 @@ public final class Uint32 {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, openTime_);
       }
-      if (detailCase_ == 9) {
+      if (hNMEDAOCKOICase_ == 9) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) detail_);
+          .computeMessageSize(9, (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) hNMEDAOCKOI_);
       }
-      if (detailCase_ == 11) {
+      if (hNMEDAOCKOICase_ == 11) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) detail_);
+          .computeMessageSize(11, (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) hNMEDAOCKOI_);
       }
-      if (detailCase_ == 13) {
+      if (hNMEDAOCKOICase_ == 13) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(13, (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) detail_);
+          .computeMessageSize(13, (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) hNMEDAOCKOI_);
       }
       if (minigameId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -472,8 +472,8 @@ public final class Uint32 {
           != other.getIsOpen()) return false;
       if (getOpenTime()
           != other.getOpenTime()) return false;
-      if (!getDetailCase().equals(other.getDetailCase())) return false;
-      switch (detailCase_) {
+      if (!getHNMEDAOCKOICase().equals(other.getHNMEDAOCKOICase())) return false;
+      switch (hNMEDAOCKOICase_) {
         case 13:
           if (!getBalloonInfo()
               .equals(other.getBalloonInfo())) return false;
@@ -507,7 +507,7 @@ public final class Uint32 {
           getIsOpen());
       hash = (37 * hash) + OPENTIME_FIELD_NUMBER;
       hash = (53 * hash) + getOpenTime();
-      switch (detailCase_) {
+      switch (hNMEDAOCKOICase_) {
         case 13:
           hash = (37 * hash) + BALLOON_INFO_FIELD_NUMBER;
           hash = (53 * hash) + getBalloonInfo().hashCode();
@@ -662,8 +662,8 @@ public final class Uint32 {
 
         openTime_ = 0;
 
-        detailCase_ = 0;
-        detail_ = null;
+        hNMEDAOCKOICase_ = 0;
+        hNMEDAOCKOI_ = null;
         return this;
       }
 
@@ -693,28 +693,28 @@ public final class Uint32 {
         result.minigameId_ = minigameId_;
         result.isOpen_ = isOpen_;
         result.openTime_ = openTime_;
-        if (detailCase_ == 13) {
+        if (hNMEDAOCKOICase_ == 13) {
           if (balloonInfoBuilder_ == null) {
-            result.detail_ = detail_;
+            result.hNMEDAOCKOI_ = hNMEDAOCKOI_;
           } else {
-            result.detail_ = balloonInfoBuilder_.build();
+            result.hNMEDAOCKOI_ = balloonInfoBuilder_.build();
           }
         }
-        if (detailCase_ == 11) {
+        if (hNMEDAOCKOICase_ == 11) {
           if (fallInfoBuilder_ == null) {
-            result.detail_ = detail_;
+            result.hNMEDAOCKOI_ = hNMEDAOCKOI_;
           } else {
-            result.detail_ = fallInfoBuilder_.build();
+            result.hNMEDAOCKOI_ = fallInfoBuilder_.build();
           }
         }
-        if (detailCase_ == 9) {
+        if (hNMEDAOCKOICase_ == 9) {
           if (musicInfoBuilder_ == null) {
-            result.detail_ = detail_;
+            result.hNMEDAOCKOI_ = hNMEDAOCKOI_;
           } else {
-            result.detail_ = musicInfoBuilder_.build();
+            result.hNMEDAOCKOI_ = musicInfoBuilder_.build();
           }
         }
-        result.detailCase_ = detailCase_;
+        result.hNMEDAOCKOICase_ = hNMEDAOCKOICase_;
         onBuilt();
         return result;
       }
@@ -772,7 +772,7 @@ public final class Uint32 {
         if (other.getOpenTime() != 0) {
           setOpenTime(other.getOpenTime());
         }
-        switch (other.getDetailCase()) {
+        switch (other.getHNMEDAOCKOICase()) {
           case BALLOON_INFO: {
             mergeBalloonInfo(other.getBalloonInfo());
             break;
@@ -785,7 +785,7 @@ public final class Uint32 {
             mergeMusicInfo(other.getMusicInfo());
             break;
           }
-          case DETAIL_NOT_SET: {
+          case HNMEDAOCKOI_NOT_SET: {
             break;
           }
         }
@@ -817,17 +817,17 @@ public final class Uint32 {
         }
         return this;
       }
-      private int detailCase_ = 0;
-      private java.lang.Object detail_;
-      public DetailCase
-          getDetailCase() {
-        return DetailCase.forNumber(
-            detailCase_);
+      private int hNMEDAOCKOICase_ = 0;
+      private java.lang.Object hNMEDAOCKOI_;
+      public HNMEDAOCKOICase
+          getHNMEDAOCKOICase() {
+        return HNMEDAOCKOICase.forNumber(
+            hNMEDAOCKOICase_);
       }
 
-      public Builder clearDetail() {
-        detailCase_ = 0;
-        detail_ = null;
+      public Builder clearHNMEDAOCKOI() {
+        hNMEDAOCKOICase_ = 0;
+        hNMEDAOCKOI_ = null;
         onChanged();
         return this;
       }
@@ -934,7 +934,7 @@ public final class Uint32 {
        */
       @java.lang.Override
       public boolean hasBalloonInfo() {
-        return detailCase_ == 13;
+        return hNMEDAOCKOICase_ == 13;
       }
       /**
        * <code>.BalloonInfo balloon_info = 13;</code>
@@ -943,12 +943,12 @@ public final class Uint32 {
       @java.lang.Override
       public emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo getBalloonInfo() {
         if (balloonInfoBuilder_ == null) {
-          if (detailCase_ == 13) {
-            return (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) detail_;
+          if (hNMEDAOCKOICase_ == 13) {
+            return (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) hNMEDAOCKOI_;
           }
           return emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.getDefaultInstance();
         } else {
-          if (detailCase_ == 13) {
+          if (hNMEDAOCKOICase_ == 13) {
             return balloonInfoBuilder_.getMessage();
           }
           return emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.getDefaultInstance();
@@ -962,12 +962,12 @@ public final class Uint32 {
           if (value == null) {
             throw new NullPointerException();
           }
-          detail_ = value;
+          hNMEDAOCKOI_ = value;
           onChanged();
         } else {
           balloonInfoBuilder_.setMessage(value);
         }
-        detailCase_ = 13;
+        hNMEDAOCKOICase_ = 13;
         return this;
       }
       /**
@@ -976,12 +976,12 @@ public final class Uint32 {
       public Builder setBalloonInfo(
           emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.Builder builderForValue) {
         if (balloonInfoBuilder_ == null) {
-          detail_ = builderForValue.build();
+          hNMEDAOCKOI_ = builderForValue.build();
           onChanged();
         } else {
           balloonInfoBuilder_.setMessage(builderForValue.build());
         }
-        detailCase_ = 13;
+        hNMEDAOCKOICase_ = 13;
         return this;
       }
       /**
@@ -989,21 +989,21 @@ public final class Uint32 {
        */
       public Builder mergeBalloonInfo(emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo value) {
         if (balloonInfoBuilder_ == null) {
-          if (detailCase_ == 13 &&
-              detail_ != emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.getDefaultInstance()) {
-            detail_ = emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.newBuilder((emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) detail_)
+          if (hNMEDAOCKOICase_ == 13 &&
+              hNMEDAOCKOI_ != emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.getDefaultInstance()) {
+            hNMEDAOCKOI_ = emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.newBuilder((emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) hNMEDAOCKOI_)
                 .mergeFrom(value).buildPartial();
           } else {
-            detail_ = value;
+            hNMEDAOCKOI_ = value;
           }
           onChanged();
         } else {
-          if (detailCase_ == 13) {
+          if (hNMEDAOCKOICase_ == 13) {
             balloonInfoBuilder_.mergeFrom(value);
           }
           balloonInfoBuilder_.setMessage(value);
         }
-        detailCase_ = 13;
+        hNMEDAOCKOICase_ = 13;
         return this;
       }
       /**
@@ -1011,15 +1011,15 @@ public final class Uint32 {
        */
       public Builder clearBalloonInfo() {
         if (balloonInfoBuilder_ == null) {
-          if (detailCase_ == 13) {
-            detailCase_ = 0;
-            detail_ = null;
+          if (hNMEDAOCKOICase_ == 13) {
+            hNMEDAOCKOICase_ = 0;
+            hNMEDAOCKOI_ = null;
             onChanged();
           }
         } else {
-          if (detailCase_ == 13) {
-            detailCase_ = 0;
-            detail_ = null;
+          if (hNMEDAOCKOICase_ == 13) {
+            hNMEDAOCKOICase_ = 0;
+            hNMEDAOCKOI_ = null;
           }
           balloonInfoBuilder_.clear();
         }
@@ -1036,11 +1036,11 @@ public final class Uint32 {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfoOrBuilder getBalloonInfoOrBuilder() {
-        if ((detailCase_ == 13) && (balloonInfoBuilder_ != null)) {
+        if ((hNMEDAOCKOICase_ == 13) && (balloonInfoBuilder_ != null)) {
           return balloonInfoBuilder_.getMessageOrBuilder();
         } else {
-          if (detailCase_ == 13) {
-            return (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) detail_;
+          if (hNMEDAOCKOICase_ == 13) {
+            return (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) hNMEDAOCKOI_;
           }
           return emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.getDefaultInstance();
         }
@@ -1052,17 +1052,17 @@ public final class Uint32 {
           emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo, emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.Builder, emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfoOrBuilder> 
           getBalloonInfoFieldBuilder() {
         if (balloonInfoBuilder_ == null) {
-          if (!(detailCase_ == 13)) {
-            detail_ = emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.getDefaultInstance();
+          if (!(hNMEDAOCKOICase_ == 13)) {
+            hNMEDAOCKOI_ = emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.getDefaultInstance();
           }
           balloonInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo, emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo.Builder, emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfoOrBuilder>(
-                  (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) detail_,
+                  (emu.grasscutter.net.proto.BalloonInfoOuterClass.BalloonInfo) hNMEDAOCKOI_,
                   getParentForChildren(),
                   isClean());
-          detail_ = null;
+          hNMEDAOCKOI_ = null;
         }
-        detailCase_ = 13;
+        hNMEDAOCKOICase_ = 13;
         onChanged();;
         return balloonInfoBuilder_;
       }
@@ -1075,7 +1075,7 @@ public final class Uint32 {
        */
       @java.lang.Override
       public boolean hasFallInfo() {
-        return detailCase_ == 11;
+        return hNMEDAOCKOICase_ == 11;
       }
       /**
        * <code>.FallInfo fall_info = 11;</code>
@@ -1084,12 +1084,12 @@ public final class Uint32 {
       @java.lang.Override
       public emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo getFallInfo() {
         if (fallInfoBuilder_ == null) {
-          if (detailCase_ == 11) {
-            return (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) detail_;
+          if (hNMEDAOCKOICase_ == 11) {
+            return (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) hNMEDAOCKOI_;
           }
           return emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.getDefaultInstance();
         } else {
-          if (detailCase_ == 11) {
+          if (hNMEDAOCKOICase_ == 11) {
             return fallInfoBuilder_.getMessage();
           }
           return emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.getDefaultInstance();
@@ -1103,12 +1103,12 @@ public final class Uint32 {
           if (value == null) {
             throw new NullPointerException();
           }
-          detail_ = value;
+          hNMEDAOCKOI_ = value;
           onChanged();
         } else {
           fallInfoBuilder_.setMessage(value);
         }
-        detailCase_ = 11;
+        hNMEDAOCKOICase_ = 11;
         return this;
       }
       /**
@@ -1117,12 +1117,12 @@ public final class Uint32 {
       public Builder setFallInfo(
           emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.Builder builderForValue) {
         if (fallInfoBuilder_ == null) {
-          detail_ = builderForValue.build();
+          hNMEDAOCKOI_ = builderForValue.build();
           onChanged();
         } else {
           fallInfoBuilder_.setMessage(builderForValue.build());
         }
-        detailCase_ = 11;
+        hNMEDAOCKOICase_ = 11;
         return this;
       }
       /**
@@ -1130,21 +1130,21 @@ public final class Uint32 {
        */
       public Builder mergeFallInfo(emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo value) {
         if (fallInfoBuilder_ == null) {
-          if (detailCase_ == 11 &&
-              detail_ != emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.getDefaultInstance()) {
-            detail_ = emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.newBuilder((emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) detail_)
+          if (hNMEDAOCKOICase_ == 11 &&
+              hNMEDAOCKOI_ != emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.getDefaultInstance()) {
+            hNMEDAOCKOI_ = emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.newBuilder((emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) hNMEDAOCKOI_)
                 .mergeFrom(value).buildPartial();
           } else {
-            detail_ = value;
+            hNMEDAOCKOI_ = value;
           }
           onChanged();
         } else {
-          if (detailCase_ == 11) {
+          if (hNMEDAOCKOICase_ == 11) {
             fallInfoBuilder_.mergeFrom(value);
           }
           fallInfoBuilder_.setMessage(value);
         }
-        detailCase_ = 11;
+        hNMEDAOCKOICase_ = 11;
         return this;
       }
       /**
@@ -1152,15 +1152,15 @@ public final class Uint32 {
        */
       public Builder clearFallInfo() {
         if (fallInfoBuilder_ == null) {
-          if (detailCase_ == 11) {
-            detailCase_ = 0;
-            detail_ = null;
+          if (hNMEDAOCKOICase_ == 11) {
+            hNMEDAOCKOICase_ = 0;
+            hNMEDAOCKOI_ = null;
             onChanged();
           }
         } else {
-          if (detailCase_ == 11) {
-            detailCase_ = 0;
-            detail_ = null;
+          if (hNMEDAOCKOICase_ == 11) {
+            hNMEDAOCKOICase_ = 0;
+            hNMEDAOCKOI_ = null;
           }
           fallInfoBuilder_.clear();
         }
@@ -1177,11 +1177,11 @@ public final class Uint32 {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.FallInfoOuterClass.FallInfoOrBuilder getFallInfoOrBuilder() {
-        if ((detailCase_ == 11) && (fallInfoBuilder_ != null)) {
+        if ((hNMEDAOCKOICase_ == 11) && (fallInfoBuilder_ != null)) {
           return fallInfoBuilder_.getMessageOrBuilder();
         } else {
-          if (detailCase_ == 11) {
-            return (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) detail_;
+          if (hNMEDAOCKOICase_ == 11) {
+            return (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) hNMEDAOCKOI_;
           }
           return emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.getDefaultInstance();
         }
@@ -1193,17 +1193,17 @@ public final class Uint32 {
           emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo, emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.Builder, emu.grasscutter.net.proto.FallInfoOuterClass.FallInfoOrBuilder> 
           getFallInfoFieldBuilder() {
         if (fallInfoBuilder_ == null) {
-          if (!(detailCase_ == 11)) {
-            detail_ = emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.getDefaultInstance();
+          if (!(hNMEDAOCKOICase_ == 11)) {
+            hNMEDAOCKOI_ = emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.getDefaultInstance();
           }
           fallInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo, emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo.Builder, emu.grasscutter.net.proto.FallInfoOuterClass.FallInfoOrBuilder>(
-                  (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) detail_,
+                  (emu.grasscutter.net.proto.FallInfoOuterClass.FallInfo) hNMEDAOCKOI_,
                   getParentForChildren(),
                   isClean());
-          detail_ = null;
+          hNMEDAOCKOI_ = null;
         }
-        detailCase_ = 11;
+        hNMEDAOCKOICase_ = 11;
         onChanged();;
         return fallInfoBuilder_;
       }
@@ -1216,7 +1216,7 @@ public final class Uint32 {
        */
       @java.lang.Override
       public boolean hasMusicInfo() {
-        return detailCase_ == 9;
+        return hNMEDAOCKOICase_ == 9;
       }
       /**
        * <code>.MusicInfo music_info = 9;</code>
@@ -1225,12 +1225,12 @@ public final class Uint32 {
       @java.lang.Override
       public emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo getMusicInfo() {
         if (musicInfoBuilder_ == null) {
-          if (detailCase_ == 9) {
-            return (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) detail_;
+          if (hNMEDAOCKOICase_ == 9) {
+            return (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) hNMEDAOCKOI_;
           }
           return emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.getDefaultInstance();
         } else {
-          if (detailCase_ == 9) {
+          if (hNMEDAOCKOICase_ == 9) {
             return musicInfoBuilder_.getMessage();
           }
           return emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.getDefaultInstance();
@@ -1244,12 +1244,12 @@ public final class Uint32 {
           if (value == null) {
             throw new NullPointerException();
           }
-          detail_ = value;
+          hNMEDAOCKOI_ = value;
           onChanged();
         } else {
           musicInfoBuilder_.setMessage(value);
         }
-        detailCase_ = 9;
+        hNMEDAOCKOICase_ = 9;
         return this;
       }
       /**
@@ -1258,12 +1258,12 @@ public final class Uint32 {
       public Builder setMusicInfo(
           emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.Builder builderForValue) {
         if (musicInfoBuilder_ == null) {
-          detail_ = builderForValue.build();
+          hNMEDAOCKOI_ = builderForValue.build();
           onChanged();
         } else {
           musicInfoBuilder_.setMessage(builderForValue.build());
         }
-        detailCase_ = 9;
+        hNMEDAOCKOICase_ = 9;
         return this;
       }
       /**
@@ -1271,21 +1271,21 @@ public final class Uint32 {
        */
       public Builder mergeMusicInfo(emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo value) {
         if (musicInfoBuilder_ == null) {
-          if (detailCase_ == 9 &&
-              detail_ != emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.getDefaultInstance()) {
-            detail_ = emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.newBuilder((emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) detail_)
+          if (hNMEDAOCKOICase_ == 9 &&
+              hNMEDAOCKOI_ != emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.getDefaultInstance()) {
+            hNMEDAOCKOI_ = emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.newBuilder((emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) hNMEDAOCKOI_)
                 .mergeFrom(value).buildPartial();
           } else {
-            detail_ = value;
+            hNMEDAOCKOI_ = value;
           }
           onChanged();
         } else {
-          if (detailCase_ == 9) {
+          if (hNMEDAOCKOICase_ == 9) {
             musicInfoBuilder_.mergeFrom(value);
           }
           musicInfoBuilder_.setMessage(value);
         }
-        detailCase_ = 9;
+        hNMEDAOCKOICase_ = 9;
         return this;
       }
       /**
@@ -1293,15 +1293,15 @@ public final class Uint32 {
        */
       public Builder clearMusicInfo() {
         if (musicInfoBuilder_ == null) {
-          if (detailCase_ == 9) {
-            detailCase_ = 0;
-            detail_ = null;
+          if (hNMEDAOCKOICase_ == 9) {
+            hNMEDAOCKOICase_ = 0;
+            hNMEDAOCKOI_ = null;
             onChanged();
           }
         } else {
-          if (detailCase_ == 9) {
-            detailCase_ = 0;
-            detail_ = null;
+          if (hNMEDAOCKOICase_ == 9) {
+            hNMEDAOCKOICase_ = 0;
+            hNMEDAOCKOI_ = null;
           }
           musicInfoBuilder_.clear();
         }
@@ -1318,11 +1318,11 @@ public final class Uint32 {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfoOrBuilder getMusicInfoOrBuilder() {
-        if ((detailCase_ == 9) && (musicInfoBuilder_ != null)) {
+        if ((hNMEDAOCKOICase_ == 9) && (musicInfoBuilder_ != null)) {
           return musicInfoBuilder_.getMessageOrBuilder();
         } else {
-          if (detailCase_ == 9) {
-            return (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) detail_;
+          if (hNMEDAOCKOICase_ == 9) {
+            return (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) hNMEDAOCKOI_;
           }
           return emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.getDefaultInstance();
         }
@@ -1334,17 +1334,17 @@ public final class Uint32 {
           emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo, emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.Builder, emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfoOrBuilder> 
           getMusicInfoFieldBuilder() {
         if (musicInfoBuilder_ == null) {
-          if (!(detailCase_ == 9)) {
-            detail_ = emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.getDefaultInstance();
+          if (!(hNMEDAOCKOICase_ == 9)) {
+            hNMEDAOCKOI_ = emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.getDefaultInstance();
           }
           musicInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo, emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo.Builder, emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfoOrBuilder>(
-                  (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) detail_,
+                  (emu.grasscutter.net.proto.MusicInfoOuterClass.MusicInfo) hNMEDAOCKOI_,
                   getParentForChildren(),
                   isClean());
-          detail_ = null;
+          hNMEDAOCKOI_ = null;
         }
-        detailCase_ = 9;
+        hNMEDAOCKOICase_ = 9;
         onChanged();;
         return musicInfoBuilder_;
       }
@@ -1416,13 +1416,13 @@ public final class Uint32 {
   static {
     java.lang.String[] descriptorData = {
       "\n\014uint32.proto\032\021BalloonInfo.proto\032\016FallI" +
-      "nfo.proto\032\017MusicInfo.proto\"\260\001\n\006uint32\022\022\n" +
+      "nfo.proto\032\017MusicInfo.proto\"\265\001\n\006uint32\022\022\n" +
       "\nminigameId\030\016 \001(\r\022\016\n\006isOpen\030\003 \001(\010\022\020\n\010ope" +
       "nTime\030\006 \001(\r\022$\n\014balloon_info\030\r \001(\0132\014.Ball" +
       "oonInfoH\000\022\036\n\tfall_info\030\013 \001(\0132\t.FallInfoH" +
-      "\000\022 \n\nmusic_info\030\t \001(\0132\n.MusicInfoH\000B\010\n\006d" +
-      "etailB\033\n\031emu.grasscutter.net.protob\006prot" +
-      "o3"
+      "\000\022 \n\nmusic_info\030\t \001(\0132\n.MusicInfoH\000B\r\n\013H" +
+      "NMEDAOCKOIB\033\n\031emu.grasscutter.net.protob" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1436,7 +1436,7 @@ public final class Uint32 {
     internal_static_uint32_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_uint32_descriptor,
-        new java.lang.String[] { "MinigameId", "IsOpen", "OpenTime", "BalloonInfo", "FallInfo", "MusicInfo", "Detail", });
+        new java.lang.String[] { "MinigameId", "IsOpen", "OpenTime", "BalloonInfo", "FallInfo", "MusicInfo", "HNMEDAOCKOI", });
     emu.grasscutter.net.proto.BalloonInfoOuterClass.getDescriptor();
     emu.grasscutter.net.proto.FallInfoOuterClass.getDescriptor();
     emu.grasscutter.net.proto.MusicInfoOuterClass.getDescriptor();

@@ -69,6 +69,73 @@ public final class TowerLevelRecordOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private TowerLevelRecord(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 56: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                satisfiedCondList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              satisfiedCondList_.addInt(input.readUInt32());
+              break;
+            }
+            case 58: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                satisfiedCondList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                satisfiedCondList_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 88: {
+
+              levelId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          satisfiedCondList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.TowerLevelRecordOuterClass.internal_static_TowerLevelRecord_descriptor;
@@ -83,7 +150,7 @@ public final class TowerLevelRecordOuterClass {
     }
 
     public static final int LEVELID_FIELD_NUMBER = 11;
-    private int levelId_ = 0;
+    private int levelId_;
     /**
      * <code>uint32 levelId = 11;</code>
      * @return The levelId.
@@ -94,7 +161,6 @@ public final class TowerLevelRecordOuterClass {
     }
 
     public static final int SATISFIEDCONDLIST_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList satisfiedCondList_;
     /**
      * <code>repeated uint32 satisfiedCondList = 7;</code>
@@ -147,7 +213,7 @@ public final class TowerLevelRecordOuterClass {
       if (levelId_ != 0) {
         output.writeUInt32(11, levelId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -174,7 +240,7 @@ public final class TowerLevelRecordOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(11, levelId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -193,7 +259,7 @@ public final class TowerLevelRecordOuterClass {
           != other.getLevelId()) return false;
       if (!getSatisfiedCondListList()
           .equals(other.getSatisfiedCondListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -210,7 +276,7 @@ public final class TowerLevelRecordOuterClass {
         hash = (37 * hash) + SATISFIEDCONDLIST_FIELD_NUMBER;
         hash = (53 * hash) + getSatisfiedCondListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -327,20 +393,26 @@ public final class TowerLevelRecordOuterClass {
 
       // Construct using emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         levelId_ = 0;
+
         satisfiedCondList_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -367,25 +439,15 @@ public final class TowerLevelRecordOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord buildPartial() {
         emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord result = new emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord result) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.levelId_ = levelId_;
+        if (((bitField0_ & 0x00000001) != 0)) {
           satisfiedCondList_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.satisfiedCondList_ = satisfiedCondList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.levelId_ = levelId_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -438,14 +500,14 @@ public final class TowerLevelRecordOuterClass {
         if (!other.satisfiedCondList_.isEmpty()) {
           if (satisfiedCondList_.isEmpty()) {
             satisfiedCondList_ = other.satisfiedCondList_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureSatisfiedCondListIsMutable();
             satisfiedCondList_.addAll(other.satisfiedCondList_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -460,51 +522,17 @@ public final class TowerLevelRecordOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 56: {
-                int v = input.readUInt32();
-                ensureSatisfiedCondListIsMutable();
-                satisfiedCondList_.addInt(v);
-                break;
-              } // case 56
-              case 58: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureSatisfiedCondListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  satisfiedCondList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 58
-              case 88: {
-                levelId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 88
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -526,7 +554,6 @@ public final class TowerLevelRecordOuterClass {
       public Builder setLevelId(int value) {
         
         levelId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -535,7 +562,7 @@ public final class TowerLevelRecordOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearLevelId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         levelId_ = 0;
         onChanged();
         return this;
@@ -543,10 +570,10 @@ public final class TowerLevelRecordOuterClass {
 
       private com.google.protobuf.Internal.IntList satisfiedCondList_ = emptyIntList();
       private void ensureSatisfiedCondListIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           satisfiedCondList_ = mutableCopy(satisfiedCondList_);
-          bitField0_ |= 0x00000002;
-        }
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
        * <code>repeated uint32 satisfiedCondList = 7;</code>
@@ -554,7 +581,7 @@ public final class TowerLevelRecordOuterClass {
        */
       public java.util.List<java.lang.Integer>
           getSatisfiedCondListList() {
-        return ((bitField0_ & 0x00000002) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(satisfiedCondList_) : satisfiedCondList_;
       }
       /**
@@ -580,7 +607,6 @@ public final class TowerLevelRecordOuterClass {
        */
       public Builder setSatisfiedCondList(
           int index, int value) {
-        
         ensureSatisfiedCondListIsMutable();
         satisfiedCondList_.setInt(index, value);
         onChanged();
@@ -592,7 +618,6 @@ public final class TowerLevelRecordOuterClass {
        * @return This builder for chaining.
        */
       public Builder addSatisfiedCondList(int value) {
-        
         ensureSatisfiedCondListIsMutable();
         satisfiedCondList_.addInt(value);
         onChanged();
@@ -617,7 +642,7 @@ public final class TowerLevelRecordOuterClass {
        */
       public Builder clearSatisfiedCondList() {
         satisfiedCondList_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -654,18 +679,7 @@ public final class TowerLevelRecordOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TowerLevelRecord(input, extensionRegistry);
       }
     };
 

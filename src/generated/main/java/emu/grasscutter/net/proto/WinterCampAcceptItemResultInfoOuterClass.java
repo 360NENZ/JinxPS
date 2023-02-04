@@ -101,6 +101,73 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private WinterCampAcceptItemResultInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 48: {
+
+              uid_ = input.readUInt32();
+              break;
+            }
+            case 74: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                unk3300ILELLFNPDFJ_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              unk3300ILELLFNPDFJ_.add(
+                  input.readMessage(emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(), extensionRegistry));
+              break;
+            }
+            case 90: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                unk3300JHKOMCFHAOG_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              unk3300JHKOMCFHAOG_.add(
+                  input.readMessage(emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          unk3300ILELLFNPDFJ_ = java.util.Collections.unmodifiableList(unk3300ILELLFNPDFJ_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          unk3300JHKOMCFHAOG_ = java.util.Collections.unmodifiableList(unk3300JHKOMCFHAOG_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.WinterCampAcceptItemResultInfoOuterClass.internal_static_WinterCampAcceptItemResultInfo_descriptor;
@@ -115,7 +182,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
     }
 
     public static final int UID_FIELD_NUMBER = 6;
-    private int uid_ = 0;
+    private int uid_;
     /**
      * <code>uint32 uid = 6;</code>
      * @return The uid.
@@ -126,7 +193,6 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
     }
 
     public static final int UNK3300_ILELLFNPDFJ_FIELD_NUMBER = 9;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> unk3300ILELLFNPDFJ_;
     /**
      * <code>repeated .ItemParam Unk3300_ILELLFNPDFJ = 9;</code>
@@ -167,7 +233,6 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
     }
 
     public static final int UNK3300_JHKOMCFHAOG_FIELD_NUMBER = 11;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> unk3300JHKOMCFHAOG_;
     /**
      * <code>repeated .ItemParam Unk3300_JHKOMCFHAOG = 11;</code>
@@ -230,7 +295,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
       for (int i = 0; i < unk3300JHKOMCFHAOG_.size(); i++) {
         output.writeMessage(11, unk3300JHKOMCFHAOG_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -251,7 +316,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, unk3300JHKOMCFHAOG_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -272,7 +337,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
           .equals(other.getUnk3300ILELLFNPDFJList())) return false;
       if (!getUnk3300JHKOMCFHAOGList()
           .equals(other.getUnk3300JHKOMCFHAOGList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -293,7 +358,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
         hash = (37 * hash) + UNK3300_JHKOMCFHAOG_FIELD_NUMBER;
         hash = (53 * hash) + getUnk3300JHKOMCFHAOGList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -410,33 +475,38 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.WinterCampAcceptItemResultInfoOuterClass.WinterCampAcceptItemResultInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getUnk3300ILELLFNPDFJFieldBuilder();
+          getUnk3300JHKOMCFHAOGFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         uid_ = 0;
+
         if (unk3300ILELLFNPDFJBuilder_ == null) {
           unk3300ILELLFNPDFJ_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          unk3300ILELLFNPDFJ_ = null;
           unk3300ILELLFNPDFJBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         if (unk3300JHKOMCFHAOGBuilder_ == null) {
           unk3300JHKOMCFHAOG_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
-          unk3300JHKOMCFHAOG_ = null;
           unk3300JHKOMCFHAOGBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -463,38 +533,28 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.WinterCampAcceptItemResultInfoOuterClass.WinterCampAcceptItemResultInfo buildPartial() {
         emu.grasscutter.net.proto.WinterCampAcceptItemResultInfoOuterClass.WinterCampAcceptItemResultInfo result = new emu.grasscutter.net.proto.WinterCampAcceptItemResultInfoOuterClass.WinterCampAcceptItemResultInfo(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.WinterCampAcceptItemResultInfoOuterClass.WinterCampAcceptItemResultInfo result) {
+        int from_bitField0_ = bitField0_;
+        result.uid_ = uid_;
         if (unk3300ILELLFNPDFJBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             unk3300ILELLFNPDFJ_ = java.util.Collections.unmodifiableList(unk3300ILELLFNPDFJ_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.unk3300ILELLFNPDFJ_ = unk3300ILELLFNPDFJ_;
         } else {
           result.unk3300ILELLFNPDFJ_ = unk3300ILELLFNPDFJBuilder_.build();
         }
         if (unk3300JHKOMCFHAOGBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             unk3300JHKOMCFHAOG_ = java.util.Collections.unmodifiableList(unk3300JHKOMCFHAOG_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.unk3300JHKOMCFHAOG_ = unk3300JHKOMCFHAOG_;
         } else {
           result.unk3300JHKOMCFHAOG_ = unk3300JHKOMCFHAOGBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.WinterCampAcceptItemResultInfoOuterClass.WinterCampAcceptItemResultInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.uid_ = uid_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -548,7 +608,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
           if (!other.unk3300ILELLFNPDFJ_.isEmpty()) {
             if (unk3300ILELLFNPDFJ_.isEmpty()) {
               unk3300ILELLFNPDFJ_ = other.unk3300ILELLFNPDFJ_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureUnk3300ILELLFNPDFJIsMutable();
               unk3300ILELLFNPDFJ_.addAll(other.unk3300ILELLFNPDFJ_);
@@ -561,7 +621,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
               unk3300ILELLFNPDFJBuilder_.dispose();
               unk3300ILELLFNPDFJBuilder_ = null;
               unk3300ILELLFNPDFJ_ = other.unk3300ILELLFNPDFJ_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               unk3300ILELLFNPDFJBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getUnk3300ILELLFNPDFJFieldBuilder() : null;
@@ -574,7 +634,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
           if (!other.unk3300JHKOMCFHAOG_.isEmpty()) {
             if (unk3300JHKOMCFHAOG_.isEmpty()) {
               unk3300JHKOMCFHAOG_ = other.unk3300JHKOMCFHAOG_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureUnk3300JHKOMCFHAOGIsMutable();
               unk3300JHKOMCFHAOG_.addAll(other.unk3300JHKOMCFHAOG_);
@@ -587,7 +647,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
               unk3300JHKOMCFHAOGBuilder_.dispose();
               unk3300JHKOMCFHAOGBuilder_ = null;
               unk3300JHKOMCFHAOG_ = other.unk3300JHKOMCFHAOG_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
               unk3300JHKOMCFHAOGBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getUnk3300JHKOMCFHAOGFieldBuilder() : null;
@@ -596,7 +656,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -611,61 +671,17 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.WinterCampAcceptItemResultInfoOuterClass.WinterCampAcceptItemResultInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 48: {
-                uid_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 48
-              case 74: {
-                emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(),
-                        extensionRegistry);
-                if (unk3300ILELLFNPDFJBuilder_ == null) {
-                  ensureUnk3300ILELLFNPDFJIsMutable();
-                  unk3300ILELLFNPDFJ_.add(m);
-                } else {
-                  unk3300ILELLFNPDFJBuilder_.addMessage(m);
-                }
-                break;
-              } // case 74
-              case 90: {
-                emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(),
-                        extensionRegistry);
-                if (unk3300JHKOMCFHAOGBuilder_ == null) {
-                  ensureUnk3300JHKOMCFHAOGIsMutable();
-                  unk3300JHKOMCFHAOG_.add(m);
-                } else {
-                  unk3300JHKOMCFHAOGBuilder_.addMessage(m);
-                }
-                break;
-              } // case 90
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.WinterCampAcceptItemResultInfoOuterClass.WinterCampAcceptItemResultInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -687,7 +703,6 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
       public Builder setUid(int value) {
         
         uid_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -696,7 +711,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUid() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         uid_ = 0;
         onChanged();
         return this;
@@ -705,9 +720,9 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
       private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> unk3300ILELLFNPDFJ_ =
         java.util.Collections.emptyList();
       private void ensureUnk3300ILELLFNPDFJIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           unk3300ILELLFNPDFJ_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>(unk3300ILELLFNPDFJ_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -857,7 +872,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
       public Builder clearUnk3300ILELLFNPDFJ() {
         if (unk3300ILELLFNPDFJBuilder_ == null) {
           unk3300ILELLFNPDFJ_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           unk3300ILELLFNPDFJBuilder_.clear();
@@ -934,7 +949,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
           unk3300ILELLFNPDFJBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.Builder, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParamOrBuilder>(
                   unk3300ILELLFNPDFJ_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           unk3300ILELLFNPDFJ_ = null;
@@ -945,9 +960,9 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
       private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> unk3300JHKOMCFHAOG_ =
         java.util.Collections.emptyList();
       private void ensureUnk3300JHKOMCFHAOGIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           unk3300JHKOMCFHAOG_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>(unk3300JHKOMCFHAOG_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1097,7 +1112,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
       public Builder clearUnk3300JHKOMCFHAOG() {
         if (unk3300JHKOMCFHAOGBuilder_ == null) {
           unk3300JHKOMCFHAOG_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           unk3300JHKOMCFHAOGBuilder_.clear();
@@ -1174,7 +1189,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
           unk3300JHKOMCFHAOGBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.Builder, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParamOrBuilder>(
                   unk3300JHKOMCFHAOG_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           unk3300JHKOMCFHAOG_ = null;
@@ -1214,18 +1229,7 @@ public final class WinterCampAcceptItemResultInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new WinterCampAcceptItemResultInfo(input, extensionRegistry);
       }
     };
 

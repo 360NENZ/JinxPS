@@ -51,6 +51,48 @@ public final class QuestDelNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QuestDelNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 120: {
+
+              questId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.QuestDelNotifyOuterClass.internal_static_QuestDelNotify_descriptor;
@@ -196,7 +238,7 @@ public final class QuestDelNotifyOuterClass {
     }
 
     public static final int QUESTID_FIELD_NUMBER = 15;
-    private int questId_ = 0;
+    private int questId_;
     /**
      * <code>uint32 questId = 15;</code>
      * @return The questId.
@@ -223,7 +265,7 @@ public final class QuestDelNotifyOuterClass {
       if (questId_ != 0) {
         output.writeUInt32(15, questId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -236,7 +278,7 @@ public final class QuestDelNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(15, questId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -253,7 +295,7 @@ public final class QuestDelNotifyOuterClass {
 
       if (getQuestId()
           != other.getQuestId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -266,7 +308,7 @@ public final class QuestDelNotifyOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + QUESTID_FIELD_NUMBER;
       hash = (53 * hash) + getQuestId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -383,19 +425,24 @@ public final class QuestDelNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.QuestDelNotifyOuterClass.QuestDelNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         questId_ = 0;
+
         return this;
       }
 
@@ -422,16 +469,9 @@ public final class QuestDelNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.QuestDelNotifyOuterClass.QuestDelNotify buildPartial() {
         emu.grasscutter.net.proto.QuestDelNotifyOuterClass.QuestDelNotify result = new emu.grasscutter.net.proto.QuestDelNotifyOuterClass.QuestDelNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.questId_ = questId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.QuestDelNotifyOuterClass.QuestDelNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.questId_ = questId_;
-        }
       }
 
       @java.lang.Override
@@ -481,7 +521,7 @@ public final class QuestDelNotifyOuterClass {
         if (other.getQuestId() != 0) {
           setQuestId(other.getQuestId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -496,38 +536,19 @@ public final class QuestDelNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.QuestDelNotifyOuterClass.QuestDelNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 120: {
-                questId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.QuestDelNotifyOuterClass.QuestDelNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int questId_ ;
       /**
@@ -546,7 +567,6 @@ public final class QuestDelNotifyOuterClass {
       public Builder setQuestId(int value) {
         
         questId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -555,7 +575,7 @@ public final class QuestDelNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearQuestId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         questId_ = 0;
         onChanged();
         return this;
@@ -593,18 +613,7 @@ public final class QuestDelNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QuestDelNotify(input, extensionRegistry);
       }
     };
 

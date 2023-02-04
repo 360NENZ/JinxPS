@@ -76,6 +76,61 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GetDailyDungeonEntryInfoRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                dailyDungeonInfoList_ = new java.util.ArrayList<emu.grasscutter.net.proto.DailyDungeonEntryInfoOuterClass.DailyDungeonEntryInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              dailyDungeonInfoList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.DailyDungeonEntryInfoOuterClass.DailyDungeonEntryInfo.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          dailyDungeonInfoList_ = java.util.Collections.unmodifiableList(dailyDungeonInfoList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.GetDailyDungeonEntryInfoRspOuterClass.internal_static_GetDailyDungeonEntryInfoRsp_descriptor;
@@ -221,7 +276,7 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 3;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 3;</code>
      * @return The retcode.
@@ -232,7 +287,6 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
     }
 
     public static final int DAILYDUNGEONINFOLIST_FIELD_NUMBER = 8;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.DailyDungeonEntryInfoOuterClass.DailyDungeonEntryInfo> dailyDungeonInfoList_;
     /**
      * <code>repeated .DailyDungeonEntryInfo dailyDungeonInfoList = 8;</code>
@@ -292,7 +346,7 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
       for (int i = 0; i < dailyDungeonInfoList_.size(); i++) {
         output.writeMessage(8, dailyDungeonInfoList_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -309,7 +363,7 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, dailyDungeonInfoList_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -328,7 +382,7 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
           != other.getRetcode()) return false;
       if (!getDailyDungeonInfoListList()
           .equals(other.getDailyDungeonInfoListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -345,7 +399,7 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
         hash = (37 * hash) + DAILYDUNGEONINFOLIST_FIELD_NUMBER;
         hash = (53 * hash) + getDailyDungeonInfoListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -462,26 +516,31 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.GetDailyDungeonEntryInfoRspOuterClass.GetDailyDungeonEntryInfoRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDailyDungeonInfoListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         retcode_ = 0;
+
         if (dailyDungeonInfoListBuilder_ == null) {
           dailyDungeonInfoList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          dailyDungeonInfoList_ = null;
           dailyDungeonInfoListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -508,29 +567,19 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.GetDailyDungeonEntryInfoRspOuterClass.GetDailyDungeonEntryInfoRsp buildPartial() {
         emu.grasscutter.net.proto.GetDailyDungeonEntryInfoRspOuterClass.GetDailyDungeonEntryInfoRsp result = new emu.grasscutter.net.proto.GetDailyDungeonEntryInfoRspOuterClass.GetDailyDungeonEntryInfoRsp(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.GetDailyDungeonEntryInfoRspOuterClass.GetDailyDungeonEntryInfoRsp result) {
+        int from_bitField0_ = bitField0_;
+        result.retcode_ = retcode_;
         if (dailyDungeonInfoListBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             dailyDungeonInfoList_ = java.util.Collections.unmodifiableList(dailyDungeonInfoList_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.dailyDungeonInfoList_ = dailyDungeonInfoList_;
         } else {
           result.dailyDungeonInfoList_ = dailyDungeonInfoListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.GetDailyDungeonEntryInfoRspOuterClass.GetDailyDungeonEntryInfoRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.retcode_ = retcode_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -584,7 +633,7 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
           if (!other.dailyDungeonInfoList_.isEmpty()) {
             if (dailyDungeonInfoList_.isEmpty()) {
               dailyDungeonInfoList_ = other.dailyDungeonInfoList_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureDailyDungeonInfoListIsMutable();
               dailyDungeonInfoList_.addAll(other.dailyDungeonInfoList_);
@@ -597,7 +646,7 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
               dailyDungeonInfoListBuilder_.dispose();
               dailyDungeonInfoListBuilder_ = null;
               dailyDungeonInfoList_ = other.dailyDungeonInfoList_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               dailyDungeonInfoListBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getDailyDungeonInfoListFieldBuilder() : null;
@@ -606,7 +655,7 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -621,48 +670,17 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.GetDailyDungeonEntryInfoRspOuterClass.GetDailyDungeonEntryInfoRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 24: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 24
-              case 66: {
-                emu.grasscutter.net.proto.DailyDungeonEntryInfoOuterClass.DailyDungeonEntryInfo m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.DailyDungeonEntryInfoOuterClass.DailyDungeonEntryInfo.parser(),
-                        extensionRegistry);
-                if (dailyDungeonInfoListBuilder_ == null) {
-                  ensureDailyDungeonInfoListIsMutable();
-                  dailyDungeonInfoList_.add(m);
-                } else {
-                  dailyDungeonInfoListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 66
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.GetDailyDungeonEntryInfoRspOuterClass.GetDailyDungeonEntryInfoRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -684,7 +702,6 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -693,7 +710,7 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -702,9 +719,9 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
       private java.util.List<emu.grasscutter.net.proto.DailyDungeonEntryInfoOuterClass.DailyDungeonEntryInfo> dailyDungeonInfoList_ =
         java.util.Collections.emptyList();
       private void ensureDailyDungeonInfoListIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           dailyDungeonInfoList_ = new java.util.ArrayList<emu.grasscutter.net.proto.DailyDungeonEntryInfoOuterClass.DailyDungeonEntryInfo>(dailyDungeonInfoList_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -854,7 +871,7 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
       public Builder clearDailyDungeonInfoList() {
         if (dailyDungeonInfoListBuilder_ == null) {
           dailyDungeonInfoList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           dailyDungeonInfoListBuilder_.clear();
@@ -931,7 +948,7 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
           dailyDungeonInfoListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               emu.grasscutter.net.proto.DailyDungeonEntryInfoOuterClass.DailyDungeonEntryInfo, emu.grasscutter.net.proto.DailyDungeonEntryInfoOuterClass.DailyDungeonEntryInfo.Builder, emu.grasscutter.net.proto.DailyDungeonEntryInfoOuterClass.DailyDungeonEntryInfoOrBuilder>(
                   dailyDungeonInfoList_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           dailyDungeonInfoList_ = null;
@@ -971,18 +988,7 @@ public final class GetDailyDungeonEntryInfoRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GetDailyDungeonEntryInfoRsp(input, extensionRegistry);
       }
     };
 

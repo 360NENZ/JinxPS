@@ -81,7 +81,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
      */
     emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteDataOrBuilder getSuiteDataOrBuilder();
 
-    public emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.HomeMarkPointFurnitureData.ExtraCase getExtraCase();
+    public emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.HomeMarkPointFurnitureData.GPHOOOLEKGJCase getGPHOOOLEKGJCase();
   }
   /**
    * Protobuf type {@code HomeMarkPointFurnitureData}
@@ -110,6 +110,99 @@ public final class HomeMarkPointFurnitureDataOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private HomeMarkPointFurnitureData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              guid_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+
+              furnitureId_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+
+              furnitureType_ = input.readUInt32();
+              break;
+            }
+            case 34: {
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder subBuilder = null;
+              if (pos_ != null) {
+                subBuilder = pos_.toBuilder();
+              }
+              pos_ = input.readMessage(emu.grasscutter.net.proto.VectorOuterClass.Vector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pos_);
+                pos_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 50: {
+              emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.Builder subBuilder = null;
+              if (gPHOOOLEKGJCase_ == 6) {
+                subBuilder = ((emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) gPHOOOLEKGJ_).toBuilder();
+              }
+              gPHOOOLEKGJ_ =
+                  input.readMessage(emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) gPHOOOLEKGJ_);
+                gPHOOOLEKGJ_ = subBuilder.buildPartial();
+              }
+              gPHOOOLEKGJCase_ = 6;
+              break;
+            }
+            case 58: {
+              emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.Builder subBuilder = null;
+              if (gPHOOOLEKGJCase_ == 7) {
+                subBuilder = ((emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) gPHOOOLEKGJ_).toBuilder();
+              }
+              gPHOOOLEKGJ_ =
+                  input.readMessage(emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) gPHOOOLEKGJ_);
+                gPHOOOLEKGJ_ = subBuilder.buildPartial();
+              }
+              gPHOOOLEKGJCase_ = 7;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.internal_static_HomeMarkPointFurnitureData_descriptor;
@@ -123,16 +216,16 @@ public final class HomeMarkPointFurnitureDataOuterClass {
               emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.HomeMarkPointFurnitureData.class, emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.HomeMarkPointFurnitureData.Builder.class);
     }
 
-    private int extraCase_ = 0;
-    private java.lang.Object extra_;
-    public enum ExtraCase
+    private int gPHOOOLEKGJCase_ = 0;
+    private java.lang.Object gPHOOOLEKGJ_;
+    public enum GPHOOOLEKGJCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       NPC_DATA(6),
       SUITE_DATA(7),
-      EXTRA_NOT_SET(0);
+      GPHOOOLEKGJ_NOT_SET(0);
       private final int value;
-      private ExtraCase(int value) {
+      private GPHOOOLEKGJCase(int value) {
         this.value = value;
       }
       /**
@@ -141,15 +234,15 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static ExtraCase valueOf(int value) {
+      public static GPHOOOLEKGJCase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static ExtraCase forNumber(int value) {
+      public static GPHOOOLEKGJCase forNumber(int value) {
         switch (value) {
           case 6: return NPC_DATA;
           case 7: return SUITE_DATA;
-          case 0: return EXTRA_NOT_SET;
+          case 0: return GPHOOOLEKGJ_NOT_SET;
           default: return null;
         }
       }
@@ -158,14 +251,14 @@ public final class HomeMarkPointFurnitureDataOuterClass {
       }
     };
 
-    public ExtraCase
-    getExtraCase() {
-      return ExtraCase.forNumber(
-          extraCase_);
+    public GPHOOOLEKGJCase
+    getGPHOOOLEKGJCase() {
+      return GPHOOOLEKGJCase.forNumber(
+          gPHOOOLEKGJCase_);
     }
 
     public static final int GUID_FIELD_NUMBER = 1;
-    private int guid_ = 0;
+    private int guid_;
     /**
      * <code>uint32 guid = 1;</code>
      * @return The guid.
@@ -176,7 +269,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
     }
 
     public static final int FURNITUREID_FIELD_NUMBER = 2;
-    private int furnitureId_ = 0;
+    private int furnitureId_;
     /**
      * <code>uint32 furnitureId = 2;</code>
      * @return The furnitureId.
@@ -187,7 +280,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
     }
 
     public static final int FURNITURETYPE_FIELD_NUMBER = 3;
-    private int furnitureType_ = 0;
+    private int furnitureType_;
     /**
      * <code>uint32 furnitureType = 3;</code>
      * @return The furnitureType.
@@ -220,7 +313,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getPosOrBuilder() {
-      return pos_ == null ? emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance() : pos_;
+      return getPos();
     }
 
     public static final int NPC_DATA_FIELD_NUMBER = 6;
@@ -230,7 +323,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
      */
     @java.lang.Override
     public boolean hasNpcData() {
-      return extraCase_ == 6;
+      return gPHOOOLEKGJCase_ == 6;
     }
     /**
      * <code>.NpcData npc_data = 6;</code>
@@ -238,8 +331,8 @@ public final class HomeMarkPointFurnitureDataOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.NpcDataOuterClass.NpcData getNpcData() {
-      if (extraCase_ == 6) {
-         return (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) extra_;
+      if (gPHOOOLEKGJCase_ == 6) {
+         return (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) gPHOOOLEKGJ_;
       }
       return emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.getDefaultInstance();
     }
@@ -248,8 +341,8 @@ public final class HomeMarkPointFurnitureDataOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.NpcDataOuterClass.NpcDataOrBuilder getNpcDataOrBuilder() {
-      if (extraCase_ == 6) {
-         return (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) extra_;
+      if (gPHOOOLEKGJCase_ == 6) {
+         return (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) gPHOOOLEKGJ_;
       }
       return emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.getDefaultInstance();
     }
@@ -261,7 +354,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
      */
     @java.lang.Override
     public boolean hasSuiteData() {
-      return extraCase_ == 7;
+      return gPHOOOLEKGJCase_ == 7;
     }
     /**
      * <code>.SuiteData suite_data = 7;</code>
@@ -269,8 +362,8 @@ public final class HomeMarkPointFurnitureDataOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData getSuiteData() {
-      if (extraCase_ == 7) {
-         return (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) extra_;
+      if (gPHOOOLEKGJCase_ == 7) {
+         return (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) gPHOOOLEKGJ_;
       }
       return emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.getDefaultInstance();
     }
@@ -279,8 +372,8 @@ public final class HomeMarkPointFurnitureDataOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteDataOrBuilder getSuiteDataOrBuilder() {
-      if (extraCase_ == 7) {
-         return (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) extra_;
+      if (gPHOOOLEKGJCase_ == 7) {
+         return (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) gPHOOOLEKGJ_;
       }
       return emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.getDefaultInstance();
     }
@@ -311,13 +404,13 @@ public final class HomeMarkPointFurnitureDataOuterClass {
       if (pos_ != null) {
         output.writeMessage(4, getPos());
       }
-      if (extraCase_ == 6) {
-        output.writeMessage(6, (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) extra_);
+      if (gPHOOOLEKGJCase_ == 6) {
+        output.writeMessage(6, (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) gPHOOOLEKGJ_);
       }
-      if (extraCase_ == 7) {
-        output.writeMessage(7, (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) extra_);
+      if (gPHOOOLEKGJCase_ == 7) {
+        output.writeMessage(7, (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) gPHOOOLEKGJ_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -342,15 +435,15 @@ public final class HomeMarkPointFurnitureDataOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getPos());
       }
-      if (extraCase_ == 6) {
+      if (gPHOOOLEKGJCase_ == 6) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) extra_);
+          .computeMessageSize(6, (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) gPHOOOLEKGJ_);
       }
-      if (extraCase_ == 7) {
+      if (gPHOOOLEKGJCase_ == 7) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) extra_);
+          .computeMessageSize(7, (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) gPHOOOLEKGJ_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -376,8 +469,8 @@ public final class HomeMarkPointFurnitureDataOuterClass {
         if (!getPos()
             .equals(other.getPos())) return false;
       }
-      if (!getExtraCase().equals(other.getExtraCase())) return false;
-      switch (extraCase_) {
+      if (!getGPHOOOLEKGJCase().equals(other.getGPHOOOLEKGJCase())) return false;
+      switch (gPHOOOLEKGJCase_) {
         case 6:
           if (!getNpcData()
               .equals(other.getNpcData())) return false;
@@ -389,7 +482,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -410,7 +503,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
         hash = (37 * hash) + POS_FIELD_NUMBER;
         hash = (53 * hash) + getPos().hashCode();
       }
-      switch (extraCase_) {
+      switch (gPHOOOLEKGJCase_) {
         case 6:
           hash = (37 * hash) + NPC_DATA_FIELD_NUMBER;
           hash = (53 * hash) + getNpcData().hashCode();
@@ -422,7 +515,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -539,34 +632,36 @@ public final class HomeMarkPointFurnitureDataOuterClass {
 
       // Construct using emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.HomeMarkPointFurnitureData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         guid_ = 0;
+
         furnitureId_ = 0;
+
         furnitureType_ = 0;
-        pos_ = null;
-        if (posBuilder_ != null) {
-          posBuilder_.dispose();
+
+        if (posBuilder_ == null) {
+          pos_ = null;
+        } else {
+          pos_ = null;
           posBuilder_ = null;
         }
-        if (npcDataBuilder_ != null) {
-          npcDataBuilder_.clear();
-        }
-        if (suiteDataBuilder_ != null) {
-          suiteDataBuilder_.clear();
-        }
-        extraCase_ = 0;
-        extra_ = null;
+        gPHOOOLEKGJCase_ = 0;
+        gPHOOOLEKGJ_ = null;
         return this;
       }
 
@@ -593,41 +688,31 @@ public final class HomeMarkPointFurnitureDataOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.HomeMarkPointFurnitureData buildPartial() {
         emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.HomeMarkPointFurnitureData result = new emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.HomeMarkPointFurnitureData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        result.guid_ = guid_;
+        result.furnitureId_ = furnitureId_;
+        result.furnitureType_ = furnitureType_;
+        if (posBuilder_ == null) {
+          result.pos_ = pos_;
+        } else {
+          result.pos_ = posBuilder_.build();
+        }
+        if (gPHOOOLEKGJCase_ == 6) {
+          if (npcDataBuilder_ == null) {
+            result.gPHOOOLEKGJ_ = gPHOOOLEKGJ_;
+          } else {
+            result.gPHOOOLEKGJ_ = npcDataBuilder_.build();
+          }
+        }
+        if (gPHOOOLEKGJCase_ == 7) {
+          if (suiteDataBuilder_ == null) {
+            result.gPHOOOLEKGJ_ = gPHOOOLEKGJ_;
+          } else {
+            result.gPHOOOLEKGJ_ = suiteDataBuilder_.build();
+          }
+        }
+        result.gPHOOOLEKGJCase_ = gPHOOOLEKGJCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.HomeMarkPointFurnitureData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.guid_ = guid_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.furnitureId_ = furnitureId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.furnitureType_ = furnitureType_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.pos_ = posBuilder_ == null
-              ? pos_
-              : posBuilder_.build();
-        }
-      }
-
-      private void buildPartialOneofs(emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.HomeMarkPointFurnitureData result) {
-        result.extraCase_ = extraCase_;
-        result.extra_ = this.extra_;
-        if (extraCase_ == 6 &&
-            npcDataBuilder_ != null) {
-          result.extra_ = npcDataBuilder_.build();
-        }
-        if (extraCase_ == 7 &&
-            suiteDataBuilder_ != null) {
-          result.extra_ = suiteDataBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -686,7 +771,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
         if (other.hasPos()) {
           mergePos(other.getPos());
         }
-        switch (other.getExtraCase()) {
+        switch (other.getGPHOOOLEKGJCase()) {
           case NPC_DATA: {
             mergeNpcData(other.getNpcData());
             break;
@@ -695,11 +780,11 @@ public final class HomeMarkPointFurnitureDataOuterClass {
             mergeSuiteData(other.getSuiteData());
             break;
           }
-          case EXTRA_NOT_SET: {
+          case GPHOOOLEKGJ_NOT_SET: {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -714,84 +799,34 @@ public final class HomeMarkPointFurnitureDataOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.HomeMarkPointFurnitureData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                guid_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                furnitureId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                furnitureType_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 34: {
-                input.readMessage(
-                    getPosFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 50: {
-                input.readMessage(
-                    getNpcDataFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                extraCase_ = 6;
-                break;
-              } // case 50
-              case 58: {
-                input.readMessage(
-                    getSuiteDataFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                extraCase_ = 7;
-                break;
-              } // case 58
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.HomeMarkPointFurnitureDataOuterClass.HomeMarkPointFurnitureData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int extraCase_ = 0;
-      private java.lang.Object extra_;
-      public ExtraCase
-          getExtraCase() {
-        return ExtraCase.forNumber(
-            extraCase_);
+      private int gPHOOOLEKGJCase_ = 0;
+      private java.lang.Object gPHOOOLEKGJ_;
+      public GPHOOOLEKGJCase
+          getGPHOOOLEKGJCase() {
+        return GPHOOOLEKGJCase.forNumber(
+            gPHOOOLEKGJCase_);
       }
 
-      public Builder clearExtra() {
-        extraCase_ = 0;
-        extra_ = null;
+      public Builder clearGPHOOOLEKGJ() {
+        gPHOOOLEKGJCase_ = 0;
+        gPHOOOLEKGJ_ = null;
         onChanged();
         return this;
       }
 
-      private int bitField0_;
 
       private int guid_ ;
       /**
@@ -810,7 +845,6 @@ public final class HomeMarkPointFurnitureDataOuterClass {
       public Builder setGuid(int value) {
         
         guid_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -819,7 +853,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGuid() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         guid_ = 0;
         onChanged();
         return this;
@@ -842,7 +876,6 @@ public final class HomeMarkPointFurnitureDataOuterClass {
       public Builder setFurnitureId(int value) {
         
         furnitureId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -851,7 +884,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearFurnitureId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         furnitureId_ = 0;
         onChanged();
         return this;
@@ -874,7 +907,6 @@ public final class HomeMarkPointFurnitureDataOuterClass {
       public Builder setFurnitureType(int value) {
         
         furnitureType_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -883,7 +915,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearFurnitureType() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         furnitureType_ = 0;
         onChanged();
         return this;
@@ -897,7 +929,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        * @return Whether the pos field is set.
        */
       public boolean hasPos() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return posBuilder_ != null || pos_ != null;
       }
       /**
        * <code>.Vector pos = 4;</code>
@@ -919,11 +951,11 @@ public final class HomeMarkPointFurnitureDataOuterClass {
             throw new NullPointerException();
           }
           pos_ = value;
+          onChanged();
         } else {
           posBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -933,11 +965,11 @@ public final class HomeMarkPointFurnitureDataOuterClass {
           emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder builderForValue) {
         if (posBuilder_ == null) {
           pos_ = builderForValue.build();
+          onChanged();
         } else {
           posBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -945,38 +977,38 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        */
       public Builder mergePos(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (posBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            pos_ != null &&
-            pos_ != emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance()) {
-            getPosBuilder().mergeFrom(value);
+          if (pos_ != null) {
+            pos_ =
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.newBuilder(pos_).mergeFrom(value).buildPartial();
           } else {
             pos_ = value;
           }
+          onChanged();
         } else {
           posBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector pos = 4;</code>
        */
       public Builder clearPos() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        pos_ = null;
-        if (posBuilder_ != null) {
-          posBuilder_.dispose();
+        if (posBuilder_ == null) {
+          pos_ = null;
+          onChanged();
+        } else {
+          pos_ = null;
           posBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector pos = 4;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder getPosBuilder() {
-        bitField0_ |= 0x00000008;
+        
         onChanged();
         return getPosFieldBuilder().getBuilder();
       }
@@ -1016,7 +1048,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        */
       @java.lang.Override
       public boolean hasNpcData() {
-        return extraCase_ == 6;
+        return gPHOOOLEKGJCase_ == 6;
       }
       /**
        * <code>.NpcData npc_data = 6;</code>
@@ -1025,12 +1057,12 @@ public final class HomeMarkPointFurnitureDataOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.NpcDataOuterClass.NpcData getNpcData() {
         if (npcDataBuilder_ == null) {
-          if (extraCase_ == 6) {
-            return (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) extra_;
+          if (gPHOOOLEKGJCase_ == 6) {
+            return (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) gPHOOOLEKGJ_;
           }
           return emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.getDefaultInstance();
         } else {
-          if (extraCase_ == 6) {
+          if (gPHOOOLEKGJCase_ == 6) {
             return npcDataBuilder_.getMessage();
           }
           return emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.getDefaultInstance();
@@ -1044,12 +1076,12 @@ public final class HomeMarkPointFurnitureDataOuterClass {
           if (value == null) {
             throw new NullPointerException();
           }
-          extra_ = value;
+          gPHOOOLEKGJ_ = value;
           onChanged();
         } else {
           npcDataBuilder_.setMessage(value);
         }
-        extraCase_ = 6;
+        gPHOOOLEKGJCase_ = 6;
         return this;
       }
       /**
@@ -1058,12 +1090,12 @@ public final class HomeMarkPointFurnitureDataOuterClass {
       public Builder setNpcData(
           emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.Builder builderForValue) {
         if (npcDataBuilder_ == null) {
-          extra_ = builderForValue.build();
+          gPHOOOLEKGJ_ = builderForValue.build();
           onChanged();
         } else {
           npcDataBuilder_.setMessage(builderForValue.build());
         }
-        extraCase_ = 6;
+        gPHOOOLEKGJCase_ = 6;
         return this;
       }
       /**
@@ -1071,22 +1103,21 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        */
       public Builder mergeNpcData(emu.grasscutter.net.proto.NpcDataOuterClass.NpcData value) {
         if (npcDataBuilder_ == null) {
-          if (extraCase_ == 6 &&
-              extra_ != emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.getDefaultInstance()) {
-            extra_ = emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.newBuilder((emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) extra_)
+          if (gPHOOOLEKGJCase_ == 6 &&
+              gPHOOOLEKGJ_ != emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.getDefaultInstance()) {
+            gPHOOOLEKGJ_ = emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.newBuilder((emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) gPHOOOLEKGJ_)
                 .mergeFrom(value).buildPartial();
           } else {
-            extra_ = value;
+            gPHOOOLEKGJ_ = value;
           }
           onChanged();
         } else {
-          if (extraCase_ == 6) {
+          if (gPHOOOLEKGJCase_ == 6) {
             npcDataBuilder_.mergeFrom(value);
-          } else {
-            npcDataBuilder_.setMessage(value);
           }
+          npcDataBuilder_.setMessage(value);
         }
-        extraCase_ = 6;
+        gPHOOOLEKGJCase_ = 6;
         return this;
       }
       /**
@@ -1094,15 +1125,15 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        */
       public Builder clearNpcData() {
         if (npcDataBuilder_ == null) {
-          if (extraCase_ == 6) {
-            extraCase_ = 0;
-            extra_ = null;
+          if (gPHOOOLEKGJCase_ == 6) {
+            gPHOOOLEKGJCase_ = 0;
+            gPHOOOLEKGJ_ = null;
             onChanged();
           }
         } else {
-          if (extraCase_ == 6) {
-            extraCase_ = 0;
-            extra_ = null;
+          if (gPHOOOLEKGJCase_ == 6) {
+            gPHOOOLEKGJCase_ = 0;
+            gPHOOOLEKGJ_ = null;
           }
           npcDataBuilder_.clear();
         }
@@ -1119,11 +1150,11 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.NpcDataOuterClass.NpcDataOrBuilder getNpcDataOrBuilder() {
-        if ((extraCase_ == 6) && (npcDataBuilder_ != null)) {
+        if ((gPHOOOLEKGJCase_ == 6) && (npcDataBuilder_ != null)) {
           return npcDataBuilder_.getMessageOrBuilder();
         } else {
-          if (extraCase_ == 6) {
-            return (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) extra_;
+          if (gPHOOOLEKGJCase_ == 6) {
+            return (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) gPHOOOLEKGJ_;
           }
           return emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.getDefaultInstance();
         }
@@ -1135,18 +1166,18 @@ public final class HomeMarkPointFurnitureDataOuterClass {
           emu.grasscutter.net.proto.NpcDataOuterClass.NpcData, emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.Builder, emu.grasscutter.net.proto.NpcDataOuterClass.NpcDataOrBuilder> 
           getNpcDataFieldBuilder() {
         if (npcDataBuilder_ == null) {
-          if (!(extraCase_ == 6)) {
-            extra_ = emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.getDefaultInstance();
+          if (!(gPHOOOLEKGJCase_ == 6)) {
+            gPHOOOLEKGJ_ = emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.getDefaultInstance();
           }
           npcDataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               emu.grasscutter.net.proto.NpcDataOuterClass.NpcData, emu.grasscutter.net.proto.NpcDataOuterClass.NpcData.Builder, emu.grasscutter.net.proto.NpcDataOuterClass.NpcDataOrBuilder>(
-                  (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) extra_,
+                  (emu.grasscutter.net.proto.NpcDataOuterClass.NpcData) gPHOOOLEKGJ_,
                   getParentForChildren(),
                   isClean());
-          extra_ = null;
+          gPHOOOLEKGJ_ = null;
         }
-        extraCase_ = 6;
-        onChanged();
+        gPHOOOLEKGJCase_ = 6;
+        onChanged();;
         return npcDataBuilder_;
       }
 
@@ -1158,7 +1189,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        */
       @java.lang.Override
       public boolean hasSuiteData() {
-        return extraCase_ == 7;
+        return gPHOOOLEKGJCase_ == 7;
       }
       /**
        * <code>.SuiteData suite_data = 7;</code>
@@ -1167,12 +1198,12 @@ public final class HomeMarkPointFurnitureDataOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData getSuiteData() {
         if (suiteDataBuilder_ == null) {
-          if (extraCase_ == 7) {
-            return (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) extra_;
+          if (gPHOOOLEKGJCase_ == 7) {
+            return (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) gPHOOOLEKGJ_;
           }
           return emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.getDefaultInstance();
         } else {
-          if (extraCase_ == 7) {
+          if (gPHOOOLEKGJCase_ == 7) {
             return suiteDataBuilder_.getMessage();
           }
           return emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.getDefaultInstance();
@@ -1186,12 +1217,12 @@ public final class HomeMarkPointFurnitureDataOuterClass {
           if (value == null) {
             throw new NullPointerException();
           }
-          extra_ = value;
+          gPHOOOLEKGJ_ = value;
           onChanged();
         } else {
           suiteDataBuilder_.setMessage(value);
         }
-        extraCase_ = 7;
+        gPHOOOLEKGJCase_ = 7;
         return this;
       }
       /**
@@ -1200,12 +1231,12 @@ public final class HomeMarkPointFurnitureDataOuterClass {
       public Builder setSuiteData(
           emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.Builder builderForValue) {
         if (suiteDataBuilder_ == null) {
-          extra_ = builderForValue.build();
+          gPHOOOLEKGJ_ = builderForValue.build();
           onChanged();
         } else {
           suiteDataBuilder_.setMessage(builderForValue.build());
         }
-        extraCase_ = 7;
+        gPHOOOLEKGJCase_ = 7;
         return this;
       }
       /**
@@ -1213,22 +1244,21 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        */
       public Builder mergeSuiteData(emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData value) {
         if (suiteDataBuilder_ == null) {
-          if (extraCase_ == 7 &&
-              extra_ != emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.getDefaultInstance()) {
-            extra_ = emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.newBuilder((emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) extra_)
+          if (gPHOOOLEKGJCase_ == 7 &&
+              gPHOOOLEKGJ_ != emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.getDefaultInstance()) {
+            gPHOOOLEKGJ_ = emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.newBuilder((emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) gPHOOOLEKGJ_)
                 .mergeFrom(value).buildPartial();
           } else {
-            extra_ = value;
+            gPHOOOLEKGJ_ = value;
           }
           onChanged();
         } else {
-          if (extraCase_ == 7) {
+          if (gPHOOOLEKGJCase_ == 7) {
             suiteDataBuilder_.mergeFrom(value);
-          } else {
-            suiteDataBuilder_.setMessage(value);
           }
+          suiteDataBuilder_.setMessage(value);
         }
-        extraCase_ = 7;
+        gPHOOOLEKGJCase_ = 7;
         return this;
       }
       /**
@@ -1236,15 +1266,15 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        */
       public Builder clearSuiteData() {
         if (suiteDataBuilder_ == null) {
-          if (extraCase_ == 7) {
-            extraCase_ = 0;
-            extra_ = null;
+          if (gPHOOOLEKGJCase_ == 7) {
+            gPHOOOLEKGJCase_ = 0;
+            gPHOOOLEKGJ_ = null;
             onChanged();
           }
         } else {
-          if (extraCase_ == 7) {
-            extraCase_ = 0;
-            extra_ = null;
+          if (gPHOOOLEKGJCase_ == 7) {
+            gPHOOOLEKGJCase_ = 0;
+            gPHOOOLEKGJ_ = null;
           }
           suiteDataBuilder_.clear();
         }
@@ -1261,11 +1291,11 @@ public final class HomeMarkPointFurnitureDataOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteDataOrBuilder getSuiteDataOrBuilder() {
-        if ((extraCase_ == 7) && (suiteDataBuilder_ != null)) {
+        if ((gPHOOOLEKGJCase_ == 7) && (suiteDataBuilder_ != null)) {
           return suiteDataBuilder_.getMessageOrBuilder();
         } else {
-          if (extraCase_ == 7) {
-            return (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) extra_;
+          if (gPHOOOLEKGJCase_ == 7) {
+            return (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) gPHOOOLEKGJ_;
           }
           return emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.getDefaultInstance();
         }
@@ -1277,18 +1307,18 @@ public final class HomeMarkPointFurnitureDataOuterClass {
           emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData, emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.Builder, emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteDataOrBuilder> 
           getSuiteDataFieldBuilder() {
         if (suiteDataBuilder_ == null) {
-          if (!(extraCase_ == 7)) {
-            extra_ = emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.getDefaultInstance();
+          if (!(gPHOOOLEKGJCase_ == 7)) {
+            gPHOOOLEKGJ_ = emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.getDefaultInstance();
           }
           suiteDataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData, emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData.Builder, emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteDataOrBuilder>(
-                  (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) extra_,
+                  (emu.grasscutter.net.proto.SuiteDataOuterClass.SuiteData) gPHOOOLEKGJ_,
                   getParentForChildren(),
                   isClean());
-          extra_ = null;
+          gPHOOOLEKGJ_ = null;
         }
-        extraCase_ = 7;
-        onChanged();
+        gPHOOOLEKGJCase_ = 7;
+        onChanged();;
         return suiteDataBuilder_;
       }
       @java.lang.Override
@@ -1324,18 +1354,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new HomeMarkPointFurnitureData(input, extensionRegistry);
       }
     };
 
@@ -1371,12 +1390,12 @@ public final class HomeMarkPointFurnitureDataOuterClass {
     java.lang.String[] descriptorData = {
       "\n HomeMarkPointFurnitureData.proto\032\014Vect" +
       "or.proto\032\rNpcData.proto\032\017SuiteData.proto" +
-      "\"\265\001\n\032HomeMarkPointFurnitureData\022\014\n\004guid\030" +
+      "\"\273\001\n\032HomeMarkPointFurnitureData\022\014\n\004guid\030" +
       "\001 \001(\r\022\023\n\013furnitureId\030\002 \001(\r\022\025\n\rfurnitureT" +
       "ype\030\003 \001(\r\022\024\n\003pos\030\004 \001(\0132\007.Vector\022\034\n\010npc_d" +
       "ata\030\006 \001(\0132\010.NpcDataH\000\022 \n\nsuite_data\030\007 \001(" +
-      "\0132\n.SuiteDataH\000B\007\n\005extraB\033\n\031emu.grasscut" +
-      "ter.net.protob\006proto3"
+      "\0132\n.SuiteDataH\000B\r\n\013GPHOOOLEKGJB\033\n\031emu.gr" +
+      "asscutter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1390,7 +1409,7 @@ public final class HomeMarkPointFurnitureDataOuterClass {
     internal_static_HomeMarkPointFurnitureData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_HomeMarkPointFurnitureData_descriptor,
-        new java.lang.String[] { "Guid", "FurnitureId", "FurnitureType", "Pos", "NpcData", "SuiteData", "Extra", });
+        new java.lang.String[] { "Guid", "FurnitureId", "FurnitureType", "Pos", "NpcData", "SuiteData", "GPHOOOLEKGJ", });
     emu.grasscutter.net.proto.VectorOuterClass.getDescriptor();
     emu.grasscutter.net.proto.NpcDataOuterClass.getDescriptor();
     emu.grasscutter.net.proto.SuiteDataOuterClass.getDescriptor();

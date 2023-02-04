@@ -78,6 +78,71 @@ public final class ChangeAvatarReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ChangeAvatarReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26: {
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder subBuilder = null;
+              if (movePos_ != null) {
+                subBuilder = movePos_.toBuilder();
+              }
+              movePos_ = input.readMessage(emu.grasscutter.net.proto.VectorOuterClass.Vector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(movePos_);
+                movePos_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 40: {
+
+              skillId_ = input.readUInt32();
+              break;
+            }
+            case 80: {
+
+              isMove_ = input.readBool();
+              break;
+            }
+            case 96: {
+
+              guid_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ChangeAvatarReqOuterClass.internal_static_ChangeAvatarReq_descriptor;
@@ -231,7 +296,7 @@ public final class ChangeAvatarReqOuterClass {
     }
 
     public static final int GUID_FIELD_NUMBER = 12;
-    private long guid_ = 0L;
+    private long guid_;
     /**
      * <code>uint64 guid = 12;</code>
      * @return The guid.
@@ -242,7 +307,7 @@ public final class ChangeAvatarReqOuterClass {
     }
 
     public static final int ISMOVE_FIELD_NUMBER = 10;
-    private boolean isMove_ = false;
+    private boolean isMove_;
     /**
      * <code>bool isMove = 10;</code>
      * @return The isMove.
@@ -275,11 +340,11 @@ public final class ChangeAvatarReqOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getMovePosOrBuilder() {
-      return movePos_ == null ? emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance() : movePos_;
+      return getMovePos();
     }
 
     public static final int SKILLID_FIELD_NUMBER = 5;
-    private int skillId_ = 0;
+    private int skillId_;
     /**
      * <code>uint32 skillId = 5;</code>
      * @return The skillId.
@@ -315,7 +380,7 @@ public final class ChangeAvatarReqOuterClass {
       if (guid_ != 0L) {
         output.writeUInt64(12, guid_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -340,7 +405,7 @@ public final class ChangeAvatarReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(12, guid_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -366,7 +431,7 @@ public final class ChangeAvatarReqOuterClass {
       }
       if (getSkillId()
           != other.getSkillId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -389,7 +454,7 @@ public final class ChangeAvatarReqOuterClass {
       }
       hash = (37 * hash) + SKILLID_FIELD_NUMBER;
       hash = (53 * hash) + getSkillId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -506,26 +571,34 @@ public final class ChangeAvatarReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ChangeAvatarReqOuterClass.ChangeAvatarReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         guid_ = 0L;
+
         isMove_ = false;
-        movePos_ = null;
-        if (movePosBuilder_ != null) {
-          movePosBuilder_.dispose();
+
+        if (movePosBuilder_ == null) {
+          movePos_ = null;
+        } else {
+          movePos_ = null;
           movePosBuilder_ = null;
         }
         skillId_ = 0;
+
         return this;
       }
 
@@ -552,27 +625,16 @@ public final class ChangeAvatarReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ChangeAvatarReqOuterClass.ChangeAvatarReq buildPartial() {
         emu.grasscutter.net.proto.ChangeAvatarReqOuterClass.ChangeAvatarReq result = new emu.grasscutter.net.proto.ChangeAvatarReqOuterClass.ChangeAvatarReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.guid_ = guid_;
+        result.isMove_ = isMove_;
+        if (movePosBuilder_ == null) {
+          result.movePos_ = movePos_;
+        } else {
+          result.movePos_ = movePosBuilder_.build();
+        }
+        result.skillId_ = skillId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ChangeAvatarReqOuterClass.ChangeAvatarReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.guid_ = guid_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.isMove_ = isMove_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.movePos_ = movePosBuilder_ == null
-              ? movePos_
-              : movePosBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.skillId_ = skillId_;
-        }
       }
 
       @java.lang.Override
@@ -631,7 +693,7 @@ public final class ChangeAvatarReqOuterClass {
         if (other.getSkillId() != 0) {
           setSkillId(other.getSkillId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -646,55 +708,19 @@ public final class ChangeAvatarReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ChangeAvatarReqOuterClass.ChangeAvatarReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 26: {
-                input.readMessage(
-                    getMovePosFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 40: {
-                skillId_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 40
-              case 80: {
-                isMove_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 80
-              case 96: {
-                guid_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 96
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ChangeAvatarReqOuterClass.ChangeAvatarReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long guid_ ;
       /**
@@ -713,7 +739,6 @@ public final class ChangeAvatarReqOuterClass {
       public Builder setGuid(long value) {
         
         guid_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -722,7 +747,7 @@ public final class ChangeAvatarReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGuid() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         guid_ = 0L;
         onChanged();
         return this;
@@ -745,7 +770,6 @@ public final class ChangeAvatarReqOuterClass {
       public Builder setIsMove(boolean value) {
         
         isMove_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -754,7 +778,7 @@ public final class ChangeAvatarReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsMove() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         isMove_ = false;
         onChanged();
         return this;
@@ -768,7 +792,7 @@ public final class ChangeAvatarReqOuterClass {
        * @return Whether the movePos field is set.
        */
       public boolean hasMovePos() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return movePosBuilder_ != null || movePos_ != null;
       }
       /**
        * <code>.Vector movePos = 3;</code>
@@ -790,11 +814,11 @@ public final class ChangeAvatarReqOuterClass {
             throw new NullPointerException();
           }
           movePos_ = value;
+          onChanged();
         } else {
           movePosBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -804,11 +828,11 @@ public final class ChangeAvatarReqOuterClass {
           emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder builderForValue) {
         if (movePosBuilder_ == null) {
           movePos_ = builderForValue.build();
+          onChanged();
         } else {
           movePosBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -816,38 +840,38 @@ public final class ChangeAvatarReqOuterClass {
        */
       public Builder mergeMovePos(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (movePosBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            movePos_ != null &&
-            movePos_ != emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance()) {
-            getMovePosBuilder().mergeFrom(value);
+          if (movePos_ != null) {
+            movePos_ =
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.newBuilder(movePos_).mergeFrom(value).buildPartial();
           } else {
             movePos_ = value;
           }
+          onChanged();
         } else {
           movePosBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector movePos = 3;</code>
        */
       public Builder clearMovePos() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        movePos_ = null;
-        if (movePosBuilder_ != null) {
-          movePosBuilder_.dispose();
+        if (movePosBuilder_ == null) {
+          movePos_ = null;
+          onChanged();
+        } else {
+          movePos_ = null;
           movePosBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector movePos = 3;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder getMovePosBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getMovePosFieldBuilder().getBuilder();
       }
@@ -896,7 +920,6 @@ public final class ChangeAvatarReqOuterClass {
       public Builder setSkillId(int value) {
         
         skillId_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -905,7 +928,7 @@ public final class ChangeAvatarReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearSkillId() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         skillId_ = 0;
         onChanged();
         return this;
@@ -943,18 +966,7 @@ public final class ChangeAvatarReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ChangeAvatarReq(input, extensionRegistry);
       }
     };
 

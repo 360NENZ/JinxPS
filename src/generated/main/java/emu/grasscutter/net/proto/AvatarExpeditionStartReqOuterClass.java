@@ -63,6 +63,58 @@ public final class AvatarExpeditionStartReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private AvatarExpeditionStartReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 64: {
+
+              avatarGuid_ = input.readUInt64();
+              break;
+            }
+            case 96: {
+
+              hourTime_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+
+              expId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.AvatarExpeditionStartReqOuterClass.internal_static_AvatarExpeditionStartReq_descriptor;
@@ -216,7 +268,7 @@ public final class AvatarExpeditionStartReqOuterClass {
     }
 
     public static final int HOURTIME_FIELD_NUMBER = 12;
-    private int hourTime_ = 0;
+    private int hourTime_;
     /**
      * <code>uint32 hourTime = 12;</code>
      * @return The hourTime.
@@ -227,7 +279,7 @@ public final class AvatarExpeditionStartReqOuterClass {
     }
 
     public static final int AVATARGUID_FIELD_NUMBER = 8;
-    private long avatarGuid_ = 0L;
+    private long avatarGuid_;
     /**
      * <code>uint64 avatarGuid = 8;</code>
      * @return The avatarGuid.
@@ -238,7 +290,7 @@ public final class AvatarExpeditionStartReqOuterClass {
     }
 
     public static final int EXPID_FIELD_NUMBER = 14;
-    private int expId_ = 0;
+    private int expId_;
     /**
      * <code>uint32 expId = 14;</code>
      * @return The expId.
@@ -271,7 +323,7 @@ public final class AvatarExpeditionStartReqOuterClass {
       if (expId_ != 0) {
         output.writeUInt32(14, expId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -292,7 +344,7 @@ public final class AvatarExpeditionStartReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(14, expId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -313,7 +365,7 @@ public final class AvatarExpeditionStartReqOuterClass {
           != other.getAvatarGuid()) return false;
       if (getExpId()
           != other.getExpId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -331,7 +383,7 @@ public final class AvatarExpeditionStartReqOuterClass {
           getAvatarGuid());
       hash = (37 * hash) + EXPID_FIELD_NUMBER;
       hash = (53 * hash) + getExpId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -448,21 +500,28 @@ public final class AvatarExpeditionStartReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.AvatarExpeditionStartReqOuterClass.AvatarExpeditionStartReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         hourTime_ = 0;
+
         avatarGuid_ = 0L;
+
         expId_ = 0;
+
         return this;
       }
 
@@ -489,22 +548,11 @@ public final class AvatarExpeditionStartReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.AvatarExpeditionStartReqOuterClass.AvatarExpeditionStartReq buildPartial() {
         emu.grasscutter.net.proto.AvatarExpeditionStartReqOuterClass.AvatarExpeditionStartReq result = new emu.grasscutter.net.proto.AvatarExpeditionStartReqOuterClass.AvatarExpeditionStartReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.hourTime_ = hourTime_;
+        result.avatarGuid_ = avatarGuid_;
+        result.expId_ = expId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.AvatarExpeditionStartReqOuterClass.AvatarExpeditionStartReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.hourTime_ = hourTime_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.avatarGuid_ = avatarGuid_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.expId_ = expId_;
-        }
       }
 
       @java.lang.Override
@@ -560,7 +608,7 @@ public final class AvatarExpeditionStartReqOuterClass {
         if (other.getExpId() != 0) {
           setExpId(other.getExpId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -575,48 +623,19 @@ public final class AvatarExpeditionStartReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.AvatarExpeditionStartReqOuterClass.AvatarExpeditionStartReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 64: {
-                avatarGuid_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 64
-              case 96: {
-                hourTime_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 96
-              case 112: {
-                expId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 112
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.AvatarExpeditionStartReqOuterClass.AvatarExpeditionStartReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int hourTime_ ;
       /**
@@ -635,7 +654,6 @@ public final class AvatarExpeditionStartReqOuterClass {
       public Builder setHourTime(int value) {
         
         hourTime_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -644,7 +662,7 @@ public final class AvatarExpeditionStartReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearHourTime() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         hourTime_ = 0;
         onChanged();
         return this;
@@ -667,7 +685,6 @@ public final class AvatarExpeditionStartReqOuterClass {
       public Builder setAvatarGuid(long value) {
         
         avatarGuid_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -676,7 +693,7 @@ public final class AvatarExpeditionStartReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAvatarGuid() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         avatarGuid_ = 0L;
         onChanged();
         return this;
@@ -699,7 +716,6 @@ public final class AvatarExpeditionStartReqOuterClass {
       public Builder setExpId(int value) {
         
         expId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -708,7 +724,7 @@ public final class AvatarExpeditionStartReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearExpId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         expId_ = 0;
         onChanged();
         return this;
@@ -746,18 +762,7 @@ public final class AvatarExpeditionStartReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AvatarExpeditionStartReq(input, extensionRegistry);
       }
     };
 

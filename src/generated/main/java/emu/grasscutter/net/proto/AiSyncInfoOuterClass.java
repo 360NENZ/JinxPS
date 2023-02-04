@@ -25,16 +25,16 @@ public final class AiSyncInfoOuterClass {
     int getEntityId();
 
     /**
-     * <code>bool has_path_to_target = 2;</code>
+     * <code>bool Unk3300_EBICCLLGICG = 2;</code>
+     * @return The unk3300EBICCLLGICG.
+     */
+    boolean getUnk3300EBICCLLGICG();
+
+    /**
+     * <code>bool hasPathToTarget = 10;</code>
      * @return The hasPathToTarget.
      */
     boolean getHasPathToTarget();
-
-    /**
-     * <code>bool is_self_killing = 10;</code>
-     * @return The isSelfKilling.
-     */
-    boolean getIsSelfKilling();
   }
   /**
    * Protobuf type {@code AiSyncInfo}
@@ -63,6 +63,58 @@ public final class AiSyncInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private AiSyncInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              entityId_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+
+              unk3300EBICCLLGICG_ = input.readBool();
+              break;
+            }
+            case 80: {
+
+              hasPathToTarget_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.AiSyncInfoOuterClass.internal_static_AiSyncInfo_descriptor;
@@ -77,7 +129,7 @@ public final class AiSyncInfoOuterClass {
     }
 
     public static final int ENTITYID_FIELD_NUMBER = 1;
-    private int entityId_ = 0;
+    private int entityId_;
     /**
      * <code>uint32 entityId = 1;</code>
      * @return The entityId.
@@ -87,26 +139,26 @@ public final class AiSyncInfoOuterClass {
       return entityId_;
     }
 
-    public static final int HAS_PATH_TO_TARGET_FIELD_NUMBER = 2;
-    private boolean hasPathToTarget_ = false;
+    public static final int UNK3300_EBICCLLGICG_FIELD_NUMBER = 2;
+    private boolean unk3300EBICCLLGICG_;
     /**
-     * <code>bool has_path_to_target = 2;</code>
+     * <code>bool Unk3300_EBICCLLGICG = 2;</code>
+     * @return The unk3300EBICCLLGICG.
+     */
+    @java.lang.Override
+    public boolean getUnk3300EBICCLLGICG() {
+      return unk3300EBICCLLGICG_;
+    }
+
+    public static final int HASPATHTOTARGET_FIELD_NUMBER = 10;
+    private boolean hasPathToTarget_;
+    /**
+     * <code>bool hasPathToTarget = 10;</code>
      * @return The hasPathToTarget.
      */
     @java.lang.Override
     public boolean getHasPathToTarget() {
       return hasPathToTarget_;
-    }
-
-    public static final int IS_SELF_KILLING_FIELD_NUMBER = 10;
-    private boolean isSelfKilling_ = false;
-    /**
-     * <code>bool is_self_killing = 10;</code>
-     * @return The isSelfKilling.
-     */
-    @java.lang.Override
-    public boolean getIsSelfKilling() {
-      return isSelfKilling_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -126,13 +178,13 @@ public final class AiSyncInfoOuterClass {
       if (entityId_ != 0) {
         output.writeUInt32(1, entityId_);
       }
+      if (unk3300EBICCLLGICG_ != false) {
+        output.writeBool(2, unk3300EBICCLLGICG_);
+      }
       if (hasPathToTarget_ != false) {
-        output.writeBool(2, hasPathToTarget_);
+        output.writeBool(10, hasPathToTarget_);
       }
-      if (isSelfKilling_ != false) {
-        output.writeBool(10, isSelfKilling_);
-      }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -145,15 +197,15 @@ public final class AiSyncInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, entityId_);
       }
+      if (unk3300EBICCLLGICG_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, unk3300EBICCLLGICG_);
+      }
       if (hasPathToTarget_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, hasPathToTarget_);
+          .computeBoolSize(10, hasPathToTarget_);
       }
-      if (isSelfKilling_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(10, isSelfKilling_);
-      }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -170,11 +222,11 @@ public final class AiSyncInfoOuterClass {
 
       if (getEntityId()
           != other.getEntityId()) return false;
+      if (getUnk3300EBICCLLGICG()
+          != other.getUnk3300EBICCLLGICG()) return false;
       if (getHasPathToTarget()
           != other.getHasPathToTarget()) return false;
-      if (getIsSelfKilling()
-          != other.getIsSelfKilling()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -187,13 +239,13 @@ public final class AiSyncInfoOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ENTITYID_FIELD_NUMBER;
       hash = (53 * hash) + getEntityId();
-      hash = (37 * hash) + HAS_PATH_TO_TARGET_FIELD_NUMBER;
+      hash = (37 * hash) + UNK3300_EBICCLLGICG_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getUnk3300EBICCLLGICG());
+      hash = (37 * hash) + HASPATHTOTARGET_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getHasPathToTarget());
-      hash = (37 * hash) + IS_SELF_KILLING_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getIsSelfKilling());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -310,21 +362,28 @@ public final class AiSyncInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.AiSyncInfoOuterClass.AiSyncInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         entityId_ = 0;
+
+        unk3300EBICCLLGICG_ = false;
+
         hasPathToTarget_ = false;
-        isSelfKilling_ = false;
+
         return this;
       }
 
@@ -351,22 +410,11 @@ public final class AiSyncInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.AiSyncInfoOuterClass.AiSyncInfo buildPartial() {
         emu.grasscutter.net.proto.AiSyncInfoOuterClass.AiSyncInfo result = new emu.grasscutter.net.proto.AiSyncInfoOuterClass.AiSyncInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.entityId_ = entityId_;
+        result.unk3300EBICCLLGICG_ = unk3300EBICCLLGICG_;
+        result.hasPathToTarget_ = hasPathToTarget_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.AiSyncInfoOuterClass.AiSyncInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.entityId_ = entityId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.hasPathToTarget_ = hasPathToTarget_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.isSelfKilling_ = isSelfKilling_;
-        }
       }
 
       @java.lang.Override
@@ -416,13 +464,13 @@ public final class AiSyncInfoOuterClass {
         if (other.getEntityId() != 0) {
           setEntityId(other.getEntityId());
         }
+        if (other.getUnk3300EBICCLLGICG() != false) {
+          setUnk3300EBICCLLGICG(other.getUnk3300EBICCLLGICG());
+        }
         if (other.getHasPathToTarget() != false) {
           setHasPathToTarget(other.getHasPathToTarget());
         }
-        if (other.getIsSelfKilling() != false) {
-          setIsSelfKilling(other.getIsSelfKilling());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -437,48 +485,19 @@ public final class AiSyncInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.AiSyncInfoOuterClass.AiSyncInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                entityId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                hasPathToTarget_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 80: {
-                isSelfKilling_ = input.readBool();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 80
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.AiSyncInfoOuterClass.AiSyncInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int entityId_ ;
       /**
@@ -497,7 +516,6 @@ public final class AiSyncInfoOuterClass {
       public Builder setEntityId(int value) {
         
         entityId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -506,15 +524,46 @@ public final class AiSyncInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEntityId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         entityId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean unk3300EBICCLLGICG_ ;
+      /**
+       * <code>bool Unk3300_EBICCLLGICG = 2;</code>
+       * @return The unk3300EBICCLLGICG.
+       */
+      @java.lang.Override
+      public boolean getUnk3300EBICCLLGICG() {
+        return unk3300EBICCLLGICG_;
+      }
+      /**
+       * <code>bool Unk3300_EBICCLLGICG = 2;</code>
+       * @param value The unk3300EBICCLLGICG to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUnk3300EBICCLLGICG(boolean value) {
+        
+        unk3300EBICCLLGICG_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool Unk3300_EBICCLLGICG = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUnk3300EBICCLLGICG() {
+        
+        unk3300EBICCLLGICG_ = false;
         onChanged();
         return this;
       }
 
       private boolean hasPathToTarget_ ;
       /**
-       * <code>bool has_path_to_target = 2;</code>
+       * <code>bool hasPathToTarget = 10;</code>
        * @return The hasPathToTarget.
        */
       @java.lang.Override
@@ -522,56 +571,23 @@ public final class AiSyncInfoOuterClass {
         return hasPathToTarget_;
       }
       /**
-       * <code>bool has_path_to_target = 2;</code>
+       * <code>bool hasPathToTarget = 10;</code>
        * @param value The hasPathToTarget to set.
        * @return This builder for chaining.
        */
       public Builder setHasPathToTarget(boolean value) {
         
         hasPathToTarget_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
-       * <code>bool has_path_to_target = 2;</code>
+       * <code>bool hasPathToTarget = 10;</code>
        * @return This builder for chaining.
        */
       public Builder clearHasPathToTarget() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        hasPathToTarget_ = false;
-        onChanged();
-        return this;
-      }
-
-      private boolean isSelfKilling_ ;
-      /**
-       * <code>bool is_self_killing = 10;</code>
-       * @return The isSelfKilling.
-       */
-      @java.lang.Override
-      public boolean getIsSelfKilling() {
-        return isSelfKilling_;
-      }
-      /**
-       * <code>bool is_self_killing = 10;</code>
-       * @param value The isSelfKilling to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIsSelfKilling(boolean value) {
         
-        isSelfKilling_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool is_self_killing = 10;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearIsSelfKilling() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        isSelfKilling_ = false;
+        hasPathToTarget_ = false;
         onChanged();
         return this;
       }
@@ -608,18 +624,7 @@ public final class AiSyncInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AiSyncInfo(input, extensionRegistry);
       }
     };
 
@@ -653,10 +658,10 @@ public final class AiSyncInfoOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020AiSyncInfo.proto\"S\n\nAiSyncInfo\022\020\n\010enti" +
-      "tyId\030\001 \001(\r\022\032\n\022has_path_to_target\030\002 \001(\010\022\027" +
-      "\n\017is_self_killing\030\n \001(\010B\033\n\031emu.grasscutt" +
-      "er.net.protob\006proto3"
+      "\n\020AiSyncInfo.proto\"T\n\nAiSyncInfo\022\020\n\010enti" +
+      "tyId\030\001 \001(\r\022\033\n\023Unk3300_EBICCLLGICG\030\002 \001(\010\022" +
+      "\027\n\017hasPathToTarget\030\n \001(\010B\033\n\031emu.grasscut" +
+      "ter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -667,7 +672,7 @@ public final class AiSyncInfoOuterClass {
     internal_static_AiSyncInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AiSyncInfo_descriptor,
-        new java.lang.String[] { "EntityId", "HasPathToTarget", "IsSelfKilling", });
+        new java.lang.String[] { "EntityId", "Unk3300EBICCLLGICG", "HasPathToTarget", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

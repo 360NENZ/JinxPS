@@ -76,6 +76,61 @@ public final class InferencePageInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private InferencePageInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 48: {
+
+              pageId_ = input.readUInt32();
+              break;
+            }
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                unlockWordList_ = new java.util.ArrayList<emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              unlockWordList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          unlockWordList_ = java.util.Collections.unmodifiableList(unlockWordList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.InferencePageInfoOuterClass.internal_static_InferencePageInfo_descriptor;
@@ -90,7 +145,7 @@ public final class InferencePageInfoOuterClass {
     }
 
     public static final int PAGEID_FIELD_NUMBER = 6;
-    private int pageId_ = 0;
+    private int pageId_;
     /**
      * <code>uint32 pageId = 6;</code>
      * @return The pageId.
@@ -101,7 +156,6 @@ public final class InferencePageInfoOuterClass {
     }
 
     public static final int UNLOCKWORDLIST_FIELD_NUMBER = 8;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo> unlockWordList_;
     /**
      * <code>repeated .InferenceWordInfo unlockWordList = 8;</code>
@@ -161,7 +215,7 @@ public final class InferencePageInfoOuterClass {
       for (int i = 0; i < unlockWordList_.size(); i++) {
         output.writeMessage(8, unlockWordList_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -178,7 +232,7 @@ public final class InferencePageInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, unlockWordList_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -197,7 +251,7 @@ public final class InferencePageInfoOuterClass {
           != other.getPageId()) return false;
       if (!getUnlockWordListList()
           .equals(other.getUnlockWordListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -214,7 +268,7 @@ public final class InferencePageInfoOuterClass {
         hash = (37 * hash) + UNLOCKWORDLIST_FIELD_NUMBER;
         hash = (53 * hash) + getUnlockWordListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -331,26 +385,31 @@ public final class InferencePageInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.InferencePageInfoOuterClass.InferencePageInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getUnlockWordListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         pageId_ = 0;
+
         if (unlockWordListBuilder_ == null) {
           unlockWordList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          unlockWordList_ = null;
           unlockWordListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -377,29 +436,19 @@ public final class InferencePageInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.InferencePageInfoOuterClass.InferencePageInfo buildPartial() {
         emu.grasscutter.net.proto.InferencePageInfoOuterClass.InferencePageInfo result = new emu.grasscutter.net.proto.InferencePageInfoOuterClass.InferencePageInfo(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.InferencePageInfoOuterClass.InferencePageInfo result) {
+        int from_bitField0_ = bitField0_;
+        result.pageId_ = pageId_;
         if (unlockWordListBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             unlockWordList_ = java.util.Collections.unmodifiableList(unlockWordList_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.unlockWordList_ = unlockWordList_;
         } else {
           result.unlockWordList_ = unlockWordListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.InferencePageInfoOuterClass.InferencePageInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.pageId_ = pageId_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -453,7 +502,7 @@ public final class InferencePageInfoOuterClass {
           if (!other.unlockWordList_.isEmpty()) {
             if (unlockWordList_.isEmpty()) {
               unlockWordList_ = other.unlockWordList_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureUnlockWordListIsMutable();
               unlockWordList_.addAll(other.unlockWordList_);
@@ -466,7 +515,7 @@ public final class InferencePageInfoOuterClass {
               unlockWordListBuilder_.dispose();
               unlockWordListBuilder_ = null;
               unlockWordList_ = other.unlockWordList_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               unlockWordListBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getUnlockWordListFieldBuilder() : null;
@@ -475,7 +524,7 @@ public final class InferencePageInfoOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -490,48 +539,17 @@ public final class InferencePageInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.InferencePageInfoOuterClass.InferencePageInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 48: {
-                pageId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 48
-              case 66: {
-                emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo.parser(),
-                        extensionRegistry);
-                if (unlockWordListBuilder_ == null) {
-                  ensureUnlockWordListIsMutable();
-                  unlockWordList_.add(m);
-                } else {
-                  unlockWordListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 66
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.InferencePageInfoOuterClass.InferencePageInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -553,7 +571,6 @@ public final class InferencePageInfoOuterClass {
       public Builder setPageId(int value) {
         
         pageId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -562,7 +579,7 @@ public final class InferencePageInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPageId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         pageId_ = 0;
         onChanged();
         return this;
@@ -571,9 +588,9 @@ public final class InferencePageInfoOuterClass {
       private java.util.List<emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo> unlockWordList_ =
         java.util.Collections.emptyList();
       private void ensureUnlockWordListIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           unlockWordList_ = new java.util.ArrayList<emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo>(unlockWordList_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -723,7 +740,7 @@ public final class InferencePageInfoOuterClass {
       public Builder clearUnlockWordList() {
         if (unlockWordListBuilder_ == null) {
           unlockWordList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           unlockWordListBuilder_.clear();
@@ -800,7 +817,7 @@ public final class InferencePageInfoOuterClass {
           unlockWordListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo, emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo.Builder, emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfoOrBuilder>(
                   unlockWordList_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           unlockWordList_ = null;
@@ -840,18 +857,7 @@ public final class InferencePageInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new InferencePageInfo(input, extensionRegistry);
       }
     };
 

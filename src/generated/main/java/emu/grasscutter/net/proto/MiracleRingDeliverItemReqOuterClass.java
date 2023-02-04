@@ -112,6 +112,96 @@ public final class MiracleRingDeliverItemReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MiracleRingDeliverItemReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+              int rawValue = input.readEnum();
+
+              opType_ = rawValue;
+              break;
+            }
+            case 24: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                foodWeaponGuidList_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              foodWeaponGuidList_.addLong(input.readUInt64());
+              break;
+            }
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                foodWeaponGuidList_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                foodWeaponGuidList_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                itemParamList_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              itemParamList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(), extensionRegistry));
+              break;
+            }
+            case 48: {
+
+              gadgetEntityId_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+
+              gadgetId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          foodWeaponGuidList_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          itemParamList_ = java.util.Collections.unmodifiableList(itemParamList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.MiracleRingDeliverItemReqOuterClass.internal_static_MiracleRingDeliverItemReq_descriptor;
@@ -265,7 +355,6 @@ public final class MiracleRingDeliverItemReqOuterClass {
     }
 
     public static final int FOODWEAPONGUIDLIST_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList foodWeaponGuidList_;
     /**
      * <code>repeated uint64 foodWeaponGuidList = 3;</code>
@@ -294,7 +383,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
     private int foodWeaponGuidListMemoizedSerializedSize = -1;
 
     public static final int OPTYPE_FIELD_NUMBER = 2;
-    private int opType_ = 0;
+    private int opType_;
     /**
      * <code>.InterOpType opType = 2;</code>
      * @return The enum numeric value on the wire for opType.
@@ -307,12 +396,13 @@ public final class MiracleRingDeliverItemReqOuterClass {
      * @return The opType.
      */
     @java.lang.Override public emu.grasscutter.net.proto.InterOpTypeOuterClass.InterOpType getOpType() {
-      emu.grasscutter.net.proto.InterOpTypeOuterClass.InterOpType result = emu.grasscutter.net.proto.InterOpTypeOuterClass.InterOpType.forNumber(opType_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.InterOpTypeOuterClass.InterOpType result = emu.grasscutter.net.proto.InterOpTypeOuterClass.InterOpType.valueOf(opType_);
       return result == null ? emu.grasscutter.net.proto.InterOpTypeOuterClass.InterOpType.UNRECOGNIZED : result;
     }
 
     public static final int GADGETID_FIELD_NUMBER = 14;
-    private int gadgetId_ = 0;
+    private int gadgetId_;
     /**
      * <code>uint32 gadgetId = 14;</code>
      * @return The gadgetId.
@@ -323,7 +413,6 @@ public final class MiracleRingDeliverItemReqOuterClass {
     }
 
     public static final int ITEMPARAMLIST_FIELD_NUMBER = 5;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> itemParamList_;
     /**
      * <code>repeated .ItemParam itemParamList = 5;</code>
@@ -364,7 +453,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
     }
 
     public static final int GADGETENTITYID_FIELD_NUMBER = 6;
-    private int gadgetEntityId_ = 0;
+    private int gadgetEntityId_;
     /**
      * <code>uint32 gadgetEntityId = 6;</code>
      * @return The gadgetEntityId.
@@ -408,7 +497,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
       if (gadgetId_ != 0) {
         output.writeUInt32(14, gadgetId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -447,7 +536,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(14, gadgetId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -471,7 +560,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
           .equals(other.getItemParamListList())) return false;
       if (getGadgetEntityId()
           != other.getGadgetEntityId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -496,7 +585,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
       }
       hash = (37 * hash) + GADGETENTITYID_FIELD_NUMBER;
       hash = (53 * hash) + getGadgetEntityId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -613,29 +702,37 @@ public final class MiracleRingDeliverItemReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.MiracleRingDeliverItemReqOuterClass.MiracleRingDeliverItemReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getItemParamListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         foodWeaponGuidList_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         opType_ = 0;
+
         gadgetId_ = 0;
+
         if (itemParamListBuilder_ == null) {
           itemParamList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
-          itemParamList_ = null;
           itemParamListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
         gadgetEntityId_ = 0;
+
         return this;
       }
 
@@ -662,40 +759,26 @@ public final class MiracleRingDeliverItemReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.MiracleRingDeliverItemReqOuterClass.MiracleRingDeliverItemReq buildPartial() {
         emu.grasscutter.net.proto.MiracleRingDeliverItemReqOuterClass.MiracleRingDeliverItemReq result = new emu.grasscutter.net.proto.MiracleRingDeliverItemReqOuterClass.MiracleRingDeliverItemReq(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.MiracleRingDeliverItemReqOuterClass.MiracleRingDeliverItemReq result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           foodWeaponGuidList_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.foodWeaponGuidList_ = foodWeaponGuidList_;
+        result.opType_ = opType_;
+        result.gadgetId_ = gadgetId_;
         if (itemParamListBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             itemParamList_ = java.util.Collections.unmodifiableList(itemParamList_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.itemParamList_ = itemParamList_;
         } else {
           result.itemParamList_ = itemParamListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.MiracleRingDeliverItemReqOuterClass.MiracleRingDeliverItemReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.opType_ = opType_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.gadgetId_ = gadgetId_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.gadgetEntityId_ = gadgetEntityId_;
-        }
+        result.gadgetEntityId_ = gadgetEntityId_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -762,7 +845,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
           if (!other.itemParamList_.isEmpty()) {
             if (itemParamList_.isEmpty()) {
               itemParamList_ = other.itemParamList_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureItemParamListIsMutable();
               itemParamList_.addAll(other.itemParamList_);
@@ -775,7 +858,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
               itemParamListBuilder_.dispose();
               itemParamListBuilder_ = null;
               itemParamList_ = other.itemParamList_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000002);
               itemParamListBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getItemParamListFieldBuilder() : null;
@@ -787,7 +870,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
         if (other.getGadgetEntityId() != 0) {
           setGadgetEntityId(other.getGadgetEntityId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -802,74 +885,17 @@ public final class MiracleRingDeliverItemReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.MiracleRingDeliverItemReqOuterClass.MiracleRingDeliverItemReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 16: {
-                opType_ = input.readEnum();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                long v = input.readUInt64();
-                ensureFoodWeaponGuidListIsMutable();
-                foodWeaponGuidList_.addLong(v);
-                break;
-              } // case 24
-              case 26: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureFoodWeaponGuidListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  foodWeaponGuidList_.addLong(input.readUInt64());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 26
-              case 42: {
-                emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.parser(),
-                        extensionRegistry);
-                if (itemParamListBuilder_ == null) {
-                  ensureItemParamListIsMutable();
-                  itemParamList_.add(m);
-                } else {
-                  itemParamListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 42
-              case 48: {
-                gadgetEntityId_ = input.readUInt32();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 48
-              case 112: {
-                gadgetId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 112
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.MiracleRingDeliverItemReqOuterClass.MiracleRingDeliverItemReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -879,7 +905,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
         if (!((bitField0_ & 0x00000001) != 0)) {
           foodWeaponGuidList_ = mutableCopy(foodWeaponGuidList_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
        * <code>repeated uint64 foodWeaponGuidList = 3;</code>
@@ -913,7 +939,6 @@ public final class MiracleRingDeliverItemReqOuterClass {
        */
       public Builder setFoodWeaponGuidList(
           int index, long value) {
-        
         ensureFoodWeaponGuidListIsMutable();
         foodWeaponGuidList_.setLong(index, value);
         onChanged();
@@ -925,7 +950,6 @@ public final class MiracleRingDeliverItemReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder addFoodWeaponGuidList(long value) {
-        
         ensureFoodWeaponGuidListIsMutable();
         foodWeaponGuidList_.addLong(value);
         onChanged();
@@ -969,8 +993,8 @@ public final class MiracleRingDeliverItemReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder setOpTypeValue(int value) {
+        
         opType_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -980,7 +1004,8 @@ public final class MiracleRingDeliverItemReqOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.InterOpTypeOuterClass.InterOpType getOpType() {
-        emu.grasscutter.net.proto.InterOpTypeOuterClass.InterOpType result = emu.grasscutter.net.proto.InterOpTypeOuterClass.InterOpType.forNumber(opType_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.InterOpTypeOuterClass.InterOpType result = emu.grasscutter.net.proto.InterOpTypeOuterClass.InterOpType.valueOf(opType_);
         return result == null ? emu.grasscutter.net.proto.InterOpTypeOuterClass.InterOpType.UNRECOGNIZED : result;
       }
       /**
@@ -992,7 +1017,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         opType_ = value.getNumber();
         onChanged();
         return this;
@@ -1002,7 +1027,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearOpType() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         opType_ = 0;
         onChanged();
         return this;
@@ -1025,7 +1050,6 @@ public final class MiracleRingDeliverItemReqOuterClass {
       public Builder setGadgetId(int value) {
         
         gadgetId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1034,7 +1058,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGadgetId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         gadgetId_ = 0;
         onChanged();
         return this;
@@ -1043,9 +1067,9 @@ public final class MiracleRingDeliverItemReqOuterClass {
       private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> itemParamList_ =
         java.util.Collections.emptyList();
       private void ensureItemParamListIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           itemParamList_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>(itemParamList_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1195,7 +1219,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
       public Builder clearItemParamList() {
         if (itemParamListBuilder_ == null) {
           itemParamList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           itemParamListBuilder_.clear();
@@ -1272,7 +1296,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
           itemParamListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.Builder, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParamOrBuilder>(
                   itemParamList_,
-                  ((bitField0_ & 0x00000008) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           itemParamList_ = null;
@@ -1297,7 +1321,6 @@ public final class MiracleRingDeliverItemReqOuterClass {
       public Builder setGadgetEntityId(int value) {
         
         gadgetEntityId_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1306,7 +1329,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGadgetEntityId() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         gadgetEntityId_ = 0;
         onChanged();
         return this;
@@ -1344,18 +1367,7 @@ public final class MiracleRingDeliverItemReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MiracleRingDeliverItemReq(input, extensionRegistry);
       }
     };
 

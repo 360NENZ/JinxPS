@@ -57,6 +57,49 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MusicGameStartToPlayOthersBeatmapReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 96: {
+              int rawValue = input.readEnum();
+
+              unknownEnum1_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.MusicGameStartToPlayOthersBeatmapReqOuterClass.internal_static_MusicGameStartToPlayOthersBeatmapReq_descriptor;
@@ -71,7 +114,7 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
     }
 
     public static final int UNKNOWN_ENUM1_FIELD_NUMBER = 12;
-    private int unknownEnum1_ = 0;
+    private int unknownEnum1_;
     /**
      * <code>.MusicGameUnknown1Enum unknown_enum1 = 12;</code>
      * @return The enum numeric value on the wire for unknownEnum1.
@@ -84,7 +127,8 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
      * @return The unknownEnum1.
      */
     @java.lang.Override public emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum getUnknownEnum1() {
-      emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum result = emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.forNumber(unknownEnum1_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum result = emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.valueOf(unknownEnum1_);
       return result == null ? emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.UNRECOGNIZED : result;
     }
 
@@ -105,7 +149,7 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
       if (unknownEnum1_ != emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.MusicGameUnknown1Enum_NONE.getNumber()) {
         output.writeEnum(12, unknownEnum1_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -118,7 +162,7 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(12, unknownEnum1_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -134,7 +178,7 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
       emu.grasscutter.net.proto.MusicGameStartToPlayOthersBeatmapReqOuterClass.MusicGameStartToPlayOthersBeatmapReq other = (emu.grasscutter.net.proto.MusicGameStartToPlayOthersBeatmapReqOuterClass.MusicGameStartToPlayOthersBeatmapReq) obj;
 
       if (unknownEnum1_ != other.unknownEnum1_) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -147,7 +191,7 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + UNKNOWN_ENUM1_FIELD_NUMBER;
       hash = (53 * hash) + unknownEnum1_;
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -264,19 +308,24 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.MusicGameStartToPlayOthersBeatmapReqOuterClass.MusicGameStartToPlayOthersBeatmapReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         unknownEnum1_ = 0;
+
         return this;
       }
 
@@ -303,16 +352,9 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.MusicGameStartToPlayOthersBeatmapReqOuterClass.MusicGameStartToPlayOthersBeatmapReq buildPartial() {
         emu.grasscutter.net.proto.MusicGameStartToPlayOthersBeatmapReqOuterClass.MusicGameStartToPlayOthersBeatmapReq result = new emu.grasscutter.net.proto.MusicGameStartToPlayOthersBeatmapReqOuterClass.MusicGameStartToPlayOthersBeatmapReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.unknownEnum1_ = unknownEnum1_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.MusicGameStartToPlayOthersBeatmapReqOuterClass.MusicGameStartToPlayOthersBeatmapReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.unknownEnum1_ = unknownEnum1_;
-        }
       }
 
       @java.lang.Override
@@ -362,7 +404,7 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
         if (other.unknownEnum1_ != 0) {
           setUnknownEnum1Value(other.getUnknownEnum1Value());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -377,38 +419,19 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.MusicGameStartToPlayOthersBeatmapReqOuterClass.MusicGameStartToPlayOthersBeatmapReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 96: {
-                unknownEnum1_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 96
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.MusicGameStartToPlayOthersBeatmapReqOuterClass.MusicGameStartToPlayOthersBeatmapReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int unknownEnum1_ = 0;
       /**
@@ -424,8 +447,8 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder setUnknownEnum1Value(int value) {
+        
         unknownEnum1_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -435,7 +458,8 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum getUnknownEnum1() {
-        emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum result = emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.forNumber(unknownEnum1_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum result = emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.valueOf(unknownEnum1_);
         return result == null ? emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.UNRECOGNIZED : result;
       }
       /**
@@ -447,7 +471,7 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000001;
+        
         unknownEnum1_ = value.getNumber();
         onChanged();
         return this;
@@ -457,7 +481,7 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnknownEnum1() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         unknownEnum1_ = 0;
         onChanged();
         return this;
@@ -495,18 +519,7 @@ public final class MusicGameStartToPlayOthersBeatmapReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MusicGameStartToPlayOthersBeatmapReq(input, extensionRegistry);
       }
     };
 

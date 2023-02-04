@@ -63,6 +63,58 @@ public final class GadgetStateNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GadgetStateNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 56: {
+
+              gadgetEntityId_ = input.readUInt32();
+              break;
+            }
+            case 72: {
+
+              gadgetState_ = input.readUInt32();
+              break;
+            }
+            case 120: {
+
+              isEnableInteract_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.GadgetStateNotifyOuterClass.internal_static_GadgetStateNotify_descriptor;
@@ -208,7 +260,7 @@ public final class GadgetStateNotifyOuterClass {
     }
 
     public static final int GADGETSTATE_FIELD_NUMBER = 9;
-    private int gadgetState_ = 0;
+    private int gadgetState_;
     /**
      * <code>uint32 gadgetState = 9;</code>
      * @return The gadgetState.
@@ -219,7 +271,7 @@ public final class GadgetStateNotifyOuterClass {
     }
 
     public static final int GADGETENTITYID_FIELD_NUMBER = 7;
-    private int gadgetEntityId_ = 0;
+    private int gadgetEntityId_;
     /**
      * <code>uint32 gadgetEntityId = 7;</code>
      * @return The gadgetEntityId.
@@ -230,7 +282,7 @@ public final class GadgetStateNotifyOuterClass {
     }
 
     public static final int ISENABLEINTERACT_FIELD_NUMBER = 15;
-    private boolean isEnableInteract_ = false;
+    private boolean isEnableInteract_;
     /**
      * <code>bool isEnableInteract = 15;</code>
      * @return The isEnableInteract.
@@ -263,7 +315,7 @@ public final class GadgetStateNotifyOuterClass {
       if (isEnableInteract_ != false) {
         output.writeBool(15, isEnableInteract_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -284,7 +336,7 @@ public final class GadgetStateNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(15, isEnableInteract_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -305,7 +357,7 @@ public final class GadgetStateNotifyOuterClass {
           != other.getGadgetEntityId()) return false;
       if (getIsEnableInteract()
           != other.getIsEnableInteract()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -323,7 +375,7 @@ public final class GadgetStateNotifyOuterClass {
       hash = (37 * hash) + ISENABLEINTERACT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsEnableInteract());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -440,21 +492,28 @@ public final class GadgetStateNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.GadgetStateNotifyOuterClass.GadgetStateNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         gadgetState_ = 0;
+
         gadgetEntityId_ = 0;
+
         isEnableInteract_ = false;
+
         return this;
       }
 
@@ -481,22 +540,11 @@ public final class GadgetStateNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.GadgetStateNotifyOuterClass.GadgetStateNotify buildPartial() {
         emu.grasscutter.net.proto.GadgetStateNotifyOuterClass.GadgetStateNotify result = new emu.grasscutter.net.proto.GadgetStateNotifyOuterClass.GadgetStateNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.gadgetState_ = gadgetState_;
+        result.gadgetEntityId_ = gadgetEntityId_;
+        result.isEnableInteract_ = isEnableInteract_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.GadgetStateNotifyOuterClass.GadgetStateNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.gadgetState_ = gadgetState_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.gadgetEntityId_ = gadgetEntityId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.isEnableInteract_ = isEnableInteract_;
-        }
       }
 
       @java.lang.Override
@@ -552,7 +600,7 @@ public final class GadgetStateNotifyOuterClass {
         if (other.getIsEnableInteract() != false) {
           setIsEnableInteract(other.getIsEnableInteract());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -567,48 +615,19 @@ public final class GadgetStateNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.GadgetStateNotifyOuterClass.GadgetStateNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 56: {
-                gadgetEntityId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 56
-              case 72: {
-                gadgetState_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 72
-              case 120: {
-                isEnableInteract_ = input.readBool();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.GadgetStateNotifyOuterClass.GadgetStateNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int gadgetState_ ;
       /**
@@ -627,7 +646,6 @@ public final class GadgetStateNotifyOuterClass {
       public Builder setGadgetState(int value) {
         
         gadgetState_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -636,7 +654,7 @@ public final class GadgetStateNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGadgetState() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         gadgetState_ = 0;
         onChanged();
         return this;
@@ -659,7 +677,6 @@ public final class GadgetStateNotifyOuterClass {
       public Builder setGadgetEntityId(int value) {
         
         gadgetEntityId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -668,7 +685,7 @@ public final class GadgetStateNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGadgetEntityId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         gadgetEntityId_ = 0;
         onChanged();
         return this;
@@ -691,7 +708,6 @@ public final class GadgetStateNotifyOuterClass {
       public Builder setIsEnableInteract(boolean value) {
         
         isEnableInteract_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -700,7 +716,7 @@ public final class GadgetStateNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsEnableInteract() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         isEnableInteract_ = false;
         onChanged();
         return this;
@@ -738,18 +754,7 @@ public final class GadgetStateNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GadgetStateNotify(input, extensionRegistry);
       }
     };
 

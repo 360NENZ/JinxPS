@@ -43,17 +43,6 @@ public final class CombatInvocationsNotifyOuterClass {
         int index);
   }
   /**
-   * <pre>
-   *enum ENECMIELGCN {
-   *	option allow_alias = true;
-   *	NONE = 0;
-   *	PEPPOHPHJOJ = 323;
-   *	DCDNILFDFLB = 0;
-   *	NNBKOLMPOEA = 1;
-   *	EAJIABGAOCI = 1;
-   *}
-   * </pre>
-   *
    * Protobuf type {@code CombatInvocationsNotify}
    */
   public static final class CombatInvocationsNotify extends
@@ -81,6 +70,56 @@ public final class CombatInvocationsNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private CombatInvocationsNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 90: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                invokeList_ = new java.util.ArrayList<emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.CombatInvokeEntry>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              invokeList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.CombatInvokeEntry.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          invokeList_ = java.util.Collections.unmodifiableList(invokeList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.CombatInvocationsNotifyOuterClass.internal_static_CombatInvocationsNotify_descriptor;
@@ -94,8 +133,146 @@ public final class CombatInvocationsNotifyOuterClass {
               emu.grasscutter.net.proto.CombatInvocationsNotifyOuterClass.CombatInvocationsNotify.class, emu.grasscutter.net.proto.CombatInvocationsNotifyOuterClass.CombatInvocationsNotify.Builder.class);
     }
 
+    /**
+     * Protobuf enum {@code CombatInvocationsNotify.ENECMIELGCN}
+     */
+    public enum ENECMIELGCN
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>NONE = 0;</code>
+       */
+      NONE(0, 0),
+      /**
+       * <code>PEPPOHPHJOJ = 323;</code>
+       */
+      PEPPOHPHJOJ(1, 323),
+      /**
+       * <code>NNBKOLMPOEA = 1;</code>
+       */
+      NNBKOLMPOEA(3, 1),
+      UNRECOGNIZED(-1, -1),
+      ;
+
+      /**
+       * <code>DCDNILFDFLB = 0;</code>
+       */
+      public static final ENECMIELGCN DCDNILFDFLB = NONE;
+      /**
+       * <code>EAJIABGAOCI = 1;</code>
+       */
+      public static final ENECMIELGCN EAJIABGAOCI = NNBKOLMPOEA;
+      /**
+       * <code>NONE = 0;</code>
+       */
+      public static final int NONE_VALUE = 0;
+      /**
+       * <code>PEPPOHPHJOJ = 323;</code>
+       */
+      public static final int PEPPOHPHJOJ_VALUE = 323;
+      /**
+       * <code>DCDNILFDFLB = 0;</code>
+       */
+      public static final int DCDNILFDFLB_VALUE = 0;
+      /**
+       * <code>NNBKOLMPOEA = 1;</code>
+       */
+      public static final int NNBKOLMPOEA_VALUE = 1;
+      /**
+       * <code>EAJIABGAOCI = 1;</code>
+       */
+      public static final int EAJIABGAOCI_VALUE = 1;
+
+
+      public final int getNumber() {
+        if (index == -1) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ENECMIELGCN valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static ENECMIELGCN forNumber(int value) {
+        switch (value) {
+          case 0: return NONE;
+          case 323: return PEPPOHPHJOJ;
+          case 1: return NNBKOLMPOEA;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<ENECMIELGCN>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          ENECMIELGCN> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<ENECMIELGCN>() {
+              public ENECMIELGCN findValueByNumber(int number) {
+                return ENECMIELGCN.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (index == -1) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return emu.grasscutter.net.proto.CombatInvocationsNotifyOuterClass.CombatInvocationsNotify.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final ENECMIELGCN[] VALUES = getStaticValuesArray();
+      private static ENECMIELGCN[] getStaticValuesArray() {
+        return new ENECMIELGCN[] {
+          NONE, PEPPOHPHJOJ, DCDNILFDFLB, NNBKOLMPOEA, EAJIABGAOCI, 
+        };
+      }
+      public static ENECMIELGCN valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int index;
+      private final int value;
+
+      private ENECMIELGCN(int index, int value) {
+        this.index = index;
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:CombatInvocationsNotify.ENECMIELGCN)
+    }
+
     public static final int INVOKELIST_FIELD_NUMBER = 11;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.CombatInvokeEntry> invokeList_;
     /**
      * <code>repeated .CombatInvokeEntry invokeList = 11;</code>
@@ -152,7 +329,7 @@ public final class CombatInvocationsNotifyOuterClass {
       for (int i = 0; i < invokeList_.size(); i++) {
         output.writeMessage(11, invokeList_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -165,7 +342,7 @@ public final class CombatInvocationsNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, invokeList_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -182,7 +359,7 @@ public final class CombatInvocationsNotifyOuterClass {
 
       if (!getInvokeListList()
           .equals(other.getInvokeListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -197,7 +374,7 @@ public final class CombatInvocationsNotifyOuterClass {
         hash = (37 * hash) + INVOKELIST_FIELD_NUMBER;
         hash = (53 * hash) + getInvokeListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -293,17 +470,6 @@ public final class CombatInvocationsNotifyOuterClass {
       return builder;
     }
     /**
-     * <pre>
-     *enum ENECMIELGCN {
-     *	option allow_alias = true;
-     *	NONE = 0;
-     *	PEPPOHPHJOJ = 323;
-     *	DCDNILFDFLB = 0;
-     *	NNBKOLMPOEA = 1;
-     *	EAJIABGAOCI = 1;
-     *}
-     * </pre>
-     *
      * Protobuf type {@code CombatInvocationsNotify}
      */
     public static final class Builder extends
@@ -325,25 +491,29 @@ public final class CombatInvocationsNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.CombatInvocationsNotifyOuterClass.CombatInvocationsNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getInvokeListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (invokeListBuilder_ == null) {
           invokeList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          invokeList_ = null;
           invokeListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -370,13 +540,7 @@ public final class CombatInvocationsNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.CombatInvocationsNotifyOuterClass.CombatInvocationsNotify buildPartial() {
         emu.grasscutter.net.proto.CombatInvocationsNotifyOuterClass.CombatInvocationsNotify result = new emu.grasscutter.net.proto.CombatInvocationsNotifyOuterClass.CombatInvocationsNotify(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.CombatInvocationsNotifyOuterClass.CombatInvocationsNotify result) {
+        int from_bitField0_ = bitField0_;
         if (invokeListBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             invokeList_ = java.util.Collections.unmodifiableList(invokeList_);
@@ -386,10 +550,8 @@ public final class CombatInvocationsNotifyOuterClass {
         } else {
           result.invokeList_ = invokeListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.CombatInvocationsNotifyOuterClass.CombatInvocationsNotify result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -462,7 +624,7 @@ public final class CombatInvocationsNotifyOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -477,43 +639,17 @@ public final class CombatInvocationsNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.CombatInvocationsNotifyOuterClass.CombatInvocationsNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 90: {
-                emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.CombatInvokeEntry m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.CombatInvokeEntryOuterClass.CombatInvokeEntry.parser(),
-                        extensionRegistry);
-                if (invokeListBuilder_ == null) {
-                  ensureInvokeListIsMutable();
-                  invokeList_.add(m);
-                } else {
-                  invokeListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 90
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.CombatInvocationsNotifyOuterClass.CombatInvocationsNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -790,18 +926,7 @@ public final class CombatInvocationsNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new CombatInvocationsNotify(input, extensionRegistry);
       }
     };
 
@@ -836,9 +961,12 @@ public final class CombatInvocationsNotifyOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\035CombatInvocationsNotify.proto\032\027CombatI" +
-      "nvokeEntry.proto\"A\n\027CombatInvocationsNot" +
-      "ify\022&\n\ninvokeList\030\013 \003(\0132\022.CombatInvokeEn" +
-      "tryB\033\n\031emu.grasscutter.net.protob\006proto3"
+      "nvokeEntry.proto\"\243\001\n\027CombatInvocationsNo" +
+      "tify\022&\n\ninvokeList\030\013 \003(\0132\022.CombatInvokeE" +
+      "ntry\"`\n\013ENECMIELGCN\022\010\n\004NONE\020\000\022\020\n\013PEPPOHP" +
+      "HJOJ\020\303\002\022\017\n\013DCDNILFDFLB\020\000\022\017\n\013NNBKOLMPOEA\020" +
+      "\001\022\017\n\013EAJIABGAOCI\020\001\032\002\020\001B\033\n\031emu.grasscutte" +
+      "r.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

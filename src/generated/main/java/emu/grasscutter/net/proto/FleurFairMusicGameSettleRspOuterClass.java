@@ -69,6 +69,63 @@ public final class FleurFairMusicGameSettleRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private FleurFairMusicGameSettleRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
+              musicBasicId_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+
+              isNewRecord_ = input.readBool();
+              break;
+            }
+            case 56: {
+
+              isUnlockNextLevel_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.FleurFairMusicGameSettleRspOuterClass.internal_static_FleurFairMusicGameSettleRsp_descriptor;
@@ -214,7 +271,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
     }
 
     public static final int MUSICBASICID_FIELD_NUMBER = 4;
-    private int musicBasicId_ = 0;
+    private int musicBasicId_;
     /**
      * <code>uint32 musicBasicId = 4;</code>
      * @return The musicBasicId.
@@ -225,7 +282,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
     }
 
     public static final int ISNEWRECORD_FIELD_NUMBER = 5;
-    private boolean isNewRecord_ = false;
+    private boolean isNewRecord_;
     /**
      * <code>bool isNewRecord = 5;</code>
      * @return The isNewRecord.
@@ -236,7 +293,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
     }
 
     public static final int ISUNLOCKNEXTLEVEL_FIELD_NUMBER = 7;
-    private boolean isUnlockNextLevel_ = false;
+    private boolean isUnlockNextLevel_;
     /**
      * <code>bool isUnlockNextLevel = 7;</code>
      * @return The isUnlockNextLevel.
@@ -247,7 +304,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 3;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 3;</code>
      * @return The retcode.
@@ -283,7 +340,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
       if (isUnlockNextLevel_ != false) {
         output.writeBool(7, isUnlockNextLevel_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -308,7 +365,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(7, isUnlockNextLevel_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -331,7 +388,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
           != other.getIsUnlockNextLevel()) return false;
       if (getRetcode()
           != other.getRetcode()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -352,7 +409,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
           getIsUnlockNextLevel());
       hash = (37 * hash) + RETCODE_FIELD_NUMBER;
       hash = (53 * hash) + getRetcode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -469,22 +526,30 @@ public final class FleurFairMusicGameSettleRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.FleurFairMusicGameSettleRspOuterClass.FleurFairMusicGameSettleRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         musicBasicId_ = 0;
+
         isNewRecord_ = false;
+
         isUnlockNextLevel_ = false;
+
         retcode_ = 0;
+
         return this;
       }
 
@@ -511,25 +576,12 @@ public final class FleurFairMusicGameSettleRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.FleurFairMusicGameSettleRspOuterClass.FleurFairMusicGameSettleRsp buildPartial() {
         emu.grasscutter.net.proto.FleurFairMusicGameSettleRspOuterClass.FleurFairMusicGameSettleRsp result = new emu.grasscutter.net.proto.FleurFairMusicGameSettleRspOuterClass.FleurFairMusicGameSettleRsp(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.musicBasicId_ = musicBasicId_;
+        result.isNewRecord_ = isNewRecord_;
+        result.isUnlockNextLevel_ = isUnlockNextLevel_;
+        result.retcode_ = retcode_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.FleurFairMusicGameSettleRspOuterClass.FleurFairMusicGameSettleRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.musicBasicId_ = musicBasicId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.isNewRecord_ = isNewRecord_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.isUnlockNextLevel_ = isUnlockNextLevel_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.retcode_ = retcode_;
-        }
       }
 
       @java.lang.Override
@@ -588,7 +640,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
         if (other.getRetcode() != 0) {
           setRetcode(other.getRetcode());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -603,53 +655,19 @@ public final class FleurFairMusicGameSettleRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.FleurFairMusicGameSettleRspOuterClass.FleurFairMusicGameSettleRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 24: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 24
-              case 32: {
-                musicBasicId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 32
-              case 40: {
-                isNewRecord_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 40
-              case 56: {
-                isUnlockNextLevel_ = input.readBool();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 56
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.FleurFairMusicGameSettleRspOuterClass.FleurFairMusicGameSettleRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int musicBasicId_ ;
       /**
@@ -668,7 +686,6 @@ public final class FleurFairMusicGameSettleRspOuterClass {
       public Builder setMusicBasicId(int value) {
         
         musicBasicId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -677,7 +694,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearMusicBasicId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         musicBasicId_ = 0;
         onChanged();
         return this;
@@ -700,7 +717,6 @@ public final class FleurFairMusicGameSettleRspOuterClass {
       public Builder setIsNewRecord(boolean value) {
         
         isNewRecord_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -709,7 +725,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsNewRecord() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         isNewRecord_ = false;
         onChanged();
         return this;
@@ -732,7 +748,6 @@ public final class FleurFairMusicGameSettleRspOuterClass {
       public Builder setIsUnlockNextLevel(boolean value) {
         
         isUnlockNextLevel_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -741,7 +756,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsUnlockNextLevel() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         isUnlockNextLevel_ = false;
         onChanged();
         return this;
@@ -764,7 +779,6 @@ public final class FleurFairMusicGameSettleRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -773,7 +787,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -811,18 +825,7 @@ public final class FleurFairMusicGameSettleRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new FleurFairMusicGameSettleRsp(input, extensionRegistry);
       }
     };
 

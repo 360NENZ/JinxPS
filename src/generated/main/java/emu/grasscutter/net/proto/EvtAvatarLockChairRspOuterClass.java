@@ -78,6 +78,71 @@ public final class EvtAvatarLockChairRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private EvtAvatarLockChairRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26: {
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder subBuilder = null;
+              if (position_ != null) {
+                subBuilder = position_.toBuilder();
+              }
+              position_ = input.readMessage(emu.grasscutter.net.proto.VectorOuterClass.Vector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(position_);
+                position_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 32: {
+
+              entityId_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 120: {
+
+              chairId_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.EvtAvatarLockChairRspOuterClass.internal_static_EvtAvatarLockChairRsp_descriptor;
@@ -245,11 +310,11 @@ public final class EvtAvatarLockChairRspOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getPositionOrBuilder() {
-      return position_ == null ? emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance() : position_;
+      return getPosition();
     }
 
     public static final int CHAIRID_FIELD_NUMBER = 15;
-    private long chairId_ = 0L;
+    private long chairId_;
     /**
      * <code>uint64 chairId = 15;</code>
      * @return The chairId.
@@ -260,7 +325,7 @@ public final class EvtAvatarLockChairRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 12;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 12;</code>
      * @return The retcode.
@@ -271,7 +336,7 @@ public final class EvtAvatarLockChairRspOuterClass {
     }
 
     public static final int ENTITYID_FIELD_NUMBER = 4;
-    private int entityId_ = 0;
+    private int entityId_;
     /**
      * <code>uint32 entityId = 4;</code>
      * @return The entityId.
@@ -307,7 +372,7 @@ public final class EvtAvatarLockChairRspOuterClass {
       if (chairId_ != 0L) {
         output.writeUInt64(15, chairId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -332,7 +397,7 @@ public final class EvtAvatarLockChairRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(15, chairId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -358,7 +423,7 @@ public final class EvtAvatarLockChairRspOuterClass {
           != other.getRetcode()) return false;
       if (getEntityId()
           != other.getEntityId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -380,7 +445,7 @@ public final class EvtAvatarLockChairRspOuterClass {
       hash = (53 * hash) + getRetcode();
       hash = (37 * hash) + ENTITYID_FIELD_NUMBER;
       hash = (53 * hash) + getEntityId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -497,26 +562,34 @@ public final class EvtAvatarLockChairRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.EvtAvatarLockChairRspOuterClass.EvtAvatarLockChairRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        position_ = null;
-        if (positionBuilder_ != null) {
-          positionBuilder_.dispose();
+        if (positionBuilder_ == null) {
+          position_ = null;
+        } else {
+          position_ = null;
           positionBuilder_ = null;
         }
         chairId_ = 0L;
+
         retcode_ = 0;
+
         entityId_ = 0;
+
         return this;
       }
 
@@ -543,27 +616,16 @@ public final class EvtAvatarLockChairRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.EvtAvatarLockChairRspOuterClass.EvtAvatarLockChairRsp buildPartial() {
         emu.grasscutter.net.proto.EvtAvatarLockChairRspOuterClass.EvtAvatarLockChairRsp result = new emu.grasscutter.net.proto.EvtAvatarLockChairRspOuterClass.EvtAvatarLockChairRsp(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (positionBuilder_ == null) {
+          result.position_ = position_;
+        } else {
+          result.position_ = positionBuilder_.build();
+        }
+        result.chairId_ = chairId_;
+        result.retcode_ = retcode_;
+        result.entityId_ = entityId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.EvtAvatarLockChairRspOuterClass.EvtAvatarLockChairRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.position_ = positionBuilder_ == null
-              ? position_
-              : positionBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.chairId_ = chairId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.retcode_ = retcode_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.entityId_ = entityId_;
-        }
       }
 
       @java.lang.Override
@@ -622,7 +684,7 @@ public final class EvtAvatarLockChairRspOuterClass {
         if (other.getEntityId() != 0) {
           setEntityId(other.getEntityId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -637,55 +699,19 @@ public final class EvtAvatarLockChairRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.EvtAvatarLockChairRspOuterClass.EvtAvatarLockChairRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 26: {
-                input.readMessage(
-                    getPositionFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 26
-              case 32: {
-                entityId_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 96: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 96
-              case 120: {
-                chairId_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 120
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.EvtAvatarLockChairRspOuterClass.EvtAvatarLockChairRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private emu.grasscutter.net.proto.VectorOuterClass.Vector position_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -695,7 +721,7 @@ public final class EvtAvatarLockChairRspOuterClass {
        * @return Whether the position field is set.
        */
       public boolean hasPosition() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return positionBuilder_ != null || position_ != null;
       }
       /**
        * <code>.Vector position = 3;</code>
@@ -717,11 +743,11 @@ public final class EvtAvatarLockChairRspOuterClass {
             throw new NullPointerException();
           }
           position_ = value;
+          onChanged();
         } else {
           positionBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -731,11 +757,11 @@ public final class EvtAvatarLockChairRspOuterClass {
           emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder builderForValue) {
         if (positionBuilder_ == null) {
           position_ = builderForValue.build();
+          onChanged();
         } else {
           positionBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -743,38 +769,38 @@ public final class EvtAvatarLockChairRspOuterClass {
        */
       public Builder mergePosition(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (positionBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            position_ != null &&
-            position_ != emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance()) {
-            getPositionBuilder().mergeFrom(value);
+          if (position_ != null) {
+            position_ =
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.newBuilder(position_).mergeFrom(value).buildPartial();
           } else {
             position_ = value;
           }
+          onChanged();
         } else {
           positionBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector position = 3;</code>
        */
       public Builder clearPosition() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        position_ = null;
-        if (positionBuilder_ != null) {
-          positionBuilder_.dispose();
+        if (positionBuilder_ == null) {
+          position_ = null;
+          onChanged();
+        } else {
+          position_ = null;
           positionBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector position = 3;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder getPositionBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getPositionFieldBuilder().getBuilder();
       }
@@ -823,7 +849,6 @@ public final class EvtAvatarLockChairRspOuterClass {
       public Builder setChairId(long value) {
         
         chairId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -832,7 +857,7 @@ public final class EvtAvatarLockChairRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChairId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         chairId_ = 0L;
         onChanged();
         return this;
@@ -855,7 +880,6 @@ public final class EvtAvatarLockChairRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -864,7 +888,7 @@ public final class EvtAvatarLockChairRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -887,7 +911,6 @@ public final class EvtAvatarLockChairRspOuterClass {
       public Builder setEntityId(int value) {
         
         entityId_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -896,7 +919,7 @@ public final class EvtAvatarLockChairRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEntityId() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         entityId_ = 0;
         onChanged();
         return this;
@@ -934,18 +957,7 @@ public final class EvtAvatarLockChairRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new EvtAvatarLockChairRsp(input, extensionRegistry);
       }
     };
 

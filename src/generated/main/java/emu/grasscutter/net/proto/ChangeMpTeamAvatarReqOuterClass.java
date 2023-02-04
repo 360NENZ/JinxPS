@@ -69,6 +69,73 @@ public final class ChangeMpTeamAvatarReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ChangeMpTeamAvatarReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                avatarGuidList_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              avatarGuidList_.addLong(input.readUInt64());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                avatarGuidList_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                avatarGuidList_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 64: {
+
+              curAvatarGuid_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          avatarGuidList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ChangeMpTeamAvatarReqOuterClass.internal_static_ChangeMpTeamAvatarReq_descriptor;
@@ -222,7 +289,7 @@ public final class ChangeMpTeamAvatarReqOuterClass {
     }
 
     public static final int CURAVATARGUID_FIELD_NUMBER = 8;
-    private long curAvatarGuid_ = 0L;
+    private long curAvatarGuid_;
     /**
      * <code>uint64 curAvatarGuid = 8;</code>
      * @return The curAvatarGuid.
@@ -233,7 +300,6 @@ public final class ChangeMpTeamAvatarReqOuterClass {
     }
 
     public static final int AVATARGUIDLIST_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList avatarGuidList_;
     /**
      * <code>repeated uint64 avatarGuidList = 2;</code>
@@ -286,7 +352,7 @@ public final class ChangeMpTeamAvatarReqOuterClass {
       if (curAvatarGuid_ != 0L) {
         output.writeUInt64(8, curAvatarGuid_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -313,7 +379,7 @@ public final class ChangeMpTeamAvatarReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(8, curAvatarGuid_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -332,7 +398,7 @@ public final class ChangeMpTeamAvatarReqOuterClass {
           != other.getCurAvatarGuid()) return false;
       if (!getAvatarGuidListList()
           .equals(other.getAvatarGuidListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -350,7 +416,7 @@ public final class ChangeMpTeamAvatarReqOuterClass {
         hash = (37 * hash) + AVATARGUIDLIST_FIELD_NUMBER;
         hash = (53 * hash) + getAvatarGuidListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -467,20 +533,26 @@ public final class ChangeMpTeamAvatarReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ChangeMpTeamAvatarReqOuterClass.ChangeMpTeamAvatarReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         curAvatarGuid_ = 0L;
+
         avatarGuidList_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -507,25 +579,15 @@ public final class ChangeMpTeamAvatarReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ChangeMpTeamAvatarReqOuterClass.ChangeMpTeamAvatarReq buildPartial() {
         emu.grasscutter.net.proto.ChangeMpTeamAvatarReqOuterClass.ChangeMpTeamAvatarReq result = new emu.grasscutter.net.proto.ChangeMpTeamAvatarReqOuterClass.ChangeMpTeamAvatarReq(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.ChangeMpTeamAvatarReqOuterClass.ChangeMpTeamAvatarReq result) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.curAvatarGuid_ = curAvatarGuid_;
+        if (((bitField0_ & 0x00000001) != 0)) {
           avatarGuidList_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.avatarGuidList_ = avatarGuidList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ChangeMpTeamAvatarReqOuterClass.ChangeMpTeamAvatarReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.curAvatarGuid_ = curAvatarGuid_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -578,14 +640,14 @@ public final class ChangeMpTeamAvatarReqOuterClass {
         if (!other.avatarGuidList_.isEmpty()) {
           if (avatarGuidList_.isEmpty()) {
             avatarGuidList_ = other.avatarGuidList_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureAvatarGuidListIsMutable();
             avatarGuidList_.addAll(other.avatarGuidList_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -600,51 +662,17 @@ public final class ChangeMpTeamAvatarReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ChangeMpTeamAvatarReqOuterClass.ChangeMpTeamAvatarReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 16: {
-                long v = input.readUInt64();
-                ensureAvatarGuidListIsMutable();
-                avatarGuidList_.addLong(v);
-                break;
-              } // case 16
-              case 18: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureAvatarGuidListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  avatarGuidList_.addLong(input.readUInt64());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 18
-              case 64: {
-                curAvatarGuid_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 64
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ChangeMpTeamAvatarReqOuterClass.ChangeMpTeamAvatarReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -666,7 +694,6 @@ public final class ChangeMpTeamAvatarReqOuterClass {
       public Builder setCurAvatarGuid(long value) {
         
         curAvatarGuid_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -675,7 +702,7 @@ public final class ChangeMpTeamAvatarReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCurAvatarGuid() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         curAvatarGuid_ = 0L;
         onChanged();
         return this;
@@ -683,10 +710,10 @@ public final class ChangeMpTeamAvatarReqOuterClass {
 
       private com.google.protobuf.Internal.LongList avatarGuidList_ = emptyLongList();
       private void ensureAvatarGuidListIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           avatarGuidList_ = mutableCopy(avatarGuidList_);
-          bitField0_ |= 0x00000002;
-        }
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
        * <code>repeated uint64 avatarGuidList = 2;</code>
@@ -694,7 +721,7 @@ public final class ChangeMpTeamAvatarReqOuterClass {
        */
       public java.util.List<java.lang.Long>
           getAvatarGuidListList() {
-        return ((bitField0_ & 0x00000002) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(avatarGuidList_) : avatarGuidList_;
       }
       /**
@@ -720,7 +747,6 @@ public final class ChangeMpTeamAvatarReqOuterClass {
        */
       public Builder setAvatarGuidList(
           int index, long value) {
-        
         ensureAvatarGuidListIsMutable();
         avatarGuidList_.setLong(index, value);
         onChanged();
@@ -732,7 +758,6 @@ public final class ChangeMpTeamAvatarReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder addAvatarGuidList(long value) {
-        
         ensureAvatarGuidListIsMutable();
         avatarGuidList_.addLong(value);
         onChanged();
@@ -757,7 +782,7 @@ public final class ChangeMpTeamAvatarReqOuterClass {
        */
       public Builder clearAvatarGuidList() {
         avatarGuidList_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -794,18 +819,7 @@ public final class ChangeMpTeamAvatarReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ChangeMpTeamAvatarReq(input, extensionRegistry);
       }
     };
 

@@ -63,6 +63,58 @@ public final class ChangeGameTimeReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ChangeGameTimeReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 48: {
+
+              isForceSet_ = input.readBool();
+              break;
+            }
+            case 56: {
+
+              extraDays_ = input.readUInt32();
+              break;
+            }
+            case 72: {
+
+              gameTime_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ChangeGameTimeReqOuterClass.internal_static_ChangeGameTimeReq_descriptor;
@@ -216,7 +268,7 @@ public final class ChangeGameTimeReqOuterClass {
     }
 
     public static final int EXTRADAYS_FIELD_NUMBER = 7;
-    private int extraDays_ = 0;
+    private int extraDays_;
     /**
      * <code>uint32 extraDays = 7;</code>
      * @return The extraDays.
@@ -227,7 +279,7 @@ public final class ChangeGameTimeReqOuterClass {
     }
 
     public static final int ISFORCESET_FIELD_NUMBER = 6;
-    private boolean isForceSet_ = false;
+    private boolean isForceSet_;
     /**
      * <code>bool isForceSet = 6;</code>
      * @return The isForceSet.
@@ -238,7 +290,7 @@ public final class ChangeGameTimeReqOuterClass {
     }
 
     public static final int GAMETIME_FIELD_NUMBER = 9;
-    private int gameTime_ = 0;
+    private int gameTime_;
     /**
      * <code>uint32 gameTime = 9;</code>
      * @return The gameTime.
@@ -271,7 +323,7 @@ public final class ChangeGameTimeReqOuterClass {
       if (gameTime_ != 0) {
         output.writeUInt32(9, gameTime_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -292,7 +344,7 @@ public final class ChangeGameTimeReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(9, gameTime_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -313,7 +365,7 @@ public final class ChangeGameTimeReqOuterClass {
           != other.getIsForceSet()) return false;
       if (getGameTime()
           != other.getGameTime()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -331,7 +383,7 @@ public final class ChangeGameTimeReqOuterClass {
           getIsForceSet());
       hash = (37 * hash) + GAMETIME_FIELD_NUMBER;
       hash = (53 * hash) + getGameTime();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -448,21 +500,28 @@ public final class ChangeGameTimeReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ChangeGameTimeReqOuterClass.ChangeGameTimeReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         extraDays_ = 0;
+
         isForceSet_ = false;
+
         gameTime_ = 0;
+
         return this;
       }
 
@@ -489,22 +548,11 @@ public final class ChangeGameTimeReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ChangeGameTimeReqOuterClass.ChangeGameTimeReq buildPartial() {
         emu.grasscutter.net.proto.ChangeGameTimeReqOuterClass.ChangeGameTimeReq result = new emu.grasscutter.net.proto.ChangeGameTimeReqOuterClass.ChangeGameTimeReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.extraDays_ = extraDays_;
+        result.isForceSet_ = isForceSet_;
+        result.gameTime_ = gameTime_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ChangeGameTimeReqOuterClass.ChangeGameTimeReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.extraDays_ = extraDays_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.isForceSet_ = isForceSet_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.gameTime_ = gameTime_;
-        }
       }
 
       @java.lang.Override
@@ -560,7 +608,7 @@ public final class ChangeGameTimeReqOuterClass {
         if (other.getGameTime() != 0) {
           setGameTime(other.getGameTime());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -575,48 +623,19 @@ public final class ChangeGameTimeReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ChangeGameTimeReqOuterClass.ChangeGameTimeReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 48: {
-                isForceSet_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 48
-              case 56: {
-                extraDays_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 56
-              case 72: {
-                gameTime_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 72
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ChangeGameTimeReqOuterClass.ChangeGameTimeReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int extraDays_ ;
       /**
@@ -635,7 +654,6 @@ public final class ChangeGameTimeReqOuterClass {
       public Builder setExtraDays(int value) {
         
         extraDays_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -644,7 +662,7 @@ public final class ChangeGameTimeReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearExtraDays() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         extraDays_ = 0;
         onChanged();
         return this;
@@ -667,7 +685,6 @@ public final class ChangeGameTimeReqOuterClass {
       public Builder setIsForceSet(boolean value) {
         
         isForceSet_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -676,7 +693,7 @@ public final class ChangeGameTimeReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsForceSet() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         isForceSet_ = false;
         onChanged();
         return this;
@@ -699,7 +716,6 @@ public final class ChangeGameTimeReqOuterClass {
       public Builder setGameTime(int value) {
         
         gameTime_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -708,7 +724,7 @@ public final class ChangeGameTimeReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGameTime() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         gameTime_ = 0;
         onChanged();
         return this;
@@ -746,18 +762,7 @@ public final class ChangeGameTimeReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ChangeGameTimeReq(input, extensionRegistry);
       }
     };
 

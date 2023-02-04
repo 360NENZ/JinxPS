@@ -70,6 +70,56 @@ public final class WidgetGadgetAllDataNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private WidgetGadgetAllDataNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                widgetGadgetData_ = new java.util.ArrayList<emu.grasscutter.net.proto.WidgetGadgetDataOuterClass.WidgetGadgetData>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              widgetGadgetData_.add(
+                  input.readMessage(emu.grasscutter.net.proto.WidgetGadgetDataOuterClass.WidgetGadgetData.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          widgetGadgetData_ = java.util.Collections.unmodifiableList(widgetGadgetData_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.WidgetGadgetAllDataNotifyOuterClass.internal_static_WidgetGadgetAllDataNotify_descriptor;
@@ -215,7 +265,6 @@ public final class WidgetGadgetAllDataNotifyOuterClass {
     }
 
     public static final int WIDGETGADGETDATA_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.WidgetGadgetDataOuterClass.WidgetGadgetData> widgetGadgetData_;
     /**
      * <code>repeated .WidgetGadgetData widgetGadgetData = 4;</code>
@@ -272,7 +321,7 @@ public final class WidgetGadgetAllDataNotifyOuterClass {
       for (int i = 0; i < widgetGadgetData_.size(); i++) {
         output.writeMessage(4, widgetGadgetData_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -285,7 +334,7 @@ public final class WidgetGadgetAllDataNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, widgetGadgetData_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -302,7 +351,7 @@ public final class WidgetGadgetAllDataNotifyOuterClass {
 
       if (!getWidgetGadgetDataList()
           .equals(other.getWidgetGadgetDataList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -317,7 +366,7 @@ public final class WidgetGadgetAllDataNotifyOuterClass {
         hash = (37 * hash) + WIDGETGADGETDATA_FIELD_NUMBER;
         hash = (53 * hash) + getWidgetGadgetDataList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -434,25 +483,29 @@ public final class WidgetGadgetAllDataNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.WidgetGadgetAllDataNotifyOuterClass.WidgetGadgetAllDataNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getWidgetGadgetDataFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (widgetGadgetDataBuilder_ == null) {
           widgetGadgetData_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          widgetGadgetData_ = null;
           widgetGadgetDataBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -479,13 +532,7 @@ public final class WidgetGadgetAllDataNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.WidgetGadgetAllDataNotifyOuterClass.WidgetGadgetAllDataNotify buildPartial() {
         emu.grasscutter.net.proto.WidgetGadgetAllDataNotifyOuterClass.WidgetGadgetAllDataNotify result = new emu.grasscutter.net.proto.WidgetGadgetAllDataNotifyOuterClass.WidgetGadgetAllDataNotify(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.WidgetGadgetAllDataNotifyOuterClass.WidgetGadgetAllDataNotify result) {
+        int from_bitField0_ = bitField0_;
         if (widgetGadgetDataBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             widgetGadgetData_ = java.util.Collections.unmodifiableList(widgetGadgetData_);
@@ -495,10 +542,8 @@ public final class WidgetGadgetAllDataNotifyOuterClass {
         } else {
           result.widgetGadgetData_ = widgetGadgetDataBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.WidgetGadgetAllDataNotifyOuterClass.WidgetGadgetAllDataNotify result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -571,7 +616,7 @@ public final class WidgetGadgetAllDataNotifyOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -586,43 +631,17 @@ public final class WidgetGadgetAllDataNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.WidgetGadgetAllDataNotifyOuterClass.WidgetGadgetAllDataNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 34: {
-                emu.grasscutter.net.proto.WidgetGadgetDataOuterClass.WidgetGadgetData m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.WidgetGadgetDataOuterClass.WidgetGadgetData.parser(),
-                        extensionRegistry);
-                if (widgetGadgetDataBuilder_ == null) {
-                  ensureWidgetGadgetDataIsMutable();
-                  widgetGadgetData_.add(m);
-                } else {
-                  widgetGadgetDataBuilder_.addMessage(m);
-                }
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.WidgetGadgetAllDataNotifyOuterClass.WidgetGadgetAllDataNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -899,18 +918,7 @@ public final class WidgetGadgetAllDataNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new WidgetGadgetAllDataNotify(input, extensionRegistry);
       }
     };
 

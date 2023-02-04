@@ -57,6 +57,53 @@ public final class VintageBoothUsedItemDataOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private VintageBoothUsedItemData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+
+              isOpen_ = input.readBool();
+              break;
+            }
+            case 96: {
+
+              gadgetId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.VintageBoothUsedItemDataOuterClass.internal_static_VintageBoothUsedItemData_descriptor;
@@ -71,7 +118,7 @@ public final class VintageBoothUsedItemDataOuterClass {
     }
 
     public static final int GADGETID_FIELD_NUMBER = 12;
-    private int gadgetId_ = 0;
+    private int gadgetId_;
     /**
      * <code>uint32 gadgetId = 12;</code>
      * @return The gadgetId.
@@ -82,7 +129,7 @@ public final class VintageBoothUsedItemDataOuterClass {
     }
 
     public static final int ISOPEN_FIELD_NUMBER = 2;
-    private boolean isOpen_ = false;
+    private boolean isOpen_;
     /**
      * <code>bool isOpen = 2;</code>
      * @return The isOpen.
@@ -112,7 +159,7 @@ public final class VintageBoothUsedItemDataOuterClass {
       if (gadgetId_ != 0) {
         output.writeUInt32(12, gadgetId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -129,7 +176,7 @@ public final class VintageBoothUsedItemDataOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(12, gadgetId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -148,7 +195,7 @@ public final class VintageBoothUsedItemDataOuterClass {
           != other.getGadgetId()) return false;
       if (getIsOpen()
           != other.getIsOpen()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -164,7 +211,7 @@ public final class VintageBoothUsedItemDataOuterClass {
       hash = (37 * hash) + ISOPEN_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsOpen());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -281,20 +328,26 @@ public final class VintageBoothUsedItemDataOuterClass {
 
       // Construct using emu.grasscutter.net.proto.VintageBoothUsedItemDataOuterClass.VintageBoothUsedItemData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         gadgetId_ = 0;
+
         isOpen_ = false;
+
         return this;
       }
 
@@ -321,19 +374,10 @@ public final class VintageBoothUsedItemDataOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.VintageBoothUsedItemDataOuterClass.VintageBoothUsedItemData buildPartial() {
         emu.grasscutter.net.proto.VintageBoothUsedItemDataOuterClass.VintageBoothUsedItemData result = new emu.grasscutter.net.proto.VintageBoothUsedItemDataOuterClass.VintageBoothUsedItemData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.gadgetId_ = gadgetId_;
+        result.isOpen_ = isOpen_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.VintageBoothUsedItemDataOuterClass.VintageBoothUsedItemData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.gadgetId_ = gadgetId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.isOpen_ = isOpen_;
-        }
       }
 
       @java.lang.Override
@@ -386,7 +430,7 @@ public final class VintageBoothUsedItemDataOuterClass {
         if (other.getIsOpen() != false) {
           setIsOpen(other.getIsOpen());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -401,43 +445,19 @@ public final class VintageBoothUsedItemDataOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.VintageBoothUsedItemDataOuterClass.VintageBoothUsedItemData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 16: {
-                isOpen_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 96: {
-                gadgetId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 96
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.VintageBoothUsedItemDataOuterClass.VintageBoothUsedItemData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int gadgetId_ ;
       /**
@@ -456,7 +476,6 @@ public final class VintageBoothUsedItemDataOuterClass {
       public Builder setGadgetId(int value) {
         
         gadgetId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -465,7 +484,7 @@ public final class VintageBoothUsedItemDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGadgetId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         gadgetId_ = 0;
         onChanged();
         return this;
@@ -488,7 +507,6 @@ public final class VintageBoothUsedItemDataOuterClass {
       public Builder setIsOpen(boolean value) {
         
         isOpen_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -497,7 +515,7 @@ public final class VintageBoothUsedItemDataOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsOpen() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         isOpen_ = false;
         onChanged();
         return this;
@@ -535,18 +553,7 @@ public final class VintageBoothUsedItemDataOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new VintageBoothUsedItemData(input, extensionRegistry);
       }
     };
 

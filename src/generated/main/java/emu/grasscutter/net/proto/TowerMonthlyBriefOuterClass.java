@@ -69,6 +69,63 @@ public final class TowerMonthlyBriefOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private TowerMonthlyBrief(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 56: {
+
+              towerScheduleId_ = input.readUInt32();
+              break;
+            }
+            case 64: {
+
+              bestFloorIndex_ = input.readUInt32();
+              break;
+            }
+            case 88: {
+
+              bestLevelIndex_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+
+              totalStarCount_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.TowerMonthlyBriefOuterClass.internal_static_TowerMonthlyBrief_descriptor;
@@ -83,7 +140,7 @@ public final class TowerMonthlyBriefOuterClass {
     }
 
     public static final int BESTLEVELINDEX_FIELD_NUMBER = 11;
-    private int bestLevelIndex_ = 0;
+    private int bestLevelIndex_;
     /**
      * <code>uint32 bestLevelIndex = 11;</code>
      * @return The bestLevelIndex.
@@ -94,7 +151,7 @@ public final class TowerMonthlyBriefOuterClass {
     }
 
     public static final int TOWERSCHEDULEID_FIELD_NUMBER = 7;
-    private int towerScheduleId_ = 0;
+    private int towerScheduleId_;
     /**
      * <code>uint32 towerScheduleId = 7;</code>
      * @return The towerScheduleId.
@@ -105,7 +162,7 @@ public final class TowerMonthlyBriefOuterClass {
     }
 
     public static final int TOTALSTARCOUNT_FIELD_NUMBER = 14;
-    private int totalStarCount_ = 0;
+    private int totalStarCount_;
     /**
      * <code>uint32 totalStarCount = 14;</code>
      * @return The totalStarCount.
@@ -116,7 +173,7 @@ public final class TowerMonthlyBriefOuterClass {
     }
 
     public static final int BESTFLOORINDEX_FIELD_NUMBER = 8;
-    private int bestFloorIndex_ = 0;
+    private int bestFloorIndex_;
     /**
      * <code>uint32 bestFloorIndex = 8;</code>
      * @return The bestFloorIndex.
@@ -152,7 +209,7 @@ public final class TowerMonthlyBriefOuterClass {
       if (totalStarCount_ != 0) {
         output.writeUInt32(14, totalStarCount_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -177,7 +234,7 @@ public final class TowerMonthlyBriefOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(14, totalStarCount_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -200,7 +257,7 @@ public final class TowerMonthlyBriefOuterClass {
           != other.getTotalStarCount()) return false;
       if (getBestFloorIndex()
           != other.getBestFloorIndex()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -219,7 +276,7 @@ public final class TowerMonthlyBriefOuterClass {
       hash = (53 * hash) + getTotalStarCount();
       hash = (37 * hash) + BESTFLOORINDEX_FIELD_NUMBER;
       hash = (53 * hash) + getBestFloorIndex();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -336,22 +393,30 @@ public final class TowerMonthlyBriefOuterClass {
 
       // Construct using emu.grasscutter.net.proto.TowerMonthlyBriefOuterClass.TowerMonthlyBrief.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         bestLevelIndex_ = 0;
+
         towerScheduleId_ = 0;
+
         totalStarCount_ = 0;
+
         bestFloorIndex_ = 0;
+
         return this;
       }
 
@@ -378,25 +443,12 @@ public final class TowerMonthlyBriefOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.TowerMonthlyBriefOuterClass.TowerMonthlyBrief buildPartial() {
         emu.grasscutter.net.proto.TowerMonthlyBriefOuterClass.TowerMonthlyBrief result = new emu.grasscutter.net.proto.TowerMonthlyBriefOuterClass.TowerMonthlyBrief(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.bestLevelIndex_ = bestLevelIndex_;
+        result.towerScheduleId_ = towerScheduleId_;
+        result.totalStarCount_ = totalStarCount_;
+        result.bestFloorIndex_ = bestFloorIndex_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.TowerMonthlyBriefOuterClass.TowerMonthlyBrief result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.bestLevelIndex_ = bestLevelIndex_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.towerScheduleId_ = towerScheduleId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.totalStarCount_ = totalStarCount_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.bestFloorIndex_ = bestFloorIndex_;
-        }
       }
 
       @java.lang.Override
@@ -455,7 +507,7 @@ public final class TowerMonthlyBriefOuterClass {
         if (other.getBestFloorIndex() != 0) {
           setBestFloorIndex(other.getBestFloorIndex());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -470,53 +522,19 @@ public final class TowerMonthlyBriefOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.TowerMonthlyBriefOuterClass.TowerMonthlyBrief parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 56: {
-                towerScheduleId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 56
-              case 64: {
-                bestFloorIndex_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 64
-              case 88: {
-                bestLevelIndex_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 88
-              case 112: {
-                totalStarCount_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 112
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.TowerMonthlyBriefOuterClass.TowerMonthlyBrief) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int bestLevelIndex_ ;
       /**
@@ -535,7 +553,6 @@ public final class TowerMonthlyBriefOuterClass {
       public Builder setBestLevelIndex(int value) {
         
         bestLevelIndex_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -544,7 +561,7 @@ public final class TowerMonthlyBriefOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearBestLevelIndex() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         bestLevelIndex_ = 0;
         onChanged();
         return this;
@@ -567,7 +584,6 @@ public final class TowerMonthlyBriefOuterClass {
       public Builder setTowerScheduleId(int value) {
         
         towerScheduleId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -576,7 +592,7 @@ public final class TowerMonthlyBriefOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTowerScheduleId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         towerScheduleId_ = 0;
         onChanged();
         return this;
@@ -599,7 +615,6 @@ public final class TowerMonthlyBriefOuterClass {
       public Builder setTotalStarCount(int value) {
         
         totalStarCount_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -608,7 +623,7 @@ public final class TowerMonthlyBriefOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTotalStarCount() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         totalStarCount_ = 0;
         onChanged();
         return this;
@@ -631,7 +646,6 @@ public final class TowerMonthlyBriefOuterClass {
       public Builder setBestFloorIndex(int value) {
         
         bestFloorIndex_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -640,7 +654,7 @@ public final class TowerMonthlyBriefOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearBestFloorIndex() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         bestFloorIndex_ = 0;
         onChanged();
         return this;
@@ -678,18 +692,7 @@ public final class TowerMonthlyBriefOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TowerMonthlyBrief(input, extensionRegistry);
       }
     };
 

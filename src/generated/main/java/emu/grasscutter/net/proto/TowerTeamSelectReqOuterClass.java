@@ -76,6 +76,61 @@ public final class TowerTeamSelectReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private TowerTeamSelectReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                towerTeamList_ = new java.util.ArrayList<emu.grasscutter.net.proto.TowerTeamOuterClass.TowerTeam>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              towerTeamList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.TowerTeamOuterClass.TowerTeam.parser(), extensionRegistry));
+              break;
+            }
+            case 88: {
+
+              floorId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          towerTeamList_ = java.util.Collections.unmodifiableList(towerTeamList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.TowerTeamSelectReqOuterClass.internal_static_TowerTeamSelectReq_descriptor;
@@ -229,7 +284,6 @@ public final class TowerTeamSelectReqOuterClass {
     }
 
     public static final int TOWERTEAMLIST_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.TowerTeamOuterClass.TowerTeam> towerTeamList_;
     /**
      * <code>repeated .TowerTeam towerTeamList = 1;</code>
@@ -270,7 +324,7 @@ public final class TowerTeamSelectReqOuterClass {
     }
 
     public static final int FLOORID_FIELD_NUMBER = 11;
-    private int floorId_ = 0;
+    private int floorId_;
     /**
      * <code>uint32 floorId = 11;</code>
      * @return The floorId.
@@ -300,7 +354,7 @@ public final class TowerTeamSelectReqOuterClass {
       if (floorId_ != 0) {
         output.writeUInt32(11, floorId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -317,7 +371,7 @@ public final class TowerTeamSelectReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(11, floorId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -336,7 +390,7 @@ public final class TowerTeamSelectReqOuterClass {
           .equals(other.getTowerTeamListList())) return false;
       if (getFloorId()
           != other.getFloorId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -353,7 +407,7 @@ public final class TowerTeamSelectReqOuterClass {
       }
       hash = (37 * hash) + FLOORID_FIELD_NUMBER;
       hash = (53 * hash) + getFloorId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -470,26 +524,31 @@ public final class TowerTeamSelectReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.TowerTeamSelectReqOuterClass.TowerTeamSelectReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getTowerTeamListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (towerTeamListBuilder_ == null) {
           towerTeamList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          towerTeamList_ = null;
           towerTeamListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         floorId_ = 0;
+
         return this;
       }
 
@@ -516,13 +575,7 @@ public final class TowerTeamSelectReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.TowerTeamSelectReqOuterClass.TowerTeamSelectReq buildPartial() {
         emu.grasscutter.net.proto.TowerTeamSelectReqOuterClass.TowerTeamSelectReq result = new emu.grasscutter.net.proto.TowerTeamSelectReqOuterClass.TowerTeamSelectReq(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.TowerTeamSelectReqOuterClass.TowerTeamSelectReq result) {
+        int from_bitField0_ = bitField0_;
         if (towerTeamListBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             towerTeamList_ = java.util.Collections.unmodifiableList(towerTeamList_);
@@ -532,13 +585,9 @@ public final class TowerTeamSelectReqOuterClass {
         } else {
           result.towerTeamList_ = towerTeamListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.TowerTeamSelectReqOuterClass.TowerTeamSelectReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.floorId_ = floorId_;
-        }
+        result.floorId_ = floorId_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -614,7 +663,7 @@ public final class TowerTeamSelectReqOuterClass {
         if (other.getFloorId() != 0) {
           setFloorId(other.getFloorId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -629,48 +678,17 @@ public final class TowerTeamSelectReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.TowerTeamSelectReqOuterClass.TowerTeamSelectReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                emu.grasscutter.net.proto.TowerTeamOuterClass.TowerTeam m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.TowerTeamOuterClass.TowerTeam.parser(),
-                        extensionRegistry);
-                if (towerTeamListBuilder_ == null) {
-                  ensureTowerTeamListIsMutable();
-                  towerTeamList_.add(m);
-                } else {
-                  towerTeamListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              case 88: {
-                floorId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 88
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.TowerTeamSelectReqOuterClass.TowerTeamSelectReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -932,7 +950,6 @@ public final class TowerTeamSelectReqOuterClass {
       public Builder setFloorId(int value) {
         
         floorId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -941,7 +958,7 @@ public final class TowerTeamSelectReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearFloorId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         floorId_ = 0;
         onChanged();
         return this;
@@ -979,18 +996,7 @@ public final class TowerTeamSelectReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TowerTeamSelectReq(input, extensionRegistry);
       }
     };
 

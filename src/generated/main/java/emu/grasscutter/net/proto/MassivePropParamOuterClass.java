@@ -93,6 +93,102 @@ public final class MassivePropParamOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MassivePropParam(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              type_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                bkeclhnchpn_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              bkeclhnchpn_.addInt(input.readUInt32());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                bkeclhnchpn_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                bkeclhnchpn_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 29: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                paramList_ = newFloatList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              paramList_.addFloat(input.readFloat());
+              break;
+            }
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+                paramList_ = newFloatList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                paramList_.addFloat(input.readFloat());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 32: {
+
+              eejlkopeggc_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          bkeclhnchpn_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          paramList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.MassivePropParamOuterClass.internal_static_MassivePropParam_descriptor;
@@ -107,7 +203,7 @@ public final class MassivePropParamOuterClass {
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_ = 0;
+    private int type_;
     /**
      * <code>int32 type = 1;</code>
      * @return The type.
@@ -118,7 +214,6 @@ public final class MassivePropParamOuterClass {
     }
 
     public static final int BKECLHNCHPN_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList bkeclhnchpn_;
     /**
      * <code>repeated uint32 bkeclhnchpn = 2;</code>
@@ -147,7 +242,6 @@ public final class MassivePropParamOuterClass {
     private int bkeclhnchpnMemoizedSerializedSize = -1;
 
     public static final int PARAMLIST_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.FloatList paramList_;
     /**
      * <code>repeated float paramList = 3;</code>
@@ -176,7 +270,7 @@ public final class MassivePropParamOuterClass {
     private int paramListMemoizedSerializedSize = -1;
 
     public static final int EEJLKOPEGGC_FIELD_NUMBER = 4;
-    private int eejlkopeggc_ = 0;
+    private int eejlkopeggc_;
     /**
      * <code>uint32 eejlkopeggc = 4;</code>
      * @return The eejlkopeggc.
@@ -221,7 +315,7 @@ public final class MassivePropParamOuterClass {
       if (eejlkopeggc_ != 0) {
         output.writeUInt32(4, eejlkopeggc_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -263,7 +357,7 @@ public final class MassivePropParamOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, eejlkopeggc_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -286,7 +380,7 @@ public final class MassivePropParamOuterClass {
           .equals(other.getParamListList())) return false;
       if (getEejlkopeggc()
           != other.getEejlkopeggc()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -309,7 +403,7 @@ public final class MassivePropParamOuterClass {
       }
       hash = (37 * hash) + EEJLKOPEGGC_FIELD_NUMBER;
       hash = (53 * hash) + getEejlkopeggc();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -426,22 +520,30 @@ public final class MassivePropParamOuterClass {
 
       // Construct using emu.grasscutter.net.proto.MassivePropParamOuterClass.MassivePropParam.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         type_ = 0;
+
         bkeclhnchpn_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         paramList_ = emptyFloatList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         eejlkopeggc_ = 0;
+
         return this;
       }
 
@@ -468,33 +570,21 @@ public final class MassivePropParamOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.MassivePropParamOuterClass.MassivePropParam buildPartial() {
         emu.grasscutter.net.proto.MassivePropParamOuterClass.MassivePropParam result = new emu.grasscutter.net.proto.MassivePropParamOuterClass.MassivePropParam(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.MassivePropParamOuterClass.MassivePropParam result) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.type_ = type_;
+        if (((bitField0_ & 0x00000001) != 0)) {
           bkeclhnchpn_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.bkeclhnchpn_ = bkeclhnchpn_;
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           paramList_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.paramList_ = paramList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.MassivePropParamOuterClass.MassivePropParam result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.type_ = type_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.eejlkopeggc_ = eejlkopeggc_;
-        }
+        result.eejlkopeggc_ = eejlkopeggc_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -547,7 +637,7 @@ public final class MassivePropParamOuterClass {
         if (!other.bkeclhnchpn_.isEmpty()) {
           if (bkeclhnchpn_.isEmpty()) {
             bkeclhnchpn_ = other.bkeclhnchpn_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureBkeclhnchpnIsMutable();
             bkeclhnchpn_.addAll(other.bkeclhnchpn_);
@@ -557,7 +647,7 @@ public final class MassivePropParamOuterClass {
         if (!other.paramList_.isEmpty()) {
           if (paramList_.isEmpty()) {
             paramList_ = other.paramList_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureParamListIsMutable();
             paramList_.addAll(other.paramList_);
@@ -567,7 +657,7 @@ public final class MassivePropParamOuterClass {
         if (other.getEejlkopeggc() != 0) {
           setEejlkopeggc(other.getEejlkopeggc());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -582,72 +672,17 @@ public final class MassivePropParamOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.MassivePropParamOuterClass.MassivePropParam parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                type_ = input.readInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                int v = input.readUInt32();
-                ensureBkeclhnchpnIsMutable();
-                bkeclhnchpn_.addInt(v);
-                break;
-              } // case 16
-              case 18: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureBkeclhnchpnIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  bkeclhnchpn_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 18
-              case 29: {
-                float v = input.readFloat();
-                ensureParamListIsMutable();
-                paramList_.addFloat(v);
-                break;
-              } // case 29
-              case 26: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureParamListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  paramList_.addFloat(input.readFloat());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 26
-              case 32: {
-                eejlkopeggc_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.MassivePropParamOuterClass.MassivePropParam) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -669,7 +704,6 @@ public final class MassivePropParamOuterClass {
       public Builder setType(int value) {
         
         type_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -678,7 +712,7 @@ public final class MassivePropParamOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         type_ = 0;
         onChanged();
         return this;
@@ -686,10 +720,10 @@ public final class MassivePropParamOuterClass {
 
       private com.google.protobuf.Internal.IntList bkeclhnchpn_ = emptyIntList();
       private void ensureBkeclhnchpnIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           bkeclhnchpn_ = mutableCopy(bkeclhnchpn_);
-          bitField0_ |= 0x00000002;
-        }
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
        * <code>repeated uint32 bkeclhnchpn = 2;</code>
@@ -697,7 +731,7 @@ public final class MassivePropParamOuterClass {
        */
       public java.util.List<java.lang.Integer>
           getBkeclhnchpnList() {
-        return ((bitField0_ & 0x00000002) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(bkeclhnchpn_) : bkeclhnchpn_;
       }
       /**
@@ -723,7 +757,6 @@ public final class MassivePropParamOuterClass {
        */
       public Builder setBkeclhnchpn(
           int index, int value) {
-        
         ensureBkeclhnchpnIsMutable();
         bkeclhnchpn_.setInt(index, value);
         onChanged();
@@ -735,7 +768,6 @@ public final class MassivePropParamOuterClass {
        * @return This builder for chaining.
        */
       public Builder addBkeclhnchpn(int value) {
-        
         ensureBkeclhnchpnIsMutable();
         bkeclhnchpn_.addInt(value);
         onChanged();
@@ -760,17 +792,17 @@ public final class MassivePropParamOuterClass {
        */
       public Builder clearBkeclhnchpn() {
         bkeclhnchpn_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
 
       private com.google.protobuf.Internal.FloatList paramList_ = emptyFloatList();
       private void ensureParamListIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           paramList_ = mutableCopy(paramList_);
-          bitField0_ |= 0x00000004;
-        }
+          bitField0_ |= 0x00000002;
+         }
       }
       /**
        * <code>repeated float paramList = 3;</code>
@@ -778,7 +810,7 @@ public final class MassivePropParamOuterClass {
        */
       public java.util.List<java.lang.Float>
           getParamListList() {
-        return ((bitField0_ & 0x00000004) != 0) ?
+        return ((bitField0_ & 0x00000002) != 0) ?
                  java.util.Collections.unmodifiableList(paramList_) : paramList_;
       }
       /**
@@ -804,7 +836,6 @@ public final class MassivePropParamOuterClass {
        */
       public Builder setParamList(
           int index, float value) {
-        
         ensureParamListIsMutable();
         paramList_.setFloat(index, value);
         onChanged();
@@ -816,7 +847,6 @@ public final class MassivePropParamOuterClass {
        * @return This builder for chaining.
        */
       public Builder addParamList(float value) {
-        
         ensureParamListIsMutable();
         paramList_.addFloat(value);
         onChanged();
@@ -841,7 +871,7 @@ public final class MassivePropParamOuterClass {
        */
       public Builder clearParamList() {
         paramList_ = emptyFloatList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -863,7 +893,6 @@ public final class MassivePropParamOuterClass {
       public Builder setEejlkopeggc(int value) {
         
         eejlkopeggc_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -872,7 +901,7 @@ public final class MassivePropParamOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEejlkopeggc() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         eejlkopeggc_ = 0;
         onChanged();
         return this;
@@ -910,18 +939,7 @@ public final class MassivePropParamOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MassivePropParam(input, extensionRegistry);
       }
     };
 

@@ -63,6 +63,54 @@ public final class ForgeQueueManipulateReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ForgeQueueManipulateReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+              int rawValue = input.readEnum();
+
+              manipulateType_ = rawValue;
+              break;
+            }
+            case 40: {
+
+              forgeQueueId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ForgeQueueManipulateReqOuterClass.internal_static_ForgeQueueManipulateReq_descriptor;
@@ -216,7 +264,7 @@ public final class ForgeQueueManipulateReqOuterClass {
     }
 
     public static final int FORGEQUEUEID_FIELD_NUMBER = 5;
-    private int forgeQueueId_ = 0;
+    private int forgeQueueId_;
     /**
      * <code>uint32 forgeQueueId = 5;</code>
      * @return The forgeQueueId.
@@ -227,7 +275,7 @@ public final class ForgeQueueManipulateReqOuterClass {
     }
 
     public static final int MANIPULATETYPE_FIELD_NUMBER = 2;
-    private int manipulateType_ = 0;
+    private int manipulateType_;
     /**
      * <code>.ForgeQueueManipulateType manipulateType = 2;</code>
      * @return The enum numeric value on the wire for manipulateType.
@@ -240,7 +288,8 @@ public final class ForgeQueueManipulateReqOuterClass {
      * @return The manipulateType.
      */
     @java.lang.Override public emu.grasscutter.net.proto.ForgeQueueManipulateTypeOuterClass.ForgeQueueManipulateType getManipulateType() {
-      emu.grasscutter.net.proto.ForgeQueueManipulateTypeOuterClass.ForgeQueueManipulateType result = emu.grasscutter.net.proto.ForgeQueueManipulateTypeOuterClass.ForgeQueueManipulateType.forNumber(manipulateType_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.ForgeQueueManipulateTypeOuterClass.ForgeQueueManipulateType result = emu.grasscutter.net.proto.ForgeQueueManipulateTypeOuterClass.ForgeQueueManipulateType.valueOf(manipulateType_);
       return result == null ? emu.grasscutter.net.proto.ForgeQueueManipulateTypeOuterClass.ForgeQueueManipulateType.UNRECOGNIZED : result;
     }
 
@@ -264,7 +313,7 @@ public final class ForgeQueueManipulateReqOuterClass {
       if (forgeQueueId_ != 0) {
         output.writeUInt32(5, forgeQueueId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -281,7 +330,7 @@ public final class ForgeQueueManipulateReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(5, forgeQueueId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -299,7 +348,7 @@ public final class ForgeQueueManipulateReqOuterClass {
       if (getForgeQueueId()
           != other.getForgeQueueId()) return false;
       if (manipulateType_ != other.manipulateType_) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -314,7 +363,7 @@ public final class ForgeQueueManipulateReqOuterClass {
       hash = (53 * hash) + getForgeQueueId();
       hash = (37 * hash) + MANIPULATETYPE_FIELD_NUMBER;
       hash = (53 * hash) + manipulateType_;
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -431,20 +480,26 @@ public final class ForgeQueueManipulateReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ForgeQueueManipulateReqOuterClass.ForgeQueueManipulateReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         forgeQueueId_ = 0;
+
         manipulateType_ = 0;
+
         return this;
       }
 
@@ -471,19 +526,10 @@ public final class ForgeQueueManipulateReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ForgeQueueManipulateReqOuterClass.ForgeQueueManipulateReq buildPartial() {
         emu.grasscutter.net.proto.ForgeQueueManipulateReqOuterClass.ForgeQueueManipulateReq result = new emu.grasscutter.net.proto.ForgeQueueManipulateReqOuterClass.ForgeQueueManipulateReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.forgeQueueId_ = forgeQueueId_;
+        result.manipulateType_ = manipulateType_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ForgeQueueManipulateReqOuterClass.ForgeQueueManipulateReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.forgeQueueId_ = forgeQueueId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.manipulateType_ = manipulateType_;
-        }
       }
 
       @java.lang.Override
@@ -536,7 +582,7 @@ public final class ForgeQueueManipulateReqOuterClass {
         if (other.manipulateType_ != 0) {
           setManipulateTypeValue(other.getManipulateTypeValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -551,43 +597,19 @@ public final class ForgeQueueManipulateReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ForgeQueueManipulateReqOuterClass.ForgeQueueManipulateReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 16: {
-                manipulateType_ = input.readEnum();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 40: {
-                forgeQueueId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 40
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ForgeQueueManipulateReqOuterClass.ForgeQueueManipulateReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int forgeQueueId_ ;
       /**
@@ -606,7 +628,6 @@ public final class ForgeQueueManipulateReqOuterClass {
       public Builder setForgeQueueId(int value) {
         
         forgeQueueId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -615,7 +636,7 @@ public final class ForgeQueueManipulateReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearForgeQueueId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         forgeQueueId_ = 0;
         onChanged();
         return this;
@@ -635,8 +656,8 @@ public final class ForgeQueueManipulateReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder setManipulateTypeValue(int value) {
+        
         manipulateType_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -646,7 +667,8 @@ public final class ForgeQueueManipulateReqOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.ForgeQueueManipulateTypeOuterClass.ForgeQueueManipulateType getManipulateType() {
-        emu.grasscutter.net.proto.ForgeQueueManipulateTypeOuterClass.ForgeQueueManipulateType result = emu.grasscutter.net.proto.ForgeQueueManipulateTypeOuterClass.ForgeQueueManipulateType.forNumber(manipulateType_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.ForgeQueueManipulateTypeOuterClass.ForgeQueueManipulateType result = emu.grasscutter.net.proto.ForgeQueueManipulateTypeOuterClass.ForgeQueueManipulateType.valueOf(manipulateType_);
         return result == null ? emu.grasscutter.net.proto.ForgeQueueManipulateTypeOuterClass.ForgeQueueManipulateType.UNRECOGNIZED : result;
       }
       /**
@@ -658,7 +680,7 @@ public final class ForgeQueueManipulateReqOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         manipulateType_ = value.getNumber();
         onChanged();
         return this;
@@ -668,7 +690,7 @@ public final class ForgeQueueManipulateReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearManipulateType() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         manipulateType_ = 0;
         onChanged();
         return this;
@@ -706,18 +728,7 @@ public final class ForgeQueueManipulateReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ForgeQueueManipulateReq(input, extensionRegistry);
       }
     };
 

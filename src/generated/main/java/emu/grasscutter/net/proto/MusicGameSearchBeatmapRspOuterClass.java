@@ -86,6 +86,73 @@ public final class MusicGameSearchBeatmapRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MusicGameSearchBeatmapRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+              int rawValue = input.readEnum();
+
+              unknownEnum1_ = rawValue;
+              break;
+            }
+            case 32: {
+
+              musicShareId_ = input.readUInt64();
+              break;
+            }
+            case 72: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 90: {
+              emu.grasscutter.net.proto.MusicBriefInfoOuterClass.MusicBriefInfo.Builder subBuilder = null;
+              if (eLBEIFGDBMMCase_ == 11) {
+                subBuilder = ((emu.grasscutter.net.proto.MusicBriefInfoOuterClass.MusicBriefInfo) eLBEIFGDBMM_).toBuilder();
+              }
+              eLBEIFGDBMM_ =
+                  input.readMessage(emu.grasscutter.net.proto.MusicBriefInfoOuterClass.MusicBriefInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.MusicBriefInfoOuterClass.MusicBriefInfo) eLBEIFGDBMM_);
+                eLBEIFGDBMM_ = subBuilder.buildPartial();
+              }
+              eLBEIFGDBMMCase_ = 11;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.MusicGameSearchBeatmapRspOuterClass.internal_static_MusicGameSearchBeatmapRsp_descriptor;
@@ -139,7 +206,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
     }
 
     public static final int RETCODE_FIELD_NUMBER = 9;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 9;</code>
      * @return The retcode.
@@ -150,7 +217,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
     }
 
     public static final int UNKNOWN_ENUM1_FIELD_NUMBER = 3;
-    private int unknownEnum1_ = 0;
+    private int unknownEnum1_;
     /**
      * <code>.MusicGameUnknown1Enum unknown_enum1 = 3;</code>
      * @return The enum numeric value on the wire for unknownEnum1.
@@ -163,12 +230,13 @@ public final class MusicGameSearchBeatmapRspOuterClass {
      * @return The unknownEnum1.
      */
     @java.lang.Override public emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum getUnknownEnum1() {
-      emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum result = emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.forNumber(unknownEnum1_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum result = emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.valueOf(unknownEnum1_);
       return result == null ? emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.UNRECOGNIZED : result;
     }
 
     public static final int MUSIC_SHARE_ID_FIELD_NUMBER = 4;
-    private long musicShareId_ = 0L;
+    private long musicShareId_;
     /**
      * <code>uint64 music_share_id = 4;</code>
      * @return The musicShareId.
@@ -235,7 +303,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
       if (eLBEIFGDBMMCase_ == 11) {
         output.writeMessage(11, (emu.grasscutter.net.proto.MusicBriefInfoOuterClass.MusicBriefInfo) eLBEIFGDBMM_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -260,7 +328,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, (emu.grasscutter.net.proto.MusicBriefInfoOuterClass.MusicBriefInfo) eLBEIFGDBMM_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -289,7 +357,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -315,7 +383,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -432,24 +500,28 @@ public final class MusicGameSearchBeatmapRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.MusicGameSearchBeatmapRspOuterClass.MusicGameSearchBeatmapRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         retcode_ = 0;
+
         unknownEnum1_ = 0;
+
         musicShareId_ = 0L;
-        if (musicBriefInfoBuilder_ != null) {
-          musicBriefInfoBuilder_.clear();
-        }
+
         eLBEIFGDBMMCase_ = 0;
         eLBEIFGDBMM_ = null;
         return this;
@@ -478,32 +550,19 @@ public final class MusicGameSearchBeatmapRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.MusicGameSearchBeatmapRspOuterClass.MusicGameSearchBeatmapRsp buildPartial() {
         emu.grasscutter.net.proto.MusicGameSearchBeatmapRspOuterClass.MusicGameSearchBeatmapRsp result = new emu.grasscutter.net.proto.MusicGameSearchBeatmapRspOuterClass.MusicGameSearchBeatmapRsp(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        result.retcode_ = retcode_;
+        result.unknownEnum1_ = unknownEnum1_;
+        result.musicShareId_ = musicShareId_;
+        if (eLBEIFGDBMMCase_ == 11) {
+          if (musicBriefInfoBuilder_ == null) {
+            result.eLBEIFGDBMM_ = eLBEIFGDBMM_;
+          } else {
+            result.eLBEIFGDBMM_ = musicBriefInfoBuilder_.build();
+          }
+        }
+        result.eLBEIFGDBMMCase_ = eLBEIFGDBMMCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.MusicGameSearchBeatmapRspOuterClass.MusicGameSearchBeatmapRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.retcode_ = retcode_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.unknownEnum1_ = unknownEnum1_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.musicShareId_ = musicShareId_;
-        }
-      }
-
-      private void buildPartialOneofs(emu.grasscutter.net.proto.MusicGameSearchBeatmapRspOuterClass.MusicGameSearchBeatmapRsp result) {
-        result.eLBEIFGDBMMCase_ = eLBEIFGDBMMCase_;
-        result.eLBEIFGDBMM_ = this.eLBEIFGDBMM_;
-        if (eLBEIFGDBMMCase_ == 11 &&
-            musicBriefInfoBuilder_ != null) {
-          result.eLBEIFGDBMM_ = musicBriefInfoBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -568,7 +627,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -583,52 +642,17 @@ public final class MusicGameSearchBeatmapRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.MusicGameSearchBeatmapRspOuterClass.MusicGameSearchBeatmapRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 24: {
-                unknownEnum1_ = input.readEnum();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 24
-              case 32: {
-                musicShareId_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 32
-              case 72: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 72
-              case 90: {
-                input.readMessage(
-                    getMusicBriefInfoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                eLBEIFGDBMMCase_ = 11;
-                break;
-              } // case 90
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.MusicGameSearchBeatmapRspOuterClass.MusicGameSearchBeatmapRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int eLBEIFGDBMMCase_ = 0;
@@ -646,7 +670,6 @@ public final class MusicGameSearchBeatmapRspOuterClass {
         return this;
       }
 
-      private int bitField0_;
 
       private int retcode_ ;
       /**
@@ -665,7 +688,6 @@ public final class MusicGameSearchBeatmapRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -674,7 +696,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -694,8 +716,8 @@ public final class MusicGameSearchBeatmapRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder setUnknownEnum1Value(int value) {
+        
         unknownEnum1_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -705,7 +727,8 @@ public final class MusicGameSearchBeatmapRspOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum getUnknownEnum1() {
-        emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum result = emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.forNumber(unknownEnum1_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum result = emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.valueOf(unknownEnum1_);
         return result == null ? emu.grasscutter.net.proto.MusicGameUnknown1EnumOuterClass.MusicGameUnknown1Enum.UNRECOGNIZED : result;
       }
       /**
@@ -717,7 +740,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         unknownEnum1_ = value.getNumber();
         onChanged();
         return this;
@@ -727,7 +750,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnknownEnum1() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         unknownEnum1_ = 0;
         onChanged();
         return this;
@@ -750,7 +773,6 @@ public final class MusicGameSearchBeatmapRspOuterClass {
       public Builder setMusicShareId(long value) {
         
         musicShareId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -759,7 +781,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearMusicShareId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         musicShareId_ = 0L;
         onChanged();
         return this;
@@ -839,9 +861,8 @@ public final class MusicGameSearchBeatmapRspOuterClass {
         } else {
           if (eLBEIFGDBMMCase_ == 11) {
             musicBriefInfoBuilder_.mergeFrom(value);
-          } else {
-            musicBriefInfoBuilder_.setMessage(value);
           }
+          musicBriefInfoBuilder_.setMessage(value);
         }
         eLBEIFGDBMMCase_ = 11;
         return this;
@@ -903,7 +924,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
           eLBEIFGDBMM_ = null;
         }
         eLBEIFGDBMMCase_ = 11;
-        onChanged();
+        onChanged();;
         return musicBriefInfoBuilder_;
       }
       @java.lang.Override
@@ -939,18 +960,7 @@ public final class MusicGameSearchBeatmapRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MusicGameSearchBeatmapRsp(input, extensionRegistry);
       }
     };
 

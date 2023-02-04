@@ -268,6 +268,226 @@ public final class AttackResultOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private AttackResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              elementType_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+              emu.grasscutter.net.proto.AbilityIdentifierOuterClass.AbilityIdentifier.Builder subBuilder = null;
+              if (abilityIdentifier_ != null) {
+                subBuilder = abilityIdentifier_.toBuilder();
+              }
+              abilityIdentifier_ = input.readMessage(emu.grasscutter.net.proto.AbilityIdentifierOuterClass.AbilityIdentifier.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(abilityIdentifier_);
+                abilityIdentifier_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 32: {
+
+              attackerId_ = input.readUInt32();
+              break;
+            }
+            case 42: {
+              emu.grasscutter.net.proto.AttackHitEffectResultOuterClass.AttackHitEffectResult.Builder subBuilder = null;
+              if (hitEffResult_ != null) {
+                subBuilder = hitEffResult_.toBuilder();
+              }
+              hitEffResult_ = input.readMessage(emu.grasscutter.net.proto.AttackHitEffectResultOuterClass.AttackHitEffectResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(hitEffResult_);
+                hitEffResult_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 48: {
+
+              endureBreak_ = input.readUInt32();
+              break;
+            }
+            case 56: {
+
+              hitPosType_ = input.readUInt32();
+              break;
+            }
+            case 66: {
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder subBuilder = null;
+              if (resolvedDir_ != null) {
+                subBuilder = resolvedDir_.toBuilder();
+              }
+              resolvedDir_ = input.readMessage(emu.grasscutter.net.proto.VectorOuterClass.Vector.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(resolvedDir_);
+                resolvedDir_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 72: {
+
+              isCrit_ = input.readBool();
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              animEventId_ = s;
+              break;
+            }
+            case 101: {
+
+              damage_ = input.readFloat();
+              break;
+            }
+            case 104: {
+
+              defenseId_ = input.readUInt32();
+              break;
+            }
+            case 114: {
+              emu.grasscutter.net.proto.HitCollisionOuterClass.HitCollision.Builder subBuilder = null;
+              if (hitCollision_ != null) {
+                subBuilder = hitCollision_.toBuilder();
+              }
+              hitCollision_ = input.readMessage(emu.grasscutter.net.proto.HitCollisionOuterClass.HitCollision.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(hitCollision_);
+                hitCollision_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 120: {
+
+              hitRetreatAngleCompat_ = input.readInt32();
+              break;
+            }
+            case 440: {
+
+              unk3300JMJHGJCAOBH_ = input.readUInt32();
+              break;
+            }
+            case 1589: {
+
+              damageShield_ = input.readFloat();
+              break;
+            }
+            case 2768: {
+
+              targetType_ = input.readUInt32();
+              break;
+            }
+            case 4248: {
+
+              unk3300MGIMJGMIPLD_ = input.readBool();
+              break;
+            }
+            case 4440: {
+
+              isResistText_ = input.readBool();
+              break;
+            }
+            case 5608: {
+
+              unk3300GBPJCELJKJA_ = input.readUInt32();
+              break;
+            }
+            case 7104: {
+
+              unk3300ABJJNNNKGBB_ = input.readUInt32();
+              break;
+            }
+            case 9357: {
+
+              endureDelta_ = input.readFloat();
+              break;
+            }
+            case 10669: {
+
+              elementDurabilityAttenuation_ = input.readFloat();
+              break;
+            }
+            case 12552: {
+
+              unk3300KPKAECBFABP_ = input.readUInt32();
+              break;
+            }
+            case 12608: {
+
+              criticalRand_ = input.readUInt32();
+              break;
+            }
+            case 12744: {
+
+              attackCount_ = input.readUInt32();
+              break;
+            }
+            case 13584: {
+
+              unk3300DOMAOPGPHMD_ = input.readBool();
+              break;
+            }
+            case 14632: {
+
+              attackTimestampMs_ = input.readUInt32();
+              break;
+            }
+            case 14869: {
+
+              elementAmplifyRate_ = input.readFloat();
+              break;
+            }
+            case 15520: {
+
+              unk3300BALCPHMFIBC_ = input.readUInt32();
+              break;
+            }
+            case 16072: {
+
+              hashedAnimEventId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.AttackResultOuterClass.internal_static_AttackResult_descriptor;
@@ -282,7 +502,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int ENDUREBREAK_FIELD_NUMBER = 6;
-    private int endureBreak_ = 0;
+    private int endureBreak_;
     /**
      * <code>uint32 endureBreak = 6;</code>
      * @return The endureBreak.
@@ -293,7 +513,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int UNK3300_BALCPHMFIBC_FIELD_NUMBER = 1940;
-    private int unk3300BALCPHMFIBC_ = 0;
+    private int unk3300BALCPHMFIBC_;
     /**
      * <code>uint32 Unk3300_BALCPHMFIBC = 1940;</code>
      * @return The unk3300BALCPHMFIBC.
@@ -304,7 +524,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int DAMAGE_FIELD_NUMBER = 12;
-    private float damage_ = 0F;
+    private float damage_;
     /**
      * <code>float damage = 12;</code>
      * @return The damage.
@@ -315,7 +535,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int ISCRIT_FIELD_NUMBER = 9;
-    private boolean isCrit_ = false;
+    private boolean isCrit_;
     /**
      * <code>bool isCrit = 9;</code>
      * @return The isCrit.
@@ -348,11 +568,11 @@ public final class AttackResultOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.AttackHitEffectResultOuterClass.AttackHitEffectResultOrBuilder getHitEffResultOrBuilder() {
-      return hitEffResult_ == null ? emu.grasscutter.net.proto.AttackHitEffectResultOuterClass.AttackHitEffectResult.getDefaultInstance() : hitEffResult_;
+      return getHitEffResult();
     }
 
     public static final int ELEMENTDURABILITYATTENUATION_FIELD_NUMBER = 1333;
-    private float elementDurabilityAttenuation_ = 0F;
+    private float elementDurabilityAttenuation_;
     /**
      * <code>float elementDurabilityAttenuation = 1333;</code>
      * @return The elementDurabilityAttenuation.
@@ -363,7 +583,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int DAMAGESHIELD_FIELD_NUMBER = 198;
-    private float damageShield_ = 0F;
+    private float damageShield_;
     /**
      * <code>float damageShield = 198;</code>
      * @return The damageShield.
@@ -374,7 +594,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int UNK3300_DOMAOPGPHMD_FIELD_NUMBER = 1698;
-    private boolean unk3300DOMAOPGPHMD_ = false;
+    private boolean unk3300DOMAOPGPHMD_;
     /**
      * <code>bool Unk3300_DOMAOPGPHMD = 1698;</code>
      * @return The unk3300DOMAOPGPHMD.
@@ -385,7 +605,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int ELEMENTTYPE_FIELD_NUMBER = 1;
-    private int elementType_ = 0;
+    private int elementType_;
     /**
      * <code>uint32 elementType = 1;</code>
      * @return The elementType.
@@ -396,7 +616,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int TARGETTYPE_FIELD_NUMBER = 346;
-    private int targetType_ = 0;
+    private int targetType_;
     /**
      * <code>uint32 targetType = 346;</code>
      * @return The targetType.
@@ -407,7 +627,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int UNK3300_MGIMJGMIPLD_FIELD_NUMBER = 531;
-    private boolean unk3300MGIMJGMIPLD_ = false;
+    private boolean unk3300MGIMJGMIPLD_;
     /**
      * <code>bool Unk3300_MGIMJGMIPLD = 531;</code>
      * @return The unk3300MGIMJGMIPLD.
@@ -418,7 +638,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int CRITICALRAND_FIELD_NUMBER = 1576;
-    private int criticalRand_ = 0;
+    private int criticalRand_;
     /**
      * <code>uint32 criticalRand = 1576;</code>
      * @return The criticalRand.
@@ -451,7 +671,7 @@ public final class AttackResultOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.AbilityIdentifierOuterClass.AbilityIdentifierOrBuilder getAbilityIdentifierOrBuilder() {
-      return abilityIdentifier_ == null ? emu.grasscutter.net.proto.AbilityIdentifierOuterClass.AbilityIdentifier.getDefaultInstance() : abilityIdentifier_;
+      return getAbilityIdentifier();
     }
 
     public static final int HITCOLLISION_FIELD_NUMBER = 14;
@@ -477,11 +697,11 @@ public final class AttackResultOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.HitCollisionOuterClass.HitCollisionOrBuilder getHitCollisionOrBuilder() {
-      return hitCollision_ == null ? emu.grasscutter.net.proto.HitCollisionOuterClass.HitCollision.getDefaultInstance() : hitCollision_;
+      return getHitCollision();
     }
 
     public static final int ATTACKTIMESTAMPMS_FIELD_NUMBER = 1829;
-    private int attackTimestampMs_ = 0;
+    private int attackTimestampMs_;
     /**
      * <code>uint32 attackTimestampMs = 1829;</code>
      * @return The attackTimestampMs.
@@ -492,7 +712,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int ATTACKERID_FIELD_NUMBER = 4;
-    private int attackerId_ = 0;
+    private int attackerId_;
     /**
      * <code>uint32 attackerId = 4;</code>
      * @return The attackerId.
@@ -503,8 +723,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int ANIMEVENTID_FIELD_NUMBER = 11;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object animEventId_ = "";
+    private volatile java.lang.Object animEventId_;
     /**
      * <code>string animEventId = 11;</code>
      * @return The animEventId.
@@ -542,7 +761,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int HITRETREATANGLECOMPAT_FIELD_NUMBER = 15;
-    private int hitRetreatAngleCompat_ = 0;
+    private int hitRetreatAngleCompat_;
     /**
      * <code>int32 hitRetreatAngleCompat = 15;</code>
      * @return The hitRetreatAngleCompat.
@@ -553,7 +772,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int UNK3300_JMJHGJCAOBH_FIELD_NUMBER = 55;
-    private int unk3300JMJHGJCAOBH_ = 0;
+    private int unk3300JMJHGJCAOBH_;
     /**
      * <code>uint32 Unk3300_JMJHGJCAOBH = 55;</code>
      * @return The unk3300JMJHGJCAOBH.
@@ -564,7 +783,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int DEFENSEID_FIELD_NUMBER = 13;
-    private int defenseId_ = 0;
+    private int defenseId_;
     /**
      * <code>uint32 defenseId = 13;</code>
      * @return The defenseId.
@@ -575,7 +794,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int ISRESISTTEXT_FIELD_NUMBER = 555;
-    private boolean isResistText_ = false;
+    private boolean isResistText_;
     /**
      * <code>bool isResistText = 555;</code>
      * @return The isResistText.
@@ -586,7 +805,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int ATTACKCOUNT_FIELD_NUMBER = 1593;
-    private int attackCount_ = 0;
+    private int attackCount_;
     /**
      * <code>uint32 attackCount = 1593;</code>
      * @return The attackCount.
@@ -619,11 +838,11 @@ public final class AttackResultOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getResolvedDirOrBuilder() {
-      return resolvedDir_ == null ? emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance() : resolvedDir_;
+      return getResolvedDir();
     }
 
     public static final int HITPOSTYPE_FIELD_NUMBER = 7;
-    private int hitPosType_ = 0;
+    private int hitPosType_;
     /**
      * <code>uint32 hitPosType = 7;</code>
      * @return The hitPosType.
@@ -634,7 +853,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int HASHEDANIMEVENTID_FIELD_NUMBER = 2009;
-    private int hashedAnimEventId_ = 0;
+    private int hashedAnimEventId_;
     /**
      * <code>uint32 hashedAnimEventId = 2009;</code>
      * @return The hashedAnimEventId.
@@ -645,7 +864,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int UNK3300_KPKAECBFABP_FIELD_NUMBER = 1569;
-    private int unk3300KPKAECBFABP_ = 0;
+    private int unk3300KPKAECBFABP_;
     /**
      * <code>uint32 Unk3300_KPKAECBFABP = 1569;</code>
      * @return The unk3300KPKAECBFABP.
@@ -656,7 +875,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int ENDUREDELTA_FIELD_NUMBER = 1169;
-    private float endureDelta_ = 0F;
+    private float endureDelta_;
     /**
      * <code>float endureDelta = 1169;</code>
      * @return The endureDelta.
@@ -667,7 +886,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int UNK3300_GBPJCELJKJA_FIELD_NUMBER = 701;
-    private int unk3300GBPJCELJKJA_ = 0;
+    private int unk3300GBPJCELJKJA_;
     /**
      * <code>uint32 Unk3300_GBPJCELJKJA = 701;</code>
      * @return The unk3300GBPJCELJKJA.
@@ -678,7 +897,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int ELEMENTAMPLIFYRATE_FIELD_NUMBER = 1858;
-    private float elementAmplifyRate_ = 0F;
+    private float elementAmplifyRate_;
     /**
      * <code>float elementAmplifyRate = 1858;</code>
      * @return The elementAmplifyRate.
@@ -689,7 +908,7 @@ public final class AttackResultOuterClass {
     }
 
     public static final int UNK3300_ABJJNNNKGBB_FIELD_NUMBER = 888;
-    private int unk3300ABJJNNNKGBB_ = 0;
+    private int unk3300ABJJNNNKGBB_;
     /**
      * <code>uint32 Unk3300_ABJJNNNKGBB = 888;</code>
      * @return The unk3300ABJJNNNKGBB.
@@ -740,7 +959,7 @@ public final class AttackResultOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(animEventId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, animEventId_);
       }
-      if (java.lang.Float.floatToRawIntBits(damage_) != 0) {
+      if (damage_ != 0F) {
         output.writeFloat(12, damage_);
       }
       if (defenseId_ != 0) {
@@ -755,7 +974,7 @@ public final class AttackResultOuterClass {
       if (unk3300JMJHGJCAOBH_ != 0) {
         output.writeUInt32(55, unk3300JMJHGJCAOBH_);
       }
-      if (java.lang.Float.floatToRawIntBits(damageShield_) != 0) {
+      if (damageShield_ != 0F) {
         output.writeFloat(198, damageShield_);
       }
       if (targetType_ != 0) {
@@ -773,10 +992,10 @@ public final class AttackResultOuterClass {
       if (unk3300ABJJNNNKGBB_ != 0) {
         output.writeUInt32(888, unk3300ABJJNNNKGBB_);
       }
-      if (java.lang.Float.floatToRawIntBits(endureDelta_) != 0) {
+      if (endureDelta_ != 0F) {
         output.writeFloat(1169, endureDelta_);
       }
-      if (java.lang.Float.floatToRawIntBits(elementDurabilityAttenuation_) != 0) {
+      if (elementDurabilityAttenuation_ != 0F) {
         output.writeFloat(1333, elementDurabilityAttenuation_);
       }
       if (unk3300KPKAECBFABP_ != 0) {
@@ -794,7 +1013,7 @@ public final class AttackResultOuterClass {
       if (attackTimestampMs_ != 0) {
         output.writeUInt32(1829, attackTimestampMs_);
       }
-      if (java.lang.Float.floatToRawIntBits(elementAmplifyRate_) != 0) {
+      if (elementAmplifyRate_ != 0F) {
         output.writeFloat(1858, elementAmplifyRate_);
       }
       if (unk3300BALCPHMFIBC_ != 0) {
@@ -803,7 +1022,7 @@ public final class AttackResultOuterClass {
       if (hashedAnimEventId_ != 0) {
         output.writeUInt32(2009, hashedAnimEventId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -847,7 +1066,7 @@ public final class AttackResultOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(animEventId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, animEventId_);
       }
-      if (java.lang.Float.floatToRawIntBits(damage_) != 0) {
+      if (damage_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(12, damage_);
       }
@@ -867,7 +1086,7 @@ public final class AttackResultOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(55, unk3300JMJHGJCAOBH_);
       }
-      if (java.lang.Float.floatToRawIntBits(damageShield_) != 0) {
+      if (damageShield_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(198, damageShield_);
       }
@@ -891,11 +1110,11 @@ public final class AttackResultOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(888, unk3300ABJJNNNKGBB_);
       }
-      if (java.lang.Float.floatToRawIntBits(endureDelta_) != 0) {
+      if (endureDelta_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(1169, endureDelta_);
       }
-      if (java.lang.Float.floatToRawIntBits(elementDurabilityAttenuation_) != 0) {
+      if (elementDurabilityAttenuation_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(1333, elementDurabilityAttenuation_);
       }
@@ -919,7 +1138,7 @@ public final class AttackResultOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1829, attackTimestampMs_);
       }
-      if (java.lang.Float.floatToRawIntBits(elementAmplifyRate_) != 0) {
+      if (elementAmplifyRate_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(1858, elementAmplifyRate_);
       }
@@ -931,7 +1150,7 @@ public final class AttackResultOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2009, hashedAnimEventId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1023,7 +1242,7 @@ public final class AttackResultOuterClass {
               other.getElementAmplifyRate())) return false;
       if (getUnk3300ABJJNNNKGBB()
           != other.getUnk3300ABJJNNNKGBB()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1111,7 +1330,7 @@ public final class AttackResultOuterClass {
           getElementAmplifyRate());
       hash = (37 * hash) + UNK3300_ABJJNNNKGBB_FIELD_NUMBER;
       hash = (53 * hash) + getUnk3300ABJJNNNKGBB();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1228,64 +1447,98 @@ public final class AttackResultOuterClass {
 
       // Construct using emu.grasscutter.net.proto.AttackResultOuterClass.AttackResult.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         endureBreak_ = 0;
+
         unk3300BALCPHMFIBC_ = 0;
+
         damage_ = 0F;
+
         isCrit_ = false;
-        hitEffResult_ = null;
-        if (hitEffResultBuilder_ != null) {
-          hitEffResultBuilder_.dispose();
+
+        if (hitEffResultBuilder_ == null) {
+          hitEffResult_ = null;
+        } else {
+          hitEffResult_ = null;
           hitEffResultBuilder_ = null;
         }
         elementDurabilityAttenuation_ = 0F;
+
         damageShield_ = 0F;
+
         unk3300DOMAOPGPHMD_ = false;
+
         elementType_ = 0;
+
         targetType_ = 0;
+
         unk3300MGIMJGMIPLD_ = false;
+
         criticalRand_ = 0;
-        abilityIdentifier_ = null;
-        if (abilityIdentifierBuilder_ != null) {
-          abilityIdentifierBuilder_.dispose();
+
+        if (abilityIdentifierBuilder_ == null) {
+          abilityIdentifier_ = null;
+        } else {
+          abilityIdentifier_ = null;
           abilityIdentifierBuilder_ = null;
         }
-        hitCollision_ = null;
-        if (hitCollisionBuilder_ != null) {
-          hitCollisionBuilder_.dispose();
+        if (hitCollisionBuilder_ == null) {
+          hitCollision_ = null;
+        } else {
+          hitCollision_ = null;
           hitCollisionBuilder_ = null;
         }
         attackTimestampMs_ = 0;
+
         attackerId_ = 0;
+
         animEventId_ = "";
+
         hitRetreatAngleCompat_ = 0;
+
         unk3300JMJHGJCAOBH_ = 0;
+
         defenseId_ = 0;
+
         isResistText_ = false;
+
         attackCount_ = 0;
-        resolvedDir_ = null;
-        if (resolvedDirBuilder_ != null) {
-          resolvedDirBuilder_.dispose();
+
+        if (resolvedDirBuilder_ == null) {
+          resolvedDir_ = null;
+        } else {
+          resolvedDir_ = null;
           resolvedDirBuilder_ = null;
         }
         hitPosType_ = 0;
+
         hashedAnimEventId_ = 0;
+
         unk3300KPKAECBFABP_ = 0;
+
         endureDelta_ = 0F;
+
         unk3300GBPJCELJKJA_ = 0;
+
         elementAmplifyRate_ = 0F;
+
         unk3300ABJJNNNKGBB_ = 0;
+
         return this;
       }
 
@@ -1312,111 +1565,54 @@ public final class AttackResultOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.AttackResultOuterClass.AttackResult buildPartial() {
         emu.grasscutter.net.proto.AttackResultOuterClass.AttackResult result = new emu.grasscutter.net.proto.AttackResultOuterClass.AttackResult(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.endureBreak_ = endureBreak_;
+        result.unk3300BALCPHMFIBC_ = unk3300BALCPHMFIBC_;
+        result.damage_ = damage_;
+        result.isCrit_ = isCrit_;
+        if (hitEffResultBuilder_ == null) {
+          result.hitEffResult_ = hitEffResult_;
+        } else {
+          result.hitEffResult_ = hitEffResultBuilder_.build();
+        }
+        result.elementDurabilityAttenuation_ = elementDurabilityAttenuation_;
+        result.damageShield_ = damageShield_;
+        result.unk3300DOMAOPGPHMD_ = unk3300DOMAOPGPHMD_;
+        result.elementType_ = elementType_;
+        result.targetType_ = targetType_;
+        result.unk3300MGIMJGMIPLD_ = unk3300MGIMJGMIPLD_;
+        result.criticalRand_ = criticalRand_;
+        if (abilityIdentifierBuilder_ == null) {
+          result.abilityIdentifier_ = abilityIdentifier_;
+        } else {
+          result.abilityIdentifier_ = abilityIdentifierBuilder_.build();
+        }
+        if (hitCollisionBuilder_ == null) {
+          result.hitCollision_ = hitCollision_;
+        } else {
+          result.hitCollision_ = hitCollisionBuilder_.build();
+        }
+        result.attackTimestampMs_ = attackTimestampMs_;
+        result.attackerId_ = attackerId_;
+        result.animEventId_ = animEventId_;
+        result.hitRetreatAngleCompat_ = hitRetreatAngleCompat_;
+        result.unk3300JMJHGJCAOBH_ = unk3300JMJHGJCAOBH_;
+        result.defenseId_ = defenseId_;
+        result.isResistText_ = isResistText_;
+        result.attackCount_ = attackCount_;
+        if (resolvedDirBuilder_ == null) {
+          result.resolvedDir_ = resolvedDir_;
+        } else {
+          result.resolvedDir_ = resolvedDirBuilder_.build();
+        }
+        result.hitPosType_ = hitPosType_;
+        result.hashedAnimEventId_ = hashedAnimEventId_;
+        result.unk3300KPKAECBFABP_ = unk3300KPKAECBFABP_;
+        result.endureDelta_ = endureDelta_;
+        result.unk3300GBPJCELJKJA_ = unk3300GBPJCELJKJA_;
+        result.elementAmplifyRate_ = elementAmplifyRate_;
+        result.unk3300ABJJNNNKGBB_ = unk3300ABJJNNNKGBB_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.AttackResultOuterClass.AttackResult result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.endureBreak_ = endureBreak_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.unk3300BALCPHMFIBC_ = unk3300BALCPHMFIBC_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.damage_ = damage_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.isCrit_ = isCrit_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.hitEffResult_ = hitEffResultBuilder_ == null
-              ? hitEffResult_
-              : hitEffResultBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.elementDurabilityAttenuation_ = elementDurabilityAttenuation_;
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.damageShield_ = damageShield_;
-        }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.unk3300DOMAOPGPHMD_ = unk3300DOMAOPGPHMD_;
-        }
-        if (((from_bitField0_ & 0x00000100) != 0)) {
-          result.elementType_ = elementType_;
-        }
-        if (((from_bitField0_ & 0x00000200) != 0)) {
-          result.targetType_ = targetType_;
-        }
-        if (((from_bitField0_ & 0x00000400) != 0)) {
-          result.unk3300MGIMJGMIPLD_ = unk3300MGIMJGMIPLD_;
-        }
-        if (((from_bitField0_ & 0x00000800) != 0)) {
-          result.criticalRand_ = criticalRand_;
-        }
-        if (((from_bitField0_ & 0x00001000) != 0)) {
-          result.abilityIdentifier_ = abilityIdentifierBuilder_ == null
-              ? abilityIdentifier_
-              : abilityIdentifierBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00002000) != 0)) {
-          result.hitCollision_ = hitCollisionBuilder_ == null
-              ? hitCollision_
-              : hitCollisionBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00004000) != 0)) {
-          result.attackTimestampMs_ = attackTimestampMs_;
-        }
-        if (((from_bitField0_ & 0x00008000) != 0)) {
-          result.attackerId_ = attackerId_;
-        }
-        if (((from_bitField0_ & 0x00010000) != 0)) {
-          result.animEventId_ = animEventId_;
-        }
-        if (((from_bitField0_ & 0x00020000) != 0)) {
-          result.hitRetreatAngleCompat_ = hitRetreatAngleCompat_;
-        }
-        if (((from_bitField0_ & 0x00040000) != 0)) {
-          result.unk3300JMJHGJCAOBH_ = unk3300JMJHGJCAOBH_;
-        }
-        if (((from_bitField0_ & 0x00080000) != 0)) {
-          result.defenseId_ = defenseId_;
-        }
-        if (((from_bitField0_ & 0x00100000) != 0)) {
-          result.isResistText_ = isResistText_;
-        }
-        if (((from_bitField0_ & 0x00200000) != 0)) {
-          result.attackCount_ = attackCount_;
-        }
-        if (((from_bitField0_ & 0x00400000) != 0)) {
-          result.resolvedDir_ = resolvedDirBuilder_ == null
-              ? resolvedDir_
-              : resolvedDirBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00800000) != 0)) {
-          result.hitPosType_ = hitPosType_;
-        }
-        if (((from_bitField0_ & 0x01000000) != 0)) {
-          result.hashedAnimEventId_ = hashedAnimEventId_;
-        }
-        if (((from_bitField0_ & 0x02000000) != 0)) {
-          result.unk3300KPKAECBFABP_ = unk3300KPKAECBFABP_;
-        }
-        if (((from_bitField0_ & 0x04000000) != 0)) {
-          result.endureDelta_ = endureDelta_;
-        }
-        if (((from_bitField0_ & 0x08000000) != 0)) {
-          result.unk3300GBPJCELJKJA_ = unk3300GBPJCELJKJA_;
-        }
-        if (((from_bitField0_ & 0x10000000) != 0)) {
-          result.elementAmplifyRate_ = elementAmplifyRate_;
-        }
-        if (((from_bitField0_ & 0x20000000) != 0)) {
-          result.unk3300ABJJNNNKGBB_ = unk3300ABJJNNNKGBB_;
-        }
       }
 
       @java.lang.Override
@@ -1513,7 +1709,6 @@ public final class AttackResultOuterClass {
         }
         if (!other.getAnimEventId().isEmpty()) {
           animEventId_ = other.animEventId_;
-          bitField0_ |= 0x00010000;
           onChanged();
         }
         if (other.getHitRetreatAngleCompat() != 0) {
@@ -1555,7 +1750,7 @@ public final class AttackResultOuterClass {
         if (other.getUnk3300ABJJNNNKGBB() != 0) {
           setUnk3300ABJJNNNKGBB(other.getUnk3300ABJJNNNKGBB());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1570,191 +1765,19 @@ public final class AttackResultOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.AttackResultOuterClass.AttackResult parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                elementType_ = input.readUInt32();
-                bitField0_ |= 0x00000100;
-                break;
-              } // case 8
-              case 18: {
-                input.readMessage(
-                    getAbilityIdentifierFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00001000;
-                break;
-              } // case 18
-              case 32: {
-                attackerId_ = input.readUInt32();
-                bitField0_ |= 0x00008000;
-                break;
-              } // case 32
-              case 42: {
-                input.readMessage(
-                    getHitEffResultFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              case 48: {
-                endureBreak_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 48
-              case 56: {
-                hitPosType_ = input.readUInt32();
-                bitField0_ |= 0x00800000;
-                break;
-              } // case 56
-              case 66: {
-                input.readMessage(
-                    getResolvedDirFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00400000;
-                break;
-              } // case 66
-              case 72: {
-                isCrit_ = input.readBool();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 72
-              case 90: {
-                animEventId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00010000;
-                break;
-              } // case 90
-              case 101: {
-                damage_ = input.readFloat();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 101
-              case 104: {
-                defenseId_ = input.readUInt32();
-                bitField0_ |= 0x00080000;
-                break;
-              } // case 104
-              case 114: {
-                input.readMessage(
-                    getHitCollisionFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00002000;
-                break;
-              } // case 114
-              case 120: {
-                hitRetreatAngleCompat_ = input.readInt32();
-                bitField0_ |= 0x00020000;
-                break;
-              } // case 120
-              case 440: {
-                unk3300JMJHGJCAOBH_ = input.readUInt32();
-                bitField0_ |= 0x00040000;
-                break;
-              } // case 440
-              case 1589: {
-                damageShield_ = input.readFloat();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 1589
-              case 2768: {
-                targetType_ = input.readUInt32();
-                bitField0_ |= 0x00000200;
-                break;
-              } // case 2768
-              case 4248: {
-                unk3300MGIMJGMIPLD_ = input.readBool();
-                bitField0_ |= 0x00000400;
-                break;
-              } // case 4248
-              case 4440: {
-                isResistText_ = input.readBool();
-                bitField0_ |= 0x00100000;
-                break;
-              } // case 4440
-              case 5608: {
-                unk3300GBPJCELJKJA_ = input.readUInt32();
-                bitField0_ |= 0x08000000;
-                break;
-              } // case 5608
-              case 7104: {
-                unk3300ABJJNNNKGBB_ = input.readUInt32();
-                bitField0_ |= 0x20000000;
-                break;
-              } // case 7104
-              case 9357: {
-                endureDelta_ = input.readFloat();
-                bitField0_ |= 0x04000000;
-                break;
-              } // case 9357
-              case 10669: {
-                elementDurabilityAttenuation_ = input.readFloat();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 10669
-              case 12552: {
-                unk3300KPKAECBFABP_ = input.readUInt32();
-                bitField0_ |= 0x02000000;
-                break;
-              } // case 12552
-              case 12608: {
-                criticalRand_ = input.readUInt32();
-                bitField0_ |= 0x00000800;
-                break;
-              } // case 12608
-              case 12744: {
-                attackCount_ = input.readUInt32();
-                bitField0_ |= 0x00200000;
-                break;
-              } // case 12744
-              case 13584: {
-                unk3300DOMAOPGPHMD_ = input.readBool();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 13584
-              case 14632: {
-                attackTimestampMs_ = input.readUInt32();
-                bitField0_ |= 0x00004000;
-                break;
-              } // case 14632
-              case 14869: {
-                elementAmplifyRate_ = input.readFloat();
-                bitField0_ |= 0x10000000;
-                break;
-              } // case 14869
-              case 15520: {
-                unk3300BALCPHMFIBC_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 15520
-              case 16072: {
-                hashedAnimEventId_ = input.readUInt32();
-                bitField0_ |= 0x01000000;
-                break;
-              } // case 16072
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.AttackResultOuterClass.AttackResult) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int endureBreak_ ;
       /**
@@ -1773,7 +1796,6 @@ public final class AttackResultOuterClass {
       public Builder setEndureBreak(int value) {
         
         endureBreak_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1782,7 +1804,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEndureBreak() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         endureBreak_ = 0;
         onChanged();
         return this;
@@ -1805,7 +1827,6 @@ public final class AttackResultOuterClass {
       public Builder setUnk3300BALCPHMFIBC(int value) {
         
         unk3300BALCPHMFIBC_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1814,7 +1835,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300BALCPHMFIBC() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         unk3300BALCPHMFIBC_ = 0;
         onChanged();
         return this;
@@ -1837,7 +1858,6 @@ public final class AttackResultOuterClass {
       public Builder setDamage(float value) {
         
         damage_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1846,7 +1866,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDamage() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         damage_ = 0F;
         onChanged();
         return this;
@@ -1869,7 +1889,6 @@ public final class AttackResultOuterClass {
       public Builder setIsCrit(boolean value) {
         
         isCrit_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1878,7 +1897,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsCrit() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         isCrit_ = false;
         onChanged();
         return this;
@@ -1892,7 +1911,7 @@ public final class AttackResultOuterClass {
        * @return Whether the hitEffResult field is set.
        */
       public boolean hasHitEffResult() {
-        return ((bitField0_ & 0x00000010) != 0);
+        return hitEffResultBuilder_ != null || hitEffResult_ != null;
       }
       /**
        * <code>.AttackHitEffectResult hitEffResult = 5;</code>
@@ -1914,11 +1933,11 @@ public final class AttackResultOuterClass {
             throw new NullPointerException();
           }
           hitEffResult_ = value;
+          onChanged();
         } else {
           hitEffResultBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000010;
-        onChanged();
+
         return this;
       }
       /**
@@ -1928,11 +1947,11 @@ public final class AttackResultOuterClass {
           emu.grasscutter.net.proto.AttackHitEffectResultOuterClass.AttackHitEffectResult.Builder builderForValue) {
         if (hitEffResultBuilder_ == null) {
           hitEffResult_ = builderForValue.build();
+          onChanged();
         } else {
           hitEffResultBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000010;
-        onChanged();
+
         return this;
       }
       /**
@@ -1940,38 +1959,38 @@ public final class AttackResultOuterClass {
        */
       public Builder mergeHitEffResult(emu.grasscutter.net.proto.AttackHitEffectResultOuterClass.AttackHitEffectResult value) {
         if (hitEffResultBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) != 0) &&
-            hitEffResult_ != null &&
-            hitEffResult_ != emu.grasscutter.net.proto.AttackHitEffectResultOuterClass.AttackHitEffectResult.getDefaultInstance()) {
-            getHitEffResultBuilder().mergeFrom(value);
+          if (hitEffResult_ != null) {
+            hitEffResult_ =
+              emu.grasscutter.net.proto.AttackHitEffectResultOuterClass.AttackHitEffectResult.newBuilder(hitEffResult_).mergeFrom(value).buildPartial();
           } else {
             hitEffResult_ = value;
           }
+          onChanged();
         } else {
           hitEffResultBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000010;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.AttackHitEffectResult hitEffResult = 5;</code>
        */
       public Builder clearHitEffResult() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        hitEffResult_ = null;
-        if (hitEffResultBuilder_ != null) {
-          hitEffResultBuilder_.dispose();
+        if (hitEffResultBuilder_ == null) {
+          hitEffResult_ = null;
+          onChanged();
+        } else {
+          hitEffResult_ = null;
           hitEffResultBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.AttackHitEffectResult hitEffResult = 5;</code>
        */
       public emu.grasscutter.net.proto.AttackHitEffectResultOuterClass.AttackHitEffectResult.Builder getHitEffResultBuilder() {
-        bitField0_ |= 0x00000010;
+        
         onChanged();
         return getHitEffResultFieldBuilder().getBuilder();
       }
@@ -2020,7 +2039,6 @@ public final class AttackResultOuterClass {
       public Builder setElementDurabilityAttenuation(float value) {
         
         elementDurabilityAttenuation_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -2029,7 +2047,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearElementDurabilityAttenuation() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         elementDurabilityAttenuation_ = 0F;
         onChanged();
         return this;
@@ -2052,7 +2070,6 @@ public final class AttackResultOuterClass {
       public Builder setDamageShield(float value) {
         
         damageShield_ = value;
-        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -2061,7 +2078,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDamageShield() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        
         damageShield_ = 0F;
         onChanged();
         return this;
@@ -2084,7 +2101,6 @@ public final class AttackResultOuterClass {
       public Builder setUnk3300DOMAOPGPHMD(boolean value) {
         
         unk3300DOMAOPGPHMD_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -2093,7 +2109,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300DOMAOPGPHMD() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        
         unk3300DOMAOPGPHMD_ = false;
         onChanged();
         return this;
@@ -2116,7 +2132,6 @@ public final class AttackResultOuterClass {
       public Builder setElementType(int value) {
         
         elementType_ = value;
-        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -2125,7 +2140,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearElementType() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        
         elementType_ = 0;
         onChanged();
         return this;
@@ -2148,7 +2163,6 @@ public final class AttackResultOuterClass {
       public Builder setTargetType(int value) {
         
         targetType_ = value;
-        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -2157,7 +2171,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTargetType() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        
         targetType_ = 0;
         onChanged();
         return this;
@@ -2180,7 +2194,6 @@ public final class AttackResultOuterClass {
       public Builder setUnk3300MGIMJGMIPLD(boolean value) {
         
         unk3300MGIMJGMIPLD_ = value;
-        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -2189,7 +2202,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300MGIMJGMIPLD() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        
         unk3300MGIMJGMIPLD_ = false;
         onChanged();
         return this;
@@ -2212,7 +2225,6 @@ public final class AttackResultOuterClass {
       public Builder setCriticalRand(int value) {
         
         criticalRand_ = value;
-        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -2221,7 +2233,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCriticalRand() {
-        bitField0_ = (bitField0_ & ~0x00000800);
+        
         criticalRand_ = 0;
         onChanged();
         return this;
@@ -2235,7 +2247,7 @@ public final class AttackResultOuterClass {
        * @return Whether the abilityIdentifier field is set.
        */
       public boolean hasAbilityIdentifier() {
-        return ((bitField0_ & 0x00001000) != 0);
+        return abilityIdentifierBuilder_ != null || abilityIdentifier_ != null;
       }
       /**
        * <code>.AbilityIdentifier abilityIdentifier = 2;</code>
@@ -2257,11 +2269,11 @@ public final class AttackResultOuterClass {
             throw new NullPointerException();
           }
           abilityIdentifier_ = value;
+          onChanged();
         } else {
           abilityIdentifierBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00001000;
-        onChanged();
+
         return this;
       }
       /**
@@ -2271,11 +2283,11 @@ public final class AttackResultOuterClass {
           emu.grasscutter.net.proto.AbilityIdentifierOuterClass.AbilityIdentifier.Builder builderForValue) {
         if (abilityIdentifierBuilder_ == null) {
           abilityIdentifier_ = builderForValue.build();
+          onChanged();
         } else {
           abilityIdentifierBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00001000;
-        onChanged();
+
         return this;
       }
       /**
@@ -2283,38 +2295,38 @@ public final class AttackResultOuterClass {
        */
       public Builder mergeAbilityIdentifier(emu.grasscutter.net.proto.AbilityIdentifierOuterClass.AbilityIdentifier value) {
         if (abilityIdentifierBuilder_ == null) {
-          if (((bitField0_ & 0x00001000) != 0) &&
-            abilityIdentifier_ != null &&
-            abilityIdentifier_ != emu.grasscutter.net.proto.AbilityIdentifierOuterClass.AbilityIdentifier.getDefaultInstance()) {
-            getAbilityIdentifierBuilder().mergeFrom(value);
+          if (abilityIdentifier_ != null) {
+            abilityIdentifier_ =
+              emu.grasscutter.net.proto.AbilityIdentifierOuterClass.AbilityIdentifier.newBuilder(abilityIdentifier_).mergeFrom(value).buildPartial();
           } else {
             abilityIdentifier_ = value;
           }
+          onChanged();
         } else {
           abilityIdentifierBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00001000;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.AbilityIdentifier abilityIdentifier = 2;</code>
        */
       public Builder clearAbilityIdentifier() {
-        bitField0_ = (bitField0_ & ~0x00001000);
-        abilityIdentifier_ = null;
-        if (abilityIdentifierBuilder_ != null) {
-          abilityIdentifierBuilder_.dispose();
+        if (abilityIdentifierBuilder_ == null) {
+          abilityIdentifier_ = null;
+          onChanged();
+        } else {
+          abilityIdentifier_ = null;
           abilityIdentifierBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.AbilityIdentifier abilityIdentifier = 2;</code>
        */
       public emu.grasscutter.net.proto.AbilityIdentifierOuterClass.AbilityIdentifier.Builder getAbilityIdentifierBuilder() {
-        bitField0_ |= 0x00001000;
+        
         onChanged();
         return getAbilityIdentifierFieldBuilder().getBuilder();
       }
@@ -2354,7 +2366,7 @@ public final class AttackResultOuterClass {
        * @return Whether the hitCollision field is set.
        */
       public boolean hasHitCollision() {
-        return ((bitField0_ & 0x00002000) != 0);
+        return hitCollisionBuilder_ != null || hitCollision_ != null;
       }
       /**
        * <code>.HitCollision hitCollision = 14;</code>
@@ -2376,11 +2388,11 @@ public final class AttackResultOuterClass {
             throw new NullPointerException();
           }
           hitCollision_ = value;
+          onChanged();
         } else {
           hitCollisionBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00002000;
-        onChanged();
+
         return this;
       }
       /**
@@ -2390,11 +2402,11 @@ public final class AttackResultOuterClass {
           emu.grasscutter.net.proto.HitCollisionOuterClass.HitCollision.Builder builderForValue) {
         if (hitCollisionBuilder_ == null) {
           hitCollision_ = builderForValue.build();
+          onChanged();
         } else {
           hitCollisionBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00002000;
-        onChanged();
+
         return this;
       }
       /**
@@ -2402,38 +2414,38 @@ public final class AttackResultOuterClass {
        */
       public Builder mergeHitCollision(emu.grasscutter.net.proto.HitCollisionOuterClass.HitCollision value) {
         if (hitCollisionBuilder_ == null) {
-          if (((bitField0_ & 0x00002000) != 0) &&
-            hitCollision_ != null &&
-            hitCollision_ != emu.grasscutter.net.proto.HitCollisionOuterClass.HitCollision.getDefaultInstance()) {
-            getHitCollisionBuilder().mergeFrom(value);
+          if (hitCollision_ != null) {
+            hitCollision_ =
+              emu.grasscutter.net.proto.HitCollisionOuterClass.HitCollision.newBuilder(hitCollision_).mergeFrom(value).buildPartial();
           } else {
             hitCollision_ = value;
           }
+          onChanged();
         } else {
           hitCollisionBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00002000;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.HitCollision hitCollision = 14;</code>
        */
       public Builder clearHitCollision() {
-        bitField0_ = (bitField0_ & ~0x00002000);
-        hitCollision_ = null;
-        if (hitCollisionBuilder_ != null) {
-          hitCollisionBuilder_.dispose();
+        if (hitCollisionBuilder_ == null) {
+          hitCollision_ = null;
+          onChanged();
+        } else {
+          hitCollision_ = null;
           hitCollisionBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.HitCollision hitCollision = 14;</code>
        */
       public emu.grasscutter.net.proto.HitCollisionOuterClass.HitCollision.Builder getHitCollisionBuilder() {
-        bitField0_ |= 0x00002000;
+        
         onChanged();
         return getHitCollisionFieldBuilder().getBuilder();
       }
@@ -2482,7 +2494,6 @@ public final class AttackResultOuterClass {
       public Builder setAttackTimestampMs(int value) {
         
         attackTimestampMs_ = value;
-        bitField0_ |= 0x00004000;
         onChanged();
         return this;
       }
@@ -2491,7 +2502,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAttackTimestampMs() {
-        bitField0_ = (bitField0_ & ~0x00004000);
+        
         attackTimestampMs_ = 0;
         onChanged();
         return this;
@@ -2514,7 +2525,6 @@ public final class AttackResultOuterClass {
       public Builder setAttackerId(int value) {
         
         attackerId_ = value;
-        bitField0_ |= 0x00008000;
         onChanged();
         return this;
       }
@@ -2523,7 +2533,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAttackerId() {
-        bitField0_ = (bitField0_ & ~0x00008000);
+        
         attackerId_ = 0;
         onChanged();
         return this;
@@ -2570,9 +2580,11 @@ public final class AttackResultOuterClass {
        */
       public Builder setAnimEventId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         animEventId_ = value;
-        bitField0_ |= 0x00010000;
         onChanged();
         return this;
       }
@@ -2581,8 +2593,8 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAnimEventId() {
+        
         animEventId_ = getDefaultInstance().getAnimEventId();
-        bitField0_ = (bitField0_ & ~0x00010000);
         onChanged();
         return this;
       }
@@ -2593,10 +2605,12 @@ public final class AttackResultOuterClass {
        */
       public Builder setAnimEventIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         animEventId_ = value;
-        bitField0_ |= 0x00010000;
         onChanged();
         return this;
       }
@@ -2618,7 +2632,6 @@ public final class AttackResultOuterClass {
       public Builder setHitRetreatAngleCompat(int value) {
         
         hitRetreatAngleCompat_ = value;
-        bitField0_ |= 0x00020000;
         onChanged();
         return this;
       }
@@ -2627,7 +2640,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearHitRetreatAngleCompat() {
-        bitField0_ = (bitField0_ & ~0x00020000);
+        
         hitRetreatAngleCompat_ = 0;
         onChanged();
         return this;
@@ -2650,7 +2663,6 @@ public final class AttackResultOuterClass {
       public Builder setUnk3300JMJHGJCAOBH(int value) {
         
         unk3300JMJHGJCAOBH_ = value;
-        bitField0_ |= 0x00040000;
         onChanged();
         return this;
       }
@@ -2659,7 +2671,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300JMJHGJCAOBH() {
-        bitField0_ = (bitField0_ & ~0x00040000);
+        
         unk3300JMJHGJCAOBH_ = 0;
         onChanged();
         return this;
@@ -2682,7 +2694,6 @@ public final class AttackResultOuterClass {
       public Builder setDefenseId(int value) {
         
         defenseId_ = value;
-        bitField0_ |= 0x00080000;
         onChanged();
         return this;
       }
@@ -2691,7 +2702,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDefenseId() {
-        bitField0_ = (bitField0_ & ~0x00080000);
+        
         defenseId_ = 0;
         onChanged();
         return this;
@@ -2714,7 +2725,6 @@ public final class AttackResultOuterClass {
       public Builder setIsResistText(boolean value) {
         
         isResistText_ = value;
-        bitField0_ |= 0x00100000;
         onChanged();
         return this;
       }
@@ -2723,7 +2733,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsResistText() {
-        bitField0_ = (bitField0_ & ~0x00100000);
+        
         isResistText_ = false;
         onChanged();
         return this;
@@ -2746,7 +2756,6 @@ public final class AttackResultOuterClass {
       public Builder setAttackCount(int value) {
         
         attackCount_ = value;
-        bitField0_ |= 0x00200000;
         onChanged();
         return this;
       }
@@ -2755,7 +2764,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAttackCount() {
-        bitField0_ = (bitField0_ & ~0x00200000);
+        
         attackCount_ = 0;
         onChanged();
         return this;
@@ -2769,7 +2778,7 @@ public final class AttackResultOuterClass {
        * @return Whether the resolvedDir field is set.
        */
       public boolean hasResolvedDir() {
-        return ((bitField0_ & 0x00400000) != 0);
+        return resolvedDirBuilder_ != null || resolvedDir_ != null;
       }
       /**
        * <code>.Vector resolvedDir = 8;</code>
@@ -2791,11 +2800,11 @@ public final class AttackResultOuterClass {
             throw new NullPointerException();
           }
           resolvedDir_ = value;
+          onChanged();
         } else {
           resolvedDirBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00400000;
-        onChanged();
+
         return this;
       }
       /**
@@ -2805,11 +2814,11 @@ public final class AttackResultOuterClass {
           emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder builderForValue) {
         if (resolvedDirBuilder_ == null) {
           resolvedDir_ = builderForValue.build();
+          onChanged();
         } else {
           resolvedDirBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00400000;
-        onChanged();
+
         return this;
       }
       /**
@@ -2817,38 +2826,38 @@ public final class AttackResultOuterClass {
        */
       public Builder mergeResolvedDir(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (resolvedDirBuilder_ == null) {
-          if (((bitField0_ & 0x00400000) != 0) &&
-            resolvedDir_ != null &&
-            resolvedDir_ != emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance()) {
-            getResolvedDirBuilder().mergeFrom(value);
+          if (resolvedDir_ != null) {
+            resolvedDir_ =
+              emu.grasscutter.net.proto.VectorOuterClass.Vector.newBuilder(resolvedDir_).mergeFrom(value).buildPartial();
           } else {
             resolvedDir_ = value;
           }
+          onChanged();
         } else {
           resolvedDirBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00400000;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector resolvedDir = 8;</code>
        */
       public Builder clearResolvedDir() {
-        bitField0_ = (bitField0_ & ~0x00400000);
-        resolvedDir_ = null;
-        if (resolvedDirBuilder_ != null) {
-          resolvedDirBuilder_.dispose();
+        if (resolvedDirBuilder_ == null) {
+          resolvedDir_ = null;
+          onChanged();
+        } else {
+          resolvedDir_ = null;
           resolvedDirBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.Vector resolvedDir = 8;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder getResolvedDirBuilder() {
-        bitField0_ |= 0x00400000;
+        
         onChanged();
         return getResolvedDirFieldBuilder().getBuilder();
       }
@@ -2897,7 +2906,6 @@ public final class AttackResultOuterClass {
       public Builder setHitPosType(int value) {
         
         hitPosType_ = value;
-        bitField0_ |= 0x00800000;
         onChanged();
         return this;
       }
@@ -2906,7 +2914,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearHitPosType() {
-        bitField0_ = (bitField0_ & ~0x00800000);
+        
         hitPosType_ = 0;
         onChanged();
         return this;
@@ -2929,7 +2937,6 @@ public final class AttackResultOuterClass {
       public Builder setHashedAnimEventId(int value) {
         
         hashedAnimEventId_ = value;
-        bitField0_ |= 0x01000000;
         onChanged();
         return this;
       }
@@ -2938,7 +2945,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearHashedAnimEventId() {
-        bitField0_ = (bitField0_ & ~0x01000000);
+        
         hashedAnimEventId_ = 0;
         onChanged();
         return this;
@@ -2961,7 +2968,6 @@ public final class AttackResultOuterClass {
       public Builder setUnk3300KPKAECBFABP(int value) {
         
         unk3300KPKAECBFABP_ = value;
-        bitField0_ |= 0x02000000;
         onChanged();
         return this;
       }
@@ -2970,7 +2976,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300KPKAECBFABP() {
-        bitField0_ = (bitField0_ & ~0x02000000);
+        
         unk3300KPKAECBFABP_ = 0;
         onChanged();
         return this;
@@ -2993,7 +2999,6 @@ public final class AttackResultOuterClass {
       public Builder setEndureDelta(float value) {
         
         endureDelta_ = value;
-        bitField0_ |= 0x04000000;
         onChanged();
         return this;
       }
@@ -3002,7 +3007,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEndureDelta() {
-        bitField0_ = (bitField0_ & ~0x04000000);
+        
         endureDelta_ = 0F;
         onChanged();
         return this;
@@ -3025,7 +3030,6 @@ public final class AttackResultOuterClass {
       public Builder setUnk3300GBPJCELJKJA(int value) {
         
         unk3300GBPJCELJKJA_ = value;
-        bitField0_ |= 0x08000000;
         onChanged();
         return this;
       }
@@ -3034,7 +3038,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300GBPJCELJKJA() {
-        bitField0_ = (bitField0_ & ~0x08000000);
+        
         unk3300GBPJCELJKJA_ = 0;
         onChanged();
         return this;
@@ -3057,7 +3061,6 @@ public final class AttackResultOuterClass {
       public Builder setElementAmplifyRate(float value) {
         
         elementAmplifyRate_ = value;
-        bitField0_ |= 0x10000000;
         onChanged();
         return this;
       }
@@ -3066,7 +3069,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearElementAmplifyRate() {
-        bitField0_ = (bitField0_ & ~0x10000000);
+        
         elementAmplifyRate_ = 0F;
         onChanged();
         return this;
@@ -3089,7 +3092,6 @@ public final class AttackResultOuterClass {
       public Builder setUnk3300ABJJNNNKGBB(int value) {
         
         unk3300ABJJNNNKGBB_ = value;
-        bitField0_ |= 0x20000000;
         onChanged();
         return this;
       }
@@ -3098,7 +3100,7 @@ public final class AttackResultOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUnk3300ABJJNNNKGBB() {
-        bitField0_ = (bitField0_ & ~0x20000000);
+        
         unk3300ABJJNNNKGBB_ = 0;
         onChanged();
         return this;
@@ -3136,18 +3138,7 @@ public final class AttackResultOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AttackResult(input, extensionRegistry);
       }
     };
 

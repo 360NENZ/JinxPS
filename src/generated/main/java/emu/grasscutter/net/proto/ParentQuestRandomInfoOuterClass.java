@@ -75,6 +75,78 @@ public final class ParentQuestRandomInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ParentQuestRandomInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              entranceId_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                factorList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              factorList_.addInt(input.readUInt32());
+              break;
+            }
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                factorList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                factorList_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 48: {
+
+              templateId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          factorList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ParentQuestRandomInfoOuterClass.internal_static_ParentQuestRandomInfo_descriptor;
@@ -89,7 +161,7 @@ public final class ParentQuestRandomInfoOuterClass {
     }
 
     public static final int ENTRANCEID_FIELD_NUMBER = 1;
-    private int entranceId_ = 0;
+    private int entranceId_;
     /**
      * <code>uint32 entranceId = 1;</code>
      * @return The entranceId.
@@ -100,7 +172,6 @@ public final class ParentQuestRandomInfoOuterClass {
     }
 
     public static final int FACTORLIST_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList factorList_;
     /**
      * <code>repeated uint32 factorList = 3;</code>
@@ -129,7 +200,7 @@ public final class ParentQuestRandomInfoOuterClass {
     private int factorListMemoizedSerializedSize = -1;
 
     public static final int TEMPLATEID_FIELD_NUMBER = 6;
-    private int templateId_ = 0;
+    private int templateId_;
     /**
      * <code>uint32 templateId = 6;</code>
      * @return The templateId.
@@ -167,7 +238,7 @@ public final class ParentQuestRandomInfoOuterClass {
       if (templateId_ != 0) {
         output.writeUInt32(6, templateId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -198,7 +269,7 @@ public final class ParentQuestRandomInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, templateId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -219,7 +290,7 @@ public final class ParentQuestRandomInfoOuterClass {
           .equals(other.getFactorListList())) return false;
       if (getTemplateId()
           != other.getTemplateId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -238,7 +309,7 @@ public final class ParentQuestRandomInfoOuterClass {
       }
       hash = (37 * hash) + TEMPLATEID_FIELD_NUMBER;
       hash = (53 * hash) + getTemplateId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -355,21 +426,28 @@ public final class ParentQuestRandomInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ParentQuestRandomInfoOuterClass.ParentQuestRandomInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         entranceId_ = 0;
+
         factorList_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         templateId_ = 0;
+
         return this;
       }
 
@@ -396,28 +474,16 @@ public final class ParentQuestRandomInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ParentQuestRandomInfoOuterClass.ParentQuestRandomInfo buildPartial() {
         emu.grasscutter.net.proto.ParentQuestRandomInfoOuterClass.ParentQuestRandomInfo result = new emu.grasscutter.net.proto.ParentQuestRandomInfoOuterClass.ParentQuestRandomInfo(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.ParentQuestRandomInfoOuterClass.ParentQuestRandomInfo result) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.entranceId_ = entranceId_;
+        if (((bitField0_ & 0x00000001) != 0)) {
           factorList_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.factorList_ = factorList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ParentQuestRandomInfoOuterClass.ParentQuestRandomInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.entranceId_ = entranceId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.templateId_ = templateId_;
-        }
+        result.templateId_ = templateId_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -470,7 +536,7 @@ public final class ParentQuestRandomInfoOuterClass {
         if (!other.factorList_.isEmpty()) {
           if (factorList_.isEmpty()) {
             factorList_ = other.factorList_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureFactorListIsMutable();
             factorList_.addAll(other.factorList_);
@@ -480,7 +546,7 @@ public final class ParentQuestRandomInfoOuterClass {
         if (other.getTemplateId() != 0) {
           setTemplateId(other.getTemplateId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -495,56 +561,17 @@ public final class ParentQuestRandomInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ParentQuestRandomInfoOuterClass.ParentQuestRandomInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                entranceId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 24: {
-                int v = input.readUInt32();
-                ensureFactorListIsMutable();
-                factorList_.addInt(v);
-                break;
-              } // case 24
-              case 26: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureFactorListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  factorList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 26
-              case 48: {
-                templateId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 48
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ParentQuestRandomInfoOuterClass.ParentQuestRandomInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -566,7 +593,6 @@ public final class ParentQuestRandomInfoOuterClass {
       public Builder setEntranceId(int value) {
         
         entranceId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -575,7 +601,7 @@ public final class ParentQuestRandomInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEntranceId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         entranceId_ = 0;
         onChanged();
         return this;
@@ -583,10 +609,10 @@ public final class ParentQuestRandomInfoOuterClass {
 
       private com.google.protobuf.Internal.IntList factorList_ = emptyIntList();
       private void ensureFactorListIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           factorList_ = mutableCopy(factorList_);
-          bitField0_ |= 0x00000002;
-        }
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
        * <code>repeated uint32 factorList = 3;</code>
@@ -594,7 +620,7 @@ public final class ParentQuestRandomInfoOuterClass {
        */
       public java.util.List<java.lang.Integer>
           getFactorListList() {
-        return ((bitField0_ & 0x00000002) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(factorList_) : factorList_;
       }
       /**
@@ -620,7 +646,6 @@ public final class ParentQuestRandomInfoOuterClass {
        */
       public Builder setFactorList(
           int index, int value) {
-        
         ensureFactorListIsMutable();
         factorList_.setInt(index, value);
         onChanged();
@@ -632,7 +657,6 @@ public final class ParentQuestRandomInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder addFactorList(int value) {
-        
         ensureFactorListIsMutable();
         factorList_.addInt(value);
         onChanged();
@@ -657,7 +681,7 @@ public final class ParentQuestRandomInfoOuterClass {
        */
       public Builder clearFactorList() {
         factorList_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -679,7 +703,6 @@ public final class ParentQuestRandomInfoOuterClass {
       public Builder setTemplateId(int value) {
         
         templateId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -688,7 +711,7 @@ public final class ParentQuestRandomInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTemplateId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         templateId_ = 0;
         onChanged();
         return this;
@@ -726,18 +749,7 @@ public final class ParentQuestRandomInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ParentQuestRandomInfo(input, extensionRegistry);
       }
     };
 

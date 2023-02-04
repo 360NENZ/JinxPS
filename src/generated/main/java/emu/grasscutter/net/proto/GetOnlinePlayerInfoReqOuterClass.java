@@ -98,6 +98,65 @@ public final class GetOnlinePlayerInfoReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GetOnlinePlayerInfoReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+
+              isOnlineId_ = input.readBool();
+              break;
+            }
+            case 32: {
+              playerIdCase_ = 4;
+              playerId_ = input.readUInt32();
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              playerIdCase_ = 10;
+              playerId_ = s;
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+              playerIdCase_ = 12;
+              playerId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.GetOnlinePlayerInfoReqOuterClass.internal_static_GetOnlinePlayerInfoReq_descriptor;
@@ -294,7 +353,7 @@ public final class GetOnlinePlayerInfoReqOuterClass {
     }
 
     public static final int ISONLINEID_FIELD_NUMBER = 3;
-    private boolean isOnlineId_ = false;
+    private boolean isOnlineId_;
     /**
      * <code>bool isOnlineId = 3;</code>
      * @return The isOnlineId.
@@ -456,7 +515,7 @@ public final class GetOnlinePlayerInfoReqOuterClass {
       if (playerIdCase_ == 12) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, playerId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -480,7 +539,7 @@ public final class GetOnlinePlayerInfoReqOuterClass {
       if (playerIdCase_ == 12) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, playerId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -514,7 +573,7 @@ public final class GetOnlinePlayerInfoReqOuterClass {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -544,7 +603,7 @@ public final class GetOnlinePlayerInfoReqOuterClass {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -661,19 +720,24 @@ public final class GetOnlinePlayerInfoReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.GetOnlinePlayerInfoReqOuterClass.GetOnlinePlayerInfoReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         isOnlineId_ = false;
+
         playerIdCase_ = 0;
         playerId_ = null;
         return this;
@@ -702,22 +766,19 @@ public final class GetOnlinePlayerInfoReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.GetOnlinePlayerInfoReqOuterClass.GetOnlinePlayerInfoReq buildPartial() {
         emu.grasscutter.net.proto.GetOnlinePlayerInfoReqOuterClass.GetOnlinePlayerInfoReq result = new emu.grasscutter.net.proto.GetOnlinePlayerInfoReqOuterClass.GetOnlinePlayerInfoReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        result.isOnlineId_ = isOnlineId_;
+        if (playerIdCase_ == 4) {
+          result.playerId_ = playerId_;
+        }
+        if (playerIdCase_ == 10) {
+          result.playerId_ = playerId_;
+        }
+        if (playerIdCase_ == 12) {
+          result.playerId_ = playerId_;
+        }
+        result.playerIdCase_ = playerIdCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.GetOnlinePlayerInfoReqOuterClass.GetOnlinePlayerInfoReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.isOnlineId_ = isOnlineId_;
-        }
-      }
-
-      private void buildPartialOneofs(emu.grasscutter.net.proto.GetOnlinePlayerInfoReqOuterClass.GetOnlinePlayerInfoReq result) {
-        result.playerIdCase_ = playerIdCase_;
-        result.playerId_ = this.playerId_;
       }
 
       @java.lang.Override
@@ -788,7 +849,7 @@ public final class GetOnlinePlayerInfoReqOuterClass {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -803,52 +864,17 @@ public final class GetOnlinePlayerInfoReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.GetOnlinePlayerInfoReqOuterClass.GetOnlinePlayerInfoReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 24: {
-                isOnlineId_ = input.readBool();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 24
-              case 32: {
-                playerId_ = input.readUInt32();
-                playerIdCase_ = 4;
-                break;
-              } // case 32
-              case 82: {
-                java.lang.String s = input.readStringRequireUtf8();
-                playerIdCase_ = 10;
-                playerId_ = s;
-                break;
-              } // case 82
-              case 98: {
-                java.lang.String s = input.readStringRequireUtf8();
-                playerIdCase_ = 12;
-                playerId_ = s;
-                break;
-              } // case 98
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.GetOnlinePlayerInfoReqOuterClass.GetOnlinePlayerInfoReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int playerIdCase_ = 0;
@@ -866,7 +892,6 @@ public final class GetOnlinePlayerInfoReqOuterClass {
         return this;
       }
 
-      private int bitField0_;
 
       private boolean isOnlineId_ ;
       /**
@@ -885,7 +910,6 @@ public final class GetOnlinePlayerInfoReqOuterClass {
       public Builder setIsOnlineId(boolean value) {
         
         isOnlineId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -894,7 +918,7 @@ public final class GetOnlinePlayerInfoReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsOnlineId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         isOnlineId_ = false;
         onChanged();
         return this;
@@ -923,7 +947,6 @@ public final class GetOnlinePlayerInfoReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder setTargetUid(int value) {
-        
         playerIdCase_ = 4;
         playerId_ = value;
         onChanged();
@@ -1002,8 +1025,10 @@ public final class GetOnlinePlayerInfoReqOuterClass {
        */
       public Builder setOnlineId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        playerIdCase_ = 10;
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  playerIdCase_ = 10;
         playerId_ = value;
         onChanged();
         return this;
@@ -1027,8 +1052,10 @@ public final class GetOnlinePlayerInfoReqOuterClass {
        */
       public Builder setOnlineIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         playerIdCase_ = 10;
         playerId_ = value;
         onChanged();
@@ -1095,8 +1122,10 @@ public final class GetOnlinePlayerInfoReqOuterClass {
        */
       public Builder setPsnId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        playerIdCase_ = 12;
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  playerIdCase_ = 12;
         playerId_ = value;
         onChanged();
         return this;
@@ -1120,8 +1149,10 @@ public final class GetOnlinePlayerInfoReqOuterClass {
        */
       public Builder setPsnIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         playerIdCase_ = 12;
         playerId_ = value;
         onChanged();
@@ -1160,18 +1191,7 @@ public final class GetOnlinePlayerInfoReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GetOnlinePlayerInfoReq(input, extensionRegistry);
       }
     };
 

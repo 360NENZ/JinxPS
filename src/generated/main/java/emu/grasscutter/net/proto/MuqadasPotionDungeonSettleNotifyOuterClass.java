@@ -75,6 +75,68 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MuqadasPotionDungeonSettleNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+
+              isNewRecord_ = input.readBool();
+              break;
+            }
+            case 24: {
+
+              isSuccess_ = input.readBool();
+              break;
+            }
+            case 56: {
+
+              captureWeaknessCount_ = input.readUInt32();
+              break;
+            }
+            case 88: {
+
+              levelId_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+
+              finalScore_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.MuqadasPotionDungeonSettleNotifyOuterClass.internal_static_MuqadasPotionDungeonSettleNotify_descriptor;
@@ -220,7 +282,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
     }
 
     public static final int LEVELID_FIELD_NUMBER = 11;
-    private int levelId_ = 0;
+    private int levelId_;
     /**
      * <code>uint32 levelId = 11;</code>
      * @return The levelId.
@@ -231,7 +293,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
     }
 
     public static final int CAPTUREWEAKNESSCOUNT_FIELD_NUMBER = 7;
-    private int captureWeaknessCount_ = 0;
+    private int captureWeaknessCount_;
     /**
      * <code>uint32 captureWeaknessCount = 7;</code>
      * @return The captureWeaknessCount.
@@ -242,7 +304,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
     }
 
     public static final int FINALSCORE_FIELD_NUMBER = 14;
-    private int finalScore_ = 0;
+    private int finalScore_;
     /**
      * <code>uint32 finalScore = 14;</code>
      * @return The finalScore.
@@ -253,7 +315,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
     }
 
     public static final int ISSUCCESS_FIELD_NUMBER = 3;
-    private boolean isSuccess_ = false;
+    private boolean isSuccess_;
     /**
      * <code>bool isSuccess = 3;</code>
      * @return The isSuccess.
@@ -264,7 +326,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
     }
 
     public static final int ISNEWRECORD_FIELD_NUMBER = 2;
-    private boolean isNewRecord_ = false;
+    private boolean isNewRecord_;
     /**
      * <code>bool isNewRecord = 2;</code>
      * @return The isNewRecord.
@@ -303,7 +365,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
       if (finalScore_ != 0) {
         output.writeUInt32(14, finalScore_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -332,7 +394,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(14, finalScore_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -357,7 +419,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
           != other.getIsSuccess()) return false;
       if (getIsNewRecord()
           != other.getIsNewRecord()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -380,7 +442,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
       hash = (37 * hash) + ISNEWRECORD_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsNewRecord());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -497,23 +559,32 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.MuqadasPotionDungeonSettleNotifyOuterClass.MuqadasPotionDungeonSettleNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         levelId_ = 0;
+
         captureWeaknessCount_ = 0;
+
         finalScore_ = 0;
+
         isSuccess_ = false;
+
         isNewRecord_ = false;
+
         return this;
       }
 
@@ -540,28 +611,13 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.MuqadasPotionDungeonSettleNotifyOuterClass.MuqadasPotionDungeonSettleNotify buildPartial() {
         emu.grasscutter.net.proto.MuqadasPotionDungeonSettleNotifyOuterClass.MuqadasPotionDungeonSettleNotify result = new emu.grasscutter.net.proto.MuqadasPotionDungeonSettleNotifyOuterClass.MuqadasPotionDungeonSettleNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.levelId_ = levelId_;
+        result.captureWeaknessCount_ = captureWeaknessCount_;
+        result.finalScore_ = finalScore_;
+        result.isSuccess_ = isSuccess_;
+        result.isNewRecord_ = isNewRecord_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.MuqadasPotionDungeonSettleNotifyOuterClass.MuqadasPotionDungeonSettleNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.levelId_ = levelId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.captureWeaknessCount_ = captureWeaknessCount_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.finalScore_ = finalScore_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.isSuccess_ = isSuccess_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.isNewRecord_ = isNewRecord_;
-        }
       }
 
       @java.lang.Override
@@ -623,7 +679,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
         if (other.getIsNewRecord() != false) {
           setIsNewRecord(other.getIsNewRecord());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -638,58 +694,19 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.MuqadasPotionDungeonSettleNotifyOuterClass.MuqadasPotionDungeonSettleNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 16: {
-                isNewRecord_ = input.readBool();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 16
-              case 24: {
-                isSuccess_ = input.readBool();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 24
-              case 56: {
-                captureWeaknessCount_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 56
-              case 88: {
-                levelId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 88
-              case 112: {
-                finalScore_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 112
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.MuqadasPotionDungeonSettleNotifyOuterClass.MuqadasPotionDungeonSettleNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int levelId_ ;
       /**
@@ -708,7 +725,6 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
       public Builder setLevelId(int value) {
         
         levelId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -717,7 +733,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearLevelId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         levelId_ = 0;
         onChanged();
         return this;
@@ -740,7 +756,6 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
       public Builder setCaptureWeaknessCount(int value) {
         
         captureWeaknessCount_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -749,7 +764,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCaptureWeaknessCount() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         captureWeaknessCount_ = 0;
         onChanged();
         return this;
@@ -772,7 +787,6 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
       public Builder setFinalScore(int value) {
         
         finalScore_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -781,7 +795,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearFinalScore() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         finalScore_ = 0;
         onChanged();
         return this;
@@ -804,7 +818,6 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
       public Builder setIsSuccess(boolean value) {
         
         isSuccess_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -813,7 +826,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsSuccess() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         isSuccess_ = false;
         onChanged();
         return this;
@@ -836,7 +849,6 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
       public Builder setIsNewRecord(boolean value) {
         
         isNewRecord_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -845,7 +857,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsNewRecord() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         isNewRecord_ = false;
         onChanged();
         return this;
@@ -883,18 +895,7 @@ public final class MuqadasPotionDungeonSettleNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MuqadasPotionDungeonSettleNotify(input, extensionRegistry);
       }
     };
 

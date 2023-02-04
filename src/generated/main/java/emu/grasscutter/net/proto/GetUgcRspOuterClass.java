@@ -98,6 +98,79 @@ public final class GetUgcRspOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GetUgcRsp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              emu.grasscutter.net.proto.MusicRecordOuterClass.MusicRecord.Builder subBuilder = null;
+              if (recordCase_ == 1) {
+                subBuilder = ((emu.grasscutter.net.proto.MusicRecordOuterClass.MusicRecord) record_).toBuilder();
+              }
+              record_ =
+                  input.readMessage(emu.grasscutter.net.proto.MusicRecordOuterClass.MusicRecord.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.MusicRecordOuterClass.MusicRecord) record_);
+                record_ = subBuilder.buildPartial();
+              }
+              recordCase_ = 1;
+              break;
+            }
+            case 56: {
+              int rawValue = input.readEnum();
+
+              ugcRecordUsage_ = rawValue;
+              break;
+            }
+            case 64: {
+
+              retcode_ = input.readInt32();
+              break;
+            }
+            case 72: {
+
+              ugcGuid_ = input.readUInt64();
+              break;
+            }
+            case 96: {
+              int rawValue = input.readEnum();
+
+              ugcType_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.GetUgcRspOuterClass.internal_static_GetUgcRsp_descriptor;
@@ -282,7 +355,7 @@ public final class GetUgcRspOuterClass {
     }
 
     public static final int UGCTYPE_FIELD_NUMBER = 12;
-    private int ugcType_ = 0;
+    private int ugcType_;
     /**
      * <code>.UgcType ugcType = 12;</code>
      * @return The enum numeric value on the wire for ugcType.
@@ -295,12 +368,13 @@ public final class GetUgcRspOuterClass {
      * @return The ugcType.
      */
     @java.lang.Override public emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType getUgcType() {
-      emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType result = emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType.forNumber(ugcType_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType result = emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType.valueOf(ugcType_);
       return result == null ? emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType.UNRECOGNIZED : result;
     }
 
     public static final int RETCODE_FIELD_NUMBER = 8;
-    private int retcode_ = 0;
+    private int retcode_;
     /**
      * <code>int32 retcode = 8;</code>
      * @return The retcode.
@@ -311,7 +385,7 @@ public final class GetUgcRspOuterClass {
     }
 
     public static final int UGCRECORDUSAGE_FIELD_NUMBER = 7;
-    private int ugcRecordUsage_ = 0;
+    private int ugcRecordUsage_;
     /**
      * <code>.RecordUsage ugcRecordUsage = 7;</code>
      * @return The enum numeric value on the wire for ugcRecordUsage.
@@ -324,12 +398,13 @@ public final class GetUgcRspOuterClass {
      * @return The ugcRecordUsage.
      */
     @java.lang.Override public emu.grasscutter.net.proto.RecordUsageOuterClass.RecordUsage getUgcRecordUsage() {
-      emu.grasscutter.net.proto.RecordUsageOuterClass.RecordUsage result = emu.grasscutter.net.proto.RecordUsageOuterClass.RecordUsage.forNumber(ugcRecordUsage_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.RecordUsageOuterClass.RecordUsage result = emu.grasscutter.net.proto.RecordUsageOuterClass.RecordUsage.valueOf(ugcRecordUsage_);
       return result == null ? emu.grasscutter.net.proto.RecordUsageOuterClass.RecordUsage.UNRECOGNIZED : result;
     }
 
     public static final int UGCGUID_FIELD_NUMBER = 9;
-    private long ugcGuid_ = 0L;
+    private long ugcGuid_;
     /**
      * <code>uint64 ugcGuid = 9;</code>
      * @return The ugcGuid.
@@ -399,7 +474,7 @@ public final class GetUgcRspOuterClass {
       if (ugcType_ != emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType.UGC_TYPE_NONE.getNumber()) {
         output.writeEnum(12, ugcType_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -428,7 +503,7 @@ public final class GetUgcRspOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(12, ugcType_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -458,7 +533,7 @@ public final class GetUgcRspOuterClass {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -486,7 +561,7 @@ public final class GetUgcRspOuterClass {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -603,25 +678,30 @@ public final class GetUgcRspOuterClass {
 
       // Construct using emu.grasscutter.net.proto.GetUgcRspOuterClass.GetUgcRsp.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         ugcType_ = 0;
+
         retcode_ = 0;
+
         ugcRecordUsage_ = 0;
+
         ugcGuid_ = 0L;
-        if (musicRecordBuilder_ != null) {
-          musicRecordBuilder_.clear();
-        }
+
         recordCase_ = 0;
         record_ = null;
         return this;
@@ -650,35 +730,20 @@ public final class GetUgcRspOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.GetUgcRspOuterClass.GetUgcRsp buildPartial() {
         emu.grasscutter.net.proto.GetUgcRspOuterClass.GetUgcRsp result = new emu.grasscutter.net.proto.GetUgcRspOuterClass.GetUgcRsp(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        result.ugcType_ = ugcType_;
+        result.retcode_ = retcode_;
+        result.ugcRecordUsage_ = ugcRecordUsage_;
+        result.ugcGuid_ = ugcGuid_;
+        if (recordCase_ == 1) {
+          if (musicRecordBuilder_ == null) {
+            result.record_ = record_;
+          } else {
+            result.record_ = musicRecordBuilder_.build();
+          }
+        }
+        result.recordCase_ = recordCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.GetUgcRspOuterClass.GetUgcRsp result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.ugcType_ = ugcType_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.retcode_ = retcode_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.ugcRecordUsage_ = ugcRecordUsage_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.ugcGuid_ = ugcGuid_;
-        }
-      }
-
-      private void buildPartialOneofs(emu.grasscutter.net.proto.GetUgcRspOuterClass.GetUgcRsp result) {
-        result.recordCase_ = recordCase_;
-        result.record_ = this.record_;
-        if (recordCase_ == 1 &&
-            musicRecordBuilder_ != null) {
-          result.record_ = musicRecordBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -746,7 +811,7 @@ public final class GetUgcRspOuterClass {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -761,57 +826,17 @@ public final class GetUgcRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.GetUgcRspOuterClass.GetUgcRsp parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getMusicRecordFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                recordCase_ = 1;
-                break;
-              } // case 10
-              case 56: {
-                ugcRecordUsage_ = input.readEnum();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 56
-              case 64: {
-                retcode_ = input.readInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 64
-              case 72: {
-                ugcGuid_ = input.readUInt64();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 72
-              case 96: {
-                ugcType_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 96
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.GetUgcRspOuterClass.GetUgcRsp) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int recordCase_ = 0;
@@ -829,7 +854,6 @@ public final class GetUgcRspOuterClass {
         return this;
       }
 
-      private int bitField0_;
 
       private int ugcType_ = 0;
       /**
@@ -845,8 +869,8 @@ public final class GetUgcRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder setUgcTypeValue(int value) {
+        
         ugcType_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -856,7 +880,8 @@ public final class GetUgcRspOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType getUgcType() {
-        emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType result = emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType.forNumber(ugcType_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType result = emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType.valueOf(ugcType_);
         return result == null ? emu.grasscutter.net.proto.UgcTypeOuterClass.UgcType.UNRECOGNIZED : result;
       }
       /**
@@ -868,7 +893,7 @@ public final class GetUgcRspOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000001;
+        
         ugcType_ = value.getNumber();
         onChanged();
         return this;
@@ -878,7 +903,7 @@ public final class GetUgcRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUgcType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         ugcType_ = 0;
         onChanged();
         return this;
@@ -901,7 +926,6 @@ public final class GetUgcRspOuterClass {
       public Builder setRetcode(int value) {
         
         retcode_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -910,7 +934,7 @@ public final class GetUgcRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRetcode() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         retcode_ = 0;
         onChanged();
         return this;
@@ -930,8 +954,8 @@ public final class GetUgcRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder setUgcRecordUsageValue(int value) {
+        
         ugcRecordUsage_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -941,7 +965,8 @@ public final class GetUgcRspOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.RecordUsageOuterClass.RecordUsage getUgcRecordUsage() {
-        emu.grasscutter.net.proto.RecordUsageOuterClass.RecordUsage result = emu.grasscutter.net.proto.RecordUsageOuterClass.RecordUsage.forNumber(ugcRecordUsage_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.RecordUsageOuterClass.RecordUsage result = emu.grasscutter.net.proto.RecordUsageOuterClass.RecordUsage.valueOf(ugcRecordUsage_);
         return result == null ? emu.grasscutter.net.proto.RecordUsageOuterClass.RecordUsage.UNRECOGNIZED : result;
       }
       /**
@@ -953,7 +978,7 @@ public final class GetUgcRspOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000004;
+        
         ugcRecordUsage_ = value.getNumber();
         onChanged();
         return this;
@@ -963,7 +988,7 @@ public final class GetUgcRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUgcRecordUsage() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         ugcRecordUsage_ = 0;
         onChanged();
         return this;
@@ -986,7 +1011,6 @@ public final class GetUgcRspOuterClass {
       public Builder setUgcGuid(long value) {
         
         ugcGuid_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -995,7 +1019,7 @@ public final class GetUgcRspOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearUgcGuid() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         ugcGuid_ = 0L;
         onChanged();
         return this;
@@ -1075,9 +1099,8 @@ public final class GetUgcRspOuterClass {
         } else {
           if (recordCase_ == 1) {
             musicRecordBuilder_.mergeFrom(value);
-          } else {
-            musicRecordBuilder_.setMessage(value);
           }
+          musicRecordBuilder_.setMessage(value);
         }
         recordCase_ = 1;
         return this;
@@ -1139,7 +1162,7 @@ public final class GetUgcRspOuterClass {
           record_ = null;
         }
         recordCase_ = 1;
-        onChanged();
+        onChanged();;
         return musicRecordBuilder_;
       }
       @java.lang.Override
@@ -1175,18 +1198,7 @@ public final class GetUgcRspOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GetUgcRsp(input, extensionRegistry);
       }
     };
 

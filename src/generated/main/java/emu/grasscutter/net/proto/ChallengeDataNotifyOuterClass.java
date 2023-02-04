@@ -63,6 +63,58 @@ public final class ChallengeDataNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ChallengeDataNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              paramIndex_ = input.readUInt32();
+              break;
+            }
+            case 64: {
+
+              challengeIndex_ = input.readUInt32();
+              break;
+            }
+            case 88: {
+
+              value_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.internal_static_ChallengeDataNotify_descriptor;
@@ -208,7 +260,7 @@ public final class ChallengeDataNotifyOuterClass {
     }
 
     public static final int PARAMINDEX_FIELD_NUMBER = 1;
-    private int paramIndex_ = 0;
+    private int paramIndex_;
     /**
      * <code>uint32 paramIndex = 1;</code>
      * @return The paramIndex.
@@ -219,7 +271,7 @@ public final class ChallengeDataNotifyOuterClass {
     }
 
     public static final int VALUE_FIELD_NUMBER = 11;
-    private int value_ = 0;
+    private int value_;
     /**
      * <code>uint32 value = 11;</code>
      * @return The value.
@@ -230,7 +282,7 @@ public final class ChallengeDataNotifyOuterClass {
     }
 
     public static final int CHALLENGEINDEX_FIELD_NUMBER = 8;
-    private int challengeIndex_ = 0;
+    private int challengeIndex_;
     /**
      * <code>uint32 challengeIndex = 8;</code>
      * @return The challengeIndex.
@@ -263,7 +315,7 @@ public final class ChallengeDataNotifyOuterClass {
       if (value_ != 0) {
         output.writeUInt32(11, value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -284,7 +336,7 @@ public final class ChallengeDataNotifyOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(11, value_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -305,7 +357,7 @@ public final class ChallengeDataNotifyOuterClass {
           != other.getValue()) return false;
       if (getChallengeIndex()
           != other.getChallengeIndex()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -322,7 +374,7 @@ public final class ChallengeDataNotifyOuterClass {
       hash = (53 * hash) + getValue();
       hash = (37 * hash) + CHALLENGEINDEX_FIELD_NUMBER;
       hash = (53 * hash) + getChallengeIndex();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -439,21 +491,28 @@ public final class ChallengeDataNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         paramIndex_ = 0;
+
         value_ = 0;
+
         challengeIndex_ = 0;
+
         return this;
       }
 
@@ -480,22 +539,11 @@ public final class ChallengeDataNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify buildPartial() {
         emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify result = new emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.paramIndex_ = paramIndex_;
+        result.value_ = value_;
+        result.challengeIndex_ = challengeIndex_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.paramIndex_ = paramIndex_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.value_ = value_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.challengeIndex_ = challengeIndex_;
-        }
       }
 
       @java.lang.Override
@@ -551,7 +599,7 @@ public final class ChallengeDataNotifyOuterClass {
         if (other.getChallengeIndex() != 0) {
           setChallengeIndex(other.getChallengeIndex());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -566,48 +614,19 @@ public final class ChallengeDataNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                paramIndex_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 64: {
-                challengeIndex_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 64
-              case 88: {
-                value_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 88
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int paramIndex_ ;
       /**
@@ -626,7 +645,6 @@ public final class ChallengeDataNotifyOuterClass {
       public Builder setParamIndex(int value) {
         
         paramIndex_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -635,7 +653,7 @@ public final class ChallengeDataNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearParamIndex() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         paramIndex_ = 0;
         onChanged();
         return this;
@@ -658,7 +676,6 @@ public final class ChallengeDataNotifyOuterClass {
       public Builder setValue(int value) {
         
         value_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -667,7 +684,7 @@ public final class ChallengeDataNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearValue() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         value_ = 0;
         onChanged();
         return this;
@@ -690,7 +707,6 @@ public final class ChallengeDataNotifyOuterClass {
       public Builder setChallengeIndex(int value) {
         
         challengeIndex_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -699,7 +715,7 @@ public final class ChallengeDataNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChallengeIndex() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         challengeIndex_ = 0;
         onChanged();
         return this;
@@ -737,18 +753,7 @@ public final class ChallengeDataNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ChallengeDataNotify(input, extensionRegistry);
       }
     };
 

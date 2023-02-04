@@ -76,6 +76,64 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private TriggerCreateGadgetToEquipPartNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+
+              entityId_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+
+              gadgetEntityId_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+
+              gadgetId_ = input.readUInt32();
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              equipPart_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.TriggerCreateGadgetToEquipPartNotifyOuterClass.internal_static_TriggerCreateGadgetToEquipPartNotify_descriptor;
@@ -221,7 +279,7 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
     }
 
     public static final int ENTITYID_FIELD_NUMBER = 3;
-    private int entityId_ = 0;
+    private int entityId_;
     /**
      * <code>uint32 entityId = 3;</code>
      * @return The entityId.
@@ -232,7 +290,7 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
     }
 
     public static final int GADGETID_FIELD_NUMBER = 5;
-    private int gadgetId_ = 0;
+    private int gadgetId_;
     /**
      * <code>uint32 gadgetId = 5;</code>
      * @return The gadgetId.
@@ -243,7 +301,7 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
     }
 
     public static final int GADGETENTITYID_FIELD_NUMBER = 4;
-    private int gadgetEntityId_ = 0;
+    private int gadgetEntityId_;
     /**
      * <code>uint32 gadgetEntityId = 4;</code>
      * @return The gadgetEntityId.
@@ -254,8 +312,7 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
     }
 
     public static final int EQUIPPART_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object equipPart_ = "";
+    private volatile java.lang.Object equipPart_;
     /**
      * <code>string equipPart = 7;</code>
      * @return The equipPart.
@@ -318,7 +375,7 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(equipPart_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, equipPart_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -342,7 +399,7 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(equipPart_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, equipPart_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -365,7 +422,7 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
           != other.getGadgetEntityId()) return false;
       if (!getEquipPart()
           .equals(other.getEquipPart())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -384,7 +441,7 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
       hash = (53 * hash) + getGadgetEntityId();
       hash = (37 * hash) + EQUIPPART_FIELD_NUMBER;
       hash = (53 * hash) + getEquipPart().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -501,22 +558,30 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.TriggerCreateGadgetToEquipPartNotifyOuterClass.TriggerCreateGadgetToEquipPartNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         entityId_ = 0;
+
         gadgetId_ = 0;
+
         gadgetEntityId_ = 0;
+
         equipPart_ = "";
+
         return this;
       }
 
@@ -543,25 +608,12 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.TriggerCreateGadgetToEquipPartNotifyOuterClass.TriggerCreateGadgetToEquipPartNotify buildPartial() {
         emu.grasscutter.net.proto.TriggerCreateGadgetToEquipPartNotifyOuterClass.TriggerCreateGadgetToEquipPartNotify result = new emu.grasscutter.net.proto.TriggerCreateGadgetToEquipPartNotifyOuterClass.TriggerCreateGadgetToEquipPartNotify(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.entityId_ = entityId_;
+        result.gadgetId_ = gadgetId_;
+        result.gadgetEntityId_ = gadgetEntityId_;
+        result.equipPart_ = equipPart_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.TriggerCreateGadgetToEquipPartNotifyOuterClass.TriggerCreateGadgetToEquipPartNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.entityId_ = entityId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.gadgetId_ = gadgetId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.gadgetEntityId_ = gadgetEntityId_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.equipPart_ = equipPart_;
-        }
       }
 
       @java.lang.Override
@@ -619,10 +671,9 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
         }
         if (!other.getEquipPart().isEmpty()) {
           equipPart_ = other.equipPart_;
-          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -637,53 +688,19 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.TriggerCreateGadgetToEquipPartNotifyOuterClass.TriggerCreateGadgetToEquipPartNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 24: {
-                entityId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 24
-              case 32: {
-                gadgetEntityId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 32
-              case 40: {
-                gadgetId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 40
-              case 58: {
-                equipPart_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 58
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.TriggerCreateGadgetToEquipPartNotifyOuterClass.TriggerCreateGadgetToEquipPartNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int entityId_ ;
       /**
@@ -702,7 +719,6 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
       public Builder setEntityId(int value) {
         
         entityId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -711,7 +727,7 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEntityId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         entityId_ = 0;
         onChanged();
         return this;
@@ -734,7 +750,6 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
       public Builder setGadgetId(int value) {
         
         gadgetId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -743,7 +758,7 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGadgetId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         gadgetId_ = 0;
         onChanged();
         return this;
@@ -766,7 +781,6 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
       public Builder setGadgetEntityId(int value) {
         
         gadgetEntityId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -775,7 +789,7 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGadgetEntityId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         gadgetEntityId_ = 0;
         onChanged();
         return this;
@@ -822,9 +836,11 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
        */
       public Builder setEquipPart(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         equipPart_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -833,8 +849,8 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEquipPart() {
+        
         equipPart_ = getDefaultInstance().getEquipPart();
-        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -845,10 +861,12 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
        */
       public Builder setEquipPartBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         equipPart_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -885,18 +903,7 @@ public final class TriggerCreateGadgetToEquipPartNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TriggerCreateGadgetToEquipPartNotify(input, extensionRegistry);
       }
     };
 

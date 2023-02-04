@@ -54,7 +54,7 @@ public final class WidgetDoBagReqOuterClass {
      */
     emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfoOrBuilder getWidgetCreatorInfoOrBuilder();
 
-    public emu.grasscutter.net.proto.WidgetDoBagReqOuterClass.WidgetDoBagReq.OpInfoCase getOpInfoCase();
+    public emu.grasscutter.net.proto.WidgetDoBagReqOuterClass.WidgetDoBagReq.CEAOGJOLPHDCase getCEAOGJOLPHDCase();
   }
   /**
    * Protobuf type {@code WidgetDoBagReq}
@@ -82,6 +82,76 @@ public final class WidgetDoBagReqOuterClass {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private WidgetDoBagReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 96: {
+
+              materialId_ = input.readUInt32();
+              break;
+            }
+            case 1082: {
+              emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.Builder subBuilder = null;
+              if (cEAOGJOLPHDCase_ == 135) {
+                subBuilder = ((emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) cEAOGJOLPHD_).toBuilder();
+              }
+              cEAOGJOLPHD_ =
+                  input.readMessage(emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) cEAOGJOLPHD_);
+                cEAOGJOLPHD_ = subBuilder.buildPartial();
+              }
+              cEAOGJOLPHDCase_ = 135;
+              break;
+            }
+            case 2898: {
+              emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.Builder subBuilder = null;
+              if (cEAOGJOLPHDCase_ == 362) {
+                subBuilder = ((emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) cEAOGJOLPHD_).toBuilder();
+              }
+              cEAOGJOLPHD_ =
+                  input.readMessage(emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) cEAOGJOLPHD_);
+                cEAOGJOLPHD_ = subBuilder.buildPartial();
+              }
+              cEAOGJOLPHDCase_ = 362;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -235,16 +305,16 @@ public final class WidgetDoBagReqOuterClass {
       // @@protoc_insertion_point(enum_scope:WidgetDoBagReq.HNAJINGEDBH)
     }
 
-    private int opInfoCase_ = 0;
-    private java.lang.Object opInfo_;
-    public enum OpInfoCase
+    private int cEAOGJOLPHDCase_ = 0;
+    private java.lang.Object cEAOGJOLPHD_;
+    public enum CEAOGJOLPHDCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       LOCATION_INFO(135),
       WIDGET_CREATOR_INFO(362),
-      OPINFO_NOT_SET(0);
+      CEAOGJOLPHD_NOT_SET(0);
       private final int value;
-      private OpInfoCase(int value) {
+      private CEAOGJOLPHDCase(int value) {
         this.value = value;
       }
       /**
@@ -253,15 +323,15 @@ public final class WidgetDoBagReqOuterClass {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static OpInfoCase valueOf(int value) {
+      public static CEAOGJOLPHDCase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static OpInfoCase forNumber(int value) {
+      public static CEAOGJOLPHDCase forNumber(int value) {
         switch (value) {
           case 135: return LOCATION_INFO;
           case 362: return WIDGET_CREATOR_INFO;
-          case 0: return OPINFO_NOT_SET;
+          case 0: return CEAOGJOLPHD_NOT_SET;
           default: return null;
         }
       }
@@ -270,14 +340,14 @@ public final class WidgetDoBagReqOuterClass {
       }
     };
 
-    public OpInfoCase
-    getOpInfoCase() {
-      return OpInfoCase.forNumber(
-          opInfoCase_);
+    public CEAOGJOLPHDCase
+    getCEAOGJOLPHDCase() {
+      return CEAOGJOLPHDCase.forNumber(
+          cEAOGJOLPHDCase_);
     }
 
     public static final int MATERIALID_FIELD_NUMBER = 12;
-    private int materialId_ = 0;
+    private int materialId_;
     /**
      * <code>uint32 materialId = 12;</code>
      * @return The materialId.
@@ -294,7 +364,7 @@ public final class WidgetDoBagReqOuterClass {
      */
     @java.lang.Override
     public boolean hasLocationInfo() {
-      return opInfoCase_ == 135;
+      return cEAOGJOLPHDCase_ == 135;
     }
     /**
      * <code>.LocationInfo location_info = 135;</code>
@@ -302,8 +372,8 @@ public final class WidgetDoBagReqOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo getLocationInfo() {
-      if (opInfoCase_ == 135) {
-         return (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) opInfo_;
+      if (cEAOGJOLPHDCase_ == 135) {
+         return (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) cEAOGJOLPHD_;
       }
       return emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.getDefaultInstance();
     }
@@ -312,8 +382,8 @@ public final class WidgetDoBagReqOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfoOrBuilder getLocationInfoOrBuilder() {
-      if (opInfoCase_ == 135) {
-         return (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) opInfo_;
+      if (cEAOGJOLPHDCase_ == 135) {
+         return (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) cEAOGJOLPHD_;
       }
       return emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.getDefaultInstance();
     }
@@ -325,7 +395,7 @@ public final class WidgetDoBagReqOuterClass {
      */
     @java.lang.Override
     public boolean hasWidgetCreatorInfo() {
-      return opInfoCase_ == 362;
+      return cEAOGJOLPHDCase_ == 362;
     }
     /**
      * <code>.CreatorInfo widget_creator_info = 362;</code>
@@ -333,8 +403,8 @@ public final class WidgetDoBagReqOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo getWidgetCreatorInfo() {
-      if (opInfoCase_ == 362) {
-         return (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) opInfo_;
+      if (cEAOGJOLPHDCase_ == 362) {
+         return (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) cEAOGJOLPHD_;
       }
       return emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.getDefaultInstance();
     }
@@ -343,8 +413,8 @@ public final class WidgetDoBagReqOuterClass {
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfoOrBuilder getWidgetCreatorInfoOrBuilder() {
-      if (opInfoCase_ == 362) {
-         return (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) opInfo_;
+      if (cEAOGJOLPHDCase_ == 362) {
+         return (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) cEAOGJOLPHD_;
       }
       return emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.getDefaultInstance();
     }
@@ -366,13 +436,13 @@ public final class WidgetDoBagReqOuterClass {
       if (materialId_ != 0) {
         output.writeUInt32(12, materialId_);
       }
-      if (opInfoCase_ == 135) {
-        output.writeMessage(135, (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) opInfo_);
+      if (cEAOGJOLPHDCase_ == 135) {
+        output.writeMessage(135, (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) cEAOGJOLPHD_);
       }
-      if (opInfoCase_ == 362) {
-        output.writeMessage(362, (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) opInfo_);
+      if (cEAOGJOLPHDCase_ == 362) {
+        output.writeMessage(362, (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) cEAOGJOLPHD_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -385,15 +455,15 @@ public final class WidgetDoBagReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(12, materialId_);
       }
-      if (opInfoCase_ == 135) {
+      if (cEAOGJOLPHDCase_ == 135) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(135, (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) opInfo_);
+          .computeMessageSize(135, (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) cEAOGJOLPHD_);
       }
-      if (opInfoCase_ == 362) {
+      if (cEAOGJOLPHDCase_ == 362) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(362, (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) opInfo_);
+          .computeMessageSize(362, (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) cEAOGJOLPHD_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -410,8 +480,8 @@ public final class WidgetDoBagReqOuterClass {
 
       if (getMaterialId()
           != other.getMaterialId()) return false;
-      if (!getOpInfoCase().equals(other.getOpInfoCase())) return false;
-      switch (opInfoCase_) {
+      if (!getCEAOGJOLPHDCase().equals(other.getCEAOGJOLPHDCase())) return false;
+      switch (cEAOGJOLPHDCase_) {
         case 135:
           if (!getLocationInfo()
               .equals(other.getLocationInfo())) return false;
@@ -423,7 +493,7 @@ public final class WidgetDoBagReqOuterClass {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -436,7 +506,7 @@ public final class WidgetDoBagReqOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + MATERIALID_FIELD_NUMBER;
       hash = (53 * hash) + getMaterialId();
-      switch (opInfoCase_) {
+      switch (cEAOGJOLPHDCase_) {
         case 135:
           hash = (37 * hash) + LOCATION_INFO_FIELD_NUMBER;
           hash = (53 * hash) + getLocationInfo().hashCode();
@@ -448,7 +518,7 @@ public final class WidgetDoBagReqOuterClass {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -565,27 +635,26 @@ public final class WidgetDoBagReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.WidgetDoBagReqOuterClass.WidgetDoBagReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         materialId_ = 0;
-        if (locationInfoBuilder_ != null) {
-          locationInfoBuilder_.clear();
-        }
-        if (widgetCreatorInfoBuilder_ != null) {
-          widgetCreatorInfoBuilder_.clear();
-        }
-        opInfoCase_ = 0;
-        opInfo_ = null;
+
+        cEAOGJOLPHDCase_ = 0;
+        cEAOGJOLPHD_ = null;
         return this;
       }
 
@@ -612,30 +681,24 @@ public final class WidgetDoBagReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.WidgetDoBagReqOuterClass.WidgetDoBagReq buildPartial() {
         emu.grasscutter.net.proto.WidgetDoBagReqOuterClass.WidgetDoBagReq result = new emu.grasscutter.net.proto.WidgetDoBagReqOuterClass.WidgetDoBagReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        result.materialId_ = materialId_;
+        if (cEAOGJOLPHDCase_ == 135) {
+          if (locationInfoBuilder_ == null) {
+            result.cEAOGJOLPHD_ = cEAOGJOLPHD_;
+          } else {
+            result.cEAOGJOLPHD_ = locationInfoBuilder_.build();
+          }
+        }
+        if (cEAOGJOLPHDCase_ == 362) {
+          if (widgetCreatorInfoBuilder_ == null) {
+            result.cEAOGJOLPHD_ = cEAOGJOLPHD_;
+          } else {
+            result.cEAOGJOLPHD_ = widgetCreatorInfoBuilder_.build();
+          }
+        }
+        result.cEAOGJOLPHDCase_ = cEAOGJOLPHDCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.WidgetDoBagReqOuterClass.WidgetDoBagReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.materialId_ = materialId_;
-        }
-      }
-
-      private void buildPartialOneofs(emu.grasscutter.net.proto.WidgetDoBagReqOuterClass.WidgetDoBagReq result) {
-        result.opInfoCase_ = opInfoCase_;
-        result.opInfo_ = this.opInfo_;
-        if (opInfoCase_ == 135 &&
-            locationInfoBuilder_ != null) {
-          result.opInfo_ = locationInfoBuilder_.build();
-        }
-        if (opInfoCase_ == 362 &&
-            widgetCreatorInfoBuilder_ != null) {
-          result.opInfo_ = widgetCreatorInfoBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -685,7 +748,7 @@ public final class WidgetDoBagReqOuterClass {
         if (other.getMaterialId() != 0) {
           setMaterialId(other.getMaterialId());
         }
-        switch (other.getOpInfoCase()) {
+        switch (other.getCEAOGJOLPHDCase()) {
           case LOCATION_INFO: {
             mergeLocationInfo(other.getLocationInfo());
             break;
@@ -694,11 +757,11 @@ public final class WidgetDoBagReqOuterClass {
             mergeWidgetCreatorInfo(other.getWidgetCreatorInfo());
             break;
           }
-          case OPINFO_NOT_SET: {
+          case CEAOGJOLPHD_NOT_SET: {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -713,67 +776,34 @@ public final class WidgetDoBagReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.WidgetDoBagReqOuterClass.WidgetDoBagReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 96: {
-                materialId_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 96
-              case 1082: {
-                input.readMessage(
-                    getLocationInfoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                opInfoCase_ = 135;
-                break;
-              } // case 1082
-              case 2898: {
-                input.readMessage(
-                    getWidgetCreatorInfoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                opInfoCase_ = 362;
-                break;
-              } // case 2898
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.WidgetDoBagReqOuterClass.WidgetDoBagReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int opInfoCase_ = 0;
-      private java.lang.Object opInfo_;
-      public OpInfoCase
-          getOpInfoCase() {
-        return OpInfoCase.forNumber(
-            opInfoCase_);
+      private int cEAOGJOLPHDCase_ = 0;
+      private java.lang.Object cEAOGJOLPHD_;
+      public CEAOGJOLPHDCase
+          getCEAOGJOLPHDCase() {
+        return CEAOGJOLPHDCase.forNumber(
+            cEAOGJOLPHDCase_);
       }
 
-      public Builder clearOpInfo() {
-        opInfoCase_ = 0;
-        opInfo_ = null;
+      public Builder clearCEAOGJOLPHD() {
+        cEAOGJOLPHDCase_ = 0;
+        cEAOGJOLPHD_ = null;
         onChanged();
         return this;
       }
 
-      private int bitField0_;
 
       private int materialId_ ;
       /**
@@ -792,7 +822,6 @@ public final class WidgetDoBagReqOuterClass {
       public Builder setMaterialId(int value) {
         
         materialId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -801,7 +830,7 @@ public final class WidgetDoBagReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearMaterialId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         materialId_ = 0;
         onChanged();
         return this;
@@ -815,7 +844,7 @@ public final class WidgetDoBagReqOuterClass {
        */
       @java.lang.Override
       public boolean hasLocationInfo() {
-        return opInfoCase_ == 135;
+        return cEAOGJOLPHDCase_ == 135;
       }
       /**
        * <code>.LocationInfo location_info = 135;</code>
@@ -824,12 +853,12 @@ public final class WidgetDoBagReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo getLocationInfo() {
         if (locationInfoBuilder_ == null) {
-          if (opInfoCase_ == 135) {
-            return (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) opInfo_;
+          if (cEAOGJOLPHDCase_ == 135) {
+            return (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) cEAOGJOLPHD_;
           }
           return emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.getDefaultInstance();
         } else {
-          if (opInfoCase_ == 135) {
+          if (cEAOGJOLPHDCase_ == 135) {
             return locationInfoBuilder_.getMessage();
           }
           return emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.getDefaultInstance();
@@ -843,12 +872,12 @@ public final class WidgetDoBagReqOuterClass {
           if (value == null) {
             throw new NullPointerException();
           }
-          opInfo_ = value;
+          cEAOGJOLPHD_ = value;
           onChanged();
         } else {
           locationInfoBuilder_.setMessage(value);
         }
-        opInfoCase_ = 135;
+        cEAOGJOLPHDCase_ = 135;
         return this;
       }
       /**
@@ -857,12 +886,12 @@ public final class WidgetDoBagReqOuterClass {
       public Builder setLocationInfo(
           emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.Builder builderForValue) {
         if (locationInfoBuilder_ == null) {
-          opInfo_ = builderForValue.build();
+          cEAOGJOLPHD_ = builderForValue.build();
           onChanged();
         } else {
           locationInfoBuilder_.setMessage(builderForValue.build());
         }
-        opInfoCase_ = 135;
+        cEAOGJOLPHDCase_ = 135;
         return this;
       }
       /**
@@ -870,22 +899,21 @@ public final class WidgetDoBagReqOuterClass {
        */
       public Builder mergeLocationInfo(emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo value) {
         if (locationInfoBuilder_ == null) {
-          if (opInfoCase_ == 135 &&
-              opInfo_ != emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.getDefaultInstance()) {
-            opInfo_ = emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.newBuilder((emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) opInfo_)
+          if (cEAOGJOLPHDCase_ == 135 &&
+              cEAOGJOLPHD_ != emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.getDefaultInstance()) {
+            cEAOGJOLPHD_ = emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.newBuilder((emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) cEAOGJOLPHD_)
                 .mergeFrom(value).buildPartial();
           } else {
-            opInfo_ = value;
+            cEAOGJOLPHD_ = value;
           }
           onChanged();
         } else {
-          if (opInfoCase_ == 135) {
+          if (cEAOGJOLPHDCase_ == 135) {
             locationInfoBuilder_.mergeFrom(value);
-          } else {
-            locationInfoBuilder_.setMessage(value);
           }
+          locationInfoBuilder_.setMessage(value);
         }
-        opInfoCase_ = 135;
+        cEAOGJOLPHDCase_ = 135;
         return this;
       }
       /**
@@ -893,15 +921,15 @@ public final class WidgetDoBagReqOuterClass {
        */
       public Builder clearLocationInfo() {
         if (locationInfoBuilder_ == null) {
-          if (opInfoCase_ == 135) {
-            opInfoCase_ = 0;
-            opInfo_ = null;
+          if (cEAOGJOLPHDCase_ == 135) {
+            cEAOGJOLPHDCase_ = 0;
+            cEAOGJOLPHD_ = null;
             onChanged();
           }
         } else {
-          if (opInfoCase_ == 135) {
-            opInfoCase_ = 0;
-            opInfo_ = null;
+          if (cEAOGJOLPHDCase_ == 135) {
+            cEAOGJOLPHDCase_ = 0;
+            cEAOGJOLPHD_ = null;
           }
           locationInfoBuilder_.clear();
         }
@@ -918,11 +946,11 @@ public final class WidgetDoBagReqOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfoOrBuilder getLocationInfoOrBuilder() {
-        if ((opInfoCase_ == 135) && (locationInfoBuilder_ != null)) {
+        if ((cEAOGJOLPHDCase_ == 135) && (locationInfoBuilder_ != null)) {
           return locationInfoBuilder_.getMessageOrBuilder();
         } else {
-          if (opInfoCase_ == 135) {
-            return (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) opInfo_;
+          if (cEAOGJOLPHDCase_ == 135) {
+            return (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) cEAOGJOLPHD_;
           }
           return emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.getDefaultInstance();
         }
@@ -934,18 +962,18 @@ public final class WidgetDoBagReqOuterClass {
           emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo, emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.Builder, emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfoOrBuilder> 
           getLocationInfoFieldBuilder() {
         if (locationInfoBuilder_ == null) {
-          if (!(opInfoCase_ == 135)) {
-            opInfo_ = emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.getDefaultInstance();
+          if (!(cEAOGJOLPHDCase_ == 135)) {
+            cEAOGJOLPHD_ = emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.getDefaultInstance();
           }
           locationInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo, emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo.Builder, emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfoOrBuilder>(
-                  (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) opInfo_,
+                  (emu.grasscutter.net.proto.LocationInfoOuterClass.LocationInfo) cEAOGJOLPHD_,
                   getParentForChildren(),
                   isClean());
-          opInfo_ = null;
+          cEAOGJOLPHD_ = null;
         }
-        opInfoCase_ = 135;
-        onChanged();
+        cEAOGJOLPHDCase_ = 135;
+        onChanged();;
         return locationInfoBuilder_;
       }
 
@@ -957,7 +985,7 @@ public final class WidgetDoBagReqOuterClass {
        */
       @java.lang.Override
       public boolean hasWidgetCreatorInfo() {
-        return opInfoCase_ == 362;
+        return cEAOGJOLPHDCase_ == 362;
       }
       /**
        * <code>.CreatorInfo widget_creator_info = 362;</code>
@@ -966,12 +994,12 @@ public final class WidgetDoBagReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo getWidgetCreatorInfo() {
         if (widgetCreatorInfoBuilder_ == null) {
-          if (opInfoCase_ == 362) {
-            return (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) opInfo_;
+          if (cEAOGJOLPHDCase_ == 362) {
+            return (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) cEAOGJOLPHD_;
           }
           return emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.getDefaultInstance();
         } else {
-          if (opInfoCase_ == 362) {
+          if (cEAOGJOLPHDCase_ == 362) {
             return widgetCreatorInfoBuilder_.getMessage();
           }
           return emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.getDefaultInstance();
@@ -985,12 +1013,12 @@ public final class WidgetDoBagReqOuterClass {
           if (value == null) {
             throw new NullPointerException();
           }
-          opInfo_ = value;
+          cEAOGJOLPHD_ = value;
           onChanged();
         } else {
           widgetCreatorInfoBuilder_.setMessage(value);
         }
-        opInfoCase_ = 362;
+        cEAOGJOLPHDCase_ = 362;
         return this;
       }
       /**
@@ -999,12 +1027,12 @@ public final class WidgetDoBagReqOuterClass {
       public Builder setWidgetCreatorInfo(
           emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.Builder builderForValue) {
         if (widgetCreatorInfoBuilder_ == null) {
-          opInfo_ = builderForValue.build();
+          cEAOGJOLPHD_ = builderForValue.build();
           onChanged();
         } else {
           widgetCreatorInfoBuilder_.setMessage(builderForValue.build());
         }
-        opInfoCase_ = 362;
+        cEAOGJOLPHDCase_ = 362;
         return this;
       }
       /**
@@ -1012,22 +1040,21 @@ public final class WidgetDoBagReqOuterClass {
        */
       public Builder mergeWidgetCreatorInfo(emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo value) {
         if (widgetCreatorInfoBuilder_ == null) {
-          if (opInfoCase_ == 362 &&
-              opInfo_ != emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.getDefaultInstance()) {
-            opInfo_ = emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.newBuilder((emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) opInfo_)
+          if (cEAOGJOLPHDCase_ == 362 &&
+              cEAOGJOLPHD_ != emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.getDefaultInstance()) {
+            cEAOGJOLPHD_ = emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.newBuilder((emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) cEAOGJOLPHD_)
                 .mergeFrom(value).buildPartial();
           } else {
-            opInfo_ = value;
+            cEAOGJOLPHD_ = value;
           }
           onChanged();
         } else {
-          if (opInfoCase_ == 362) {
+          if (cEAOGJOLPHDCase_ == 362) {
             widgetCreatorInfoBuilder_.mergeFrom(value);
-          } else {
-            widgetCreatorInfoBuilder_.setMessage(value);
           }
+          widgetCreatorInfoBuilder_.setMessage(value);
         }
-        opInfoCase_ = 362;
+        cEAOGJOLPHDCase_ = 362;
         return this;
       }
       /**
@@ -1035,15 +1062,15 @@ public final class WidgetDoBagReqOuterClass {
        */
       public Builder clearWidgetCreatorInfo() {
         if (widgetCreatorInfoBuilder_ == null) {
-          if (opInfoCase_ == 362) {
-            opInfoCase_ = 0;
-            opInfo_ = null;
+          if (cEAOGJOLPHDCase_ == 362) {
+            cEAOGJOLPHDCase_ = 0;
+            cEAOGJOLPHD_ = null;
             onChanged();
           }
         } else {
-          if (opInfoCase_ == 362) {
-            opInfoCase_ = 0;
-            opInfo_ = null;
+          if (cEAOGJOLPHDCase_ == 362) {
+            cEAOGJOLPHDCase_ = 0;
+            cEAOGJOLPHD_ = null;
           }
           widgetCreatorInfoBuilder_.clear();
         }
@@ -1060,11 +1087,11 @@ public final class WidgetDoBagReqOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfoOrBuilder getWidgetCreatorInfoOrBuilder() {
-        if ((opInfoCase_ == 362) && (widgetCreatorInfoBuilder_ != null)) {
+        if ((cEAOGJOLPHDCase_ == 362) && (widgetCreatorInfoBuilder_ != null)) {
           return widgetCreatorInfoBuilder_.getMessageOrBuilder();
         } else {
-          if (opInfoCase_ == 362) {
-            return (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) opInfo_;
+          if (cEAOGJOLPHDCase_ == 362) {
+            return (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) cEAOGJOLPHD_;
           }
           return emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.getDefaultInstance();
         }
@@ -1076,18 +1103,18 @@ public final class WidgetDoBagReqOuterClass {
           emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo, emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.Builder, emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfoOrBuilder> 
           getWidgetCreatorInfoFieldBuilder() {
         if (widgetCreatorInfoBuilder_ == null) {
-          if (!(opInfoCase_ == 362)) {
-            opInfo_ = emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.getDefaultInstance();
+          if (!(cEAOGJOLPHDCase_ == 362)) {
+            cEAOGJOLPHD_ = emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.getDefaultInstance();
           }
           widgetCreatorInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo, emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo.Builder, emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfoOrBuilder>(
-                  (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) opInfo_,
+                  (emu.grasscutter.net.proto.CreatorInfoOuterClass.CreatorInfo) cEAOGJOLPHD_,
                   getParentForChildren(),
                   isClean());
-          opInfo_ = null;
+          cEAOGJOLPHD_ = null;
         }
-        opInfoCase_ = 362;
-        onChanged();
+        cEAOGJOLPHDCase_ = 362;
+        onChanged();;
         return widgetCreatorInfoBuilder_;
       }
       @java.lang.Override
@@ -1123,18 +1150,7 @@ public final class WidgetDoBagReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new WidgetDoBagReq(input, extensionRegistry);
       }
     };
 
@@ -1169,14 +1185,14 @@ public final class WidgetDoBagReqOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\024WidgetDoBagReq.proto\032\022LocationInfo.pro" +
-      "to\032\021CreatorInfo.proto\"\350\001\n\016WidgetDoBagReq" +
+      "to\032\021CreatorInfo.proto\"\354\001\n\016WidgetDoBagReq" +
       "\022\022\n\nmaterialId\030\014 \001(\r\022\'\n\rlocation_info\030\207\001" +
       " \001(\0132\r.LocationInfoH\000\022,\n\023widget_creator_" +
       "info\030\352\002 \001(\0132\014.CreatorInfoH\000\"`\n\013HNAJINGED" +
       "BH\022\010\n\004NONE\020\000\022\020\n\013PEPPOHPHJOJ\020\237!\022\017\n\013DCDNIL" +
       "FDFLB\020\000\022\017\n\013NNBKOLMPOEA\020\001\022\017\n\013EAJIABGAOCI\020" +
-      "\001\032\002\020\001B\t\n\007op_infoB\033\n\031emu.grasscutter.net." +
-      "protob\006proto3"
+      "\001\032\002\020\001B\r\n\013CEAOGJOLPHDB\033\n\031emu.grasscutter." +
+      "net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1189,7 +1205,7 @@ public final class WidgetDoBagReqOuterClass {
     internal_static_WidgetDoBagReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WidgetDoBagReq_descriptor,
-        new java.lang.String[] { "MaterialId", "LocationInfo", "WidgetCreatorInfo", "OpInfo", });
+        new java.lang.String[] { "MaterialId", "LocationInfo", "WidgetCreatorInfo", "CEAOGJOLPHD", });
     emu.grasscutter.net.proto.LocationInfoOuterClass.getDescriptor();
     emu.grasscutter.net.proto.CreatorInfoOuterClass.getDescriptor();
   }

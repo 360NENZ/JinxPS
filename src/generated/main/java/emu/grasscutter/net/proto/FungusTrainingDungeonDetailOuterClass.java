@@ -63,6 +63,58 @@ public final class FungusTrainingDungeonDetailOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private FungusTrainingDungeonDetail(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 48: {
+
+              dungeonId_ = input.readUInt32();
+              break;
+            }
+            case 56: {
+
+              bestScore_ = input.readUInt32();
+              break;
+            }
+            case 64: {
+
+              isOpen_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.FungusTrainingDungeonDetailOuterClass.internal_static_FungusTrainingDungeonDetail_descriptor;
@@ -77,7 +129,7 @@ public final class FungusTrainingDungeonDetailOuterClass {
     }
 
     public static final int ISOPEN_FIELD_NUMBER = 8;
-    private boolean isOpen_ = false;
+    private boolean isOpen_;
     /**
      * <code>bool isOpen = 8;</code>
      * @return The isOpen.
@@ -88,7 +140,7 @@ public final class FungusTrainingDungeonDetailOuterClass {
     }
 
     public static final int BESTSCORE_FIELD_NUMBER = 7;
-    private int bestScore_ = 0;
+    private int bestScore_;
     /**
      * <code>uint32 bestScore = 7;</code>
      * @return The bestScore.
@@ -99,7 +151,7 @@ public final class FungusTrainingDungeonDetailOuterClass {
     }
 
     public static final int DUNGEONID_FIELD_NUMBER = 6;
-    private int dungeonId_ = 0;
+    private int dungeonId_;
     /**
      * <code>uint32 dungeonId = 6;</code>
      * @return The dungeonId.
@@ -132,7 +184,7 @@ public final class FungusTrainingDungeonDetailOuterClass {
       if (isOpen_ != false) {
         output.writeBool(8, isOpen_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -153,7 +205,7 @@ public final class FungusTrainingDungeonDetailOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(8, isOpen_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -174,7 +226,7 @@ public final class FungusTrainingDungeonDetailOuterClass {
           != other.getBestScore()) return false;
       if (getDungeonId()
           != other.getDungeonId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -192,7 +244,7 @@ public final class FungusTrainingDungeonDetailOuterClass {
       hash = (53 * hash) + getBestScore();
       hash = (37 * hash) + DUNGEONID_FIELD_NUMBER;
       hash = (53 * hash) + getDungeonId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -309,21 +361,28 @@ public final class FungusTrainingDungeonDetailOuterClass {
 
       // Construct using emu.grasscutter.net.proto.FungusTrainingDungeonDetailOuterClass.FungusTrainingDungeonDetail.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         isOpen_ = false;
+
         bestScore_ = 0;
+
         dungeonId_ = 0;
+
         return this;
       }
 
@@ -350,22 +409,11 @@ public final class FungusTrainingDungeonDetailOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.FungusTrainingDungeonDetailOuterClass.FungusTrainingDungeonDetail buildPartial() {
         emu.grasscutter.net.proto.FungusTrainingDungeonDetailOuterClass.FungusTrainingDungeonDetail result = new emu.grasscutter.net.proto.FungusTrainingDungeonDetailOuterClass.FungusTrainingDungeonDetail(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.isOpen_ = isOpen_;
+        result.bestScore_ = bestScore_;
+        result.dungeonId_ = dungeonId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.FungusTrainingDungeonDetailOuterClass.FungusTrainingDungeonDetail result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.isOpen_ = isOpen_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.bestScore_ = bestScore_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.dungeonId_ = dungeonId_;
-        }
       }
 
       @java.lang.Override
@@ -421,7 +469,7 @@ public final class FungusTrainingDungeonDetailOuterClass {
         if (other.getDungeonId() != 0) {
           setDungeonId(other.getDungeonId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -436,48 +484,19 @@ public final class FungusTrainingDungeonDetailOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.FungusTrainingDungeonDetailOuterClass.FungusTrainingDungeonDetail parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 48: {
-                dungeonId_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 48
-              case 56: {
-                bestScore_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 56
-              case 64: {
-                isOpen_ = input.readBool();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 64
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.FungusTrainingDungeonDetailOuterClass.FungusTrainingDungeonDetail) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private boolean isOpen_ ;
       /**
@@ -496,7 +515,6 @@ public final class FungusTrainingDungeonDetailOuterClass {
       public Builder setIsOpen(boolean value) {
         
         isOpen_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -505,7 +523,7 @@ public final class FungusTrainingDungeonDetailOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsOpen() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         isOpen_ = false;
         onChanged();
         return this;
@@ -528,7 +546,6 @@ public final class FungusTrainingDungeonDetailOuterClass {
       public Builder setBestScore(int value) {
         
         bestScore_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -537,7 +554,7 @@ public final class FungusTrainingDungeonDetailOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearBestScore() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         bestScore_ = 0;
         onChanged();
         return this;
@@ -560,7 +577,6 @@ public final class FungusTrainingDungeonDetailOuterClass {
       public Builder setDungeonId(int value) {
         
         dungeonId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -569,7 +585,7 @@ public final class FungusTrainingDungeonDetailOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDungeonId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         dungeonId_ = 0;
         onChanged();
         return this;
@@ -607,18 +623,7 @@ public final class FungusTrainingDungeonDetailOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new FungusTrainingDungeonDetail(input, extensionRegistry);
       }
     };
 

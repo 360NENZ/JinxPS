@@ -57,6 +57,53 @@ public final class MusicBeatmapNoteOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MusicBeatmapNote(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              startTime_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+
+              endTime_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.MusicBeatmapNoteOuterClass.internal_static_MusicBeatmapNote_descriptor;
@@ -71,7 +118,7 @@ public final class MusicBeatmapNoteOuterClass {
     }
 
     public static final int START_TIME_FIELD_NUMBER = 1;
-    private int startTime_ = 0;
+    private int startTime_;
     /**
      * <code>uint32 start_time = 1;</code>
      * @return The startTime.
@@ -82,7 +129,7 @@ public final class MusicBeatmapNoteOuterClass {
     }
 
     public static final int END_TIME_FIELD_NUMBER = 2;
-    private int endTime_ = 0;
+    private int endTime_;
     /**
      * <code>uint32 end_time = 2;</code>
      * @return The endTime.
@@ -112,7 +159,7 @@ public final class MusicBeatmapNoteOuterClass {
       if (endTime_ != 0) {
         output.writeUInt32(2, endTime_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -129,7 +176,7 @@ public final class MusicBeatmapNoteOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, endTime_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -148,7 +195,7 @@ public final class MusicBeatmapNoteOuterClass {
           != other.getStartTime()) return false;
       if (getEndTime()
           != other.getEndTime()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -163,7 +210,7 @@ public final class MusicBeatmapNoteOuterClass {
       hash = (53 * hash) + getStartTime();
       hash = (37 * hash) + END_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getEndTime();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -280,20 +327,26 @@ public final class MusicBeatmapNoteOuterClass {
 
       // Construct using emu.grasscutter.net.proto.MusicBeatmapNoteOuterClass.MusicBeatmapNote.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         startTime_ = 0;
+
         endTime_ = 0;
+
         return this;
       }
 
@@ -320,19 +373,10 @@ public final class MusicBeatmapNoteOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.MusicBeatmapNoteOuterClass.MusicBeatmapNote buildPartial() {
         emu.grasscutter.net.proto.MusicBeatmapNoteOuterClass.MusicBeatmapNote result = new emu.grasscutter.net.proto.MusicBeatmapNoteOuterClass.MusicBeatmapNote(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.startTime_ = startTime_;
+        result.endTime_ = endTime_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.MusicBeatmapNoteOuterClass.MusicBeatmapNote result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.startTime_ = startTime_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.endTime_ = endTime_;
-        }
       }
 
       @java.lang.Override
@@ -385,7 +429,7 @@ public final class MusicBeatmapNoteOuterClass {
         if (other.getEndTime() != 0) {
           setEndTime(other.getEndTime());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -400,43 +444,19 @@ public final class MusicBeatmapNoteOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.MusicBeatmapNoteOuterClass.MusicBeatmapNote parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                startTime_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                endTime_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.MusicBeatmapNoteOuterClass.MusicBeatmapNote) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int startTime_ ;
       /**
@@ -455,7 +475,6 @@ public final class MusicBeatmapNoteOuterClass {
       public Builder setStartTime(int value) {
         
         startTime_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -464,7 +483,7 @@ public final class MusicBeatmapNoteOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearStartTime() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         startTime_ = 0;
         onChanged();
         return this;
@@ -487,7 +506,6 @@ public final class MusicBeatmapNoteOuterClass {
       public Builder setEndTime(int value) {
         
         endTime_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -496,7 +514,7 @@ public final class MusicBeatmapNoteOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEndTime() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         endTime_ = 0;
         onChanged();
         return this;
@@ -534,18 +552,7 @@ public final class MusicBeatmapNoteOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MusicBeatmapNote(input, extensionRegistry);
       }
     };
 

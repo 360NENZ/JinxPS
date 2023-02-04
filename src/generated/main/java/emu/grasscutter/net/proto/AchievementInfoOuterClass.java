@@ -81,6 +81,69 @@ public final class AchievementInfoOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private AchievementInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              id_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              status_ = rawValue;
+              break;
+            }
+            case 24: {
+
+              current_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+
+              goal_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+
+              achievedate_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.AchievementInfoOuterClass.internal_static_AchievementInfo_descriptor;
@@ -221,7 +284,7 @@ public final class AchievementInfoOuterClass {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_ = 0;
+    private int id_;
     /**
      * <code>uint32 id = 1;</code>
      * @return The id.
@@ -232,7 +295,7 @@ public final class AchievementInfoOuterClass {
     }
 
     public static final int STATUS_FIELD_NUMBER = 2;
-    private int status_ = 0;
+    private int status_;
     /**
      * <code>.AchievementInfo.AchievementInfoStatus status = 2;</code>
      * @return The enum numeric value on the wire for status.
@@ -245,12 +308,13 @@ public final class AchievementInfoOuterClass {
      * @return The status.
      */
     @java.lang.Override public emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.AchievementInfoStatus getStatus() {
-      emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.AchievementInfoStatus result = emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.AchievementInfoStatus.forNumber(status_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.AchievementInfoStatus result = emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.AchievementInfoStatus.valueOf(status_);
       return result == null ? emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.AchievementInfoStatus.UNRECOGNIZED : result;
     }
 
     public static final int CURRENT_FIELD_NUMBER = 3;
-    private int current_ = 0;
+    private int current_;
     /**
      * <code>uint32 current = 3;</code>
      * @return The current.
@@ -261,7 +325,7 @@ public final class AchievementInfoOuterClass {
     }
 
     public static final int GOAL_FIELD_NUMBER = 4;
-    private int goal_ = 0;
+    private int goal_;
     /**
      * <code>uint32 goal = 4;</code>
      * @return The goal.
@@ -272,7 +336,7 @@ public final class AchievementInfoOuterClass {
     }
 
     public static final int ACHIEVEDATE_FIELD_NUMBER = 5;
-    private int achievedate_ = 0;
+    private int achievedate_;
     /**
      * <code>uint32 achievedate = 5;</code>
      * @return The achievedate.
@@ -311,7 +375,7 @@ public final class AchievementInfoOuterClass {
       if (achievedate_ != 0) {
         output.writeUInt32(5, achievedate_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -340,7 +404,7 @@ public final class AchievementInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(5, achievedate_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -364,7 +428,7 @@ public final class AchievementInfoOuterClass {
           != other.getGoal()) return false;
       if (getAchievedate()
           != other.getAchievedate()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -385,7 +449,7 @@ public final class AchievementInfoOuterClass {
       hash = (53 * hash) + getGoal();
       hash = (37 * hash) + ACHIEVEDATE_FIELD_NUMBER;
       hash = (53 * hash) + getAchievedate();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -502,23 +566,32 @@ public final class AchievementInfoOuterClass {
 
       // Construct using emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         id_ = 0;
+
         status_ = 0;
+
         current_ = 0;
+
         goal_ = 0;
+
         achievedate_ = 0;
+
         return this;
       }
 
@@ -545,28 +618,13 @@ public final class AchievementInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo buildPartial() {
         emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo result = new emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.id_ = id_;
+        result.status_ = status_;
+        result.current_ = current_;
+        result.goal_ = goal_;
+        result.achievedate_ = achievedate_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.id_ = id_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.status_ = status_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.current_ = current_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.goal_ = goal_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.achievedate_ = achievedate_;
-        }
       }
 
       @java.lang.Override
@@ -628,7 +686,7 @@ public final class AchievementInfoOuterClass {
         if (other.getAchievedate() != 0) {
           setAchievedate(other.getAchievedate());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -643,58 +701,19 @@ public final class AchievementInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                id_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                status_ = input.readEnum();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                current_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 32: {
-                goal_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 40: {
-                achievedate_ = input.readUInt32();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int id_ ;
       /**
@@ -713,7 +732,6 @@ public final class AchievementInfoOuterClass {
       public Builder setId(int value) {
         
         id_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -722,7 +740,7 @@ public final class AchievementInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         id_ = 0;
         onChanged();
         return this;
@@ -742,8 +760,8 @@ public final class AchievementInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder setStatusValue(int value) {
+        
         status_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -753,7 +771,8 @@ public final class AchievementInfoOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.AchievementInfoStatus getStatus() {
-        emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.AchievementInfoStatus result = emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.AchievementInfoStatus.forNumber(status_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.AchievementInfoStatus result = emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.AchievementInfoStatus.valueOf(status_);
         return result == null ? emu.grasscutter.net.proto.AchievementInfoOuterClass.AchievementInfo.AchievementInfoStatus.UNRECOGNIZED : result;
       }
       /**
@@ -765,7 +784,7 @@ public final class AchievementInfoOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         status_ = value.getNumber();
         onChanged();
         return this;
@@ -775,7 +794,7 @@ public final class AchievementInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         status_ = 0;
         onChanged();
         return this;
@@ -798,7 +817,6 @@ public final class AchievementInfoOuterClass {
       public Builder setCurrent(int value) {
         
         current_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -807,7 +825,7 @@ public final class AchievementInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCurrent() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         current_ = 0;
         onChanged();
         return this;
@@ -830,7 +848,6 @@ public final class AchievementInfoOuterClass {
       public Builder setGoal(int value) {
         
         goal_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -839,7 +856,7 @@ public final class AchievementInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearGoal() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         goal_ = 0;
         onChanged();
         return this;
@@ -862,7 +879,6 @@ public final class AchievementInfoOuterClass {
       public Builder setAchievedate(int value) {
         
         achievedate_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -871,7 +887,7 @@ public final class AchievementInfoOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAchievedate() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         achievedate_ = 0;
         onChanged();
         return this;
@@ -909,18 +925,7 @@ public final class AchievementInfoOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AchievementInfo(input, extensionRegistry);
       }
     };
 

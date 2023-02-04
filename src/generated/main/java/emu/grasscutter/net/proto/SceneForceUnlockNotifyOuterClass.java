@@ -69,6 +69,73 @@ public final class SceneForceUnlockNotifyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private SceneForceUnlockNotify(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 64: {
+
+              isAdd_ = input.readBool();
+              break;
+            }
+            case 112: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                forceIdList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              forceIdList_.addInt(input.readUInt32());
+              break;
+            }
+            case 114: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                forceIdList_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                forceIdList_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          forceIdList_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.SceneForceUnlockNotifyOuterClass.internal_static_SceneForceUnlockNotify_descriptor;
@@ -214,7 +281,7 @@ public final class SceneForceUnlockNotifyOuterClass {
     }
 
     public static final int ISADD_FIELD_NUMBER = 8;
-    private boolean isAdd_ = false;
+    private boolean isAdd_;
     /**
      * <code>bool isAdd = 8;</code>
      * @return The isAdd.
@@ -225,7 +292,6 @@ public final class SceneForceUnlockNotifyOuterClass {
     }
 
     public static final int FORCEIDLIST_FIELD_NUMBER = 14;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList forceIdList_;
     /**
      * <code>repeated uint32 forceIdList = 14;</code>
@@ -278,7 +344,7 @@ public final class SceneForceUnlockNotifyOuterClass {
       for (int i = 0; i < forceIdList_.size(); i++) {
         output.writeUInt32NoTag(forceIdList_.getInt(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -305,7 +371,7 @@ public final class SceneForceUnlockNotifyOuterClass {
         }
         forceIdListMemoizedSerializedSize = dataSize;
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -324,7 +390,7 @@ public final class SceneForceUnlockNotifyOuterClass {
           != other.getIsAdd()) return false;
       if (!getForceIdListList()
           .equals(other.getForceIdListList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -342,7 +408,7 @@ public final class SceneForceUnlockNotifyOuterClass {
         hash = (37 * hash) + FORCEIDLIST_FIELD_NUMBER;
         hash = (53 * hash) + getForceIdListList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -459,20 +525,26 @@ public final class SceneForceUnlockNotifyOuterClass {
 
       // Construct using emu.grasscutter.net.proto.SceneForceUnlockNotifyOuterClass.SceneForceUnlockNotify.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         isAdd_ = false;
+
         forceIdList_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -499,25 +571,15 @@ public final class SceneForceUnlockNotifyOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.SceneForceUnlockNotifyOuterClass.SceneForceUnlockNotify buildPartial() {
         emu.grasscutter.net.proto.SceneForceUnlockNotifyOuterClass.SceneForceUnlockNotify result = new emu.grasscutter.net.proto.SceneForceUnlockNotifyOuterClass.SceneForceUnlockNotify(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.SceneForceUnlockNotifyOuterClass.SceneForceUnlockNotify result) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.isAdd_ = isAdd_;
+        if (((bitField0_ & 0x00000001) != 0)) {
           forceIdList_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.forceIdList_ = forceIdList_;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.SceneForceUnlockNotifyOuterClass.SceneForceUnlockNotify result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.isAdd_ = isAdd_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -570,14 +632,14 @@ public final class SceneForceUnlockNotifyOuterClass {
         if (!other.forceIdList_.isEmpty()) {
           if (forceIdList_.isEmpty()) {
             forceIdList_ = other.forceIdList_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureForceIdListIsMutable();
             forceIdList_.addAll(other.forceIdList_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -592,51 +654,17 @@ public final class SceneForceUnlockNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.SceneForceUnlockNotifyOuterClass.SceneForceUnlockNotify parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 64: {
-                isAdd_ = input.readBool();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 64
-              case 112: {
-                int v = input.readUInt32();
-                ensureForceIdListIsMutable();
-                forceIdList_.addInt(v);
-                break;
-              } // case 112
-              case 114: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureForceIdListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  forceIdList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 114
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.SceneForceUnlockNotifyOuterClass.SceneForceUnlockNotify) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -658,7 +686,6 @@ public final class SceneForceUnlockNotifyOuterClass {
       public Builder setIsAdd(boolean value) {
         
         isAdd_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -667,7 +694,7 @@ public final class SceneForceUnlockNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsAdd() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         isAdd_ = false;
         onChanged();
         return this;
@@ -675,10 +702,10 @@ public final class SceneForceUnlockNotifyOuterClass {
 
       private com.google.protobuf.Internal.IntList forceIdList_ = emptyIntList();
       private void ensureForceIdListIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           forceIdList_ = mutableCopy(forceIdList_);
-          bitField0_ |= 0x00000002;
-        }
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
        * <code>repeated uint32 forceIdList = 14;</code>
@@ -686,7 +713,7 @@ public final class SceneForceUnlockNotifyOuterClass {
        */
       public java.util.List<java.lang.Integer>
           getForceIdListList() {
-        return ((bitField0_ & 0x00000002) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(forceIdList_) : forceIdList_;
       }
       /**
@@ -712,7 +739,6 @@ public final class SceneForceUnlockNotifyOuterClass {
        */
       public Builder setForceIdList(
           int index, int value) {
-        
         ensureForceIdListIsMutable();
         forceIdList_.setInt(index, value);
         onChanged();
@@ -724,7 +750,6 @@ public final class SceneForceUnlockNotifyOuterClass {
        * @return This builder for chaining.
        */
       public Builder addForceIdList(int value) {
-        
         ensureForceIdListIsMutable();
         forceIdList_.addInt(value);
         onChanged();
@@ -749,7 +774,7 @@ public final class SceneForceUnlockNotifyOuterClass {
        */
       public Builder clearForceIdList() {
         forceIdList_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -786,18 +811,7 @@ public final class SceneForceUnlockNotifyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new SceneForceUnlockNotify(input, extensionRegistry);
       }
     };
 

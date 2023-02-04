@@ -63,6 +63,58 @@ public final class GLELFDKHCNKOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GLELFDKHCNK(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+
+              minFinishTime_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+
+              levelId_ = input.readUInt32();
+              break;
+            }
+            case 104: {
+
+              isFinish_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.internal_static_GLELFDKHCNK_descriptor;
@@ -77,7 +129,7 @@ public final class GLELFDKHCNKOuterClass {
     }
 
     public static final int MINFINISHTIME_FIELD_NUMBER = 2;
-    private int minFinishTime_ = 0;
+    private int minFinishTime_;
     /**
      * <code>uint32 minFinishTime = 2;</code>
      * @return The minFinishTime.
@@ -88,7 +140,7 @@ public final class GLELFDKHCNKOuterClass {
     }
 
     public static final int LEVELID_FIELD_NUMBER = 12;
-    private int levelId_ = 0;
+    private int levelId_;
     /**
      * <code>uint32 levelId = 12;</code>
      * @return The levelId.
@@ -99,7 +151,7 @@ public final class GLELFDKHCNKOuterClass {
     }
 
     public static final int ISFINISH_FIELD_NUMBER = 13;
-    private boolean isFinish_ = false;
+    private boolean isFinish_;
     /**
      * <code>bool isFinish = 13;</code>
      * @return The isFinish.
@@ -132,7 +184,7 @@ public final class GLELFDKHCNKOuterClass {
       if (isFinish_ != false) {
         output.writeBool(13, isFinish_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -153,7 +205,7 @@ public final class GLELFDKHCNKOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(13, isFinish_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -174,7 +226,7 @@ public final class GLELFDKHCNKOuterClass {
           != other.getLevelId()) return false;
       if (getIsFinish()
           != other.getIsFinish()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -192,7 +244,7 @@ public final class GLELFDKHCNKOuterClass {
       hash = (37 * hash) + ISFINISH_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsFinish());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -309,21 +361,28 @@ public final class GLELFDKHCNKOuterClass {
 
       // Construct using emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.GLELFDKHCNK.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         minFinishTime_ = 0;
+
         levelId_ = 0;
+
         isFinish_ = false;
+
         return this;
       }
 
@@ -350,22 +409,11 @@ public final class GLELFDKHCNKOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.GLELFDKHCNK buildPartial() {
         emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.GLELFDKHCNK result = new emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.GLELFDKHCNK(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.minFinishTime_ = minFinishTime_;
+        result.levelId_ = levelId_;
+        result.isFinish_ = isFinish_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.GLELFDKHCNK result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.minFinishTime_ = minFinishTime_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.levelId_ = levelId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.isFinish_ = isFinish_;
-        }
       }
 
       @java.lang.Override
@@ -421,7 +469,7 @@ public final class GLELFDKHCNKOuterClass {
         if (other.getIsFinish() != false) {
           setIsFinish(other.getIsFinish());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -436,48 +484,19 @@ public final class GLELFDKHCNKOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.GLELFDKHCNK parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 16: {
-                minFinishTime_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 16
-              case 96: {
-                levelId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 96
-              case 104: {
-                isFinish_ = input.readBool();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 104
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.GLELFDKHCNKOuterClass.GLELFDKHCNK) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int minFinishTime_ ;
       /**
@@ -496,7 +515,6 @@ public final class GLELFDKHCNKOuterClass {
       public Builder setMinFinishTime(int value) {
         
         minFinishTime_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -505,7 +523,7 @@ public final class GLELFDKHCNKOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearMinFinishTime() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         minFinishTime_ = 0;
         onChanged();
         return this;
@@ -528,7 +546,6 @@ public final class GLELFDKHCNKOuterClass {
       public Builder setLevelId(int value) {
         
         levelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -537,7 +554,7 @@ public final class GLELFDKHCNKOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearLevelId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         levelId_ = 0;
         onChanged();
         return this;
@@ -560,7 +577,6 @@ public final class GLELFDKHCNKOuterClass {
       public Builder setIsFinish(boolean value) {
         
         isFinish_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -569,7 +585,7 @@ public final class GLELFDKHCNKOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsFinish() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         isFinish_ = false;
         onChanged();
         return this;
@@ -607,18 +623,7 @@ public final class GLELFDKHCNKOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GLELFDKHCNK(input, extensionRegistry);
       }
     };
 

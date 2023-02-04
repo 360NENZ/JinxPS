@@ -69,6 +69,63 @@ public final class RogueDiaryDungeonRecordOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RogueDiaryDungeonRecord(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 56: {
+
+              isFinish_ = input.readBool();
+              break;
+            }
+            case 72: {
+
+              finishTime_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+
+              maxRound_ = input.readUInt32();
+              break;
+            }
+            case 104: {
+
+              difficulty_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.RogueDiaryDungeonRecordOuterClass.internal_static_RogueDiaryDungeonRecord_descriptor;
@@ -83,7 +140,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
     }
 
     public static final int FINISHTIME_FIELD_NUMBER = 9;
-    private int finishTime_ = 0;
+    private int finishTime_;
     /**
      * <code>uint32 finishTime = 9;</code>
      * @return The finishTime.
@@ -94,7 +151,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
     }
 
     public static final int MAXROUND_FIELD_NUMBER = 12;
-    private int maxRound_ = 0;
+    private int maxRound_;
     /**
      * <code>uint32 maxRound = 12;</code>
      * @return The maxRound.
@@ -105,7 +162,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
     }
 
     public static final int ISFINISH_FIELD_NUMBER = 7;
-    private boolean isFinish_ = false;
+    private boolean isFinish_;
     /**
      * <code>bool isFinish = 7;</code>
      * @return The isFinish.
@@ -116,7 +173,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
     }
 
     public static final int DIFFICULTY_FIELD_NUMBER = 13;
-    private int difficulty_ = 0;
+    private int difficulty_;
     /**
      * <code>uint32 difficulty = 13;</code>
      * @return The difficulty.
@@ -152,7 +209,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
       if (difficulty_ != 0) {
         output.writeUInt32(13, difficulty_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -177,7 +234,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(13, difficulty_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -200,7 +257,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
           != other.getIsFinish()) return false;
       if (getDifficulty()
           != other.getDifficulty()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -220,7 +277,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
           getIsFinish());
       hash = (37 * hash) + DIFFICULTY_FIELD_NUMBER;
       hash = (53 * hash) + getDifficulty();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -337,22 +394,30 @@ public final class RogueDiaryDungeonRecordOuterClass {
 
       // Construct using emu.grasscutter.net.proto.RogueDiaryDungeonRecordOuterClass.RogueDiaryDungeonRecord.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         finishTime_ = 0;
+
         maxRound_ = 0;
+
         isFinish_ = false;
+
         difficulty_ = 0;
+
         return this;
       }
 
@@ -379,25 +444,12 @@ public final class RogueDiaryDungeonRecordOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.RogueDiaryDungeonRecordOuterClass.RogueDiaryDungeonRecord buildPartial() {
         emu.grasscutter.net.proto.RogueDiaryDungeonRecordOuterClass.RogueDiaryDungeonRecord result = new emu.grasscutter.net.proto.RogueDiaryDungeonRecordOuterClass.RogueDiaryDungeonRecord(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.finishTime_ = finishTime_;
+        result.maxRound_ = maxRound_;
+        result.isFinish_ = isFinish_;
+        result.difficulty_ = difficulty_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.RogueDiaryDungeonRecordOuterClass.RogueDiaryDungeonRecord result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.finishTime_ = finishTime_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.maxRound_ = maxRound_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.isFinish_ = isFinish_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.difficulty_ = difficulty_;
-        }
       }
 
       @java.lang.Override
@@ -456,7 +508,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
         if (other.getDifficulty() != 0) {
           setDifficulty(other.getDifficulty());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -471,53 +523,19 @@ public final class RogueDiaryDungeonRecordOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.RogueDiaryDungeonRecordOuterClass.RogueDiaryDungeonRecord parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 56: {
-                isFinish_ = input.readBool();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 56
-              case 72: {
-                finishTime_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 72
-              case 96: {
-                maxRound_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 96
-              case 104: {
-                difficulty_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 104
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.RogueDiaryDungeonRecordOuterClass.RogueDiaryDungeonRecord) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int finishTime_ ;
       /**
@@ -536,7 +554,6 @@ public final class RogueDiaryDungeonRecordOuterClass {
       public Builder setFinishTime(int value) {
         
         finishTime_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -545,7 +562,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearFinishTime() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         finishTime_ = 0;
         onChanged();
         return this;
@@ -568,7 +585,6 @@ public final class RogueDiaryDungeonRecordOuterClass {
       public Builder setMaxRound(int value) {
         
         maxRound_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -577,7 +593,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearMaxRound() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         maxRound_ = 0;
         onChanged();
         return this;
@@ -600,7 +616,6 @@ public final class RogueDiaryDungeonRecordOuterClass {
       public Builder setIsFinish(boolean value) {
         
         isFinish_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -609,7 +624,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearIsFinish() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         isFinish_ = false;
         onChanged();
         return this;
@@ -632,7 +647,6 @@ public final class RogueDiaryDungeonRecordOuterClass {
       public Builder setDifficulty(int value) {
         
         difficulty_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -641,7 +655,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDifficulty() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         difficulty_ = 0;
         onChanged();
         return this;
@@ -679,18 +693,7 @@ public final class RogueDiaryDungeonRecordOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RogueDiaryDungeonRecord(input, extensionRegistry);
       }
     };
 

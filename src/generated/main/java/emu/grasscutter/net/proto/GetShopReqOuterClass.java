@@ -51,6 +51,48 @@ public final class GetShopReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GetShopReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 40: {
+
+              shopType_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.GetShopReqOuterClass.internal_static_GetShopReq_descriptor;
@@ -204,7 +246,7 @@ public final class GetShopReqOuterClass {
     }
 
     public static final int SHOPTYPE_FIELD_NUMBER = 5;
-    private int shopType_ = 0;
+    private int shopType_;
     /**
      * <code>uint32 shopType = 5;</code>
      * @return The shopType.
@@ -231,7 +273,7 @@ public final class GetShopReqOuterClass {
       if (shopType_ != 0) {
         output.writeUInt32(5, shopType_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -244,7 +286,7 @@ public final class GetShopReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(5, shopType_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -261,7 +303,7 @@ public final class GetShopReqOuterClass {
 
       if (getShopType()
           != other.getShopType()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -274,7 +316,7 @@ public final class GetShopReqOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + SHOPTYPE_FIELD_NUMBER;
       hash = (53 * hash) + getShopType();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -391,19 +433,24 @@ public final class GetShopReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.GetShopReqOuterClass.GetShopReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         shopType_ = 0;
+
         return this;
       }
 
@@ -430,16 +477,9 @@ public final class GetShopReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.GetShopReqOuterClass.GetShopReq buildPartial() {
         emu.grasscutter.net.proto.GetShopReqOuterClass.GetShopReq result = new emu.grasscutter.net.proto.GetShopReqOuterClass.GetShopReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.shopType_ = shopType_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.GetShopReqOuterClass.GetShopReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.shopType_ = shopType_;
-        }
       }
 
       @java.lang.Override
@@ -489,7 +529,7 @@ public final class GetShopReqOuterClass {
         if (other.getShopType() != 0) {
           setShopType(other.getShopType());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -504,38 +544,19 @@ public final class GetShopReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.GetShopReqOuterClass.GetShopReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 40: {
-                shopType_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 40
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.GetShopReqOuterClass.GetShopReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int shopType_ ;
       /**
@@ -554,7 +575,6 @@ public final class GetShopReqOuterClass {
       public Builder setShopType(int value) {
         
         shopType_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -563,7 +583,7 @@ public final class GetShopReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearShopType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         shopType_ = 0;
         onChanged();
         return this;
@@ -601,18 +621,7 @@ public final class GetShopReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GetShopReq(input, extensionRegistry);
       }
     };
 

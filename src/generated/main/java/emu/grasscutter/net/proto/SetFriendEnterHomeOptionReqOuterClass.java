@@ -57,6 +57,49 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private SetFriendEnterHomeOptionReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 96: {
+              int rawValue = input.readEnum();
+
+              option_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.SetFriendEnterHomeOptionReqOuterClass.internal_static_SetFriendEnterHomeOptionReq_descriptor;
@@ -210,7 +253,7 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
     }
 
     public static final int OPTION_FIELD_NUMBER = 12;
-    private int option_ = 0;
+    private int option_;
     /**
      * <code>.FriendEnterHomeOption option = 12;</code>
      * @return The enum numeric value on the wire for option.
@@ -223,7 +266,8 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
      * @return The option.
      */
     @java.lang.Override public emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption getOption() {
-      emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption result = emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption.forNumber(option_);
+      @SuppressWarnings("deprecation")
+      emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption result = emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption.valueOf(option_);
       return result == null ? emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption.UNRECOGNIZED : result;
     }
 
@@ -244,7 +288,7 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
       if (option_ != emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption.FRIEND_ENTER_HOME_OPTION_NEED_CONFIRM.getNumber()) {
         output.writeEnum(12, option_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -257,7 +301,7 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(12, option_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -273,7 +317,7 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
       emu.grasscutter.net.proto.SetFriendEnterHomeOptionReqOuterClass.SetFriendEnterHomeOptionReq other = (emu.grasscutter.net.proto.SetFriendEnterHomeOptionReqOuterClass.SetFriendEnterHomeOptionReq) obj;
 
       if (option_ != other.option_) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -286,7 +330,7 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + OPTION_FIELD_NUMBER;
       hash = (53 * hash) + option_;
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -403,19 +447,24 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.SetFriendEnterHomeOptionReqOuterClass.SetFriendEnterHomeOptionReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         option_ = 0;
+
         return this;
       }
 
@@ -442,16 +491,9 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.SetFriendEnterHomeOptionReqOuterClass.SetFriendEnterHomeOptionReq buildPartial() {
         emu.grasscutter.net.proto.SetFriendEnterHomeOptionReqOuterClass.SetFriendEnterHomeOptionReq result = new emu.grasscutter.net.proto.SetFriendEnterHomeOptionReqOuterClass.SetFriendEnterHomeOptionReq(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.option_ = option_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.SetFriendEnterHomeOptionReqOuterClass.SetFriendEnterHomeOptionReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.option_ = option_;
-        }
       }
 
       @java.lang.Override
@@ -501,7 +543,7 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
         if (other.option_ != 0) {
           setOptionValue(other.getOptionValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -516,38 +558,19 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.SetFriendEnterHomeOptionReqOuterClass.SetFriendEnterHomeOptionReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 96: {
-                option_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 96
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.SetFriendEnterHomeOptionReqOuterClass.SetFriendEnterHomeOptionReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int option_ = 0;
       /**
@@ -563,8 +586,8 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder setOptionValue(int value) {
+        
         option_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -574,7 +597,8 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
        */
       @java.lang.Override
       public emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption getOption() {
-        emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption result = emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption.forNumber(option_);
+        @SuppressWarnings("deprecation")
+        emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption result = emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption.valueOf(option_);
         return result == null ? emu.grasscutter.net.proto.FriendEnterHomeOptionOuterClass.FriendEnterHomeOption.UNRECOGNIZED : result;
       }
       /**
@@ -586,7 +610,7 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000001;
+        
         option_ = value.getNumber();
         onChanged();
         return this;
@@ -596,7 +620,7 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearOption() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         option_ = 0;
         onChanged();
         return this;
@@ -634,18 +658,7 @@ public final class SetFriendEnterHomeOptionReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new SetFriendEnterHomeOptionReq(input, extensionRegistry);
       }
     };
 

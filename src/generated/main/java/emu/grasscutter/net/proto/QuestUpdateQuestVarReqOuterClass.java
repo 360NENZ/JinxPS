@@ -88,6 +88,71 @@ public final class QuestUpdateQuestVarReqOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QuestUpdateQuestVarReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+
+              questId_ = input.readUInt32();
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                questVarOpList_ = new java.util.ArrayList<emu.grasscutter.net.proto.QuestVarOpOuterClass.QuestVarOp>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              questVarOpList_.add(
+                  input.readMessage(emu.grasscutter.net.proto.QuestVarOpOuterClass.QuestVarOp.parser(), extensionRegistry));
+              break;
+            }
+            case 72: {
+
+              parentQuestVarSeq_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+
+              parentQuestId_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          questVarOpList_ = java.util.Collections.unmodifiableList(questVarOpList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return emu.grasscutter.net.proto.QuestUpdateQuestVarReqOuterClass.internal_static_QuestUpdateQuestVarReq_descriptor;
@@ -241,7 +306,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
     }
 
     public static final int PARENTQUESTVARSEQ_FIELD_NUMBER = 9;
-    private int parentQuestVarSeq_ = 0;
+    private int parentQuestVarSeq_;
     /**
      * <code>uint32 parentQuestVarSeq = 9;</code>
      * @return The parentQuestVarSeq.
@@ -252,7 +317,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
     }
 
     public static final int PARENTQUESTID_FIELD_NUMBER = 12;
-    private int parentQuestId_ = 0;
+    private int parentQuestId_;
     /**
      * <code>uint32 parentQuestId = 12;</code>
      * @return The parentQuestId.
@@ -263,7 +328,6 @@ public final class QuestUpdateQuestVarReqOuterClass {
     }
 
     public static final int QUESTVAROPLIST_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
     private java.util.List<emu.grasscutter.net.proto.QuestVarOpOuterClass.QuestVarOp> questVarOpList_;
     /**
      * <code>repeated .QuestVarOp questVarOpList = 4;</code>
@@ -304,7 +368,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
     }
 
     public static final int QUESTID_FIELD_NUMBER = 3;
-    private int questId_ = 0;
+    private int questId_;
     /**
      * <code>uint32 questId = 3;</code>
      * @return The questId.
@@ -340,7 +404,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
       if (parentQuestId_ != 0) {
         output.writeUInt32(12, parentQuestId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -365,7 +429,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(12, parentQuestId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -388,7 +452,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
           .equals(other.getQuestVarOpListList())) return false;
       if (getQuestId()
           != other.getQuestId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -409,7 +473,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
       }
       hash = (37 * hash) + QUESTID_FIELD_NUMBER;
       hash = (53 * hash) + getQuestId();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -526,28 +590,35 @@ public final class QuestUpdateQuestVarReqOuterClass {
 
       // Construct using emu.grasscutter.net.proto.QuestUpdateQuestVarReqOuterClass.QuestUpdateQuestVarReq.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getQuestVarOpListFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         parentQuestVarSeq_ = 0;
+
         parentQuestId_ = 0;
+
         if (questVarOpListBuilder_ == null) {
           questVarOpList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          questVarOpList_ = null;
           questVarOpListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         questId_ = 0;
+
         return this;
       }
 
@@ -574,35 +645,21 @@ public final class QuestUpdateQuestVarReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.QuestUpdateQuestVarReqOuterClass.QuestUpdateQuestVarReq buildPartial() {
         emu.grasscutter.net.proto.QuestUpdateQuestVarReqOuterClass.QuestUpdateQuestVarReq result = new emu.grasscutter.net.proto.QuestUpdateQuestVarReqOuterClass.QuestUpdateQuestVarReq(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(emu.grasscutter.net.proto.QuestUpdateQuestVarReqOuterClass.QuestUpdateQuestVarReq result) {
+        int from_bitField0_ = bitField0_;
+        result.parentQuestVarSeq_ = parentQuestVarSeq_;
+        result.parentQuestId_ = parentQuestId_;
         if (questVarOpListBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             questVarOpList_ = java.util.Collections.unmodifiableList(questVarOpList_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.questVarOpList_ = questVarOpList_;
         } else {
           result.questVarOpList_ = questVarOpListBuilder_.build();
         }
-      }
-
-      private void buildPartial0(emu.grasscutter.net.proto.QuestUpdateQuestVarReqOuterClass.QuestUpdateQuestVarReq result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.parentQuestVarSeq_ = parentQuestVarSeq_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.parentQuestId_ = parentQuestId_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.questId_ = questId_;
-        }
+        result.questId_ = questId_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -659,7 +716,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
           if (!other.questVarOpList_.isEmpty()) {
             if (questVarOpList_.isEmpty()) {
               questVarOpList_ = other.questVarOpList_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureQuestVarOpListIsMutable();
               questVarOpList_.addAll(other.questVarOpList_);
@@ -672,7 +729,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
               questVarOpListBuilder_.dispose();
               questVarOpListBuilder_ = null;
               questVarOpList_ = other.questVarOpList_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
               questVarOpListBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getQuestVarOpListFieldBuilder() : null;
@@ -684,7 +741,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
         if (other.getQuestId() != 0) {
           setQuestId(other.getQuestId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -699,58 +756,17 @@ public final class QuestUpdateQuestVarReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        emu.grasscutter.net.proto.QuestUpdateQuestVarReqOuterClass.QuestUpdateQuestVarReq parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 24: {
-                questId_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 24
-              case 34: {
-                emu.grasscutter.net.proto.QuestVarOpOuterClass.QuestVarOp m =
-                    input.readMessage(
-                        emu.grasscutter.net.proto.QuestVarOpOuterClass.QuestVarOp.parser(),
-                        extensionRegistry);
-                if (questVarOpListBuilder_ == null) {
-                  ensureQuestVarOpListIsMutable();
-                  questVarOpList_.add(m);
-                } else {
-                  questVarOpListBuilder_.addMessage(m);
-                }
-                break;
-              } // case 34
-              case 72: {
-                parentQuestVarSeq_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 72
-              case 96: {
-                parentQuestId_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 96
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (emu.grasscutter.net.proto.QuestUpdateQuestVarReqOuterClass.QuestUpdateQuestVarReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -772,7 +788,6 @@ public final class QuestUpdateQuestVarReqOuterClass {
       public Builder setParentQuestVarSeq(int value) {
         
         parentQuestVarSeq_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -781,7 +796,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearParentQuestVarSeq() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         parentQuestVarSeq_ = 0;
         onChanged();
         return this;
@@ -804,7 +819,6 @@ public final class QuestUpdateQuestVarReqOuterClass {
       public Builder setParentQuestId(int value) {
         
         parentQuestId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -813,7 +827,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearParentQuestId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         parentQuestId_ = 0;
         onChanged();
         return this;
@@ -822,9 +836,9 @@ public final class QuestUpdateQuestVarReqOuterClass {
       private java.util.List<emu.grasscutter.net.proto.QuestVarOpOuterClass.QuestVarOp> questVarOpList_ =
         java.util.Collections.emptyList();
       private void ensureQuestVarOpListIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           questVarOpList_ = new java.util.ArrayList<emu.grasscutter.net.proto.QuestVarOpOuterClass.QuestVarOp>(questVarOpList_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -974,7 +988,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
       public Builder clearQuestVarOpList() {
         if (questVarOpListBuilder_ == null) {
           questVarOpList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           questVarOpListBuilder_.clear();
@@ -1051,7 +1065,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
           questVarOpListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               emu.grasscutter.net.proto.QuestVarOpOuterClass.QuestVarOp, emu.grasscutter.net.proto.QuestVarOpOuterClass.QuestVarOp.Builder, emu.grasscutter.net.proto.QuestVarOpOuterClass.QuestVarOpOrBuilder>(
                   questVarOpList_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           questVarOpList_ = null;
@@ -1076,7 +1090,6 @@ public final class QuestUpdateQuestVarReqOuterClass {
       public Builder setQuestId(int value) {
         
         questId_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1085,7 +1098,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearQuestId() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         questId_ = 0;
         onChanged();
         return this;
@@ -1123,18 +1136,7 @@ public final class QuestUpdateQuestVarReqOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QuestUpdateQuestVarReq(input, extensionRegistry);
       }
     };
 
