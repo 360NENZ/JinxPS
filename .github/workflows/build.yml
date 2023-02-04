@@ -1,7 +1,6 @@
 name: "Build"
 on:
-  [push]
-  [pull_request]
+  [push,pull_request]
 
 jobs:
   Build-Server-Jar:
@@ -29,5 +28,5 @@ jobs:
       - name: Upload Build
         uses: actions/upload-artifact@v3
         with:
-          name: JinxPS
-          path: JinxPS-*.jar
+          name: Grasscutter
+          path: grasscutter-*.jar
