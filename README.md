@@ -18,10 +18,7 @@
 - You cannot connect to a public JinxPS server for now , Only localhost will be available.
 
 ## How to setup localhost JinxPS?
-- Clone this repo
-- Download from [releases](https://github.com/Jinx-PS/JinxPS/releases) or [build yourself](https://github.com/Grasscutters/Grasscutter#building)
-- Open powershell, cd to active directory, enter: ```Java -jar jinx.jar```
-- Login and cry!
+- Tutorial can be found here: [JinxPS Wiki - Hosting and joining your own server](https://github.com/Jinx-PS/JinxPS/wiki/Hosting-and-joining-your-own-server)
 
 ## Notes
 - Some of the things needed for gc isn't included in the directory
