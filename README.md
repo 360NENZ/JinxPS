@@ -1,14 +1,9 @@
-# JinxPS_Private
-Welcome to JinxPS Private Version.
-- In here we will have privated server features such as windy.
-- We will also have experimental branches for testing.
+# Weclome To JinxPS!
+- A certain private server for a certain anime game.
 
 ## JinxPS Info
 - GC Version : 1.4.6
 - Server resources version : 3.4.0
-
-## ToDo
-- Upload
 
 ## Credits
 - [NickTheHuy](https://github.com/NickTheHuy) - 3.4 Proto 
@@ -34,4 +29,4 @@ Welcome to JinxPS Private Version.
 ## Useful Resources
 - [Acrepi](https://discord.gg/acrepi)
 - [Unity Gradient Maker](https://kanatimc.github.io/Unity-Gradient-Maker/)
-- [JinxPS Discord](https://discord.gg/wN82EzesKq)
+- 
