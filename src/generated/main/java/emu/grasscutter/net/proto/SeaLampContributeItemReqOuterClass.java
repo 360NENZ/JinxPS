@@ -19,36 +19,47 @@ public final class SeaLampContributeItemReqOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .ItemParam itemList = 13;</code>
+     * <code>repeated .ItemParam item_list = 11;</code>
      */
     java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> 
         getItemListList();
     /**
-     * <code>repeated .ItemParam itemList = 13;</code>
+     * <code>repeated .ItemParam item_list = 11;</code>
      */
     emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam getItemList(int index);
     /**
-     * <code>repeated .ItemParam itemList = 13;</code>
+     * <code>repeated .ItemParam item_list = 11;</code>
      */
     int getItemListCount();
     /**
-     * <code>repeated .ItemParam itemList = 13;</code>
+     * <code>repeated .ItemParam item_list = 11;</code>
      */
     java.util.List<? extends emu.grasscutter.net.proto.ItemParamOuterClass.ItemParamOrBuilder> 
         getItemListOrBuilderList();
     /**
-     * <code>repeated .ItemParam itemList = 13;</code>
+     * <code>repeated .ItemParam item_list = 11;</code>
      */
     emu.grasscutter.net.proto.ItemParamOuterClass.ItemParamOrBuilder getItemListOrBuilder(
         int index);
 
     /**
-     * <code>uint32 activityId = 12;</code>
+     * <code>uint32 activity_id = 2;</code>
      * @return The activityId.
      */
     int getActivityId();
   }
   /**
+   * <pre>
+   * enum CmdId {
+   *   option allow_alias = true;
+   *   NONE = 0;
+   *   CMD_ID = 2133;
+   *   ENET_CHANNEL_ID = 0;
+   *   ENET_IS_RELIABLE = 1;
+   *   IS_ALLOW_CLIENT = 1;
+   * }
+   * </pre>
+   *
    * Protobuf type {@code SeaLampContributeItemReq}
    */
   public static final class SeaLampContributeItemReq extends
@@ -95,12 +106,12 @@ public final class SeaLampContributeItemReqOuterClass {
             case 0:
               done = true;
               break;
-            case 96: {
+            case 16: {
 
               activityId_ = input.readUInt32();
               break;
             }
-            case 106: {
+            case 90: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 itemList_ = new java.util.ArrayList<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam>();
                 mutable_bitField0_ |= 0x00000001;
@@ -144,156 +155,17 @@ public final class SeaLampContributeItemReqOuterClass {
               emu.grasscutter.net.proto.SeaLampContributeItemReqOuterClass.SeaLampContributeItemReq.class, emu.grasscutter.net.proto.SeaLampContributeItemReqOuterClass.SeaLampContributeItemReq.Builder.class);
     }
 
-    /**
-     * Protobuf enum {@code SeaLampContributeItemReq.NFJOBJLOODK}
-     */
-    public enum NFJOBJLOODK
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>NONE = 0;</code>
-       */
-      NONE(0, 0),
-      /**
-       * <code>PEPPOHPHJOJ = 2110;</code>
-       */
-      PEPPOHPHJOJ(1, 2110),
-      /**
-       * <code>NNBKOLMPOEA = 1;</code>
-       */
-      NNBKOLMPOEA(3, 1),
-      UNRECOGNIZED(-1, -1),
-      ;
-
-      /**
-       * <code>DCDNILFDFLB = 0;</code>
-       */
-      public static final NFJOBJLOODK DCDNILFDFLB = NONE;
-      /**
-       * <code>EAJIABGAOCI = 1;</code>
-       */
-      public static final NFJOBJLOODK EAJIABGAOCI = NNBKOLMPOEA;
-      /**
-       * <code>NONE = 0;</code>
-       */
-      public static final int NONE_VALUE = 0;
-      /**
-       * <code>PEPPOHPHJOJ = 2110;</code>
-       */
-      public static final int PEPPOHPHJOJ_VALUE = 2110;
-      /**
-       * <code>DCDNILFDFLB = 0;</code>
-       */
-      public static final int DCDNILFDFLB_VALUE = 0;
-      /**
-       * <code>NNBKOLMPOEA = 1;</code>
-       */
-      public static final int NNBKOLMPOEA_VALUE = 1;
-      /**
-       * <code>EAJIABGAOCI = 1;</code>
-       */
-      public static final int EAJIABGAOCI_VALUE = 1;
-
-
-      public final int getNumber() {
-        if (index == -1) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static NFJOBJLOODK valueOf(int value) {
-        return forNumber(value);
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       */
-      public static NFJOBJLOODK forNumber(int value) {
-        switch (value) {
-          case 0: return NONE;
-          case 2110: return PEPPOHPHJOJ;
-          case 1: return NNBKOLMPOEA;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<NFJOBJLOODK>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          NFJOBJLOODK> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<NFJOBJLOODK>() {
-              public NFJOBJLOODK findValueByNumber(int number) {
-                return NFJOBJLOODK.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        if (index == -1) {
-          throw new java.lang.IllegalStateException(
-              "Can't get the descriptor of an unrecognized enum value.");
-        }
-        return getDescriptor().getValues().get(index);
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return emu.grasscutter.net.proto.SeaLampContributeItemReqOuterClass.SeaLampContributeItemReq.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final NFJOBJLOODK[] VALUES = getStaticValuesArray();
-      private static NFJOBJLOODK[] getStaticValuesArray() {
-        return new NFJOBJLOODK[] {
-          NONE, PEPPOHPHJOJ, DCDNILFDFLB, NNBKOLMPOEA, EAJIABGAOCI, 
-        };
-      }
-      public static NFJOBJLOODK valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int index;
-      private final int value;
-
-      private NFJOBJLOODK(int index, int value) {
-        this.index = index;
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:SeaLampContributeItemReq.NFJOBJLOODK)
-    }
-
-    public static final int ITEMLIST_FIELD_NUMBER = 13;
+    public static final int ITEM_LIST_FIELD_NUMBER = 11;
     private java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> itemList_;
     /**
-     * <code>repeated .ItemParam itemList = 13;</code>
+     * <code>repeated .ItemParam item_list = 11;</code>
      */
     @java.lang.Override
     public java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> getItemListList() {
       return itemList_;
     }
     /**
-     * <code>repeated .ItemParam itemList = 13;</code>
+     * <code>repeated .ItemParam item_list = 11;</code>
      */
     @java.lang.Override
     public java.util.List<? extends emu.grasscutter.net.proto.ItemParamOuterClass.ItemParamOrBuilder> 
@@ -301,21 +173,21 @@ public final class SeaLampContributeItemReqOuterClass {
       return itemList_;
     }
     /**
-     * <code>repeated .ItemParam itemList = 13;</code>
+     * <code>repeated .ItemParam item_list = 11;</code>
      */
     @java.lang.Override
     public int getItemListCount() {
       return itemList_.size();
     }
     /**
-     * <code>repeated .ItemParam itemList = 13;</code>
+     * <code>repeated .ItemParam item_list = 11;</code>
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam getItemList(int index) {
       return itemList_.get(index);
     }
     /**
-     * <code>repeated .ItemParam itemList = 13;</code>
+     * <code>repeated .ItemParam item_list = 11;</code>
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.ItemParamOuterClass.ItemParamOrBuilder getItemListOrBuilder(
@@ -323,10 +195,10 @@ public final class SeaLampContributeItemReqOuterClass {
       return itemList_.get(index);
     }
 
-    public static final int ACTIVITYID_FIELD_NUMBER = 12;
+    public static final int ACTIVITY_ID_FIELD_NUMBER = 2;
     private int activityId_;
     /**
-     * <code>uint32 activityId = 12;</code>
+     * <code>uint32 activity_id = 2;</code>
      * @return The activityId.
      */
     @java.lang.Override
@@ -349,10 +221,10 @@ public final class SeaLampContributeItemReqOuterClass {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (activityId_ != 0) {
-        output.writeUInt32(12, activityId_);
+        output.writeUInt32(2, activityId_);
       }
       for (int i = 0; i < itemList_.size(); i++) {
-        output.writeMessage(13, itemList_.get(i));
+        output.writeMessage(11, itemList_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -365,11 +237,11 @@ public final class SeaLampContributeItemReqOuterClass {
       size = 0;
       if (activityId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(12, activityId_);
+          .computeUInt32Size(2, activityId_);
       }
       for (int i = 0; i < itemList_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(13, itemList_.get(i));
+          .computeMessageSize(11, itemList_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -402,10 +274,10 @@ public final class SeaLampContributeItemReqOuterClass {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       if (getItemListCount() > 0) {
-        hash = (37 * hash) + ITEMLIST_FIELD_NUMBER;
+        hash = (37 * hash) + ITEM_LIST_FIELD_NUMBER;
         hash = (53 * hash) + getItemListList().hashCode();
       }
-      hash = (37 * hash) + ACTIVITYID_FIELD_NUMBER;
+      hash = (37 * hash) + ACTIVITY_ID_FIELD_NUMBER;
       hash = (53 * hash) + getActivityId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -503,6 +375,17 @@ public final class SeaLampContributeItemReqOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * enum CmdId {
+     *   option allow_alias = true;
+     *   NONE = 0;
+     *   CMD_ID = 2133;
+     *   ENET_CHANNEL_ID = 0;
+     *   ENET_IS_RELIABLE = 1;
+     *   IS_ALLOW_CLIENT = 1;
+     * }
+     * </pre>
+     *
      * Protobuf type {@code SeaLampContributeItemReq}
      */
     public static final class Builder extends
@@ -706,7 +589,7 @@ public final class SeaLampContributeItemReqOuterClass {
           emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.Builder, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParamOrBuilder> itemListBuilder_;
 
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> getItemListList() {
         if (itemListBuilder_ == null) {
@@ -716,7 +599,7 @@ public final class SeaLampContributeItemReqOuterClass {
         }
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public int getItemListCount() {
         if (itemListBuilder_ == null) {
@@ -726,7 +609,7 @@ public final class SeaLampContributeItemReqOuterClass {
         }
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam getItemList(int index) {
         if (itemListBuilder_ == null) {
@@ -736,7 +619,7 @@ public final class SeaLampContributeItemReqOuterClass {
         }
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public Builder setItemList(
           int index, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam value) {
@@ -753,7 +636,7 @@ public final class SeaLampContributeItemReqOuterClass {
         return this;
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public Builder setItemList(
           int index, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.Builder builderForValue) {
@@ -767,7 +650,7 @@ public final class SeaLampContributeItemReqOuterClass {
         return this;
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public Builder addItemList(emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam value) {
         if (itemListBuilder_ == null) {
@@ -783,7 +666,7 @@ public final class SeaLampContributeItemReqOuterClass {
         return this;
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public Builder addItemList(
           int index, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam value) {
@@ -800,7 +683,7 @@ public final class SeaLampContributeItemReqOuterClass {
         return this;
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public Builder addItemList(
           emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.Builder builderForValue) {
@@ -814,7 +697,7 @@ public final class SeaLampContributeItemReqOuterClass {
         return this;
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public Builder addItemList(
           int index, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.Builder builderForValue) {
@@ -828,7 +711,7 @@ public final class SeaLampContributeItemReqOuterClass {
         return this;
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public Builder addAllItemList(
           java.lang.Iterable<? extends emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam> values) {
@@ -843,7 +726,7 @@ public final class SeaLampContributeItemReqOuterClass {
         return this;
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public Builder clearItemList() {
         if (itemListBuilder_ == null) {
@@ -856,7 +739,7 @@ public final class SeaLampContributeItemReqOuterClass {
         return this;
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public Builder removeItemList(int index) {
         if (itemListBuilder_ == null) {
@@ -869,14 +752,14 @@ public final class SeaLampContributeItemReqOuterClass {
         return this;
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.Builder getItemListBuilder(
           int index) {
         return getItemListFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public emu.grasscutter.net.proto.ItemParamOuterClass.ItemParamOrBuilder getItemListOrBuilder(
           int index) {
@@ -886,7 +769,7 @@ public final class SeaLampContributeItemReqOuterClass {
         }
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public java.util.List<? extends emu.grasscutter.net.proto.ItemParamOuterClass.ItemParamOrBuilder> 
            getItemListOrBuilderList() {
@@ -897,14 +780,14 @@ public final class SeaLampContributeItemReqOuterClass {
         }
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.Builder addItemListBuilder() {
         return getItemListFieldBuilder().addBuilder(
             emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.getDefaultInstance());
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.Builder addItemListBuilder(
           int index) {
@@ -912,7 +795,7 @@ public final class SeaLampContributeItemReqOuterClass {
             index, emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.getDefaultInstance());
       }
       /**
-       * <code>repeated .ItemParam itemList = 13;</code>
+       * <code>repeated .ItemParam item_list = 11;</code>
        */
       public java.util.List<emu.grasscutter.net.proto.ItemParamOuterClass.ItemParam.Builder> 
            getItemListBuilderList() {
@@ -935,7 +818,7 @@ public final class SeaLampContributeItemReqOuterClass {
 
       private int activityId_ ;
       /**
-       * <code>uint32 activityId = 12;</code>
+       * <code>uint32 activity_id = 2;</code>
        * @return The activityId.
        */
       @java.lang.Override
@@ -943,7 +826,7 @@ public final class SeaLampContributeItemReqOuterClass {
         return activityId_;
       }
       /**
-       * <code>uint32 activityId = 12;</code>
+       * <code>uint32 activity_id = 2;</code>
        * @param value The activityId to set.
        * @return This builder for chaining.
        */
@@ -954,7 +837,7 @@ public final class SeaLampContributeItemReqOuterClass {
         return this;
       }
       /**
-       * <code>uint32 activityId = 12;</code>
+       * <code>uint32 activity_id = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearActivityId() {
@@ -1031,12 +914,10 @@ public final class SeaLampContributeItemReqOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\036SeaLampContributeItemReq.proto\032\017ItemPa" +
-      "ram.proto\"\256\001\n\030SeaLampContributeItemReq\022\034" +
-      "\n\010itemList\030\r \003(\0132\n.ItemParam\022\022\n\nactivity" +
-      "Id\030\014 \001(\r\"`\n\013NFJOBJLOODK\022\010\n\004NONE\020\000\022\020\n\013PEP" +
-      "POHPHJOJ\020\276\020\022\017\n\013DCDNILFDFLB\020\000\022\017\n\013NNBKOLMP" +
-      "OEA\020\001\022\017\n\013EAJIABGAOCI\020\001\032\002\020\001B\033\n\031emu.grassc" +
-      "utter.net.protob\006proto3"
+      "ram.proto\"N\n\030SeaLampContributeItemReq\022\035\n" +
+      "\titem_list\030\013 \003(\0132\n.ItemParam\022\023\n\013activity" +
+      "_id\030\002 \001(\rB\033\n\031emu.grasscutter.net.protob\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

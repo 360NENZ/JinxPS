@@ -19,24 +19,35 @@ public final class ChangeTeamNameReqOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string teamName = 8;</code>
+     * <code>int32 team_id = 14;</code>
+     * @return The teamId.
+     */
+    int getTeamId();
+
+    /**
+     * <code>string team_name = 15;</code>
      * @return The teamName.
      */
     java.lang.String getTeamName();
     /**
-     * <code>string teamName = 8;</code>
+     * <code>string team_name = 15;</code>
      * @return The bytes for teamName.
      */
     com.google.protobuf.ByteString
         getTeamNameBytes();
-
-    /**
-     * <code>int32 teamId = 1;</code>
-     * @return The teamId.
-     */
-    int getTeamId();
   }
   /**
+   * <pre>
+   * enum CmdId {
+   *   option allow_alias = true;
+   *   NONE = 0;
+   *   CMD_ID = 1706;
+   *   ENET_CHANNEL_ID = 0;
+   *   ENET_IS_RELIABLE = 1;
+   *   IS_ALLOW_CLIENT = 1;
+   * }
+   * </pre>
+   *
    * Protobuf type {@code ChangeTeamNameReq}
    */
   public static final class ChangeTeamNameReq extends
@@ -82,12 +93,12 @@ public final class ChangeTeamNameReqOuterClass {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 112: {
 
               teamId_ = input.readInt32();
               break;
             }
-            case 66: {
+            case 122: {
               java.lang.String s = input.readStringRequireUtf8();
 
               teamName_ = s;
@@ -125,149 +136,21 @@ public final class ChangeTeamNameReqOuterClass {
               emu.grasscutter.net.proto.ChangeTeamNameReqOuterClass.ChangeTeamNameReq.class, emu.grasscutter.net.proto.ChangeTeamNameReqOuterClass.ChangeTeamNameReq.Builder.class);
     }
 
+    public static final int TEAM_ID_FIELD_NUMBER = 14;
+    private int teamId_;
     /**
-     * Protobuf enum {@code ChangeTeamNameReq.OGFMHICCHEC}
+     * <code>int32 team_id = 14;</code>
+     * @return The teamId.
      */
-    public enum OGFMHICCHEC
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>NONE = 0;</code>
-       */
-      NONE(0, 0),
-      /**
-       * <code>PEPPOHPHJOJ = 1631;</code>
-       */
-      PEPPOHPHJOJ(1, 1631),
-      /**
-       * <code>NNBKOLMPOEA = 1;</code>
-       */
-      NNBKOLMPOEA(3, 1),
-      UNRECOGNIZED(-1, -1),
-      ;
-
-      /**
-       * <code>DCDNILFDFLB = 0;</code>
-       */
-      public static final OGFMHICCHEC DCDNILFDFLB = NONE;
-      /**
-       * <code>EAJIABGAOCI = 1;</code>
-       */
-      public static final OGFMHICCHEC EAJIABGAOCI = NNBKOLMPOEA;
-      /**
-       * <code>NONE = 0;</code>
-       */
-      public static final int NONE_VALUE = 0;
-      /**
-       * <code>PEPPOHPHJOJ = 1631;</code>
-       */
-      public static final int PEPPOHPHJOJ_VALUE = 1631;
-      /**
-       * <code>DCDNILFDFLB = 0;</code>
-       */
-      public static final int DCDNILFDFLB_VALUE = 0;
-      /**
-       * <code>NNBKOLMPOEA = 1;</code>
-       */
-      public static final int NNBKOLMPOEA_VALUE = 1;
-      /**
-       * <code>EAJIABGAOCI = 1;</code>
-       */
-      public static final int EAJIABGAOCI_VALUE = 1;
-
-
-      public final int getNumber() {
-        if (index == -1) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static OGFMHICCHEC valueOf(int value) {
-        return forNumber(value);
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       */
-      public static OGFMHICCHEC forNumber(int value) {
-        switch (value) {
-          case 0: return NONE;
-          case 1631: return PEPPOHPHJOJ;
-          case 1: return NNBKOLMPOEA;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<OGFMHICCHEC>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          OGFMHICCHEC> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<OGFMHICCHEC>() {
-              public OGFMHICCHEC findValueByNumber(int number) {
-                return OGFMHICCHEC.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        if (index == -1) {
-          throw new java.lang.IllegalStateException(
-              "Can't get the descriptor of an unrecognized enum value.");
-        }
-        return getDescriptor().getValues().get(index);
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return emu.grasscutter.net.proto.ChangeTeamNameReqOuterClass.ChangeTeamNameReq.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final OGFMHICCHEC[] VALUES = getStaticValuesArray();
-      private static OGFMHICCHEC[] getStaticValuesArray() {
-        return new OGFMHICCHEC[] {
-          NONE, PEPPOHPHJOJ, DCDNILFDFLB, NNBKOLMPOEA, EAJIABGAOCI, 
-        };
-      }
-      public static OGFMHICCHEC valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int index;
-      private final int value;
-
-      private OGFMHICCHEC(int index, int value) {
-        this.index = index;
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:ChangeTeamNameReq.OGFMHICCHEC)
+    @java.lang.Override
+    public int getTeamId() {
+      return teamId_;
     }
 
-    public static final int TEAMNAME_FIELD_NUMBER = 8;
+    public static final int TEAM_NAME_FIELD_NUMBER = 15;
     private volatile java.lang.Object teamName_;
     /**
-     * <code>string teamName = 8;</code>
+     * <code>string team_name = 15;</code>
      * @return The teamName.
      */
     @java.lang.Override
@@ -284,7 +167,7 @@ public final class ChangeTeamNameReqOuterClass {
       }
     }
     /**
-     * <code>string teamName = 8;</code>
+     * <code>string team_name = 15;</code>
      * @return The bytes for teamName.
      */
     @java.lang.Override
@@ -302,17 +185,6 @@ public final class ChangeTeamNameReqOuterClass {
       }
     }
 
-    public static final int TEAMID_FIELD_NUMBER = 1;
-    private int teamId_;
-    /**
-     * <code>int32 teamId = 1;</code>
-     * @return The teamId.
-     */
-    @java.lang.Override
-    public int getTeamId() {
-      return teamId_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -328,10 +200,10 @@ public final class ChangeTeamNameReqOuterClass {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (teamId_ != 0) {
-        output.writeInt32(1, teamId_);
+        output.writeInt32(14, teamId_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(teamName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, teamName_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, teamName_);
       }
       unknownFields.writeTo(output);
     }
@@ -344,10 +216,10 @@ public final class ChangeTeamNameReqOuterClass {
       size = 0;
       if (teamId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, teamId_);
+          .computeInt32Size(14, teamId_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(teamName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, teamName_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, teamName_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -364,10 +236,10 @@ public final class ChangeTeamNameReqOuterClass {
       }
       emu.grasscutter.net.proto.ChangeTeamNameReqOuterClass.ChangeTeamNameReq other = (emu.grasscutter.net.proto.ChangeTeamNameReqOuterClass.ChangeTeamNameReq) obj;
 
-      if (!getTeamName()
-          .equals(other.getTeamName())) return false;
       if (getTeamId()
           != other.getTeamId()) return false;
+      if (!getTeamName()
+          .equals(other.getTeamName())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -379,10 +251,10 @@ public final class ChangeTeamNameReqOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + TEAMNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getTeamName().hashCode();
-      hash = (37 * hash) + TEAMID_FIELD_NUMBER;
+      hash = (37 * hash) + TEAM_ID_FIELD_NUMBER;
       hash = (53 * hash) + getTeamId();
+      hash = (37 * hash) + TEAM_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getTeamName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -479,6 +351,17 @@ public final class ChangeTeamNameReqOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * enum CmdId {
+     *   option allow_alias = true;
+     *   NONE = 0;
+     *   CMD_ID = 1706;
+     *   ENET_CHANNEL_ID = 0;
+     *   ENET_IS_RELIABLE = 1;
+     *   IS_ALLOW_CLIENT = 1;
+     * }
+     * </pre>
+     *
      * Protobuf type {@code ChangeTeamNameReq}
      */
     public static final class Builder extends
@@ -516,9 +399,9 @@ public final class ChangeTeamNameReqOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        teamName_ = "";
-
         teamId_ = 0;
+
+        teamName_ = "";
 
         return this;
       }
@@ -546,8 +429,8 @@ public final class ChangeTeamNameReqOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.ChangeTeamNameReqOuterClass.ChangeTeamNameReq buildPartial() {
         emu.grasscutter.net.proto.ChangeTeamNameReqOuterClass.ChangeTeamNameReq result = new emu.grasscutter.net.proto.ChangeTeamNameReqOuterClass.ChangeTeamNameReq(this);
-        result.teamName_ = teamName_;
         result.teamId_ = teamId_;
+        result.teamName_ = teamName_;
         onBuilt();
         return result;
       }
@@ -596,12 +479,12 @@ public final class ChangeTeamNameReqOuterClass {
 
       public Builder mergeFrom(emu.grasscutter.net.proto.ChangeTeamNameReqOuterClass.ChangeTeamNameReq other) {
         if (other == emu.grasscutter.net.proto.ChangeTeamNameReqOuterClass.ChangeTeamNameReq.getDefaultInstance()) return this;
+        if (other.getTeamId() != 0) {
+          setTeamId(other.getTeamId());
+        }
         if (!other.getTeamName().isEmpty()) {
           teamName_ = other.teamName_;
           onChanged();
-        }
-        if (other.getTeamId() != 0) {
-          setTeamId(other.getTeamId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -632,9 +515,40 @@ public final class ChangeTeamNameReqOuterClass {
         return this;
       }
 
+      private int teamId_ ;
+      /**
+       * <code>int32 team_id = 14;</code>
+       * @return The teamId.
+       */
+      @java.lang.Override
+      public int getTeamId() {
+        return teamId_;
+      }
+      /**
+       * <code>int32 team_id = 14;</code>
+       * @param value The teamId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTeamId(int value) {
+        
+        teamId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 team_id = 14;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTeamId() {
+        
+        teamId_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object teamName_ = "";
       /**
-       * <code>string teamName = 8;</code>
+       * <code>string team_name = 15;</code>
        * @return The teamName.
        */
       public java.lang.String getTeamName() {
@@ -650,7 +564,7 @@ public final class ChangeTeamNameReqOuterClass {
         }
       }
       /**
-       * <code>string teamName = 8;</code>
+       * <code>string team_name = 15;</code>
        * @return The bytes for teamName.
        */
       public com.google.protobuf.ByteString
@@ -667,7 +581,7 @@ public final class ChangeTeamNameReqOuterClass {
         }
       }
       /**
-       * <code>string teamName = 8;</code>
+       * <code>string team_name = 15;</code>
        * @param value The teamName to set.
        * @return This builder for chaining.
        */
@@ -682,7 +596,7 @@ public final class ChangeTeamNameReqOuterClass {
         return this;
       }
       /**
-       * <code>string teamName = 8;</code>
+       * <code>string team_name = 15;</code>
        * @return This builder for chaining.
        */
       public Builder clearTeamName() {
@@ -692,7 +606,7 @@ public final class ChangeTeamNameReqOuterClass {
         return this;
       }
       /**
-       * <code>string teamName = 8;</code>
+       * <code>string team_name = 15;</code>
        * @param value The bytes for teamName to set.
        * @return This builder for chaining.
        */
@@ -704,37 +618,6 @@ public final class ChangeTeamNameReqOuterClass {
   checkByteStringIsUtf8(value);
         
         teamName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int teamId_ ;
-      /**
-       * <code>int32 teamId = 1;</code>
-       * @return The teamId.
-       */
-      @java.lang.Override
-      public int getTeamId() {
-        return teamId_;
-      }
-      /**
-       * <code>int32 teamId = 1;</code>
-       * @param value The teamId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTeamId(int value) {
-        
-        teamId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 teamId = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearTeamId() {
-        
-        teamId_ = 0;
         onChanged();
         return this;
       }
@@ -805,12 +688,9 @@ public final class ChangeTeamNameReqOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027ChangeTeamNameReq.proto\"\227\001\n\021ChangeTeam" +
-      "NameReq\022\020\n\010teamName\030\010 \001(\t\022\016\n\006teamId\030\001 \001(" +
-      "\005\"`\n\013OGFMHICCHEC\022\010\n\004NONE\020\000\022\020\n\013PEPPOHPHJO" +
-      "J\020\337\014\022\017\n\013DCDNILFDFLB\020\000\022\017\n\013NNBKOLMPOEA\020\001\022\017" +
-      "\n\013EAJIABGAOCI\020\001\032\002\020\001B\033\n\031emu.grasscutter.n" +
-      "et.protob\006proto3"
+      "\n\027ChangeTeamNameReq.proto\"7\n\021ChangeTeamN" +
+      "ameReq\022\017\n\007team_id\030\016 \001(\005\022\021\n\tteam_name\030\017 \001" +
+      "(\tB\033\n\031emu.grasscutter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -821,7 +701,7 @@ public final class ChangeTeamNameReqOuterClass {
     internal_static_ChangeTeamNameReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChangeTeamNameReq_descriptor,
-        new java.lang.String[] { "TeamName", "TeamId", });
+        new java.lang.String[] { "TeamId", "TeamName", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

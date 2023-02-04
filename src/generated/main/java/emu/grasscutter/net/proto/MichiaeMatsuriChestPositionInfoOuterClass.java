@@ -19,28 +19,28 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint32 groupId = 4;</code>
+     * <code>.Vector pos = 10;</code>
+     * @return Whether the pos field is set.
+     */
+    boolean hasPos();
+    /**
+     * <code>.Vector pos = 10;</code>
+     * @return The pos.
+     */
+    emu.grasscutter.net.proto.VectorOuterClass.Vector getPos();
+    /**
+     * <code>.Vector pos = 10;</code>
+     */
+    emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getPosOrBuilder();
+
+    /**
+     * <code>uint32 group_id = 8;</code>
      * @return The groupId.
      */
     int getGroupId();
 
     /**
-     * <code>.Vector pos = 13;</code>
-     * @return Whether the pos field is set.
-     */
-    boolean hasPos();
-    /**
-     * <code>.Vector pos = 13;</code>
-     * @return The pos.
-     */
-    emu.grasscutter.net.proto.VectorOuterClass.Vector getPos();
-    /**
-     * <code>.Vector pos = 13;</code>
-     */
-    emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getPosOrBuilder();
-
-    /**
-     * <code>uint32 configId = 2;</code>
+     * <code>uint32 config_id = 5;</code>
      * @return The configId.
      */
     int getConfigId();
@@ -90,17 +90,17 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
             case 0:
               done = true;
               break;
-            case 16: {
+            case 40: {
 
               configId_ = input.readUInt32();
               break;
             }
-            case 32: {
+            case 64: {
 
               groupId_ = input.readUInt32();
               break;
             }
-            case 106: {
+            case 82: {
               emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder subBuilder = null;
               if (pos_ != null) {
                 subBuilder = pos_.toBuilder();
@@ -145,21 +145,10 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
               emu.grasscutter.net.proto.MichiaeMatsuriChestPositionInfoOuterClass.MichiaeMatsuriChestPositionInfo.class, emu.grasscutter.net.proto.MichiaeMatsuriChestPositionInfoOuterClass.MichiaeMatsuriChestPositionInfo.Builder.class);
     }
 
-    public static final int GROUPID_FIELD_NUMBER = 4;
-    private int groupId_;
-    /**
-     * <code>uint32 groupId = 4;</code>
-     * @return The groupId.
-     */
-    @java.lang.Override
-    public int getGroupId() {
-      return groupId_;
-    }
-
-    public static final int POS_FIELD_NUMBER = 13;
+    public static final int POS_FIELD_NUMBER = 10;
     private emu.grasscutter.net.proto.VectorOuterClass.Vector pos_;
     /**
-     * <code>.Vector pos = 13;</code>
+     * <code>.Vector pos = 10;</code>
      * @return Whether the pos field is set.
      */
     @java.lang.Override
@@ -167,7 +156,7 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
       return pos_ != null;
     }
     /**
-     * <code>.Vector pos = 13;</code>
+     * <code>.Vector pos = 10;</code>
      * @return The pos.
      */
     @java.lang.Override
@@ -175,17 +164,28 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
       return pos_ == null ? emu.grasscutter.net.proto.VectorOuterClass.Vector.getDefaultInstance() : pos_;
     }
     /**
-     * <code>.Vector pos = 13;</code>
+     * <code>.Vector pos = 10;</code>
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getPosOrBuilder() {
       return getPos();
     }
 
-    public static final int CONFIGID_FIELD_NUMBER = 2;
+    public static final int GROUP_ID_FIELD_NUMBER = 8;
+    private int groupId_;
+    /**
+     * <code>uint32 group_id = 8;</code>
+     * @return The groupId.
+     */
+    @java.lang.Override
+    public int getGroupId() {
+      return groupId_;
+    }
+
+    public static final int CONFIG_ID_FIELD_NUMBER = 5;
     private int configId_;
     /**
-     * <code>uint32 configId = 2;</code>
+     * <code>uint32 config_id = 5;</code>
      * @return The configId.
      */
     @java.lang.Override
@@ -208,13 +208,13 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (configId_ != 0) {
-        output.writeUInt32(2, configId_);
+        output.writeUInt32(5, configId_);
       }
       if (groupId_ != 0) {
-        output.writeUInt32(4, groupId_);
+        output.writeUInt32(8, groupId_);
       }
       if (pos_ != null) {
-        output.writeMessage(13, getPos());
+        output.writeMessage(10, getPos());
       }
       unknownFields.writeTo(output);
     }
@@ -227,15 +227,15 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
       size = 0;
       if (configId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, configId_);
+          .computeUInt32Size(5, configId_);
       }
       if (groupId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, groupId_);
+          .computeUInt32Size(8, groupId_);
       }
       if (pos_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(13, getPos());
+          .computeMessageSize(10, getPos());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -252,13 +252,13 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
       }
       emu.grasscutter.net.proto.MichiaeMatsuriChestPositionInfoOuterClass.MichiaeMatsuriChestPositionInfo other = (emu.grasscutter.net.proto.MichiaeMatsuriChestPositionInfoOuterClass.MichiaeMatsuriChestPositionInfo) obj;
 
-      if (getGroupId()
-          != other.getGroupId()) return false;
       if (hasPos() != other.hasPos()) return false;
       if (hasPos()) {
         if (!getPos()
             .equals(other.getPos())) return false;
       }
+      if (getGroupId()
+          != other.getGroupId()) return false;
       if (getConfigId()
           != other.getConfigId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -272,13 +272,13 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + GROUPID_FIELD_NUMBER;
-      hash = (53 * hash) + getGroupId();
       if (hasPos()) {
         hash = (37 * hash) + POS_FIELD_NUMBER;
         hash = (53 * hash) + getPos().hashCode();
       }
-      hash = (37 * hash) + CONFIGID_FIELD_NUMBER;
+      hash = (37 * hash) + GROUP_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getGroupId();
+      hash = (37 * hash) + CONFIG_ID_FIELD_NUMBER;
       hash = (53 * hash) + getConfigId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -413,14 +413,14 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        groupId_ = 0;
-
         if (posBuilder_ == null) {
           pos_ = null;
         } else {
           pos_ = null;
           posBuilder_ = null;
         }
+        groupId_ = 0;
+
         configId_ = 0;
 
         return this;
@@ -449,12 +449,12 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.MichiaeMatsuriChestPositionInfoOuterClass.MichiaeMatsuriChestPositionInfo buildPartial() {
         emu.grasscutter.net.proto.MichiaeMatsuriChestPositionInfoOuterClass.MichiaeMatsuriChestPositionInfo result = new emu.grasscutter.net.proto.MichiaeMatsuriChestPositionInfoOuterClass.MichiaeMatsuriChestPositionInfo(this);
-        result.groupId_ = groupId_;
         if (posBuilder_ == null) {
           result.pos_ = pos_;
         } else {
           result.pos_ = posBuilder_.build();
         }
+        result.groupId_ = groupId_;
         result.configId_ = configId_;
         onBuilt();
         return result;
@@ -504,11 +504,11 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
 
       public Builder mergeFrom(emu.grasscutter.net.proto.MichiaeMatsuriChestPositionInfoOuterClass.MichiaeMatsuriChestPositionInfo other) {
         if (other == emu.grasscutter.net.proto.MichiaeMatsuriChestPositionInfoOuterClass.MichiaeMatsuriChestPositionInfo.getDefaultInstance()) return this;
-        if (other.getGroupId() != 0) {
-          setGroupId(other.getGroupId());
-        }
         if (other.hasPos()) {
           mergePos(other.getPos());
+        }
+        if (other.getGroupId() != 0) {
+          setGroupId(other.getGroupId());
         }
         if (other.getConfigId() != 0) {
           setConfigId(other.getConfigId());
@@ -542,49 +542,18 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
         return this;
       }
 
-      private int groupId_ ;
-      /**
-       * <code>uint32 groupId = 4;</code>
-       * @return The groupId.
-       */
-      @java.lang.Override
-      public int getGroupId() {
-        return groupId_;
-      }
-      /**
-       * <code>uint32 groupId = 4;</code>
-       * @param value The groupId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setGroupId(int value) {
-        
-        groupId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 groupId = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearGroupId() {
-        
-        groupId_ = 0;
-        onChanged();
-        return this;
-      }
-
       private emu.grasscutter.net.proto.VectorOuterClass.Vector pos_;
       private com.google.protobuf.SingleFieldBuilderV3<
           emu.grasscutter.net.proto.VectorOuterClass.Vector, emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder, emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder> posBuilder_;
       /**
-       * <code>.Vector pos = 13;</code>
+       * <code>.Vector pos = 10;</code>
        * @return Whether the pos field is set.
        */
       public boolean hasPos() {
         return posBuilder_ != null || pos_ != null;
       }
       /**
-       * <code>.Vector pos = 13;</code>
+       * <code>.Vector pos = 10;</code>
        * @return The pos.
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector getPos() {
@@ -595,7 +564,7 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
         }
       }
       /**
-       * <code>.Vector pos = 13;</code>
+       * <code>.Vector pos = 10;</code>
        */
       public Builder setPos(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (posBuilder_ == null) {
@@ -611,7 +580,7 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
         return this;
       }
       /**
-       * <code>.Vector pos = 13;</code>
+       * <code>.Vector pos = 10;</code>
        */
       public Builder setPos(
           emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder builderForValue) {
@@ -625,7 +594,7 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
         return this;
       }
       /**
-       * <code>.Vector pos = 13;</code>
+       * <code>.Vector pos = 10;</code>
        */
       public Builder mergePos(emu.grasscutter.net.proto.VectorOuterClass.Vector value) {
         if (posBuilder_ == null) {
@@ -643,7 +612,7 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
         return this;
       }
       /**
-       * <code>.Vector pos = 13;</code>
+       * <code>.Vector pos = 10;</code>
        */
       public Builder clearPos() {
         if (posBuilder_ == null) {
@@ -657,7 +626,7 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
         return this;
       }
       /**
-       * <code>.Vector pos = 13;</code>
+       * <code>.Vector pos = 10;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder getPosBuilder() {
         
@@ -665,7 +634,7 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
         return getPosFieldBuilder().getBuilder();
       }
       /**
-       * <code>.Vector pos = 13;</code>
+       * <code>.Vector pos = 10;</code>
        */
       public emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder getPosOrBuilder() {
         if (posBuilder_ != null) {
@@ -676,7 +645,7 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
         }
       }
       /**
-       * <code>.Vector pos = 13;</code>
+       * <code>.Vector pos = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           emu.grasscutter.net.proto.VectorOuterClass.Vector, emu.grasscutter.net.proto.VectorOuterClass.Vector.Builder, emu.grasscutter.net.proto.VectorOuterClass.VectorOrBuilder> 
@@ -692,9 +661,40 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
         return posBuilder_;
       }
 
+      private int groupId_ ;
+      /**
+       * <code>uint32 group_id = 8;</code>
+       * @return The groupId.
+       */
+      @java.lang.Override
+      public int getGroupId() {
+        return groupId_;
+      }
+      /**
+       * <code>uint32 group_id = 8;</code>
+       * @param value The groupId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGroupId(int value) {
+        
+        groupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 group_id = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearGroupId() {
+        
+        groupId_ = 0;
+        onChanged();
+        return this;
+      }
+
       private int configId_ ;
       /**
-       * <code>uint32 configId = 2;</code>
+       * <code>uint32 config_id = 5;</code>
        * @return The configId.
        */
       @java.lang.Override
@@ -702,7 +702,7 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
         return configId_;
       }
       /**
-       * <code>uint32 configId = 2;</code>
+       * <code>uint32 config_id = 5;</code>
        * @param value The configId to set.
        * @return This builder for chaining.
        */
@@ -713,7 +713,7 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
         return this;
       }
       /**
-       * <code>uint32 configId = 2;</code>
+       * <code>uint32 config_id = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearConfigId() {
@@ -790,10 +790,10 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n%MichiaeMatsuriChestPositionInfo.proto\032" +
-      "\014Vector.proto\"Z\n\037MichiaeMatsuriChestPosi" +
-      "tionInfo\022\017\n\007groupId\030\004 \001(\r\022\024\n\003pos\030\r \001(\0132\007" +
-      ".Vector\022\020\n\010configId\030\002 \001(\rB\033\n\031emu.grasscu" +
-      "tter.net.protob\006proto3"
+      "\014Vector.proto\"\\\n\037MichiaeMatsuriChestPosi" +
+      "tionInfo\022\024\n\003pos\030\n \001(\0132\007.Vector\022\020\n\010group_" +
+      "id\030\010 \001(\r\022\021\n\tconfig_id\030\005 \001(\rB\033\n\031emu.grass" +
+      "cutter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -805,7 +805,7 @@ public final class MichiaeMatsuriChestPositionInfoOuterClass {
     internal_static_MichiaeMatsuriChestPositionInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MichiaeMatsuriChestPositionInfo_descriptor,
-        new java.lang.String[] { "GroupId", "Pos", "ConfigId", });
+        new java.lang.String[] { "Pos", "GroupId", "ConfigId", });
     emu.grasscutter.net.proto.VectorOuterClass.getDescriptor();
   }
 

@@ -1027,7 +1027,7 @@ public class Player {
         req.getRequester().sendPacket(new PacketPlayerApplyEnterMpResultNotify(
             this,
             false,
-            emu.grasscutter.net.proto.ReasonOuterClass.Reason.REASON_SELF_MP_UNAVAILABLE));
+            PlayerApplyEnterMpResultNotifyOuterClass.PlayerApplyEnterMpResultNotify.Reason.REASON_SYSTEM_JUDGE));
         return true;
     }
 

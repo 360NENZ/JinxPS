@@ -19,31 +19,31 @@ public final class InferenceWordInfoOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bool isAssociate = 3;</code>
-     * @return The isAssociate.
-     */
-    boolean getIsAssociate();
-
-    /**
-     * <code>uint32 wordId = 5;</code>
-     * @return The wordId.
-     */
-    int getWordId();
-
-    /**
-     * <code>uint32 unlockByWordId = 13;</code>
-     * @return The unlockByWordId.
-     */
-    int getUnlockByWordId();
-
-    /**
-     * <code>bool isSubmit = 4;</code>
+     * <code>bool is_submit = 12;</code>
      * @return The isSubmit.
      */
     boolean getIsSubmit();
 
     /**
-     * <code>bool isInterpret = 7;</code>
+     * <code>uint32 unlock_by_word_id = 11;</code>
+     * @return The unlockByWordId.
+     */
+    int getUnlockByWordId();
+
+    /**
+     * <code>bool is_associate = 10;</code>
+     * @return The isAssociate.
+     */
+    boolean getIsAssociate();
+
+    /**
+     * <code>uint32 word_id = 2;</code>
+     * @return The wordId.
+     */
+    int getWordId();
+
+    /**
+     * <code>bool is_interpret = 3;</code>
      * @return The isInterpret.
      */
     boolean getIsInterpret();
@@ -93,29 +93,29 @@ public final class InferenceWordInfoOuterClass {
             case 0:
               done = true;
               break;
-            case 24: {
-
-              isAssociate_ = input.readBool();
-              break;
-            }
-            case 32: {
-
-              isSubmit_ = input.readBool();
-              break;
-            }
-            case 40: {
+            case 16: {
 
               wordId_ = input.readUInt32();
               break;
             }
-            case 56: {
+            case 24: {
 
               isInterpret_ = input.readBool();
               break;
             }
-            case 104: {
+            case 80: {
+
+              isAssociate_ = input.readBool();
+              break;
+            }
+            case 88: {
 
               unlockByWordId_ = input.readUInt32();
+              break;
+            }
+            case 96: {
+
+              isSubmit_ = input.readBool();
               break;
             }
             default: {
@@ -150,43 +150,10 @@ public final class InferenceWordInfoOuterClass {
               emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo.class, emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo.Builder.class);
     }
 
-    public static final int ISASSOCIATE_FIELD_NUMBER = 3;
-    private boolean isAssociate_;
-    /**
-     * <code>bool isAssociate = 3;</code>
-     * @return The isAssociate.
-     */
-    @java.lang.Override
-    public boolean getIsAssociate() {
-      return isAssociate_;
-    }
-
-    public static final int WORDID_FIELD_NUMBER = 5;
-    private int wordId_;
-    /**
-     * <code>uint32 wordId = 5;</code>
-     * @return The wordId.
-     */
-    @java.lang.Override
-    public int getWordId() {
-      return wordId_;
-    }
-
-    public static final int UNLOCKBYWORDID_FIELD_NUMBER = 13;
-    private int unlockByWordId_;
-    /**
-     * <code>uint32 unlockByWordId = 13;</code>
-     * @return The unlockByWordId.
-     */
-    @java.lang.Override
-    public int getUnlockByWordId() {
-      return unlockByWordId_;
-    }
-
-    public static final int ISSUBMIT_FIELD_NUMBER = 4;
+    public static final int IS_SUBMIT_FIELD_NUMBER = 12;
     private boolean isSubmit_;
     /**
-     * <code>bool isSubmit = 4;</code>
+     * <code>bool is_submit = 12;</code>
      * @return The isSubmit.
      */
     @java.lang.Override
@@ -194,10 +161,43 @@ public final class InferenceWordInfoOuterClass {
       return isSubmit_;
     }
 
-    public static final int ISINTERPRET_FIELD_NUMBER = 7;
+    public static final int UNLOCK_BY_WORD_ID_FIELD_NUMBER = 11;
+    private int unlockByWordId_;
+    /**
+     * <code>uint32 unlock_by_word_id = 11;</code>
+     * @return The unlockByWordId.
+     */
+    @java.lang.Override
+    public int getUnlockByWordId() {
+      return unlockByWordId_;
+    }
+
+    public static final int IS_ASSOCIATE_FIELD_NUMBER = 10;
+    private boolean isAssociate_;
+    /**
+     * <code>bool is_associate = 10;</code>
+     * @return The isAssociate.
+     */
+    @java.lang.Override
+    public boolean getIsAssociate() {
+      return isAssociate_;
+    }
+
+    public static final int WORD_ID_FIELD_NUMBER = 2;
+    private int wordId_;
+    /**
+     * <code>uint32 word_id = 2;</code>
+     * @return The wordId.
+     */
+    @java.lang.Override
+    public int getWordId() {
+      return wordId_;
+    }
+
+    public static final int IS_INTERPRET_FIELD_NUMBER = 3;
     private boolean isInterpret_;
     /**
-     * <code>bool isInterpret = 7;</code>
+     * <code>bool is_interpret = 3;</code>
      * @return The isInterpret.
      */
     @java.lang.Override
@@ -219,20 +219,20 @@ public final class InferenceWordInfoOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (isAssociate_ != false) {
-        output.writeBool(3, isAssociate_);
-      }
-      if (isSubmit_ != false) {
-        output.writeBool(4, isSubmit_);
-      }
       if (wordId_ != 0) {
-        output.writeUInt32(5, wordId_);
+        output.writeUInt32(2, wordId_);
       }
       if (isInterpret_ != false) {
-        output.writeBool(7, isInterpret_);
+        output.writeBool(3, isInterpret_);
+      }
+      if (isAssociate_ != false) {
+        output.writeBool(10, isAssociate_);
       }
       if (unlockByWordId_ != 0) {
-        output.writeUInt32(13, unlockByWordId_);
+        output.writeUInt32(11, unlockByWordId_);
+      }
+      if (isSubmit_ != false) {
+        output.writeBool(12, isSubmit_);
       }
       unknownFields.writeTo(output);
     }
@@ -243,25 +243,25 @@ public final class InferenceWordInfoOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (isAssociate_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, isAssociate_);
-      }
-      if (isSubmit_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, isSubmit_);
-      }
       if (wordId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(5, wordId_);
+          .computeUInt32Size(2, wordId_);
       }
       if (isInterpret_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(7, isInterpret_);
+          .computeBoolSize(3, isInterpret_);
+      }
+      if (isAssociate_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(10, isAssociate_);
       }
       if (unlockByWordId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(13, unlockByWordId_);
+          .computeUInt32Size(11, unlockByWordId_);
+      }
+      if (isSubmit_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(12, isSubmit_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -278,14 +278,14 @@ public final class InferenceWordInfoOuterClass {
       }
       emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo other = (emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo) obj;
 
+      if (getIsSubmit()
+          != other.getIsSubmit()) return false;
+      if (getUnlockByWordId()
+          != other.getUnlockByWordId()) return false;
       if (getIsAssociate()
           != other.getIsAssociate()) return false;
       if (getWordId()
           != other.getWordId()) return false;
-      if (getUnlockByWordId()
-          != other.getUnlockByWordId()) return false;
-      if (getIsSubmit()
-          != other.getIsSubmit()) return false;
       if (getIsInterpret()
           != other.getIsInterpret()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -299,17 +299,17 @@ public final class InferenceWordInfoOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ISASSOCIATE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getIsAssociate());
-      hash = (37 * hash) + WORDID_FIELD_NUMBER;
-      hash = (53 * hash) + getWordId();
-      hash = (37 * hash) + UNLOCKBYWORDID_FIELD_NUMBER;
-      hash = (53 * hash) + getUnlockByWordId();
-      hash = (37 * hash) + ISSUBMIT_FIELD_NUMBER;
+      hash = (37 * hash) + IS_SUBMIT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsSubmit());
-      hash = (37 * hash) + ISINTERPRET_FIELD_NUMBER;
+      hash = (37 * hash) + UNLOCK_BY_WORD_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getUnlockByWordId();
+      hash = (37 * hash) + IS_ASSOCIATE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsAssociate());
+      hash = (37 * hash) + WORD_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getWordId();
+      hash = (37 * hash) + IS_INTERPRET_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsInterpret());
       hash = (29 * hash) + unknownFields.hashCode();
@@ -445,13 +445,13 @@ public final class InferenceWordInfoOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        isAssociate_ = false;
-
-        wordId_ = 0;
+        isSubmit_ = false;
 
         unlockByWordId_ = 0;
 
-        isSubmit_ = false;
+        isAssociate_ = false;
+
+        wordId_ = 0;
 
         isInterpret_ = false;
 
@@ -481,10 +481,10 @@ public final class InferenceWordInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo buildPartial() {
         emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo result = new emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo(this);
+        result.isSubmit_ = isSubmit_;
+        result.unlockByWordId_ = unlockByWordId_;
         result.isAssociate_ = isAssociate_;
         result.wordId_ = wordId_;
-        result.unlockByWordId_ = unlockByWordId_;
-        result.isSubmit_ = isSubmit_;
         result.isInterpret_ = isInterpret_;
         onBuilt();
         return result;
@@ -534,17 +534,17 @@ public final class InferenceWordInfoOuterClass {
 
       public Builder mergeFrom(emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo other) {
         if (other == emu.grasscutter.net.proto.InferenceWordInfoOuterClass.InferenceWordInfo.getDefaultInstance()) return this;
+        if (other.getIsSubmit() != false) {
+          setIsSubmit(other.getIsSubmit());
+        }
+        if (other.getUnlockByWordId() != 0) {
+          setUnlockByWordId(other.getUnlockByWordId());
+        }
         if (other.getIsAssociate() != false) {
           setIsAssociate(other.getIsAssociate());
         }
         if (other.getWordId() != 0) {
           setWordId(other.getWordId());
-        }
-        if (other.getUnlockByWordId() != 0) {
-          setUnlockByWordId(other.getUnlockByWordId());
-        }
-        if (other.getIsSubmit() != false) {
-          setIsSubmit(other.getIsSubmit());
         }
         if (other.getIsInterpret() != false) {
           setIsInterpret(other.getIsInterpret());
@@ -578,9 +578,71 @@ public final class InferenceWordInfoOuterClass {
         return this;
       }
 
+      private boolean isSubmit_ ;
+      /**
+       * <code>bool is_submit = 12;</code>
+       * @return The isSubmit.
+       */
+      @java.lang.Override
+      public boolean getIsSubmit() {
+        return isSubmit_;
+      }
+      /**
+       * <code>bool is_submit = 12;</code>
+       * @param value The isSubmit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsSubmit(boolean value) {
+        
+        isSubmit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool is_submit = 12;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsSubmit() {
+        
+        isSubmit_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int unlockByWordId_ ;
+      /**
+       * <code>uint32 unlock_by_word_id = 11;</code>
+       * @return The unlockByWordId.
+       */
+      @java.lang.Override
+      public int getUnlockByWordId() {
+        return unlockByWordId_;
+      }
+      /**
+       * <code>uint32 unlock_by_word_id = 11;</code>
+       * @param value The unlockByWordId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUnlockByWordId(int value) {
+        
+        unlockByWordId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 unlock_by_word_id = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUnlockByWordId() {
+        
+        unlockByWordId_ = 0;
+        onChanged();
+        return this;
+      }
+
       private boolean isAssociate_ ;
       /**
-       * <code>bool isAssociate = 3;</code>
+       * <code>bool is_associate = 10;</code>
        * @return The isAssociate.
        */
       @java.lang.Override
@@ -588,7 +650,7 @@ public final class InferenceWordInfoOuterClass {
         return isAssociate_;
       }
       /**
-       * <code>bool isAssociate = 3;</code>
+       * <code>bool is_associate = 10;</code>
        * @param value The isAssociate to set.
        * @return This builder for chaining.
        */
@@ -599,7 +661,7 @@ public final class InferenceWordInfoOuterClass {
         return this;
       }
       /**
-       * <code>bool isAssociate = 3;</code>
+       * <code>bool is_associate = 10;</code>
        * @return This builder for chaining.
        */
       public Builder clearIsAssociate() {
@@ -611,7 +673,7 @@ public final class InferenceWordInfoOuterClass {
 
       private int wordId_ ;
       /**
-       * <code>uint32 wordId = 5;</code>
+       * <code>uint32 word_id = 2;</code>
        * @return The wordId.
        */
       @java.lang.Override
@@ -619,7 +681,7 @@ public final class InferenceWordInfoOuterClass {
         return wordId_;
       }
       /**
-       * <code>uint32 wordId = 5;</code>
+       * <code>uint32 word_id = 2;</code>
        * @param value The wordId to set.
        * @return This builder for chaining.
        */
@@ -630,7 +692,7 @@ public final class InferenceWordInfoOuterClass {
         return this;
       }
       /**
-       * <code>uint32 wordId = 5;</code>
+       * <code>uint32 word_id = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearWordId() {
@@ -640,71 +702,9 @@ public final class InferenceWordInfoOuterClass {
         return this;
       }
 
-      private int unlockByWordId_ ;
-      /**
-       * <code>uint32 unlockByWordId = 13;</code>
-       * @return The unlockByWordId.
-       */
-      @java.lang.Override
-      public int getUnlockByWordId() {
-        return unlockByWordId_;
-      }
-      /**
-       * <code>uint32 unlockByWordId = 13;</code>
-       * @param value The unlockByWordId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUnlockByWordId(int value) {
-        
-        unlockByWordId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 unlockByWordId = 13;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUnlockByWordId() {
-        
-        unlockByWordId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private boolean isSubmit_ ;
-      /**
-       * <code>bool isSubmit = 4;</code>
-       * @return The isSubmit.
-       */
-      @java.lang.Override
-      public boolean getIsSubmit() {
-        return isSubmit_;
-      }
-      /**
-       * <code>bool isSubmit = 4;</code>
-       * @param value The isSubmit to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIsSubmit(boolean value) {
-        
-        isSubmit_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool isSubmit = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearIsSubmit() {
-        
-        isSubmit_ = false;
-        onChanged();
-        return this;
-      }
-
       private boolean isInterpret_ ;
       /**
-       * <code>bool isInterpret = 7;</code>
+       * <code>bool is_interpret = 3;</code>
        * @return The isInterpret.
        */
       @java.lang.Override
@@ -712,7 +712,7 @@ public final class InferenceWordInfoOuterClass {
         return isInterpret_;
       }
       /**
-       * <code>bool isInterpret = 7;</code>
+       * <code>bool is_interpret = 3;</code>
        * @param value The isInterpret to set.
        * @return This builder for chaining.
        */
@@ -723,7 +723,7 @@ public final class InferenceWordInfoOuterClass {
         return this;
       }
       /**
-       * <code>bool isInterpret = 7;</code>
+       * <code>bool is_interpret = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearIsInterpret() {
@@ -799,11 +799,11 @@ public final class InferenceWordInfoOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027InferenceWordInfo.proto\"w\n\021InferenceWo" +
-      "rdInfo\022\023\n\013isAssociate\030\003 \001(\010\022\016\n\006wordId\030\005 " +
-      "\001(\r\022\026\n\016unlockByWordId\030\r \001(\r\022\020\n\010isSubmit\030" +
-      "\004 \001(\010\022\023\n\013isInterpret\030\007 \001(\010B\033\n\031emu.grassc" +
-      "utter.net.protob\006proto3"
+      "\n\027InferenceWordInfo.proto\"~\n\021InferenceWo" +
+      "rdInfo\022\021\n\tis_submit\030\014 \001(\010\022\031\n\021unlock_by_w" +
+      "ord_id\030\013 \001(\r\022\024\n\014is_associate\030\n \001(\010\022\017\n\007wo" +
+      "rd_id\030\002 \001(\r\022\024\n\014is_interpret\030\003 \001(\010B\033\n\031emu" +
+      ".grasscutter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -814,7 +814,7 @@ public final class InferenceWordInfoOuterClass {
     internal_static_InferenceWordInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_InferenceWordInfo_descriptor,
-        new java.lang.String[] { "IsAssociate", "WordId", "UnlockByWordId", "IsSubmit", "IsInterpret", });
+        new java.lang.String[] { "IsSubmit", "UnlockByWordId", "IsAssociate", "WordId", "IsInterpret", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

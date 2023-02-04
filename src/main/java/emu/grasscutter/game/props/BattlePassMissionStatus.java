@@ -1,6 +1,6 @@
 package emu.grasscutter.game.props;
 
-import emu.grasscutter.net.proto.MissionStatusOuterClass.MissionStatus;
+import emu.grasscutter.net.proto.BattlePassMissionOuterClass.BattlePassMission.MissionStatus;
 
 public enum BattlePassMissionStatus {
 	MISSION_STATUS_INVALID (0, MissionStatus.MISSION_STATUS_INVALID),

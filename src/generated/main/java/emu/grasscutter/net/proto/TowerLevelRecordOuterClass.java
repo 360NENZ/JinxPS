@@ -19,27 +19,27 @@ public final class TowerLevelRecordOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint32 levelId = 11;</code>
-     * @return The levelId.
-     */
-    int getLevelId();
-
-    /**
-     * <code>repeated uint32 satisfiedCondList = 7;</code>
+     * <code>repeated uint32 satisfied_cond_list = 13;</code>
      * @return A list containing the satisfiedCondList.
      */
     java.util.List<java.lang.Integer> getSatisfiedCondListList();
     /**
-     * <code>repeated uint32 satisfiedCondList = 7;</code>
+     * <code>repeated uint32 satisfied_cond_list = 13;</code>
      * @return The count of satisfiedCondList.
      */
     int getSatisfiedCondListCount();
     /**
-     * <code>repeated uint32 satisfiedCondList = 7;</code>
+     * <code>repeated uint32 satisfied_cond_list = 13;</code>
      * @param index The index of the element to return.
      * @return The satisfiedCondList at the given index.
      */
     int getSatisfiedCondList(int index);
+
+    /**
+     * <code>uint32 level_id = 15;</code>
+     * @return The levelId.
+     */
+    int getLevelId();
   }
   /**
    * Protobuf type {@code TowerLevelRecord}
@@ -88,7 +88,7 @@ public final class TowerLevelRecordOuterClass {
             case 0:
               done = true;
               break;
-            case 56: {
+            case 104: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 satisfiedCondList_ = newIntList();
                 mutable_bitField0_ |= 0x00000001;
@@ -96,7 +96,7 @@ public final class TowerLevelRecordOuterClass {
               satisfiedCondList_.addInt(input.readUInt32());
               break;
             }
-            case 58: {
+            case 106: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
@@ -109,7 +109,7 @@ public final class TowerLevelRecordOuterClass {
               input.popLimit(limit);
               break;
             }
-            case 88: {
+            case 120: {
 
               levelId_ = input.readUInt32();
               break;
@@ -149,21 +149,10 @@ public final class TowerLevelRecordOuterClass {
               emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord.class, emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord.Builder.class);
     }
 
-    public static final int LEVELID_FIELD_NUMBER = 11;
-    private int levelId_;
-    /**
-     * <code>uint32 levelId = 11;</code>
-     * @return The levelId.
-     */
-    @java.lang.Override
-    public int getLevelId() {
-      return levelId_;
-    }
-
-    public static final int SATISFIEDCONDLIST_FIELD_NUMBER = 7;
+    public static final int SATISFIED_COND_LIST_FIELD_NUMBER = 13;
     private com.google.protobuf.Internal.IntList satisfiedCondList_;
     /**
-     * <code>repeated uint32 satisfiedCondList = 7;</code>
+     * <code>repeated uint32 satisfied_cond_list = 13;</code>
      * @return A list containing the satisfiedCondList.
      */
     @java.lang.Override
@@ -172,14 +161,14 @@ public final class TowerLevelRecordOuterClass {
       return satisfiedCondList_;
     }
     /**
-     * <code>repeated uint32 satisfiedCondList = 7;</code>
+     * <code>repeated uint32 satisfied_cond_list = 13;</code>
      * @return The count of satisfiedCondList.
      */
     public int getSatisfiedCondListCount() {
       return satisfiedCondList_.size();
     }
     /**
-     * <code>repeated uint32 satisfiedCondList = 7;</code>
+     * <code>repeated uint32 satisfied_cond_list = 13;</code>
      * @param index The index of the element to return.
      * @return The satisfiedCondList at the given index.
      */
@@ -187,6 +176,17 @@ public final class TowerLevelRecordOuterClass {
       return satisfiedCondList_.getInt(index);
     }
     private int satisfiedCondListMemoizedSerializedSize = -1;
+
+    public static final int LEVEL_ID_FIELD_NUMBER = 15;
+    private int levelId_;
+    /**
+     * <code>uint32 level_id = 15;</code>
+     * @return The levelId.
+     */
+    @java.lang.Override
+    public int getLevelId() {
+      return levelId_;
+    }
 
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
@@ -204,14 +204,14 @@ public final class TowerLevelRecordOuterClass {
                         throws java.io.IOException {
       getSerializedSize();
       if (getSatisfiedCondListList().size() > 0) {
-        output.writeUInt32NoTag(58);
+        output.writeUInt32NoTag(106);
         output.writeUInt32NoTag(satisfiedCondListMemoizedSerializedSize);
       }
       for (int i = 0; i < satisfiedCondList_.size(); i++) {
         output.writeUInt32NoTag(satisfiedCondList_.getInt(i));
       }
       if (levelId_ != 0) {
-        output.writeUInt32(11, levelId_);
+        output.writeUInt32(15, levelId_);
       }
       unknownFields.writeTo(output);
     }
@@ -238,7 +238,7 @@ public final class TowerLevelRecordOuterClass {
       }
       if (levelId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(11, levelId_);
+          .computeUInt32Size(15, levelId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -255,10 +255,10 @@ public final class TowerLevelRecordOuterClass {
       }
       emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord other = (emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord) obj;
 
-      if (getLevelId()
-          != other.getLevelId()) return false;
       if (!getSatisfiedCondListList()
           .equals(other.getSatisfiedCondListList())) return false;
+      if (getLevelId()
+          != other.getLevelId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -270,12 +270,12 @@ public final class TowerLevelRecordOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + LEVELID_FIELD_NUMBER;
-      hash = (53 * hash) + getLevelId();
       if (getSatisfiedCondListCount() > 0) {
-        hash = (37 * hash) + SATISFIEDCONDLIST_FIELD_NUMBER;
+        hash = (37 * hash) + SATISFIED_COND_LIST_FIELD_NUMBER;
         hash = (53 * hash) + getSatisfiedCondListList().hashCode();
       }
+      hash = (37 * hash) + LEVEL_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getLevelId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -409,10 +409,10 @@ public final class TowerLevelRecordOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        levelId_ = 0;
-
         satisfiedCondList_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000001);
+        levelId_ = 0;
+
         return this;
       }
 
@@ -440,12 +440,12 @@ public final class TowerLevelRecordOuterClass {
       public emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord buildPartial() {
         emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord result = new emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord(this);
         int from_bitField0_ = bitField0_;
-        result.levelId_ = levelId_;
         if (((bitField0_ & 0x00000001) != 0)) {
           satisfiedCondList_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.satisfiedCondList_ = satisfiedCondList_;
+        result.levelId_ = levelId_;
         onBuilt();
         return result;
       }
@@ -494,9 +494,6 @@ public final class TowerLevelRecordOuterClass {
 
       public Builder mergeFrom(emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord other) {
         if (other == emu.grasscutter.net.proto.TowerLevelRecordOuterClass.TowerLevelRecord.getDefaultInstance()) return this;
-        if (other.getLevelId() != 0) {
-          setLevelId(other.getLevelId());
-        }
         if (!other.satisfiedCondList_.isEmpty()) {
           if (satisfiedCondList_.isEmpty()) {
             satisfiedCondList_ = other.satisfiedCondList_;
@@ -506,6 +503,9 @@ public final class TowerLevelRecordOuterClass {
             satisfiedCondList_.addAll(other.satisfiedCondList_);
           }
           onChanged();
+        }
+        if (other.getLevelId() != 0) {
+          setLevelId(other.getLevelId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -537,37 +537,6 @@ public final class TowerLevelRecordOuterClass {
       }
       private int bitField0_;
 
-      private int levelId_ ;
-      /**
-       * <code>uint32 levelId = 11;</code>
-       * @return The levelId.
-       */
-      @java.lang.Override
-      public int getLevelId() {
-        return levelId_;
-      }
-      /**
-       * <code>uint32 levelId = 11;</code>
-       * @param value The levelId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setLevelId(int value) {
-        
-        levelId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 levelId = 11;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearLevelId() {
-        
-        levelId_ = 0;
-        onChanged();
-        return this;
-      }
-
       private com.google.protobuf.Internal.IntList satisfiedCondList_ = emptyIntList();
       private void ensureSatisfiedCondListIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
@@ -576,7 +545,7 @@ public final class TowerLevelRecordOuterClass {
          }
       }
       /**
-       * <code>repeated uint32 satisfiedCondList = 7;</code>
+       * <code>repeated uint32 satisfied_cond_list = 13;</code>
        * @return A list containing the satisfiedCondList.
        */
       public java.util.List<java.lang.Integer>
@@ -585,14 +554,14 @@ public final class TowerLevelRecordOuterClass {
                  java.util.Collections.unmodifiableList(satisfiedCondList_) : satisfiedCondList_;
       }
       /**
-       * <code>repeated uint32 satisfiedCondList = 7;</code>
+       * <code>repeated uint32 satisfied_cond_list = 13;</code>
        * @return The count of satisfiedCondList.
        */
       public int getSatisfiedCondListCount() {
         return satisfiedCondList_.size();
       }
       /**
-       * <code>repeated uint32 satisfiedCondList = 7;</code>
+       * <code>repeated uint32 satisfied_cond_list = 13;</code>
        * @param index The index of the element to return.
        * @return The satisfiedCondList at the given index.
        */
@@ -600,7 +569,7 @@ public final class TowerLevelRecordOuterClass {
         return satisfiedCondList_.getInt(index);
       }
       /**
-       * <code>repeated uint32 satisfiedCondList = 7;</code>
+       * <code>repeated uint32 satisfied_cond_list = 13;</code>
        * @param index The index to set the value at.
        * @param value The satisfiedCondList to set.
        * @return This builder for chaining.
@@ -613,7 +582,7 @@ public final class TowerLevelRecordOuterClass {
         return this;
       }
       /**
-       * <code>repeated uint32 satisfiedCondList = 7;</code>
+       * <code>repeated uint32 satisfied_cond_list = 13;</code>
        * @param value The satisfiedCondList to add.
        * @return This builder for chaining.
        */
@@ -624,7 +593,7 @@ public final class TowerLevelRecordOuterClass {
         return this;
       }
       /**
-       * <code>repeated uint32 satisfiedCondList = 7;</code>
+       * <code>repeated uint32 satisfied_cond_list = 13;</code>
        * @param values The satisfiedCondList to add.
        * @return This builder for chaining.
        */
@@ -637,12 +606,43 @@ public final class TowerLevelRecordOuterClass {
         return this;
       }
       /**
-       * <code>repeated uint32 satisfiedCondList = 7;</code>
+       * <code>repeated uint32 satisfied_cond_list = 13;</code>
        * @return This builder for chaining.
        */
       public Builder clearSatisfiedCondList() {
         satisfiedCondList_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+
+      private int levelId_ ;
+      /**
+       * <code>uint32 level_id = 15;</code>
+       * @return The levelId.
+       */
+      @java.lang.Override
+      public int getLevelId() {
+        return levelId_;
+      }
+      /**
+       * <code>uint32 level_id = 15;</code>
+       * @param value The levelId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLevelId(int value) {
+        
+        levelId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 level_id = 15;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLevelId() {
+        
+        levelId_ = 0;
         onChanged();
         return this;
       }
@@ -713,10 +713,10 @@ public final class TowerLevelRecordOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\026TowerLevelRecord.proto\">\n\020TowerLevelRe" +
-      "cord\022\017\n\007levelId\030\013 \001(\r\022\031\n\021satisfiedCondLi" +
-      "st\030\007 \003(\rB\033\n\031emu.grasscutter.net.protob\006p" +
-      "roto3"
+      "\n\026TowerLevelRecord.proto\"A\n\020TowerLevelRe" +
+      "cord\022\033\n\023satisfied_cond_list\030\r \003(\r\022\020\n\010lev" +
+      "el_id\030\017 \001(\rB\033\n\031emu.grasscutter.net.proto" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -727,7 +727,7 @@ public final class TowerLevelRecordOuterClass {
     internal_static_TowerLevelRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TowerLevelRecord_descriptor,
-        new java.lang.String[] { "LevelId", "SatisfiedCondList", });
+        new java.lang.String[] { "SatisfiedCondList", "LevelId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

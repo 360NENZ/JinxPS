@@ -19,30 +19,41 @@ public final class AbilityInvocationsNotifyOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+     * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
      */
     java.util.List<emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry> 
         getInvokesList();
     /**
-     * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+     * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
      */
     emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry getInvokes(int index);
     /**
-     * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+     * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
      */
     int getInvokesCount();
     /**
-     * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+     * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
      */
     java.util.List<? extends emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntryOrBuilder> 
         getInvokesOrBuilderList();
     /**
-     * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+     * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
      */
     emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntryOrBuilder getInvokesOrBuilder(
         int index);
   }
   /**
+   * <pre>
+   * enum CmdId {
+   *   option allow_alias = true;
+   *   NONE = 0;
+   *   CMD_ID = 1130;
+   *   ENET_CHANNEL_ID = 0;
+   *   ENET_IS_RELIABLE = 1;
+   *   IS_ALLOW_CLIENT = 1;
+   * }
+   * </pre>
+   *
    * Protobuf type {@code AbilityInvocationsNotify}
    */
   public static final class AbilityInvocationsNotify extends
@@ -89,7 +100,7 @@ public final class AbilityInvocationsNotifyOuterClass {
             case 0:
               done = true;
               break;
-            case 90: {
+            case 42: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 invokes_ = new java.util.ArrayList<emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry>();
                 mutable_bitField0_ |= 0x00000001;
@@ -133,156 +144,17 @@ public final class AbilityInvocationsNotifyOuterClass {
               emu.grasscutter.net.proto.AbilityInvocationsNotifyOuterClass.AbilityInvocationsNotify.class, emu.grasscutter.net.proto.AbilityInvocationsNotifyOuterClass.AbilityInvocationsNotify.Builder.class);
     }
 
-    /**
-     * Protobuf enum {@code AbilityInvocationsNotify.IJAPFFICMAM}
-     */
-    public enum IJAPFFICMAM
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>NONE = 0;</code>
-       */
-      NONE(0, 0),
-      /**
-       * <code>PEPPOHPHJOJ = 1155;</code>
-       */
-      PEPPOHPHJOJ(1, 1155),
-      /**
-       * <code>NNBKOLMPOEA = 1;</code>
-       */
-      NNBKOLMPOEA(3, 1),
-      UNRECOGNIZED(-1, -1),
-      ;
-
-      /**
-       * <code>DCDNILFDFLB = 0;</code>
-       */
-      public static final IJAPFFICMAM DCDNILFDFLB = NONE;
-      /**
-       * <code>EAJIABGAOCI = 1;</code>
-       */
-      public static final IJAPFFICMAM EAJIABGAOCI = NNBKOLMPOEA;
-      /**
-       * <code>NONE = 0;</code>
-       */
-      public static final int NONE_VALUE = 0;
-      /**
-       * <code>PEPPOHPHJOJ = 1155;</code>
-       */
-      public static final int PEPPOHPHJOJ_VALUE = 1155;
-      /**
-       * <code>DCDNILFDFLB = 0;</code>
-       */
-      public static final int DCDNILFDFLB_VALUE = 0;
-      /**
-       * <code>NNBKOLMPOEA = 1;</code>
-       */
-      public static final int NNBKOLMPOEA_VALUE = 1;
-      /**
-       * <code>EAJIABGAOCI = 1;</code>
-       */
-      public static final int EAJIABGAOCI_VALUE = 1;
-
-
-      public final int getNumber() {
-        if (index == -1) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static IJAPFFICMAM valueOf(int value) {
-        return forNumber(value);
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       */
-      public static IJAPFFICMAM forNumber(int value) {
-        switch (value) {
-          case 0: return NONE;
-          case 1155: return PEPPOHPHJOJ;
-          case 1: return NNBKOLMPOEA;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<IJAPFFICMAM>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          IJAPFFICMAM> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<IJAPFFICMAM>() {
-              public IJAPFFICMAM findValueByNumber(int number) {
-                return IJAPFFICMAM.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        if (index == -1) {
-          throw new java.lang.IllegalStateException(
-              "Can't get the descriptor of an unrecognized enum value.");
-        }
-        return getDescriptor().getValues().get(index);
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return emu.grasscutter.net.proto.AbilityInvocationsNotifyOuterClass.AbilityInvocationsNotify.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final IJAPFFICMAM[] VALUES = getStaticValuesArray();
-      private static IJAPFFICMAM[] getStaticValuesArray() {
-        return new IJAPFFICMAM[] {
-          NONE, PEPPOHPHJOJ, DCDNILFDFLB, NNBKOLMPOEA, EAJIABGAOCI, 
-        };
-      }
-      public static IJAPFFICMAM valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int index;
-      private final int value;
-
-      private IJAPFFICMAM(int index, int value) {
-        this.index = index;
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:AbilityInvocationsNotify.IJAPFFICMAM)
-    }
-
-    public static final int INVOKES_FIELD_NUMBER = 11;
+    public static final int INVOKES_FIELD_NUMBER = 5;
     private java.util.List<emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry> invokes_;
     /**
-     * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+     * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
      */
     @java.lang.Override
     public java.util.List<emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry> getInvokesList() {
       return invokes_;
     }
     /**
-     * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+     * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
      */
     @java.lang.Override
     public java.util.List<? extends emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntryOrBuilder> 
@@ -290,21 +162,21 @@ public final class AbilityInvocationsNotifyOuterClass {
       return invokes_;
     }
     /**
-     * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+     * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
      */
     @java.lang.Override
     public int getInvokesCount() {
       return invokes_.size();
     }
     /**
-     * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+     * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry getInvokes(int index) {
       return invokes_.get(index);
     }
     /**
-     * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+     * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
      */
     @java.lang.Override
     public emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntryOrBuilder getInvokesOrBuilder(
@@ -327,7 +199,7 @@ public final class AbilityInvocationsNotifyOuterClass {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < invokes_.size(); i++) {
-        output.writeMessage(11, invokes_.get(i));
+        output.writeMessage(5, invokes_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -340,7 +212,7 @@ public final class AbilityInvocationsNotifyOuterClass {
       size = 0;
       for (int i = 0; i < invokes_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, invokes_.get(i));
+          .computeMessageSize(5, invokes_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -470,6 +342,17 @@ public final class AbilityInvocationsNotifyOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * enum CmdId {
+     *   option allow_alias = true;
+     *   NONE = 0;
+     *   CMD_ID = 1130;
+     *   ENET_CHANNEL_ID = 0;
+     *   ENET_IS_RELIABLE = 1;
+     *   IS_ALLOW_CLIENT = 1;
+     * }
+     * </pre>
+     *
      * Protobuf type {@code AbilityInvocationsNotify}
      */
     public static final class Builder extends
@@ -667,7 +550,7 @@ public final class AbilityInvocationsNotifyOuterClass {
           emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry, emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry.Builder, emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntryOrBuilder> invokesBuilder_;
 
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public java.util.List<emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry> getInvokesList() {
         if (invokesBuilder_ == null) {
@@ -677,7 +560,7 @@ public final class AbilityInvocationsNotifyOuterClass {
         }
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public int getInvokesCount() {
         if (invokesBuilder_ == null) {
@@ -687,7 +570,7 @@ public final class AbilityInvocationsNotifyOuterClass {
         }
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry getInvokes(int index) {
         if (invokesBuilder_ == null) {
@@ -697,7 +580,7 @@ public final class AbilityInvocationsNotifyOuterClass {
         }
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public Builder setInvokes(
           int index, emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry value) {
@@ -714,7 +597,7 @@ public final class AbilityInvocationsNotifyOuterClass {
         return this;
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public Builder setInvokes(
           int index, emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry.Builder builderForValue) {
@@ -728,7 +611,7 @@ public final class AbilityInvocationsNotifyOuterClass {
         return this;
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public Builder addInvokes(emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry value) {
         if (invokesBuilder_ == null) {
@@ -744,7 +627,7 @@ public final class AbilityInvocationsNotifyOuterClass {
         return this;
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public Builder addInvokes(
           int index, emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry value) {
@@ -761,7 +644,7 @@ public final class AbilityInvocationsNotifyOuterClass {
         return this;
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public Builder addInvokes(
           emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry.Builder builderForValue) {
@@ -775,7 +658,7 @@ public final class AbilityInvocationsNotifyOuterClass {
         return this;
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public Builder addInvokes(
           int index, emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry.Builder builderForValue) {
@@ -789,7 +672,7 @@ public final class AbilityInvocationsNotifyOuterClass {
         return this;
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public Builder addAllInvokes(
           java.lang.Iterable<? extends emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry> values) {
@@ -804,7 +687,7 @@ public final class AbilityInvocationsNotifyOuterClass {
         return this;
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public Builder clearInvokes() {
         if (invokesBuilder_ == null) {
@@ -817,7 +700,7 @@ public final class AbilityInvocationsNotifyOuterClass {
         return this;
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public Builder removeInvokes(int index) {
         if (invokesBuilder_ == null) {
@@ -830,14 +713,14 @@ public final class AbilityInvocationsNotifyOuterClass {
         return this;
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry.Builder getInvokesBuilder(
           int index) {
         return getInvokesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntryOrBuilder getInvokesOrBuilder(
           int index) {
@@ -847,7 +730,7 @@ public final class AbilityInvocationsNotifyOuterClass {
         }
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public java.util.List<? extends emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntryOrBuilder> 
            getInvokesOrBuilderList() {
@@ -858,14 +741,14 @@ public final class AbilityInvocationsNotifyOuterClass {
         }
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry.Builder addInvokesBuilder() {
         return getInvokesFieldBuilder().addBuilder(
             emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry.getDefaultInstance());
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry.Builder addInvokesBuilder(
           int index) {
@@ -873,7 +756,7 @@ public final class AbilityInvocationsNotifyOuterClass {
             index, emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry.getDefaultInstance());
       }
       /**
-       * <code>repeated .AbilityInvokeEntry invokes = 11;</code>
+       * <code>repeated .AbilityInvokeEntry invokes = 5;</code>
        */
       public java.util.List<emu.grasscutter.net.proto.AbilityInvokeEntryOuterClass.AbilityInvokeEntry.Builder> 
            getInvokesBuilderList() {
@@ -961,12 +844,10 @@ public final class AbilityInvocationsNotifyOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\036AbilityInvocationsNotify.proto\032\030Abilit" +
-      "yInvokeEntry.proto\"\242\001\n\030AbilityInvocation" +
-      "sNotify\022$\n\007invokes\030\013 \003(\0132\023.AbilityInvoke" +
-      "Entry\"`\n\013IJAPFFICMAM\022\010\n\004NONE\020\000\022\020\n\013PEPPOH" +
-      "PHJOJ\020\203\t\022\017\n\013DCDNILFDFLB\020\000\022\017\n\013NNBKOLMPOEA" +
-      "\020\001\022\017\n\013EAJIABGAOCI\020\001\032\002\020\001B\033\n\031emu.grasscutt" +
-      "er.net.protob\006proto3"
+      "yInvokeEntry.proto\"@\n\030AbilityInvocations" +
+      "Notify\022$\n\007invokes\030\005 \003(\0132\023.AbilityInvokeE" +
+      "ntryB\033\n\031emu.grasscutter.net.protob\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

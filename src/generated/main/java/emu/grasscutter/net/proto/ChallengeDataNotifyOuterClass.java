@@ -19,24 +19,34 @@ public final class ChallengeDataNotifyOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint32 paramIndex = 1;</code>
+     * <code>uint32 param_index = 4;</code>
      * @return The paramIndex.
      */
     int getParamIndex();
 
     /**
-     * <code>uint32 value = 11;</code>
-     * @return The value.
-     */
-    int getValue();
-
-    /**
-     * <code>uint32 challengeIndex = 8;</code>
+     * <code>uint32 challenge_index = 2;</code>
      * @return The challengeIndex.
      */
     int getChallengeIndex();
+
+    /**
+     * <code>uint32 value = 3;</code>
+     * @return The value.
+     */
+    int getValue();
   }
   /**
+   * <pre>
+   * enum CmdId {
+   *   option allow_alias = true;
+   *   NONE = 0;
+   *   CMD_ID = 973;
+   *   ENET_CHANNEL_ID = 0;
+   *   ENET_IS_RELIABLE = 1;
+   * }
+   * </pre>
+   *
    * Protobuf type {@code ChallengeDataNotify}
    */
   public static final class ChallengeDataNotify extends
@@ -81,19 +91,19 @@ public final class ChallengeDataNotifyOuterClass {
             case 0:
               done = true;
               break;
-            case 8: {
-
-              paramIndex_ = input.readUInt32();
-              break;
-            }
-            case 64: {
+            case 16: {
 
               challengeIndex_ = input.readUInt32();
               break;
             }
-            case 88: {
+            case 24: {
 
               value_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+
+              paramIndex_ = input.readUInt32();
               break;
             }
             default: {
@@ -128,141 +138,10 @@ public final class ChallengeDataNotifyOuterClass {
               emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify.class, emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify.Builder.class);
     }
 
-    /**
-     * Protobuf enum {@code ChallengeDataNotify.FIELHNJEKDK}
-     */
-    public enum FIELHNJEKDK
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>NONE = 0;</code>
-       */
-      NONE(0, 0),
-      /**
-       * <code>PEPPOHPHJOJ = 1000;</code>
-       */
-      PEPPOHPHJOJ(1, 1000),
-      /**
-       * <code>NNBKOLMPOEA = 1;</code>
-       */
-      NNBKOLMPOEA(3, 1),
-      UNRECOGNIZED(-1, -1),
-      ;
-
-      /**
-       * <code>DCDNILFDFLB = 0;</code>
-       */
-      public static final FIELHNJEKDK DCDNILFDFLB = NONE;
-      /**
-       * <code>NONE = 0;</code>
-       */
-      public static final int NONE_VALUE = 0;
-      /**
-       * <code>PEPPOHPHJOJ = 1000;</code>
-       */
-      public static final int PEPPOHPHJOJ_VALUE = 1000;
-      /**
-       * <code>DCDNILFDFLB = 0;</code>
-       */
-      public static final int DCDNILFDFLB_VALUE = 0;
-      /**
-       * <code>NNBKOLMPOEA = 1;</code>
-       */
-      public static final int NNBKOLMPOEA_VALUE = 1;
-
-
-      public final int getNumber() {
-        if (index == -1) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static FIELHNJEKDK valueOf(int value) {
-        return forNumber(value);
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       */
-      public static FIELHNJEKDK forNumber(int value) {
-        switch (value) {
-          case 0: return NONE;
-          case 1000: return PEPPOHPHJOJ;
-          case 1: return NNBKOLMPOEA;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<FIELHNJEKDK>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          FIELHNJEKDK> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<FIELHNJEKDK>() {
-              public FIELHNJEKDK findValueByNumber(int number) {
-                return FIELHNJEKDK.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        if (index == -1) {
-          throw new java.lang.IllegalStateException(
-              "Can't get the descriptor of an unrecognized enum value.");
-        }
-        return getDescriptor().getValues().get(index);
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final FIELHNJEKDK[] VALUES = getStaticValuesArray();
-      private static FIELHNJEKDK[] getStaticValuesArray() {
-        return new FIELHNJEKDK[] {
-          NONE, PEPPOHPHJOJ, DCDNILFDFLB, NNBKOLMPOEA, 
-        };
-      }
-      public static FIELHNJEKDK valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int index;
-      private final int value;
-
-      private FIELHNJEKDK(int index, int value) {
-        this.index = index;
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:ChallengeDataNotify.FIELHNJEKDK)
-    }
-
-    public static final int PARAMINDEX_FIELD_NUMBER = 1;
+    public static final int PARAM_INDEX_FIELD_NUMBER = 4;
     private int paramIndex_;
     /**
-     * <code>uint32 paramIndex = 1;</code>
+     * <code>uint32 param_index = 4;</code>
      * @return The paramIndex.
      */
     @java.lang.Override
@@ -270,26 +149,26 @@ public final class ChallengeDataNotifyOuterClass {
       return paramIndex_;
     }
 
-    public static final int VALUE_FIELD_NUMBER = 11;
-    private int value_;
-    /**
-     * <code>uint32 value = 11;</code>
-     * @return The value.
-     */
-    @java.lang.Override
-    public int getValue() {
-      return value_;
-    }
-
-    public static final int CHALLENGEINDEX_FIELD_NUMBER = 8;
+    public static final int CHALLENGE_INDEX_FIELD_NUMBER = 2;
     private int challengeIndex_;
     /**
-     * <code>uint32 challengeIndex = 8;</code>
+     * <code>uint32 challenge_index = 2;</code>
      * @return The challengeIndex.
      */
     @java.lang.Override
     public int getChallengeIndex() {
       return challengeIndex_;
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 3;
+    private int value_;
+    /**
+     * <code>uint32 value = 3;</code>
+     * @return The value.
+     */
+    @java.lang.Override
+    public int getValue() {
+      return value_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -306,14 +185,14 @@ public final class ChallengeDataNotifyOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (paramIndex_ != 0) {
-        output.writeUInt32(1, paramIndex_);
-      }
       if (challengeIndex_ != 0) {
-        output.writeUInt32(8, challengeIndex_);
+        output.writeUInt32(2, challengeIndex_);
       }
       if (value_ != 0) {
-        output.writeUInt32(11, value_);
+        output.writeUInt32(3, value_);
+      }
+      if (paramIndex_ != 0) {
+        output.writeUInt32(4, paramIndex_);
       }
       unknownFields.writeTo(output);
     }
@@ -324,17 +203,17 @@ public final class ChallengeDataNotifyOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (paramIndex_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, paramIndex_);
-      }
       if (challengeIndex_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(8, challengeIndex_);
+          .computeUInt32Size(2, challengeIndex_);
       }
       if (value_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(11, value_);
+          .computeUInt32Size(3, value_);
+      }
+      if (paramIndex_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, paramIndex_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -353,10 +232,10 @@ public final class ChallengeDataNotifyOuterClass {
 
       if (getParamIndex()
           != other.getParamIndex()) return false;
-      if (getValue()
-          != other.getValue()) return false;
       if (getChallengeIndex()
           != other.getChallengeIndex()) return false;
+      if (getValue()
+          != other.getValue()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -368,12 +247,12 @@ public final class ChallengeDataNotifyOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PARAMINDEX_FIELD_NUMBER;
+      hash = (37 * hash) + PARAM_INDEX_FIELD_NUMBER;
       hash = (53 * hash) + getParamIndex();
+      hash = (37 * hash) + CHALLENGE_INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getChallengeIndex();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValue();
-      hash = (37 * hash) + CHALLENGEINDEX_FIELD_NUMBER;
-      hash = (53 * hash) + getChallengeIndex();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -470,6 +349,16 @@ public final class ChallengeDataNotifyOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     * enum CmdId {
+     *   option allow_alias = true;
+     *   NONE = 0;
+     *   CMD_ID = 973;
+     *   ENET_CHANNEL_ID = 0;
+     *   ENET_IS_RELIABLE = 1;
+     * }
+     * </pre>
+     *
      * Protobuf type {@code ChallengeDataNotify}
      */
     public static final class Builder extends
@@ -509,9 +398,9 @@ public final class ChallengeDataNotifyOuterClass {
         super.clear();
         paramIndex_ = 0;
 
-        value_ = 0;
-
         challengeIndex_ = 0;
+
+        value_ = 0;
 
         return this;
       }
@@ -540,8 +429,8 @@ public final class ChallengeDataNotifyOuterClass {
       public emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify buildPartial() {
         emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify result = new emu.grasscutter.net.proto.ChallengeDataNotifyOuterClass.ChallengeDataNotify(this);
         result.paramIndex_ = paramIndex_;
-        result.value_ = value_;
         result.challengeIndex_ = challengeIndex_;
+        result.value_ = value_;
         onBuilt();
         return result;
       }
@@ -593,11 +482,11 @@ public final class ChallengeDataNotifyOuterClass {
         if (other.getParamIndex() != 0) {
           setParamIndex(other.getParamIndex());
         }
-        if (other.getValue() != 0) {
-          setValue(other.getValue());
-        }
         if (other.getChallengeIndex() != 0) {
           setChallengeIndex(other.getChallengeIndex());
+        }
+        if (other.getValue() != 0) {
+          setValue(other.getValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -630,7 +519,7 @@ public final class ChallengeDataNotifyOuterClass {
 
       private int paramIndex_ ;
       /**
-       * <code>uint32 paramIndex = 1;</code>
+       * <code>uint32 param_index = 4;</code>
        * @return The paramIndex.
        */
       @java.lang.Override
@@ -638,7 +527,7 @@ public final class ChallengeDataNotifyOuterClass {
         return paramIndex_;
       }
       /**
-       * <code>uint32 paramIndex = 1;</code>
+       * <code>uint32 param_index = 4;</code>
        * @param value The paramIndex to set.
        * @return This builder for chaining.
        */
@@ -649,7 +538,7 @@ public final class ChallengeDataNotifyOuterClass {
         return this;
       }
       /**
-       * <code>uint32 paramIndex = 1;</code>
+       * <code>uint32 param_index = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearParamIndex() {
@@ -659,40 +548,9 @@ public final class ChallengeDataNotifyOuterClass {
         return this;
       }
 
-      private int value_ ;
-      /**
-       * <code>uint32 value = 11;</code>
-       * @return The value.
-       */
-      @java.lang.Override
-      public int getValue() {
-        return value_;
-      }
-      /**
-       * <code>uint32 value = 11;</code>
-       * @param value The value to set.
-       * @return This builder for chaining.
-       */
-      public Builder setValue(int value) {
-        
-        value_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 value = 11;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearValue() {
-        
-        value_ = 0;
-        onChanged();
-        return this;
-      }
-
       private int challengeIndex_ ;
       /**
-       * <code>uint32 challengeIndex = 8;</code>
+       * <code>uint32 challenge_index = 2;</code>
        * @return The challengeIndex.
        */
       @java.lang.Override
@@ -700,7 +558,7 @@ public final class ChallengeDataNotifyOuterClass {
         return challengeIndex_;
       }
       /**
-       * <code>uint32 challengeIndex = 8;</code>
+       * <code>uint32 challenge_index = 2;</code>
        * @param value The challengeIndex to set.
        * @return This builder for chaining.
        */
@@ -711,12 +569,43 @@ public final class ChallengeDataNotifyOuterClass {
         return this;
       }
       /**
-       * <code>uint32 challengeIndex = 8;</code>
+       * <code>uint32 challenge_index = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearChallengeIndex() {
         
         challengeIndex_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int value_ ;
+      /**
+       * <code>uint32 value = 3;</code>
+       * @return The value.
+       */
+      @java.lang.Override
+      public int getValue() {
+        return value_;
+      }
+      /**
+       * <code>uint32 value = 3;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValue(int value) {
+        
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 value = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValue() {
+        
+        value_ = 0;
         onChanged();
         return this;
       }
@@ -787,11 +676,9 @@ public final class ChallengeDataNotifyOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\031ChallengeDataNotify.proto\"\241\001\n\023Challeng" +
-      "eDataNotify\022\022\n\nparamIndex\030\001 \001(\r\022\r\n\005value" +
-      "\030\013 \001(\r\022\026\n\016challengeIndex\030\010 \001(\r\"O\n\013FIELHN" +
-      "JEKDK\022\010\n\004NONE\020\000\022\020\n\013PEPPOHPHJOJ\020\350\007\022\017\n\013DCD" +
-      "NILFDFLB\020\000\022\017\n\013NNBKOLMPOEA\020\001\032\002\020\001B\033\n\031emu.g" +
+      "\n\031ChallengeDataNotify.proto\"R\n\023Challenge" +
+      "DataNotify\022\023\n\013param_index\030\004 \001(\r\022\027\n\017chall" +
+      "enge_index\030\002 \001(\r\022\r\n\005value\030\003 \001(\rB\033\n\031emu.g" +
       "rasscutter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
@@ -803,7 +690,7 @@ public final class ChallengeDataNotifyOuterClass {
     internal_static_ChallengeDataNotify_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChallengeDataNotify_descriptor,
-        new java.lang.String[] { "ParamIndex", "Value", "ChallengeIndex", });
+        new java.lang.String[] { "ParamIndex", "ChallengeIndex", "Value", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
