@@ -4,11 +4,6 @@ public class PacketOpcodes {
 	// Empty
 	public static final int NONE = 0;
 
-	public static final Set<Integer> BANNED_PACKETS = Set.of(
-        PacketOpcodes.WindSeedClientNotify,
-        PacketOpcodes.PlayerLuaShellNotify
-    );
-
 	// Opcodes
 
 	public static final int AbilityChangeNotify = 1124;
