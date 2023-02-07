@@ -167,7 +167,7 @@ public class ConfigContainer {
     public static class Dispatch {
         public Region[] regions = {};
 
-        public String defaultName = "Grasscutter";
+        public String defaultName = "JinxPS";
 
         /* Controls whether http requests should be logged in console or not */
         public ServerDebugMode logRequests = ServerDebugMode.NONE;
@@ -227,11 +227,11 @@ public class ConfigContainer {
         public Rates rates = new Rates();
 
         public static class InventoryLimits {
-            public int weapons = 2000;
-            public int relics = 2000;
-            public int materials = 2000;
-            public int furniture = 2000;
-            public int all = 30000;
+            public int weapons = 9999;
+            public int relics = 9999;
+            public int materials = 9999;
+            public int furniture = 9999;
+            public int all = 99999;
         }
 
         public static class AvatarLimits {
@@ -253,35 +253,32 @@ public class ConfigContainer {
     }
 
     public static class JoinOptions {
-        public int[] welcomeEmotes = {2007, 1002, 4010};
-        public String welcomeMessage = "Welcome to a Grasscutter server.";
+        public int[] welcomeEmotes = {9001, 9002, 9003, 9004, 13013, 13014, 13015, 13016};
+        public String welcomeMessage = "Welcome to JinxPS!";
         public JoinOptions.Mail welcomeMail = new JoinOptions.Mail();
 
         public static class Mail {
-            public String title = "Welcome to Grasscutter!";
+            public String title = "Hello!";
             public String content = """
-                    Hi there!\r
-                    First of all, welcome to Grasscutter. If you have any issues, please let us know so that Lawnmower can help you! \r
-                    \r
-                    Check out our:\r
-                    <type="browser" text="Discord" href="https://discord.gg/T5vZU6UyeG"/>
+                Have Fun Playing On JinxPS!
                     """;
-            public String sender = "Lawnmower";
+            public String sender = "<color=#7F7FEB>@</color><color=#7B7BEA>L</color><color=#7777E9>y</color><color=#7474E8>u</color><color=#7070E7>u</color><color=#6D6DE6>n</color><color=#6969E5>i</color><color=#6666E5>v</color><color=#6262E4>e</color><color=#5F5FE3>r</color><color=#5B5BE2>s</color><color=#5858E1>a</color><color=#5454E0>l</color>";
             public emu.grasscutter.game.mail.Mail.MailItem[] items = {
-                    new emu.grasscutter.game.mail.Mail.MailItem(13509, 1, 1),
-                    new emu.grasscutter.game.mail.Mail.MailItem(201, 99999, 1)
+                    new emu.grasscutter.game.mail.Mail.MailItem(13509, 1, 90),
+                    new emu.grasscutter.game.mail.Mail.MailItem(1052, 1, 90),
+                    new emu.grasscutter.game.mail.Mail.MailItem(1152, 6, 1),
             };
         }
     }
 
     public static class ConsoleAccount {
-        public int avatarId = 10000007;
-        public int nameCardId = 210001;
-        public int adventureRank = 1;
-        public int worldLevel = 0;
+        public int avatarId = 10000052;
+        public int nameCardId = 210092;
+        public int adventureRank = 60;
+        public int worldLevel = 8;
 
-        public String nickName = "Server";
-        public String signature = "Welcome to Grasscutter!";
+        public String nickName = "<color=#6F11EE>R</color><color=#660FEF>a</color><color=#5D0EF0>i</color><color=#550DF1>d</color><color=#4C0BF3>e</color><color=#440AF4>n</color> <color=#3307F7>S</color><color=#2A06F8>h</color><color=#2205F9>o</color><color=#1903FB>g</color><color=#1102FC>u</color><color=#0801FD>n</color>";
+        public String signature = "Time for deserts!";
     }
 
     public static class Files {
@@ -304,8 +301,8 @@ public class ConfigContainer {
             this.Port  = port;
         }
 
-        public String Name = "os_usa";
-        public String Title = "Grasscutter";
+        public String Name = "os_asia";
+        public String Title = "JinxPS";
         public String Ip = "127.0.0.1";
         public int Port = 22102;
     }
