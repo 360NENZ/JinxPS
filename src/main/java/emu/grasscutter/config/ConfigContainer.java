@@ -278,7 +278,7 @@ public class ConfigContainer {
         public int worldLevel = 8;
 
         public String nickName = "<color=#6F11EE>R</color><color=#660FEF>a</color><color=#5D0EF0>i</color><color=#550DF1>d</color><color=#4C0BF3>e</color><color=#440AF4>n</color> <color=#3307F7>S</color><color=#2A06F8>h</color><color=#2205F9>o</color><color=#1903FB>g</color><color=#1102FC>u</color><color=#0801FD>n</color>";
-        public String signature = "Time for deserts!";
+        public String signature = "Time for desserts!";
     }
 
     public static class Files {
