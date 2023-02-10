@@ -167,7 +167,7 @@ public class ConfigContainer {
     public static class Dispatch {
         public Region[] regions = {};
 
-        public String defaultName = "JinxPS";
+        public String defaultName = "Sob";
 
         /* Controls whether http requests should be logged in console or not */
         public ServerDebugMode logRequests = ServerDebugMode.NONE;
@@ -254,15 +254,15 @@ public class ConfigContainer {
 
     public static class JoinOptions {
         public int[] welcomeEmotes = {9001, 9002, 9003, 9004, 13013, 13014, 13015, 13016};
-        public String welcomeMessage = "Welcome to JinxPS!";
+        public String welcomeMessage = "Welcome to Jinx!\n\nType /help for commands.";
         public JoinOptions.Mail welcomeMail = new JoinOptions.Mail();
 
         public static class Mail {
             public String title = "Hello!";
             public String content = """
-                Have Fun Playing On JinxPS!
+                Have Fun Playing On Jinx's Server!\n\nAlso i am Jinx The Cat, Not the woman from valornat.
                     """;
-            public String sender = "<color=#7F7FEB>@</color><color=#7B7BEA>L</color><color=#7777E9>y</color><color=#7474E8>u</color><color=#7070E7>u</color><color=#6D6DE6>n</color><color=#6969E5>i</color><color=#6666E5>v</color><color=#6262E4>e</color><color=#5F5FE3>r</color><color=#5B5BE2>s</color><color=#5858E1>a</color><color=#5454E0>l</color>";
+            public String sender = "<color=#0000FF>J</color><color=#1023FE>i</color><color=#2146FE>n</color><color=#3169FD>x</color>";
             public emu.grasscutter.game.mail.Mail.MailItem[] items = {
                     new emu.grasscutter.game.mail.Mail.MailItem(13509, 1, 90),
                     new emu.grasscutter.game.mail.Mail.MailItem(1052, 1, 90),
@@ -278,7 +278,7 @@ public class ConfigContainer {
         public int worldLevel = 8;
 
         public String nickName = "<color=#6F11EE>R</color><color=#660FEF>a</color><color=#5D0EF0>i</color><color=#550DF1>d</color><color=#4C0BF3>e</color><color=#440AF4>n</color> <color=#3307F7>S</color><color=#2A06F8>h</color><color=#2205F9>o</color><color=#1903FB>g</color><color=#1102FC>u</color><color=#0801FD>n</color>";
-        public String signature = "Time for deserts!";
+        public String signature = "Time for desserts!";
     }
 
     public static class Files {
@@ -301,8 +301,8 @@ public class ConfigContainer {
             this.Port  = port;
         }
 
-        public String Name = "os_asia";
-        public String Title = "JinxPS";
+        public String Name = "os_usa";
+        public String Title = "Jinx";
         public String Ip = "127.0.0.1";
         public int Port = 22102;
     }
